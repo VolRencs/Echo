@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="EchoInTheSpace"
+config/name="Echo!"
 run/main_scene="uid://cpjd1usw6npr6"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
