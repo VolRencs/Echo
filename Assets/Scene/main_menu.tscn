@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cpjd1usw6npr6"]
+[gd_scene load_steps=6 format=3 uid="uid://cpjd1usw6npr6"]
 
 [ext_resource type="Texture2D" uid="uid://rn2twt62et04" path="res://Assets/MainMenu/MainMenu.png" id="1_nb35v"]
-[ext_resource type="Texture2D" uid="uid://bqauu3ix0wmg0" path="res://Assets/Models/Button/Back.png" id="2_olbws"]
+[ext_resource type="Script" uid="uid://c0kctcrume220" path="res://Assets/Scripts/MainMenu/Menu.gd" id="2_olbws"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_olbws"]
 panorama = ExtResource("1_nb35v")
@@ -13,12 +13,6 @@ sky_material = SubResource("PanoramaSkyMaterial_olbws")
 background_mode = 2
 sky = SubResource("Sky_qouvi")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qouvi"]
-texture = ExtResource("2_olbws")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_202op"]
-texture = ExtResource("2_olbws")
-
 [node name="MainMenu" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -28,12 +22,29 @@ environment = SubResource("Environment_202op")
 transform = Transform3D(-0.9910489, -0.0216087, -0.13173977, 0.019551074, 0.9526812, -0.30334243, 0.13206081, -0.30320284, -0.943731, -2.6335983, 15.12727, 4.1622343)
 fov = 87.1875
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("start_button", "settings_button", "quit_button")]
+script = ExtResource("2_olbws")
+start_button = NodePath("Start")
+settings_button = NodePath("Settings")
+quit_button = NodePath("Exit")
 
-[node name="Button" type="Button" parent="CanvasLayer"]
-offset_left = 87.0
-offset_top = 372.0
-offset_right = 351.0
-offset_bottom = 421.0
-theme_override_styles/normal = SubResource("StyleBoxTexture_qouvi")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_202op")
+[node name="Start" type="Button" parent="CanvasLayer"]
+offset_left = 457.0
+offset_top = 136.0
+offset_right = 710.0
+offset_bottom = 187.0
+text = "Начать игру"
+
+[node name="Settings" type="Button" parent="CanvasLayer"]
+offset_left = 457.0
+offset_top = 232.0
+offset_right = 710.0
+offset_bottom = 283.0
+text = "Настройки"
+
+[node name="Exit" type="Button" parent="CanvasLayer"]
+offset_left = 460.0
+offset_top = 330.0
+offset_right = 713.0
+offset_bottom = 381.0
+text = "Выйти"
