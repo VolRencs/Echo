@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dll2r6g1jn2"]
+
+[ext_resource type="AudioStream" uid="uid://bhcqqt38uh7am" path="res://Assets/Audio/ambient.ogg" id="1_uleb7"]
+[ext_resource type="Script" uid="uid://cbpbi0f8bhqun" path="res://Assets/Scripts/Core/audio_manager.gd" id="2_21ce7"]
+
+[node name="AudioManager" type="Node3D"]
+
+[node name="AudioManager" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_uleb7")
+autoplay = true
+parameters/looping = true
+script = ExtResource("2_21ce7")
+scenes_to_play = Array[String](["MainMenu", "SettingsMenu"])

@@ -5,7 +5,7 @@ extends CanvasLayer
 @export var quit_button: Button
 
 @export_file("*.tscn") var start_scene: String
-@export var settings_scene: PackedScene
+@export_file("*.tscn") var settings_scene: String
 
 func _ready() -> void:
 	if start_button:
@@ -22,11 +22,10 @@ func _on_start_pressed() -> void:
 		push_warning("Не выбрана сцена для кнопки 'Начать игру'!")
 
 func _on_settings_pressed() -> void:
-	if settings_scene:
-		var settings = settings_scene.instantiate()
-		get_tree().current_scene.add_child(settings)
+	if settings_scene != "":
+		get_tree().change_scene_to_file(settings_scene)
 	else:
-		push_warning("Не назначена сцена настроек!")
+		push_warning("Не выбрана сцена для кнопки 'Настройки'!")
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()

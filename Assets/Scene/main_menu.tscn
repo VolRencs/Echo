@@ -27,6 +27,8 @@ script = ExtResource("2_olbws")
 start_button = NodePath("Start")
 settings_button = NodePath("Settings")
 quit_button = NodePath("Exit")
+start_scene = "uid://3w36cuohiy7j"
+settings_scene = "uid://0krnuk1pcwad"
 
 [node name="Start" type="Button" parent="CanvasLayer"]
 offset_left = 457.0

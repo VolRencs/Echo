@@ -14,3 +14,7 @@ config/name="Echo!"
 run/main_scene="uid://cpjd1usw6npr6"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+AudioManager="*res://Assets/Scene/audio_manager.tscn"
