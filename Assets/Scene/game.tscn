@@ -1,3 +1,45 @@
-[gd_scene format=3 uid="uid://3w36cuohiy7j"]
+[gd_scene load_steps=6 format=3 uid="uid://3w36cuohiy7j"]
+
+[ext_resource type="Script" uid="uid://dvtv1gx43d5ey" path="res://Assets/Scripts/Map/Movement.gd" id="1_5oy4s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5oy4s"]
+size = Vector3(5.7977295, 0.38269043, 3.28125)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5oy4s"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7i6p2"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_7ttw8"]
 
 [node name="Game" type="Node3D"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0023979656, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(6.83741, 0, 0, 0, 6.83741, 0, 0, 0, 6.83741, -5.143104, -2.2556324, -3.8641098)
+shape = SubResource("BoxShape3D_5oy4s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(13.314225, 0, 0, 0, 2.8322573, 0, 0, 0, 5.5614953, 0.003840018, -1.2964511, -0.45057392)
+mesh = SubResource("PlaneMesh_5oy4s")
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.357894, 0)
+script = ExtResource("1_5oy4s")
+speed = 10.0
+jump_velocity = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38026083, 0.5130564, 0)
+shape = SubResource("CapsuleShape3D_7i6p2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38302082, 0.5744612, 0)
+mesh = SubResource("CapsuleMesh_7ttw8")
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 0.97921926, 0.2028044, 0, -0.2028044, 0.97921926, 0, 1.519028, 12.861512)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.3278456, 8.314504)
