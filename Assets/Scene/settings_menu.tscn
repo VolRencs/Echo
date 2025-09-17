@@ -27,8 +27,8 @@ layout_mode = 3
 anchors_preset = 0
 offset_left = -1.0
 offset_top = 4.0
-offset_right = 1152.0
-offset_bottom = 653.0
+offset_right = 1915.0
+offset_bottom = 1083.0
 script = ExtResource("2_6oxv7")
 music_slider = NodePath("Music")
 fullscreen_checkbox = NodePath("CheckBox")
@@ -39,23 +39,23 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.021000002
 anchor_bottom = 0.037
-offset_left = 497.0
-offset_top = 260.0
-offset_right = 693.787
-offset_bottom = 276.987
+offset_left = 797.0
+offset_top = 496.0
+offset_right = 1126.764
+offset_bottom = 570.98706
 text = "Полноэкранный режим"
 
 [node name="Music" type="HSlider" parent="Control"]
 layout_mode = 0
-offset_left = 499.0
-offset_top = 206.0
-offset_right = 718.0
-offset_bottom = 232.0
+offset_left = 798.0
+offset_top = 417.0
+offset_right = 1172.0
+offset_bottom = 526.0
 
 [node name="Button" type="Button" parent="Control"]
 layout_mode = 0
 offset_left = 80.0
 offset_top = 37.0
-offset_right = 178.0
-offset_bottom = 68.0
+offset_right = 240.0
+offset_bottom = 93.0
 text = "Назад"

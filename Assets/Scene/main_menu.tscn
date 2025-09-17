@@ -31,22 +31,22 @@ start_scene = "uid://3w36cuohiy7j"
 settings_scene = "uid://0krnuk1pcwad"
 
 [node name="Start" type="Button" parent="CanvasLayer"]
-offset_left = 457.0
-offset_top = 136.0
-offset_right = 710.0
-offset_bottom = 187.0
+offset_left = 883.0
+offset_top = 353.0
+offset_right = 1136.0
+offset_bottom = 404.0
 text = "Начать игру"
 
 [node name="Settings" type="Button" parent="CanvasLayer"]
-offset_left = 457.0
-offset_top = 232.0
-offset_right = 710.0
-offset_bottom = 283.0
+offset_left = 883.0
+offset_top = 449.0
+offset_right = 1136.0
+offset_bottom = 500.0
 text = "Настройки"
 
 [node name="Exit" type="Button" parent="CanvasLayer"]
-offset_left = 460.0
-offset_top = 330.0
-offset_right = 713.0
-offset_bottom = 381.0
+offset_left = 886.0
+offset_top = 547.0
+offset_right = 1139.0
+offset_bottom = 598.0
 text = "Выйти"
