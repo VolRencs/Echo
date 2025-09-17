@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://yskauub60nvs"]
+
+[ext_resource type="Script" uid="uid://bgn5ixrrw3spy" path="res://Assets/Asteroid/AsteroidManager.gd" id="1_o57nq"]
+
+[node name="AsteroidManager" type="Node3D"]
+script = ExtResource("1_o57nq")
+save_scene_paths = Array[String](["res://Assets/Scene/main_menu.tscn", "res://Assets/Scene/settings_menu.tscn"])

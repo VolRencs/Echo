@@ -17,6 +17,10 @@ sky = SubResource("Sky_qouvi")
 
 [node name="MainMenu" type="Node3D"]
 
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.9910489, -0.021608694, -0.13173977, 0.019551074, 0.95268106, -0.30334243, 0.13206081, -0.3032028, -0.94373095, -2.6335983, 15.12727, 4.1622343)
+fov = 87.1875
+
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("1_qouvi")]
 transform = Transform3D(-0.72107434, 0.41124392, 0.5576112, 0.32532, 0.91152537, -0.25157198, -0.6117342, 0, -0.79106337, -2.2208495, 16.32248, 10.245081)
 script = ExtResource("2_202op")
@@ -32,10 +36,6 @@ spot_angle = 47.62406
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_202op")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.9910489, -0.0216087, -0.13173977, 0.019551074, 0.9526812, -0.30334243, 0.13206081, -0.30320284, -0.943731, -2.6335983, 15.12727, 4.1622343)
-fov = 87.1875
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("start_button", "settings_button", "quit_button")]
 script = ExtResource("2_olbws")
