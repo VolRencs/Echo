@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://0krnuk1pcwad"]
+[gd_scene load_steps=8 format=3 uid="uid://0krnuk1pcwad"]
 
 [ext_resource type="Texture2D" uid="uid://rn2twt62et04" path="res://Assets/MainMenu/MainMenu.png" id="1_w42iv"]
 [ext_resource type="Script" uid="uid://tda8lwoyorg6" path="res://Assets/Scripts/MainMenu/settings.gd" id="2_6oxv7"]
+[ext_resource type="Script" uid="uid://ca4jwambwidvs" path="res://Assets/Scripts/MainMenu/Sputnik.gd" id="2_do1du"]
+[ext_resource type="PackedScene" uid="uid://cl46o7qdb71nv" path="res://Assets/Models/Sputnik/space_satellite.glb" id="3_tp3xx"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6oxv7"]
 panorama = ExtResource("1_w42iv")
@@ -14,6 +16,19 @@ background_mode = 2
 sky = SubResource("Sky_qouvi")
 
 [node name="SettingsMenu" type="Node3D"]
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("3_tp3xx")]
+transform = Transform3D(-0.72107434, 0.41124392, 0.5576112, 0.32532, 0.91152537, -0.25157198, -0.6117342, 0, -0.79106337, -2.2208495, 16.32248, 10.245081)
+script = ExtResource("2_do1du")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.34995455, -0.67768496, -0.6467418, 0.32251057, 0.7353524, -0.5960233, 0.87949914, 1.3105558e-08, 0.4759005, -4.153078, 15.270544, 10.890997)
+light_energy = 4.459
+light_indirect_energy = 3.586
+light_volumetric_fog_energy = 3.263
+light_size = 1.0
+spot_range = 6.4495683
+spot_angle = 47.62406
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_tp3xx")
