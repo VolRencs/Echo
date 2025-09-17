@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpjd1usw6npr6"]
+
+[ext_resource type="Texture2D" uid="uid://rn2twt62et04" path="res://Assets/MainMenu/MainMenu.png" id="1_nb35v"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_olbws"]
+panorama = ExtResource("1_nb35v")
+
+[sub_resource type="Sky" id="Sky_qouvi"]
+sky_material = SubResource("PanoramaSkyMaterial_olbws")
+
+[sub_resource type="Environment" id="Environment_202op"]
+background_mode = 2
+sky = SubResource("Sky_qouvi")
+
+[node name="MainMenu" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_202op")
