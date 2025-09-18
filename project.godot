@@ -19,7 +19,6 @@ config/icon="res://icon.svg"
 
 AudioManager="*res://Assets/Scene/audio_manager.tscn"
 AsteroidState="*res://Assets/Asteroid/AsteroidState.gd"
-AsteroidManager="*res://Assets/Asteroid/AsteroidManager.tscn"
 
 [display]
 

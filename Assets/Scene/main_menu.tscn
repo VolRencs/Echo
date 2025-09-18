@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cpjd1usw6npr6"]
+[gd_scene load_steps=9 format=3 uid="uid://cpjd1usw6npr6"]
 
 [ext_resource type="Texture2D" uid="uid://rn2twt62et04" path="res://Assets/MainMenu/MainMenu.png" id="1_nb35v"]
 [ext_resource type="PackedScene" uid="uid://cl46o7qdb71nv" path="res://Assets/Models/Sputnik/space_satellite.glb" id="1_qouvi"]
 [ext_resource type="Script" uid="uid://ca4jwambwidvs" path="res://Assets/Scripts/MainMenu/Sputnik.gd" id="2_202op"]
 [ext_resource type="Script" uid="uid://c0kctcrume220" path="res://Assets/Scripts/MainMenu/Menu.gd" id="2_olbws"]
+[ext_resource type="PackedScene" uid="uid://yskauub60nvs" path="res://Assets/Asteroid/AsteroidManager.tscn" id="5_dwgjd"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_olbws"]
 panorama = ExtResource("1_nb35v")
@@ -65,3 +66,7 @@ offset_top = 547.0
 offset_right = 1139.0
 offset_bottom = 598.0
 text = "Выйти"
+
+[node name="AsteroidManager" parent="." instance=ExtResource("5_dwgjd")]
+transform = Transform3D(0.5698816, 0, 0, 0, 0.99433726, 0, 0, 0, 0.7090423, -2.6416316, 16.5957, -5.3779664)
+max_distance_from_camera = 1000.0

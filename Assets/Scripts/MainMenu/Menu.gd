@@ -17,6 +17,8 @@ func _ready() -> void:
 
 func _on_start_pressed() -> void:
 	if start_scene != "":
+		if has_node("/root/AsteroidManager"):
+			get_node("/root/AsteroidManager").queue_free()
 		get_tree().change_scene_to_file(start_scene)
 	else:
 		push_warning("Не выбрана сцена для кнопки 'Начать игру'!")

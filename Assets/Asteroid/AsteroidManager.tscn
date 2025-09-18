@@ -1,11 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://yskauub60nvs"]
+[gd_scene load_steps=6 format=3 uid="uid://yskauub60nvs"]
 
 [ext_resource type="Script" uid="uid://bgn5ixrrw3spy" path="res://Assets/Asteroid/AsteroidManager.gd" id="1_o57nq"]
+[ext_resource type="Script" uid="uid://baoh82300krux" path="res://Assets/Asteroid/SpawnArea.gd" id="2_2n38o"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_wc73l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2n38o"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_o57nq"]
+material = SubResource("StandardMaterial3D_2n38o")
 
 [node name="AsteroidManager" type="Node3D"]
 script = ExtResource("1_o57nq")
-
-[node name="Camera3D" type="Camera3D" parent="."]
+spawn_area_path = NodePath("SpawnArea")
+spawn_side = "front"
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="SpawnArea" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.4514844, 0, 0, 0, 2.749165, 0, 0, 0, 20, -2.8742313, 0, 0)
+mesh = SubResource("BoxMesh_wc73l")
+skeleton = NodePath("")
+script = ExtResource("2_2n38o")
+highlight_side = "front"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SpawnArea"]
+transform = Transform3D(0.36, 0, 0, 0, 0.00077231467, -0.38499385, 0, 0.13699782, 0.0021703735, 0.0084216, 0, 0.5063879)
+mesh = SubResource("PlaneMesh_o57nq")
+skeleton = NodePath("../..")
