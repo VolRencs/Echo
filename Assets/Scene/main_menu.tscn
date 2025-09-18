@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cpjd1usw6npr6"]
+[gd_scene load_steps=10 format=3 uid="uid://cpjd1usw6npr6"]
 
 [ext_resource type="Texture2D" uid="uid://rn2twt62et04" path="res://Assets/MainMenu/MainMenu.png" id="1_nb35v"]
 [ext_resource type="PackedScene" uid="uid://cl46o7qdb71nv" path="res://Assets/Models/Sputnik/space_satellite.glb" id="1_qouvi"]
 [ext_resource type="Script" uid="uid://ca4jwambwidvs" path="res://Assets/Scripts/MainMenu/Sputnik.gd" id="2_202op"]
 [ext_resource type="Script" uid="uid://c0kctcrume220" path="res://Assets/Scripts/MainMenu/Menu.gd" id="2_olbws"]
 [ext_resource type="PackedScene" uid="uid://yskauub60nvs" path="res://Assets/Asteroid/AsteroidManager.tscn" id="5_dwgjd"]
+[ext_resource type="Script" uid="uid://tda8lwoyorg6" path="res://Assets/Scripts/MainMenu/settings.gd" id="6_j338d"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_olbws"]
 panorama = ExtResource("1_nb35v")
@@ -26,6 +27,14 @@ fov = 87.1875
 transform = Transform3D(-0.72107434, 0.41124392, 0.5576112, 0.32532, 0.91152537, -0.25157198, -0.6117342, 0, -0.79106337, -2.2208495, 16.32248, 10.245081)
 script = ExtResource("2_202op")
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 27.301323, 350.19022)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 6.52
+light_angular_distance = 54.45
+light_specular = 3.58
+
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(0.34995455, -0.67768496, -0.6467418, 0.32251057, 0.7353524, -0.5960233, 0.87949914, 1.6073722e-08, 0.4759005, -4.153078, 15.270544, 10.890997)
 light_energy = 4.459
@@ -38,13 +47,13 @@ spot_angle = 47.62406
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_202op")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("start_button", "settings_button", "quit_button")]
+[node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("start_button", "settings_button", "quit_button", "control_panel")]
 script = ExtResource("2_olbws")
 start_button = NodePath("Start")
 settings_button = NodePath("Settings")
 quit_button = NodePath("Exit")
+control_panel = NodePath("Control")
 start_scene = "uid://3w36cuohiy7j"
-settings_scene = "uid://0krnuk1pcwad"
 
 [node name="Start" type="Button" parent="CanvasLayer"]
 offset_left = 883.0
@@ -66,6 +75,42 @@ offset_top = 547.0
 offset_right = 1139.0
 offset_bottom = 598.0
 text = "Выйти"
+
+[node name="Control" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("music_slider", "fullscreen_checkbox", "close_button")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_j338d")
+music_slider = NodePath("Music")
+fullscreen_checkbox = NodePath("CheckBox")
+close_button = NodePath("Button")
+
+[node name="CheckBox" type="CheckBox" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.021000002
+anchor_bottom = 0.037
+offset_left = 797.0
+offset_top = 496.0
+offset_right = 1126.764
+offset_bottom = 570.98706
+text = "Полноэкранный режим"
+
+[node name="Music" type="HSlider" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 798.0
+offset_top = 417.0
+offset_right = 1172.0
+offset_bottom = 526.0
+
+[node name="Button" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 37.0
+offset_right = 240.0
+offset_bottom = 93.0
+text = "Назад"
 
 [node name="AsteroidManager" parent="." instance=ExtResource("5_dwgjd")]
 transform = Transform3D(0.5698816, 0, 0, 0, 0.99433726, 0, 0, 0, 0.7090423, -2.6416316, 16.5957, -5.3779664)
