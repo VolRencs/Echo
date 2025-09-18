@@ -1,111 +1,92 @@
-extends Node
+extends Node3D
 
-@export var asteroid_count: int = 20
+@export var asteroid_count: int = 100
 @export var min_speed: float = 5.0
 @export var max_speed: float = 15.0
-@export var max_distance_from_camera: float = 40.0
-@export var save_scene_paths: Array[String] = []
-
-var asteroids: Array[Dictionary] = []
-var world_bounds: Vector3 = Vector3(20, 20, 20)
-
+@export var max_distance_from_camera: float = 50
+@export var spawn_interval: float = 1
 @export var asteroid_model_paths: Array[String] = [
 	"res://Assets/Models/asteroid/Rock01/Rock01.glb",
-    "res://Assets/Models/asteroid/Rock02/Rock02.glb"
+	"res://Assets/Models/asteroid/Rock02/Rock02.glb"
 ]
 
+var asteroids: Array[Dictionary] = []
+var spawn_timer: Timer
+
+var timer
+var asteroid_count_Debug: int = 0
+
 func _ready():
-	var current_scene_path = get_tree().current_scene.scene_file_path if get_tree().current_scene else ""
-	if save_scene_paths.is_empty() or not current_scene_path in save_scene_paths:
-		set_process(false)
-		return
-	if asteroid_model_paths.is_empty():
-		return
-	var camera = get_viewport().get_camera_3d() if get_viewport().get_camera_3d() else Node3D.new()
-	camera.position = Vector3.ZERO
-	if AsteroidState.has_saved_state():
-		asteroids = AsteroidState.load_state()
-		restore_asteroids()
-	else:
-		spawn_asteroids()
-	AsteroidState.save_state(asteroids)
+	$Timer.start()
+	$Timer.timeout.connect(_on_Timer_timeout)
 
-func spawn_asteroids():
-	asteroids.clear()
-	var camera = get_viewport().get_camera_3d() if get_viewport().get_camera_3d() else Node3D.new()
-	camera.position = Vector3.ZERO
-	for i in range(asteroid_count):
-		var model_path = asteroid_model_paths[randi() % asteroid_model_paths.size()]
-		var asteroid_state = {"position": generate_valid_position(camera), "velocity": Vector3.ZERO, "model_path": model_path}
-		asteroids.append(asteroid_state)
-		randomize_velocity(asteroid_state)
-		create_asteroid_visual(asteroid_state)
+func _on_Timer_timeout():
+	spawn_single_asteroid()
 
-func generate_valid_position(camera: Node3D) -> Vector3:
-	var position
-	var attempts = 0
-	const MAX_ATTEMPTS = 50
-	while attempts < MAX_ATTEMPTS:
-		position = Vector3(randf_range(-world_bounds.x, world_bounds.x), randf_range(-world_bounds.y, world_bounds.y), randf_range(-world_bounds.z, world_bounds.z))
-		if position.distance_to(camera.global_transform.origin) <= max_distance_from_camera:
-			return position
-		attempts += 1
-	return camera.global_transform.origin + (position.normalized() * max_distance_from_camera)
+func spawn_single_asteroid():
+	asteroid_count_Debug += 1
+	var model_path = asteroid_model_paths[randi() % asteroid_model_paths.size()]
+	var pos = generate_spawn_position_side()
+	var velocity = generate_velocity_towards_center(pos)
+	var asteroid_state = {
+		"position": pos,
+		"velocity": velocity,
+		"model_path": model_path
+	}
+	asteroids.append(asteroid_state)
+	create_asteroid_visual(asteroid_state)
+	print("Asteroid Spawn: " + str(asteroid_count_Debug))
+
+# Спавн сбоку: случайная сторона X или Z, случайная высота Y
+func generate_spawn_position_side() -> Vector3:
+	var side = randi() % 4
+	var x = 0.0
+	var y = randf_range(-max_distance_from_camera/2, max_distance_from_camera/2)
+	var z = 0.0
+	match side:
+		0: # слева
+			x = -max_distance_from_camera
+			z = randf_range(-max_distance_from_camera, max_distance_from_camera)
+		1: # справа
+			x = max_distance_from_camera
+			z = randf_range(-max_distance_from_camera, max_distance_from_camera)
+		2: # спереди
+			z = -max_distance_from_camera
+			x = randf_range(-max_distance_from_camera, max_distance_from_camera)
+		3: # сзади
+			z = max_distance_from_camera
+			x = randf_range(-max_distance_from_camera, max_distance_from_camera)
+	return Vector3(x, y, z)
+
+# Движение к центру сцены с небольшим рандомным смещением
+func generate_velocity_towards_center(position: Vector3) -> Vector3:
+	var direction = -position.normalized() + Vector3(
+		randf_range(-0.2, 0.2),
+		randf_range(-0.2, 0.2),
+		randf_range(-0.2, 0.2)
+	)
+	direction = direction.normalized()
+	var speed = randf_range(min_speed, max_speed)
+	return direction * speed
 
 func create_asteroid_visual(state: Dictionary):
-	var asteroid_scene = load(state.model_path)
-	if not asteroid_scene:
-		return
-	var asteroid = asteroid_scene.instantiate() as Node3D
-	if not asteroid:
-		return
+	var scene = load(state.model_path)
+	if not scene: return
+	var asteroid = scene.instantiate() as Node3D
+	if not asteroid: return
 	add_child(asteroid)
+	state.node = asteroid
 	asteroid.position = state.position
 	asteroid.scale = Vector3(0.1, 0.1, 0.1)
 
-func restore_asteroids():
-	for state in asteroids:
-		var asteroid_scene = load(state.model_path)
-		if not asteroid_scene:
-			continue
-		var asteroid = asteroid_scene.instantiate() as Node3D
-		if not asteroid:
-			continue
-		add_child(asteroid)
-		asteroid.position = state.position
-		asteroid.scale = Vector3(0.1, 0.1, 0.1)
-
 func _process(delta):
-	for i in range(asteroids.size()):
+	for i in range(asteroids.size() - 1, -1, -1):
 		var state = asteroids[i]
-		var asteroid = get_child(i + 1) if i + 1 < get_child_count() else null
-		if asteroid:
-			asteroid.position += state.velocity * delta
-			if state.position.x < -world_bounds.x or state.position.x > world_bounds.x or \
-			   state.position.y < -world_bounds.y or state.position.y > world_bounds.y or \
-			   state.position.z < -world_bounds.z or state.position.z > world_bounds.z:
-				wrap_around(i)
+		if not state.has("node"): continue
+		state.position += state.velocity * delta
+		state.node.position = state.position
 
-func randomize_velocity(state: Dictionary):
-	var theta = randf_range(0, TAU)
-	var phi = randf_range(0, PI)
-	var speed = randf_range(min_speed, max_speed)
-	state.velocity = Vector3(cos(theta) * sin(phi), cos(phi), sin(theta) * sin(phi)) * speed
-
-func wrap_around(index: int):
-	if index < asteroids.size():
-		var state = asteroids[index]
-		var asteroid = get_child(index + 1) if index + 1 < get_child_count() else null
-		if asteroid:
-			if state.position.x < -world_bounds.x: state.position.x = world_bounds.x
-			elif state.position.x > world_bounds.x: state.position.x = -world_bounds.x
-			if state.position.y < -world_bounds.y: state.position.y = world_bounds.y
-			elif state.position.y > world_bounds.y: state.position.y = -world_bounds.y
-			if state.position.z < -world_bounds.z: state.position.z = world_bounds.z
-			elif state.position.z > world_bounds.z: state.position.z = -world_bounds.z
-			asteroid.position = state.position
-
-func _exit_tree():
-	var current_scene_path = get_tree().current_scene.scene_file_path if get_tree().current_scene else ""
-	if not save_scene_paths.is_empty() and current_scene_path in save_scene_paths:
-		AsteroidState.save_state(asteroids)
+		# Удаляем, если астероид ушёл за пределы зоны
+		if state.position.length() > max_distance_from_camera * 1.5:
+			state.node.queue_free()
+			asteroids.remove_at(i)

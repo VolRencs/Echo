@@ -4,4 +4,8 @@
 
 [node name="AsteroidManager" type="Node3D"]
 script = ExtResource("1_o57nq")
-save_scene_paths = Array[String](["res://Assets/Scene/main_menu.tscn", "res://Assets/Scene/settings_menu.tscn"])
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
