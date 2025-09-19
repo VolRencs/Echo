@@ -2,6 +2,7 @@ extends Control
 
 @export var music_slider: HSlider
 @export var fullscreen_checkbox: CheckBox
+@export var vsync_checkbox: CheckBox
 @export var close_button: Button
 
 var audio_players: Array[AudioStreamPlayer] = [] # Массив для всех AudioStreamPlayer
@@ -23,6 +24,7 @@ func _ready() -> void:
 
 	music_slider.value_changed.connect(_on_music_slider_changed)
 	fullscreen_checkbox.toggled.connect(_on_fullscreen_toggled)
+	vsync_checkbox.toggled.connect(_on_vsync_toggled)
 	close_button.pressed.connect(_on_close_pressed)
 	
 	close_button.mouse_entered.connect(_on_button_hover)
@@ -62,6 +64,9 @@ func _on_close_pressed() -> void:
 		if exit_button:
 			exit_button.visible = true
 
+func _on_vsync_toggled(pressed: bool) -> void: 
+	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED if pressed else DisplayServer.VSYNC_DISABLED)
+
 func _on_button_hover() -> void:
 	if AudioManager.has_node("ButtonPlayer"):
 		var player = AudioManager.get_node("ButtonPlayer") as AudioStreamPlayer
@@ -73,6 +78,7 @@ func save_settings():
 	var config = ConfigFile.new()
 	config.set_value("Settings", "volume_db", music_slider.value)
 	config.set_value("Settings", "fullscreen", fullscreen_checkbox.button_pressed)
+	config.set_value("Settings", "vsync", vsync_checkbox.button_pressed)
 	config.save("user://settings.cfg")
 
 func load_settings():
@@ -80,5 +86,7 @@ func load_settings():
 	if config.load("user://settings.cfg") == OK:
 		music_slider.value = config.get_value("Settings", "volume_db", 0.0)
 		fullscreen_checkbox.button_pressed = config.get_value("Settings", "fullscreen", false)
+		vsync_checkbox.button_pressed = config.get_value("Settings", "vsync", true)
 		_on_music_slider_changed(music_slider.value)
 		_on_fullscreen_toggled(fullscreen_checkbox.button_pressed)
+		_on_vsync_toggled(vsync_checkbox.button_pressed)
