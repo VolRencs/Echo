@@ -1,16 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://3w36cuohiy7j"]
+[gd_scene load_steps=8 format=3 uid="uid://3w36cuohiy7j"]
 
 [ext_resource type="PackedScene" uid="uid://bqay0w81atqtb" path="res://Assets/Models/Player/Player.tscn" id="1_7i6p2"]
+[ext_resource type="Texture2D" uid="uid://rn2twt62et04" path="res://Assets/MainMenu/MainMenu.png" id="1_7ttw8"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xn0nd"]
+panorama = ExtResource("1_7ttw8")
+
+[sub_resource type="Sky" id="Sky_qouvi"]
+sky_material = SubResource("PanoramaSkyMaterial_xn0nd")
+
+[sub_resource type="Environment" id="Environment_q485k"]
+background_mode = 2
+sky = SubResource("Sky_qouvi")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5oy4s"]
-size = Vector3(1.9476318, 0.4179077, 0.8114929)
+size = Vector3(4.9822693, 0.4179077, 2.1541672)
 
 [sub_resource type="BoxMesh" id="BoxMesh_7i6p2"]
 
 [node name="Game" type="Node3D"]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.3278456, 8.314504)
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_q485k")
 
 [node name="Player" parent="." instance=ExtResource("1_7i6p2")]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
@@ -21,11 +32,20 @@ transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
 transform = Transform3D(6.83741, 0, 0, 0, 6.83741, 0, 0, 0, 6.83741, -5.140706, -1.8416563, -3.8641095)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7492767, -0.10613847, 0.498527)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7340637, -0.10613847, 0.49309105)
 shape = SubResource("BoxShape3D_5oy4s")
 debug_color = Color(0.7033727, 0.33031106, 0.17744806, 0.41960785)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(1.9472615, 0, 0, 0, 0.41422954, 0, 0, 0, 0.8133921, 0.75276214, -0.10828197, 0.49924394)
+transform = Transform3D(4.9951515, 0, 0, 0, 0.41422954, 0, 0, 0, 2.1317356, 0.75276214, -0.10828197, 0.49924394)
 mesh = SubResource("BoxMesh_7i6p2")
 skeleton = NodePath("")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.053451404, 0.9985705, 0, -0.9985705, 0.053451404, 0, 4.731264, 0)
+light_energy = 5.38
+light_indirect_energy = 4.61
+light_volumetric_fog_energy = 7.596
+light_size = 4.07
+spot_range = 12.720451
+spot_angle = 62.124638
