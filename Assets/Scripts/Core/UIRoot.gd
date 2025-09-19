@@ -34,8 +34,8 @@ func _input(event):
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			get_tree().paused = true # пауза игры, CanvasLayer продолжает работать
 		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			get_tree().paused = false
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _on_continue_pressed() -> void:
 	visible = false

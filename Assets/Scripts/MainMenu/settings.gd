@@ -4,18 +4,24 @@ extends Control
 @export var fullscreen_checkbox: CheckBox
 @export var close_button: Button
 
-var music_player: AudioStreamPlayer
+var audio_players: Array[AudioStreamPlayer] = [] # Массив для всех AudioStreamPlayer
 
 func _ready() -> void:
-	# Берём AudioStreamPlayer из автозагруза AudioManager
-	music_player = get_node("/root/AudioManager/AudioStreamPlayer") as AudioStreamPlayer
+	# Собираем все AudioStreamPlayer из AudioManager
+	var audio_manager = get_node("/root/AudioManager")
+	if audio_manager:
+		for child in audio_manager.get_children():
+			if child is AudioStreamPlayer:
+				audio_players.append(child)
 
 	# Настройка диапазона слайдера под volume_db
 	music_slider.min_value = -40
 	music_slider.max_value = 0
 
 	# Инициализация значений из текущего состояния
-	music_slider.value = music_player.volume_db
+	if not audio_players.is_empty() and audio_players[0]:
+		music_slider.value = audio_players[0].volume_db
+
 	fullscreen_checkbox.button_pressed = (DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 	# Подключение сигналов
@@ -27,7 +33,9 @@ func _ready() -> void:
 	load_settings()
 
 func _on_music_slider_changed(value: float) -> void:
-	music_player.volume_db = value
+	for player in audio_players:
+			if player:
+				player.volume_db = value
 
 func _on_fullscreen_toggled(pressed: bool) -> void:
 	if pressed:

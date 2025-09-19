@@ -32,10 +32,6 @@ func _unhandled_input(event: InputEvent):
 		rotate_y(-rotation_x)
 		camera.rotation.x = clamp(camera.rotation.x - rotation_y, MIN_PITCH, MAX_PITCH)
 
-	elif event.is_action_pressed("ui_cancel"):
-		# Переключение режима мыши
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED else Input.MOUSE_MODE_CAPTURED)
-
 func _physics_process(delta):
 	# Применяем гравитацию
 	if not is_on_floor():
