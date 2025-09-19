@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://3w36cuohiy7j"]
+[gd_scene load_steps=10 format=3 uid="uid://3w36cuohiy7j"]
 
 [ext_resource type="PackedScene" uid="uid://bqay0w81atqtb" path="res://Assets/Models/Player/Player.tscn" id="1_7i6p2"]
 [ext_resource type="Texture2D" uid="uid://rn2twt62et04" path="res://Assets/MainMenu/MainMenu.png" id="1_7ttw8"]
 [ext_resource type="Script" uid="uid://dh4b3tkg3bxnl" path="res://Assets/Scripts/Core/UIRoot.gd" id="3_7ttw8"]
+[ext_resource type="Script" uid="uid://tda8lwoyorg6" path="res://Assets/Scripts/MainMenu/settings.gd" id="4_q485k"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xn0nd"]
 panorama = ExtResource("1_7ttw8")
@@ -51,5 +52,77 @@ light_size = 4.07
 spot_range = 12.720451
 spot_angle = 62.124638
 
-[node name="Node" type="Node" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("continue_button", "settings_button", "quit_button", "control_panel")]
+process_mode = 3
+process_priority = 1
 script = ExtResource("3_7ttw8")
+continue_button = NodePath("Start")
+settings_button = NodePath("Settings")
+quit_button = NodePath("Exit")
+control_panel = NodePath("Control")
+
+[node name="Start" type="Button" parent="CanvasLayer"]
+offset_left = 883.0
+offset_top = 353.0
+offset_right = 1136.0
+offset_bottom = 404.0
+text = "Продолжить"
+
+[node name="Settings" type="Button" parent="CanvasLayer"]
+offset_left = 883.0
+offset_top = 449.0
+offset_right = 1136.0
+offset_bottom = 500.0
+text = "Настройки"
+
+[node name="Exit" type="Button" parent="CanvasLayer"]
+offset_left = 886.0
+offset_top = 547.0
+offset_right = 1139.0
+offset_bottom = 598.0
+text = "Выйти"
+
+[node name="Control" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("music_slider", "fullscreen_checkbox", "close_button")]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 81.0
+offset_bottom = 76.0
+script = ExtResource("4_q485k")
+music_slider = NodePath("Music")
+fullscreen_checkbox = NodePath("CheckBox")
+close_button = NodePath("Button")
+
+[node name="CheckBox" type="CheckBox" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.021000002
+anchor_bottom = 0.037
+offset_left = 797.0
+offset_top = 496.0
+offset_right = 1126.764
+offset_bottom = 570.98706
+text = "Полноэкранный режим"
+
+[node name="Music" type="HSlider" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 798.0
+offset_top = 417.0
+offset_right = 1172.0
+offset_bottom = 526.0
+
+[node name="Button" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 37.0
+offset_right = 240.0
+offset_bottom = 93.0
+text = "Назад"
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 942.0
+offset_top = 433.0
+offset_right = 1028.0
+offset_bottom = 461.0
+text = "Громкость"
