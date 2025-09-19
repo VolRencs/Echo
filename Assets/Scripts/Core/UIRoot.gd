@@ -8,16 +8,17 @@ extends CanvasLayer
 var menu_open := false
 
 func _ready() -> void:
-	# Скрыть меню и панель настроек по умолчанию
 	visible = false
 	control_panel.visible = false
 	
-	# Настройка кнопок меню
 	continue_button.pressed.connect(_on_continue_pressed)
 	settings_button.pressed.connect(_on_settings_pressed)
 	quit_button.pressed.connect(_on_quit_pressed)
 
-	# Устанавливаем pause_mode = PROCESS рекурсивно для всех детей CanvasLayer
+	continue_button.mouse_entered.connect(_on_button_hover)
+	settings_button.mouse_entered.connect(_on_button_hover)
+	quit_button.mouse_entered.connect(_on_button_hover)
+
 	_set_pause_mode_recursive(self, 2) # 2 = PROCESS
 
 func _set_pause_mode_recursive(node: Node, mode: int) -> void:
@@ -48,6 +49,13 @@ func _on_settings_pressed() -> void:
 	continue_button.visible = false
 	settings_button.visible = false
 	quit_button.visible = false
+
+func _on_button_hover() -> void:
+	if AudioManager.has_node("ButtonPlayer"):
+		var player = AudioManager.get_node("ButtonPlayer") as AudioStreamPlayer
+		if player.playing:
+			player.stop()
+		player.play()
 
 func _on_quit_pressed() -> void:
 	get_tree().paused = false

@@ -7,29 +7,26 @@ extends Control
 var audio_players: Array[AudioStreamPlayer] = [] # Массив для всех AudioStreamPlayer
 
 func _ready() -> void:
-	# Собираем все AudioStreamPlayer из AudioManager
 	var audio_manager = get_node("/root/AudioManager")
 	if audio_manager:
 		for child in audio_manager.get_children():
 			if child is AudioStreamPlayer:
 				audio_players.append(child)
 
-	# Настройка диапазона слайдера под volume_db
 	music_slider.min_value = -40
 	music_slider.max_value = 0
 
-	# Инициализация значений из текущего состояния
 	if not audio_players.is_empty() and audio_players[0]:
 		music_slider.value = audio_players[0].volume_db
 
 	fullscreen_checkbox.button_pressed = (DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN)
 
-	# Подключение сигналов
 	music_slider.value_changed.connect(_on_music_slider_changed)
 	fullscreen_checkbox.toggled.connect(_on_fullscreen_toggled)
 	close_button.pressed.connect(_on_close_pressed)
-
-	# Загрузка сохранённых настроек
+	
+	close_button.mouse_entered.connect(_on_button_hover)
+	
 	load_settings()
 
 func _on_music_slider_changed(value: float) -> void:
@@ -64,6 +61,13 @@ func _on_close_pressed() -> void:
 			settings_button.visible = true
 		if exit_button:
 			exit_button.visible = true
+
+func _on_button_hover() -> void:
+	if AudioManager.has_node("ButtonPlayer"):
+		var player = AudioManager.get_node("ButtonPlayer") as AudioStreamPlayer
+		if player.playing:
+			player.stop()
+		player.play()
 
 func save_settings():
 	var config = ConfigFile.new()

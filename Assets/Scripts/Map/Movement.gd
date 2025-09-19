@@ -28,8 +28,10 @@ var current_speed: float = WALK_SPEED
 var target_fov: float = NORMAL_FOV
 var is_crouching: bool = false
 var is_sprinting: bool = false
-var rotation_x: float = 0.0  # yaw
-var rotation_y: float = 0.0  # pitch
+var rotation_x: float = 0.0
+var rotation_y: float = 0.0
+var step_timer := 0.0
+var step_interval := 1.0
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -46,7 +48,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		rotation.y = rotation_x
 
 func _physics_process(delta: float) -> void:
-	# Гравитация
 	if not is_on_floor():
 		velocity.y -= GRAVITY * delta
 	else:
@@ -55,7 +56,6 @@ func _physics_process(delta: float) -> void:
 	_handle_crouching(delta)
 	_handle_sprinting()
 
-	# Получаем ввод WASD
 	var input_dir: Vector2 = Input.get_vector("left", "right", "up", "down")
 	var direction: Vector3 = Vector3.ZERO
 
@@ -76,10 +76,25 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and not is_crouching:
 		velocity.y = JUMP_VELOCITY
 
-	# FOV
 	camera.fov = lerp(camera.fov, target_fov, CAMERA_SMOOTH_SPEED * delta)
 
+	var horizontal_velocity := Vector3(velocity.x, 0, velocity.z).length()
+	if horizontal_velocity > 0.1 and is_on_floor() and not is_crouching:
+		step_timer -= delta
+		if step_timer <= 0.0:
+			if AudioManager.has_node("StepAudio"):
+				var step_player = AudioManager.get_node("StepAudio") as AudioStreamPlayer
+				if step_player.playing:
+					step_player.stop()
+				# Случайный pitch для естественности
+				step_player.pitch_scale = randf_range(0.9, 1.1)
+				step_player.play()
+			# Интервал между шагами зависит от скорости
+			step_timer = step_interval / (current_speed / WALK_SPEED)
+	else:
+		step_timer = 0.0
 	move_and_slide()
+	
 
 func _handle_crouching(delta: float) -> void:
 	var target_height: float = NORMAL_HEIGHT
