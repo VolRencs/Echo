@@ -22,6 +22,7 @@ const CROUCH_FOV: float = 65.0
 @onready var camera: Camera3D = $CameraPoint/Camera3D
 @onready var collision_shape: CollisionShape3D = $CollisionShape3D
 @onready var camera_pivot: Node3D = $CameraPoint
+@onready var Animation_player: AnimationPlayer = $Player_Model/AnimationPlayer
 
 # Переменные состояния
 var current_speed: float = WALK_SPEED
@@ -69,7 +70,9 @@ func _physics_process(delta: float) -> void:
 		right = right.normalized()
 
 		direction = (forward * input_dir.y + right * input_dir.x).normalized()
-
+		Animation_player.play("Walk", 0.2)
+	else:
+		Animation_player.play("Idle", 0.2)
 	velocity.x = lerp(velocity.x, direction.x * current_speed, ACCELERATION * delta if direction.length() > 0 else DECELERATION * delta)
 	velocity.z = lerp(velocity.z, direction.z * current_speed, ACCELERATION * delta if direction.length() > 0 else DECELERATION * delta)
 

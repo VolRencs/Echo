@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b143xwvws6baa"
-path="res://.godot/imported/LowPolyCharacter1.fbx-b6f6a42bd5f5da4d38e178a9748cf3eb.scn"
+uid="uid://df47ud6qb3ppj"
+path="res://.godot/imported/Character.fbx-e5eda2bc42ca7437cec53f2f3ee7f4f8.scn"
 
 [deps]
 
-source_file="res://Assets/Models/Player/LowPolyCharacter1.fbx"
-dest_files=["res://.godot/imported/LowPolyCharacter1.fbx-b6f6a42bd5f5da4d38e178a9748cf3eb.scn"]
+source_file="res://Assets/Models/Player/Models/Character.fbx"
+dest_files=["res://.godot/imported/Character.fbx-e5eda2bc42ca7437cec53f2f3ee7f4f8.scn"]
 
 [params]
 
