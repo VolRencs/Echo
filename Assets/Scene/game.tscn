@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://3w36cuohiy7j"]
+[gd_scene load_steps=9 format=3 uid="uid://3w36cuohiy7j"]
 
 [ext_resource type="PackedScene" uid="uid://bqay0w81atqtb" path="res://Assets/Models/Player/Player.tscn" id="1_7i6p2"]
 [ext_resource type="Texture2D" uid="uid://rn2twt62et04" path="res://Assets/MainMenu/MainMenu.png" id="1_7ttw8"]
+[ext_resource type="Script" uid="uid://dh4b3tkg3bxnl" path="res://Assets/Scripts/Core/UIRoot.gd" id="3_7ttw8"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xn0nd"]
 panorama = ExtResource("1_7ttw8")
@@ -49,3 +50,6 @@ light_volumetric_fog_energy = 7.596
 light_size = 4.07
 spot_range = 12.720451
 spot_angle = 62.124638
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("3_7ttw8")

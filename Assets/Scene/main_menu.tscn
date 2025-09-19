@@ -79,8 +79,8 @@ text = "Выйти"
 [node name="Control" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("music_slider", "fullscreen_checkbox", "close_button")]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 81.0
+offset_bottom = 76.0
 script = ExtResource("6_j338d")
 music_slider = NodePath("Music")
 fullscreen_checkbox = NodePath("CheckBox")
@@ -111,6 +111,14 @@ offset_top = 37.0
 offset_right = 240.0
 offset_bottom = 93.0
 text = "Назад"
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 942.0
+offset_top = 433.0
+offset_right = 1028.0
+offset_bottom = 461.0
+text = "Громкость"
 
 [node name="AsteroidManager" parent="." instance=ExtResource("5_dwgjd")]
 transform = Transform3D(0.5698816, 0, 0, 0, 0.99433726, 0, 0, 0, 0.7090423, -2.6416316, 16.5957, -5.3779664)

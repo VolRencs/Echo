@@ -58,7 +58,3 @@ func _physics_process(delta):
 
 	# Движение персонажа
 	move_and_slide()
-
-func _input(event: InputEvent):
-	if event.is_action_pressed("ui_cancel") and Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
-		get_tree().quit()  # Выход из игры при повторном нажатии Esc
