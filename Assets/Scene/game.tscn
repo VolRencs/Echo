@@ -80,7 +80,7 @@ offset_left = 886.0
 offset_top = 547.0
 offset_right = 1139.0
 offset_bottom = 598.0
-text = "Выйти"
+text = "Главное меню"
 
 [node name="Control" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("music_slider", "fullscreen_checkbox", "close_button")]
 process_mode = 3
