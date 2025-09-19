@@ -35,6 +35,8 @@ var step_interval := 1.0
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	camera_pivot.rotation.x = rotation_y
+	rotation.y = rotation_x
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
@@ -42,9 +44,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		rotation_y -= event.relative.y * MOUSE_SENSITIVITY
 		rotation_y = clamp(rotation_y, MIN_PITCH, MAX_PITCH)
 		
-		# Поворот камеры по pitch
 		camera_pivot.rotation.x = rotation_y
-		# Поворот персонажа (yaw) = камера по X
+
 		rotation.y = rotation_x
 
 func _physics_process(delta: float) -> void:
@@ -86,10 +87,8 @@ func _physics_process(delta: float) -> void:
 				var step_player = AudioManager.get_node("StepAudio") as AudioStreamPlayer
 				if step_player.playing:
 					step_player.stop()
-				# Случайный pitch для естественности
-				step_player.pitch_scale = randf_range(0.9, 1.1)
+				step_player.pitch_scale = randf_range(0.8, 1.2)
 				step_player.play()
-			# Интервал между шагами зависит от скорости
 			step_timer = step_interval / (current_speed / WALK_SPEED)
 	else:
 		step_timer = 0.0
