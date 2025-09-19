@@ -13,7 +13,7 @@ config_version=5
 config/name="Echo!"
 run/main_scene="uid://cpjd1usw6npr6"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://emgjfk0wvokx"
 
 [autoload]
 
