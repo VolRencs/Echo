@@ -96,8 +96,8 @@ func _physics_process(delta: float) -> void:
 	if horizontal_velocity > 0.1 and is_on_floor() and not is_crouching:
 		step_timer -= delta
 		if step_timer <= 0.0:
-			if AudioManager.has_node("StepAudio"):
-				var step_player = AudioManager.get_node("StepAudio") as AudioStreamPlayer
+			if AudioManager.has_node("StepPlayer"):
+				var step_player = AudioManager.get_node("StepPlayer") as AudioStreamPlayer
 				if step_player.playing:
 					step_player.stop()
 				step_player.pitch_scale = randf_range(0.8, 1.2)

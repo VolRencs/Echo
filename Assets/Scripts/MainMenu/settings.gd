@@ -1,11 +1,13 @@
 extends Control
 
-@export var music_slider: HSlider
+@export var audio_slider: HSlider
+@export var sound_slider: HSlider
 @export var fullscreen_checkbox: CheckBox
 @export var vsync_checkbox: CheckBox
 @export var close_button: Button
 
 var audio_players: Array[AudioStreamPlayer] = [] # Массив для всех AudioStreamPlayer
+var sound_players: Array[AudioStreamPlayer] = [] # Массив для всех AudioStreamPlayer
 
 func _ready() -> void:
 	var audio_manager = get_node("/root/AudioManager")
@@ -14,15 +16,26 @@ func _ready() -> void:
 			if child is AudioStreamPlayer:
 				audio_players.append(child)
 
-	music_slider.min_value = -40
-	music_slider.max_value = 0
+	var sound_manager = get_node("/root/SoundManager")
+	if sound_manager:
+		for child in sound_manager.get_children():
+			if child is AudioStreamPlayer:
+				sound_players.append(child)
+
+	audio_slider.min_value = -40
+	audio_slider.max_value = 0
+	sound_slider.min_value = -40
+	sound_slider.max_value = 0
 
 	if not audio_players.is_empty() and audio_players[0]:
-		music_slider.value = audio_players[0].volume_db
+		audio_slider.value = audio_players[0].volume_db
+	if not sound_players.is_empty() and sound_players[0]:
+		sound_slider.value = sound_players[0].volume_db
 
 	fullscreen_checkbox.button_pressed = (DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN)
 
-	music_slider.value_changed.connect(_on_music_slider_changed)
+	audio_slider.value_changed.connect(_on_music_slider_changed)
+	sound_slider.value_changed.connect(_on_sound_slider_changed)
 	fullscreen_checkbox.toggled.connect(_on_fullscreen_toggled)
 	vsync_checkbox.toggled.connect(_on_vsync_toggled)
 	close_button.pressed.connect(_on_close_pressed)
@@ -35,6 +48,13 @@ func _on_music_slider_changed(value: float) -> void:
 	for player in audio_players:
 			if player:
 				player.volume_db = value
+
+func _on_sound_slider_changed(value: float) -> void:
+	# Изменяем громкость всех звуковых эффектов
+	for player in sound_players:
+		if player:
+			player.volume_db = value
+
 
 func _on_fullscreen_toggled(pressed: bool) -> void:
 	if pressed:
@@ -76,7 +96,8 @@ func _on_button_hover() -> void:
 
 func save_settings():
 	var config = ConfigFile.new()
-	config.set_value("Settings", "volume_db", music_slider.value)
+	config.set_value("Settings", "volume_db", audio_slider.value)
+	config.set_value("Settings", "sound_volume_db", sound_slider.value)
 	config.set_value("Settings", "fullscreen", fullscreen_checkbox.button_pressed)
 	config.set_value("Settings", "vsync", vsync_checkbox.button_pressed)
 	config.save("user://settings.cfg")
@@ -84,9 +105,11 @@ func save_settings():
 func load_settings():
 	var config = ConfigFile.new()
 	if config.load("user://settings.cfg") == OK:
-		music_slider.value = config.get_value("Settings", "volume_db", 0.0)
+		audio_slider.value = config.get_value("Settings", "volume_db", 0.0)
+		sound_slider.value = config.get_value("Settings", "sound_volume_db", 0.0)
 		fullscreen_checkbox.button_pressed = config.get_value("Settings", "fullscreen", false)
 		vsync_checkbox.button_pressed = config.get_value("Settings", "vsync", true)
-		_on_music_slider_changed(music_slider.value)
+		_on_music_slider_changed(audio_slider.value)
+		_on_sound_slider_changed(sound_slider.value)
 		_on_fullscreen_toggled(fullscreen_checkbox.button_pressed)
 		_on_vsync_toggled(vsync_checkbox.button_pressed)

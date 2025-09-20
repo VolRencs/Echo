@@ -76,13 +76,14 @@ offset_right = 1139.0
 offset_bottom = 598.0
 text = "Выйти"
 
-[node name="Control" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("music_slider", "fullscreen_checkbox", "vsync_checkbox", "close_button")]
+[node name="Control" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("audio_slider", "sound_slider", "fullscreen_checkbox", "vsync_checkbox", "close_button")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 81.0
 offset_bottom = 76.0
 script = ExtResource("6_j338d")
-music_slider = NodePath("Music")
+audio_slider = NodePath("Audio")
+sound_slider = NodePath("Sound")
 fullscreen_checkbox = NodePath("CheckBox")
 vsync_checkbox = NodePath("VSync")
 close_button = NodePath("Button")
@@ -106,12 +107,21 @@ offset_right = 1036.0
 offset_bottom = 626.0
 text = "VSync"
 
-[node name="Music" type="HSlider" parent="CanvasLayer/Control"]
+[node name="Audio" type="HSlider" parent="CanvasLayer/Control"]
 layout_mode = 0
 offset_left = 798.0
 offset_top = 417.0
 offset_right = 1172.0
 offset_bottom = 526.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Audio"]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 16.0
+offset_right = 230.0
+offset_bottom = 44.0
+text = "Звуки"
+horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="CanvasLayer/Control"]
 layout_mode = 0
@@ -121,13 +131,21 @@ offset_right = 240.0
 offset_bottom = 93.0
 text = "Назад"
 
-[node name="Label" type="Label" parent="CanvasLayer/Control"]
+[node name="Sound" type="HSlider" parent="CanvasLayer/Control"]
 layout_mode = 0
-offset_left = 942.0
-offset_top = 433.0
-offset_right = 1028.0
-offset_bottom = 461.0
-text = "Громкость"
+offset_left = 798.0
+offset_top = 336.0
+offset_right = 1172.0
+offset_bottom = 445.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Sound"]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 16.0
+offset_right = 230.0
+offset_bottom = 44.0
+text = "Музыка"
+horizontal_alignment = 1
 
 [node name="AsteroidManager" parent="." instance=ExtResource("5_dwgjd")]
 transform = Transform3D(0.5698816, 0, 0, 0, 0.99433726, 0, 0, 0, 0.7090423, -2.6416316, 16.5957, -5.3779664)
