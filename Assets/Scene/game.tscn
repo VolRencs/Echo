@@ -36,6 +36,7 @@ environment = SubResource("Environment_q485k")
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
 
 [node name="Ground" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.18658447)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(6.83741, 0, 0, 0, 6.83741, 0, 0, 0, 6.83741, -5.140706, -1.8416563, -3.8641095)

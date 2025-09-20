@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjt25wsqiork3"]
+[gd_scene load_steps=7 format=3 uid="uid://bjt25wsqiork3"]
 
 [ext_resource type="AudioStream" uid="uid://bhcqqt38uh7am" path="res://Assets/Audio/ambient.ogg" id="1_uleb7"]
 [ext_resource type="Script" uid="uid://cbpbi0f8bhqun" path="res://Assets/Scripts/Core/audio_manager.gd" id="2_21ce7"]
 [ext_resource type="AudioStream" uid="uid://c6nalpbxqfdcn" path="res://Assets/Audio/ambient2.ogg" id="3_21ce7"]
 [ext_resource type="AudioStream" uid="uid://dia86g3wfevnx" path="res://Assets/Audio/buttonpress.ogg" id="4_qb2uw"]
 [ext_resource type="AudioStream" uid="uid://wvmjj4f3igjj" path="res://Assets/Audio/footstep.ogg" id="5_t5cg5"]
+[ext_resource type="AudioStream" uid="uid://i0iwvmagqcck" path="res://Assets/Audio/flashlight1.ogg" id="6_gh54k"]
 
 [node name="AudioManager" type="Node"]
 
@@ -28,3 +29,6 @@ stream = ExtResource("4_qb2uw")
 
 [node name="StepAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_t5cg5")
+
+[node name="LighterPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_gh54k")
