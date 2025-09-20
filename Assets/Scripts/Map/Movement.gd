@@ -12,7 +12,7 @@ const DECELERATION: float = 20.0
 const JUMP_VELOCITY: float = 4.5
 const GRAVITY: float = 9.81
 const CROUCH_HEIGHT: float = 0.5
-const NORMAL_HEIGHT: float = 1.8
+const NORMAL_HEIGHT: float = 1
 const CAMERA_SMOOTH_SPEED: float = 10.0
 const SPRINT_FOV: float = 80.0
 const NORMAL_FOV: float = 70.0
@@ -70,9 +70,19 @@ func _physics_process(delta: float) -> void:
 		right = right.normalized()
 
 		direction = (forward * input_dir.y + right * input_dir.x).normalized()
-		Animation_player.play("Walk", 0.2)
+		if is_crouching == false:
+			if is_sprinting == false:
+				Animation_player.play("Walk", 0.2)
+			else:
+				Animation_player.play("Running")
+		else:
+			Animation_player.play("Crouch_Walk", 0.2)
+		
 	else:
 		Animation_player.play("Idle", 0.2)
+		if is_crouching == true:
+			Animation_player.play("Crouch_Idle", 0.2)
+			
 	velocity.x = lerp(velocity.x, direction.x * current_speed, ACCELERATION * delta if direction.length() > 0 else DECELERATION * delta)
 	velocity.z = lerp(velocity.z, direction.z * current_speed, ACCELERATION * delta if direction.length() > 0 else DECELERATION * delta)
 
