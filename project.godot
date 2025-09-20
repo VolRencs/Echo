@@ -13,13 +13,13 @@ config_version=5
 config/name="Echo!"
 run/main_scene="uid://cpjd1usw6npr6"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="uid://emgjfk0wvokx"
+config/icon="uid://jaxmdqyhwsib"
 
 [autoload]
 
-AudioManager="*res://Assets/Scene/audio_manager.tscn"
+AudioManager="*res://Scene/audio_manager.tscn"
 AsteroidState="*res://Assets/Asteroid/AsteroidState.gd"
-SoundManager="*res://Assets/Scene/sound_manager.tscn"
+SoundManager="*res://Scene/sound_manager.tscn"
 
 [display]
 

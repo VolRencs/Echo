@@ -1,9 +1,9 @@
 [gd_scene load_steps=18 format=4 uid="uid://bqay0w81atqtb"]
 
-[ext_resource type="Script" uid="uid://dvtv1gx43d5ey" path="res://Assets/Scripts/Map/Movement.gd" id="1_854hw"]
+[ext_resource type="Script" uid="uid://dvtv1gx43d5ey" path="res://Scripts/Map/Movement.gd" id="1_854hw"]
 [ext_resource type="Texture2D" uid="uid://c5xdtuqidww16" path="res://Assets/Materials/Flashlight/Flashlight_Cookie3.png" id="3_l1yor"]
 [ext_resource type="Material" uid="uid://5lvs2qdklqyt" path="res://Assets/Models/Player/Models/Character_Texture.tres" id="3_xb7um"]
-[ext_resource type="Script" uid="uid://bjq7ubbkelrht" path="res://Assets/Scripts/Map/Lighter.gd" id="4_cy1nd"]
+[ext_resource type="Script" uid="uid://bjq7ubbkelrht" path="res://Scripts/Map/Lighter.gd" id="4_cy1nd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_854hw"]
 radius = 0.35253906

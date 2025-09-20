@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cyiej7xgncke8"]
+
+[ext_resource type="AudioStream" uid="uid://bhcqqt38uh7am" path="res://Assets/Audio/ambient.ogg" id="1_3qq0f"]
+[ext_resource type="Script" uid="uid://cbpbi0f8bhqun" path="res://Scripts/Core/audio_manager.gd" id="2_u7jhb"]
+[ext_resource type="AudioStream" uid="uid://c6nalpbxqfdcn" path="res://Assets/Audio/ambient2.ogg" id="3_433xu"]
+
+[node name="SoundManager" type="Node"]
+
+[node name="MenuSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_3qq0f")
+autoplay = true
+parameters/looping = true
+script = ExtResource("2_u7jhb")
+scenes_to_play = Array[String](["MainMenu"])
+
+[node name="GameSound" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("3_433xu")
+autoplay = true
+parameters/looping = true
+script = ExtResource("2_u7jhb")
+scenes_to_play = Array[String](["Game"])
