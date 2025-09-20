@@ -64,14 +64,10 @@ func _on_fullscreen_toggled(pressed: bool) -> void:
 
 func _on_vsync_toggled(pressed: bool) -> void:
 	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED if pressed else DisplayServer.VSYNC_DISABLED)
-	_on_refresh_rate_selected(refresh_rate_option.selected)
 
 func _on_refresh_rate_selected(index: int) -> void:
-	var selected_rate = refresh_rates[index]
-	if not vsync_checkbox.button_pressed:
-		Engine.set_max_fps(int(selected_rate))
-	else:
-		Engine.set_max_fps(0)
+	var _selected_rate = refresh_rates[index]
+	Engine.set_max_fps(0)
 
 func _on_close_pressed() -> void:
 	save_settings()
