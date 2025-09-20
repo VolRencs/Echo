@@ -6,8 +6,8 @@ extends Control
 @export var vsync_checkbox: CheckBox
 @export var close_button: Button
 
-var audio_players: Array[AudioStreamPlayer] = [] # Массив для всех AudioStreamPlayer
-var sound_players: Array[AudioStreamPlayer] = [] # Массив для всех AudioStreamPlayer
+var audio_players: Array[AudioStreamPlayer] = []
+var sound_players: Array[AudioStreamPlayer] = []
 
 func _ready() -> void:
 	var audio_manager = get_node("/root/AudioManager")
@@ -50,7 +50,6 @@ func _on_music_slider_changed(value: float) -> void:
 				player.volume_db = value
 
 func _on_sound_slider_changed(value: float) -> void:
-	# Изменяем громкость всех звуковых эффектов
 	for player in sound_players:
 		if player:
 			player.volume_db = value
@@ -63,20 +62,16 @@ func _on_fullscreen_toggled(pressed: bool) -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
 func _on_close_pressed() -> void:
-	# Сохранить настройки
 	save_settings()
 	
-	# Скрыть панель
 	visible = false
 	
-	# Получить доступ к кнопкам через CanvasLayer
 	var canvas_layer = get_parent()
 	if canvas_layer:
 		var start_button = canvas_layer.get_node("Start")
 		var settings_button = canvas_layer.get_node("Settings")
 		var exit_button = canvas_layer.get_node("Exit")
 		
-		# Проверка наличия нод перед изменением visible
 		if start_button:
 			start_button.visible = true
 		if settings_button:

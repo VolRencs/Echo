@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cpjd1usw6npr6"]
+[gd_scene load_steps=11 format=3 uid="uid://cpjd1usw6npr6"]
 
 [ext_resource type="Texture2D" uid="uid://rn2twt62et04" path="res://Assets/MainMenu/MainMenu.png" id="1_nb35v"]
 [ext_resource type="PackedScene" uid="uid://cl46o7qdb71nv" path="res://Assets/Models/Sputnik/space_satellite.glb" id="1_qouvi"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://c0kctcrume220" path="res://Assets/Scripts/MainMenu/Menu.gd" id="2_olbws"]
 [ext_resource type="PackedScene" uid="uid://yskauub60nvs" path="res://Assets/Asteroid/AsteroidManager.tscn" id="5_dwgjd"]
 [ext_resource type="Script" uid="uid://tda8lwoyorg6" path="res://Assets/Scripts/MainMenu/settings.gd" id="6_j338d"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_j338d"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_olbws"]
 panorama = ExtResource("1_nb35v")
@@ -16,6 +18,7 @@ sky_material = SubResource("PanoramaSkyMaterial_olbws")
 [sub_resource type="Environment" id="Environment_202op"]
 background_mode = 2
 sky = SubResource("Sky_qouvi")
+glow_enabled = true
 
 [node name="MainMenu" type="Node3D"]
 
@@ -26,6 +29,23 @@ fov = 87.1875
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("1_qouvi")]
 transform = Transform3D(-0.72107434, 0.41124392, 0.5576112, 0.32532, 0.91152537, -0.25157198, -0.6117342, 0, -0.79106337, -2.2208495, 16.32248, 10.245081)
 script = ExtResource("2_202op")
+
+[node name="BulbMesh" type="MeshInstance3D" parent="Sketchfab_Scene"]
+transform = Transform3D(0.07182053, 2.1045459e-09, -1.8626451e-08, 4.379974e-09, 0.069507934, -1.4017825e-08, 7.450581e-09, -2.5315124e-08, 0.07493672, -0.009004116, -0.48694706, 0.002035141)
+mesh = SubResource("SphereMesh_j338d")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Sketchfab_Scene/BulbMesh"]
+light_color = Color(0.7252515, 0, 0.05347681, 1)
+light_energy = 3.585
+light_indirect_energy = 4.232
+light_volumetric_fog_energy = 3.424
+light_specular = 0.153
+shadow_enabled = true
+shadow_normal_bias = 1.909
+shadow_opacity = 0.05
+omni_range = 0.715
+omni_attenuation = -2.232
+omni_shadow_mode = 0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 27.301323, 350.19022)
