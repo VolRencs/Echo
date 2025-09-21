@@ -20,6 +20,12 @@ config/icon="uid://jaxmdqyhwsib"
 AudioManager="*res://Scene/audio_manager.tscn"
 SoundManager="*res://Scene/sound_manager.tscn"
 
+[debug]
+
+file_logging/enable_file_logging.pc=false
+file_logging/log_path="res://logs/godot.log"
+file_logging/max_log_files=3
+
 [display]
 
 window/size/viewport_width=1920

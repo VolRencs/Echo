@@ -21,7 +21,7 @@ glow_enabled = true
 [sub_resource type="SphereMesh" id="SphereMesh_j338d"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j338d"]
-bg_color = Color(0.004019165, 0.004019165, 0.004019165, 1)
+bg_color = Color(0, 0, 0, 0.6431373)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a1aw0"]
 bg_color = Color(0, 0, 0, 0.7019608)

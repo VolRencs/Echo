@@ -21,8 +21,8 @@ size = Vector3(4.9822693, 0.4179077, 2.1541672)
 
 [sub_resource type="BoxMesh" id="BoxMesh_7i6p2"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q485k"]
-bg_color = Color(0.004019165, 0.004019165, 0.004019165, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j338d"]
+bg_color = Color(0, 0, 0, 0.6431373)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bvub4"]
 bg_color = Color(0, 0, 0, 0.7019608)
@@ -174,8 +174,9 @@ offset_left = 954.0
 offset_top = 598.0
 offset_right = 1036.0
 offset_bottom = 626.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_q485k")
+theme_override_styles/normal = SubResource("StyleBoxFlat_j338d")
 theme_override_styles/hover = SubResource("StyleBoxFlat_bvub4")
+flat = true
 
 [node name="Label" type="Label" parent="CanvasLayer/Control/Hz"]
 layout_mode = 0

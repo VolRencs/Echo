@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bjt25wsqiork3"]
 
-[ext_resource type="AudioStream" uid="uid://dia86g3wfevnx" path="res://Assets/Audio/buttonpress.ogg" id="4_qb2uw"]
-[ext_resource type="AudioStream" uid="uid://wvmjj4f3igjj" path="res://Assets/Audio/footstep.ogg" id="5_t5cg5"]
-[ext_resource type="AudioStream" uid="uid://i0iwvmagqcck" path="res://Assets/Audio/flashlight1.ogg" id="6_gh54k"]
+[ext_resource type="AudioStream" uid="uid://dia86g3wfevnx" path="res://Assets/Audio/ButtonHover.ogg" id="4_qb2uw"]
+[ext_resource type="AudioStream" uid="uid://wvmjj4f3igjj" path="res://Assets/Audio/FootSteps.ogg" id="5_t5cg5"]
+[ext_resource type="AudioStream" uid="uid://i0iwvmagqcck" path="res://Assets/Audio/FlashLight.ogg" id="6_gh54k"]
 
 [node name="AudioManager" type="Node"]
 
