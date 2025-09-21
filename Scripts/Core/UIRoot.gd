@@ -19,13 +19,10 @@ func _ready() -> void:
 	settings_button.mouse_entered.connect(_on_button_hover)
 	quit_button.mouse_entered.connect(_on_button_hover)
 
-	_set_pause_mode_recursive(self, 2) # 2 = PROCESS
 
 func _set_pause_mode_recursive(node: Node, mode: int) -> void:
 	if "pause_mode" in node:
 		node.pause_mode = mode
-	for child in node.get_children():
-		_set_pause_mode_recursive(child, mode)
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
@@ -33,7 +30,7 @@ func _input(event):
 		visible = menu_open
 		if menu_open:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			get_tree().paused = true # пауза игры, CanvasLayer продолжает работать
+			get_tree().paused = true
 		else:
 			get_tree().paused = false
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
