@@ -2,12 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://cl46o7qdb71nv" path="res://Assets/Models/Sputnik/space_satellite.glb" id="1_hptlk"]
 [ext_resource type="Script" uid="uid://ca4jwambwidvs" path="res://Scripts/MainMenu/Sputnik.gd" id="2_oqads"]
-[ext_resource type="Texture2D" uid="uid://rn2twt62et04" path="res://Assets/Photo/MainMenu.png" id="3_s2f1d"]
+[ext_resource type="Texture2D" uid="uid://rn2twt62et04" path="res://Assets/PNG/WorldEnvironment/MainMenu.png" id="3_s2f1d"]
 [ext_resource type="Script" uid="uid://c0kctcrume220" path="res://Scripts/MainMenu/Menu.gd" id="4_ejkra"]
 [ext_resource type="Script" uid="uid://tda8lwoyorg6" path="res://Scripts/MainMenu/settings.gd" id="5_yok32"]
 [ext_resource type="PackedScene" uid="uid://yskauub60nvs" path="res://Assets/Asteroid/AsteroidManager.tscn" id="6_klvvj"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_j338d"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_olbws"]
 panorama = ExtResource("3_s2f1d")
@@ -19,6 +17,8 @@ sky_material = SubResource("PanoramaSkyMaterial_olbws")
 background_mode = 2
 sky = SubResource("Sky_qouvi")
 glow_enabled = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_j338d"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j338d"]
 bg_color = Color(0.004019165, 0.004019165, 0.004019165, 1)
@@ -32,15 +32,18 @@ bg_color = Color(0, 0, 0, 0.7019608)
 transform = Transform3D(-0.9910489, -0.021608694, -0.13173977, 0.019551074, 0.95268106, -0.30334243, 0.13206081, -0.3032028, -0.94373095, -2.6335983, 15.12727, 4.1622343)
 fov = 87.1875
 
-[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_hptlk")]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_202op")
+
+[node name="Sputnik" parent="." instance=ExtResource("1_hptlk")]
 transform = Transform3D(-0.72107434, 0.41124392, 0.5576112, 0.32532, 0.91152537, -0.25157198, -0.6117342, 0, -0.79106337, -2.2208495, 16.32248, 10.245081)
 script = ExtResource("2_oqads")
 
-[node name="BulbMesh" type="MeshInstance3D" parent="Sketchfab_Scene"]
+[node name="BulbMesh" type="MeshInstance3D" parent="Sputnik"]
 transform = Transform3D(0.07182053, 2.1045459e-09, -1.8626451e-08, 4.379974e-09, 0.069507934, -1.4017825e-08, 7.450581e-09, -2.5315124e-08, 0.07493672, -0.009004116, -0.48694706, 0.002035141)
 mesh = SubResource("SphereMesh_j338d")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Sketchfab_Scene/BulbMesh"]
+[node name="OmniLight3D" type="OmniLight3D" parent="Sputnik/BulbMesh"]
 light_color = Color(0.7252515, 0, 0.05347681, 1)
 light_energy = 3.585
 light_indirect_energy = 4.232
@@ -62,16 +65,13 @@ light_angular_distance = 54.45
 light_specular = 3.58
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(0.34995455, -0.67768496, -0.6467418, 0.32251057, 0.7353524, -0.5960233, 0.87949914, 1.6073722e-08, 0.4759005, -4.153078, 15.270544, 10.890997)
+transform = Transform3D(0.34995455, -0.67768496, -0.6467418, 0.32251057, 0.7353524, -0.5960233, 0.87949914, 1.6898204e-08, 0.4759005, -5.019648, 15.270544, 12.022185)
 light_energy = 4.459
 light_indirect_energy = 3.586
 light_volumetric_fog_energy = 3.263
 light_size = 1.0
-spot_range = 6.4495683
-spot_angle = 47.62406
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_202op")
+spot_range = 6.1486897
+spot_angle = 38.717186
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("start_button", "settings_button", "quit_button", "control_panel")]
 script = ExtResource("4_ejkra")

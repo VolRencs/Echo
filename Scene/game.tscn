@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://3w36cuohiy7j"]
 
-[ext_resource type="Texture2D" uid="uid://rn2twt62et04" path="res://Assets/Photo/MainMenu.png" id="1_ihreq"]
+[ext_resource type="Texture2D" uid="uid://rn2twt62et04" path="res://Assets/PNG/WorldEnvironment/MainMenu.png" id="1_ihreq"]
 [ext_resource type="PackedScene" uid="uid://bqay0w81atqtb" path="res://Assets/Models/Player/Player.tscn" id="2_thj8p"]
 [ext_resource type="Script" uid="uid://dh4b3tkg3bxnl" path="res://Scripts/Core/UIRoot.gd" id="3_h8jt7"]
 [ext_resource type="Script" uid="uid://tda8lwoyorg6" path="res://Scripts/MainMenu/settings.gd" id="4_sagxc"]
@@ -41,9 +41,6 @@ environment = SubResource("Environment_q485k")
 [node name="Player" parent="." instance=ExtResource("2_thj8p")]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
 
-[node name="Ground" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.18658447)
-
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(6.83741, 0, 0, 0, 6.83741, 0, 0, 0, 6.83741, -5.140706, -1.8416563, -3.8641095)
 
@@ -53,18 +50,18 @@ shape = SubResource("BoxShape3D_5oy4s")
 debug_color = Color(0.7033727, 0.33031106, 0.17744806, 0.41960785)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(4.9951515, 0, 0, 0, 0.41422954, 0, 0, 0, 2.1317356, 0.75276214, -0.10828197, 0.49924394)
+transform = Transform3D(4.9951515, 0, 0, 0, 0.41422954, 0, 0, 0, 2.1317356, 0.7369184, -0.12903371, 0.47972596)
 mesh = SubResource("BoxMesh_7i6p2")
 skeleton = NodePath("")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.053451404, 0.9985705, 0, -0.9985705, 0.053451404, 0, 4.731264, 0)
+transform = Transform3D(1, 0, 0, 0, 0.053451404, 0.9985705, 0, -0.9985705, 0.053451404, 0, 6.5772076, 0)
 light_energy = 5.38
 light_indirect_energy = 4.61
 light_volumetric_fog_energy = 7.596
 light_size = 4.07
 spot_range = 12.720451
-spot_angle = 62.124638
+spot_angle = 45.340595
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("continue_button", "settings_button", "quit_button", "control_panel")]
 process_mode = 3
