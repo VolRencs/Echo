@@ -11,8 +11,10 @@ const ACCELERATION: float = 15.0
 const DECELERATION: float = 20.0
 const JUMP_VELOCITY: float = 4.5
 const GRAVITY: float = 9.81
+const STAND_CAMERA_HEIGHT: float = 0.2
+const CROUCH_CAMERA_HEIGHT: float = -1
 const CROUCH_HEIGHT: float = 0.5
-const NORMAL_HEIGHT: float = 1
+const NORMAL_HEIGHT: float = 1.1
 const CAMERA_SMOOTH_SPEED: float = 10.0
 const SPRINT_FOV: float = 80.0
 const NORMAL_FOV: float = 70.0
@@ -29,6 +31,7 @@ var current_speed: float = WALK_SPEED
 var target_fov: float = NORMAL_FOV
 var is_crouching: bool = false
 var is_sprinting: bool = false
+var is_jumping: bool = false
 var rotation_x: float = 0.0
 var rotation_y: float = 0.0
 var step_timer := 0.0
@@ -36,7 +39,7 @@ var step_interval := 1.0
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	camera_pivot.rotation.x = rotation_y
+	camera.rotation.x = rotation_y
 	rotation.y = rotation_x
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -45,7 +48,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		rotation_y -= event.relative.y * MOUSE_SENSITIVITY
 		rotation_y = clamp(rotation_y, MIN_PITCH, MAX_PITCH)
 		
-		camera_pivot.rotation.x = rotation_y
+		camera.rotation.x = rotation_y
 
 		rotation.y = rotation_x
 
@@ -72,9 +75,12 @@ func _physics_process(delta: float) -> void:
 		direction = (forward * input_dir.y + right * input_dir.x).normalized()
 		if is_crouching == false:
 			if is_sprinting == false:
-				Animation_player.play("Walk", 0.2)
+				if is_jumping == false:
+					Animation_player.play("Walk", 0.2)
+				else:
+					Animation_player.play("Jump")
 			else:
-				Animation_player.play("Running")
+				Animation_player.play("Running", 0.2)
 		else:
 			Animation_player.play("Crouch_Walk", 0.2)
 		
@@ -88,10 +94,12 @@ func _physics_process(delta: float) -> void:
 
 	# Прыжок
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and not is_crouching:
+		is_jumping = true
 		velocity.y = JUMP_VELOCITY
-
+	if velocity.y == 0:
+		is_jumping = false
 	camera.fov = lerp(camera.fov, target_fov, CAMERA_SMOOTH_SPEED * delta)
-
+	
 	var horizontal_velocity := Vector3(velocity.x, 0, velocity.z).length()
 	if horizontal_velocity > 0.1 and is_on_floor() and not is_crouching:
 		step_timer -= delta
@@ -115,9 +123,10 @@ func _handle_crouching(delta: float) -> void:
 
 	var shape: CapsuleShape3D = collision_shape.shape as CapsuleShape3D
 	shape.height = lerp(shape.height, target_height, 10.0 * delta)
-
-	var target_camera_y: float = target_height - 0.2
-	camera_pivot.position.y = lerp(camera_pivot.position.y, target_camera_y, 10.0 * delta)
+	
+	var target_camera_y = CROUCH_CAMERA_HEIGHT if is_crouching else STAND_CAMERA_HEIGHT
+	var t = clamp(10.0 * delta, 0.0, 1.0)  
+	camera_pivot.position.y = lerp(camera_pivot.position.y, target_camera_y, t)
 
 	is_crouching = Input.is_action_pressed("crouch")
 	target_fov = CROUCH_FOV if is_crouching else NORMAL_FOV
