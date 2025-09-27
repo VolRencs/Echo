@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://bqay0w81atqtb"]
+[gd_scene load_steps=20 format=4 uid="uid://bqay0w81atqtb"]
 
 [ext_resource type="Script" uid="uid://dvtv1gx43d5ey" path="res://Scripts/Map/Movement.gd" id="1_854hw"]
 [ext_resource type="Texture2D" uid="uid://c5xdtuqidww16" path="res://Assets/Materials/Flashlight/Flashlight.png" id="3_l1yor"]
@@ -11,6 +11,10 @@ height = 0.87823486
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cy1nd"]
 size = Vector3(0.03048706, 0.001, 0.034179688)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l1yor"]
+radius = 0.23535156
+height = 0.48420715
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bo5sc"]
 resource_name = "Character"
@@ -2435,6 +2439,10 @@ shape = SubResource("CapsuleShape3D_854hw")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="CharacterBody3D"]
 transform = Transform3D(5.0176, 0, 0, 0, 5.0176, 0, 0, 0, 5.0176, -0.10757068, -0.0056234, -0.042747065)
 shape = SubResource("BoxShape3D_cy1nd")
+
+[node name="Head" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(2.24, 0, 2.842171e-14, 0, 2.24, 0, -2.842171e-14, 0, 2.24, 2.5720253e-08, 3.1252902, -0.17033751)
+shape = SubResource("CapsuleShape3D_l1yor")
 
 [node name="Player_Model" type="Node3D" parent="CharacterBody3D"]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)

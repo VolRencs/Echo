@@ -119,6 +119,14 @@ func _handle_crouching(delta: float) -> void:
 	var target_camera_y: float = CROUCH_CAMERA_HEIGHT if Input.is_action_pressed("crouch") else STAND_CAMERA_HEIGHT
 	camera_pivot.position.y = lerp(camera_pivot.position.y, target_camera_y, 10.0 * delta)
 
+	var specific_collider: CollisionShape3D = $Head
+	if Input.is_action_pressed("crouch"):
+		if specific_collider:
+			specific_collider.disabled = true
+	else:
+		if specific_collider:
+			specific_collider.disabled = false
+
 	is_crouching = Input.is_action_pressed("crouch")
 	target_fov = CROUCH_FOV if is_crouching else NORMAL_FOV
 

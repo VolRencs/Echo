@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://3w36cuohiy7j"]
+[gd_scene load_steps=13 format=3 uid="uid://3w36cuohiy7j"]
 
 [ext_resource type="Texture2D" uid="uid://rn2twt62et04" path="res://Assets/PNG/WorldEnvironment/MainMenu.png" id="1_ihreq"]
 [ext_resource type="PackedScene" uid="uid://bqay0w81atqtb" path="res://Assets/Models/Player/Player.tscn" id="2_thj8p"]
 [ext_resource type="Script" uid="uid://dh4b3tkg3bxnl" path="res://Scripts/Core/UIRoot.gd" id="3_h8jt7"]
 [ext_resource type="Script" uid="uid://tda8lwoyorg6" path="res://Scripts/MainMenu/settings.gd" id="4_sagxc"]
 [ext_resource type="Shader" uid="uid://bjr4hnsy2qv6l" path="res://Assets/Shader/Menu.gdshader" id="5_8f6ah"]
+[ext_resource type="PackedScene" uid="uid://bn7wp1p2ekyjx" path="res://Assets/Models/Map/SpaceShip.tscn" id="6_thj8p"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xn0nd"]
 panorama = ExtResource("1_ihreq")
@@ -15,11 +16,6 @@ sky_material = SubResource("PanoramaSkyMaterial_xn0nd")
 [sub_resource type="Environment" id="Environment_q485k"]
 background_mode = 2
 sky = SubResource("Sky_qouvi")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_5oy4s"]
-size = Vector3(4.9822693, 0.4179077, 2.1541672)
-
-[sub_resource type="BoxMesh" id="BoxMesh_7i6p2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j338d"]
 bg_color = Color(0, 0, 0, 0.6431373)
@@ -39,20 +35,7 @@ shader_parameter/opacity = 0.1200000057
 environment = SubResource("Environment_q485k")
 
 [node name="Player" parent="." instance=ExtResource("2_thj8p")]
-transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(6.83741, 0, 0, 0, 6.83741, 0, 0, 0, 6.83741, -5.140706, -1.8416563, -3.8641095)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7340637, -0.10613847, 0.49309105)
-shape = SubResource("BoxShape3D_5oy4s")
-debug_color = Color(0.7033727, 0.33031106, 0.17744806, 0.41960785)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(4.9951515, 0, 0, 0, 0.41422954, 0, 0, 0, 2.1317356, 0.7369184, -0.12903371, 0.47972596)
-mesh = SubResource("BoxMesh_7i6p2")
-skeleton = NodePath("")
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 4.0562706, 0.13462377, -3.191855)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.053451404, 0.9985705, 0, -0.9985705, 0.053451404, 0, 6.5772076, 0)
@@ -199,3 +182,6 @@ mouse_filter = 2
 position = Vector2(955, 547.5)
 scale = Vector2(9.72, 5.475)
 copy_mode = 2
+
+[node name="SpaceShip" parent="." instance=ExtResource("6_thj8p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27715492, -4.7683716e-07, -0.8430977)
