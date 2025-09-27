@@ -4,5 +4,5 @@
 resource_name = "Glass"
 transparency = 1
 vertex_color_use_as_albedo = true
-albedo_color = Color(0.2347951, 0.2347951, 0.2347951, 0.597)
+albedo_color = Color(0.053178508, 0.053178508, 0.053178508, 0.27058825)
 emission_enabled = true

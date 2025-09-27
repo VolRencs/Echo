@@ -10,12 +10,21 @@
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xn0nd"]
 panorama = ExtResource("1_ihreq")
 
-[sub_resource type="Sky" id="Sky_qouvi"]
+[sub_resource type="Sky" id="Sky_thj8p"]
 sky_material = SubResource("PanoramaSkyMaterial_xn0nd")
+process_mode = 1
+radiance_size = 4
 
 [sub_resource type="Environment" id="Environment_q485k"]
 background_mode = 2
-sky = SubResource("Sky_qouvi")
+sky = SubResource("Sky_thj8p")
+ambient_light_sky_contribution = 0.7
+fog_enabled = true
+fog_light_color = Color(0.89787936, 0.9561569, 1.049908, 1)
+fog_light_energy = 0.01
+fog_sun_scatter = 0.01
+fog_density = 0.0205
+fog_sky_affect = 0.39
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j338d"]
 bg_color = Color(0, 0, 0, 0.6431373)
@@ -36,15 +45,6 @@ environment = SubResource("Environment_q485k")
 
 [node name="Player" parent="." instance=ExtResource("2_thj8p")]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 4.0562706, 0.13462377, -3.191855)
-
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.053451404, 0.9985705, 0, -0.9985705, 0.053451404, 0, 6.5772076, 0)
-light_energy = 5.38
-light_indirect_energy = 4.61
-light_volumetric_fog_energy = 7.596
-light_size = 4.07
-spot_range = 12.720451
-spot_angle = 45.340595
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("continue_button", "settings_button", "quit_button", "control_panel")]
 process_mode = 3
