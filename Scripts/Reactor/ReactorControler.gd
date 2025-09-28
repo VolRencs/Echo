@@ -8,8 +8,7 @@ var reactor_status_color_enabled: Color = Color(0.232, 0.975, 0.0, 1.0)
 
 var reactor_status: int = 1
 
-func _physics_process(delta: float) -> void:
-	
+func _physics_process(_delta) -> void:
 	if reactor_node is MeshInstance3D:
 		var mat = reactor_node.mesh.surface_get_material(0)
 		if mat:

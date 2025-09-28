@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://b4idggouehntj"]
+
+[ext_resource type="PackedScene" uid="uid://blcq17fwqqyiq" path="res://Assets/Models/Map/Models/Doors/Door_Vert_01/Door_Vert_01.fbx" id="1_6fdxe"]
+[ext_resource type="Script" uid="uid://cjm122l2mkilt" path="res://Scripts/Map/Door/DoorControler.gd" id="2_m1auf"]
+
+[sub_resource type="Animation" id="Animation_m1auf"]
+resource_name = "Open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door_Vert_01:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.4506252, 0.4506252),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 4, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6fdxe"]
+resource_name = "Close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door_Vert_01:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.4506252, 0.4506252),
+"update": 0,
+"values": [Vector3(0, 4, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x8pq5"]
+_data = {
+&"Close": SubResource("Animation_6fdxe"),
+&"Open": SubResource("Animation_m1auf")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m1auf"]
+size = Vector3(0.7359009, 5.1271973, 3.339508)
+
+[node name="Door_Vert_01" instance=ExtResource("1_6fdxe")]
+script = ExtResource("2_m1auf")
+
+[node name="Door_Vert_01" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1.0000002, 0, -1.0000002, -4.37114e-08, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Door_Vert_01" index="0"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_x8pq5")
+}
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Door_Vert_01" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4336505, -3.0304265, 1.8943088)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door_Vert_01/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.057195663, 0.028203249, -0.20750177)
+shape = SubResource("BoxShape3D_m1auf")
+debug_color = Color(0.9499975, 0, 0.5730574, 1)
+
+[node name="Timer" type="Timer" parent="." index="1"]
+wait_time = 3.0
+
+[connection signal="animation_finished" from="Door_Vert_01/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

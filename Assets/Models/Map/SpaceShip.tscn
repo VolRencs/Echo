@@ -1,7 +1,8 @@
-[gd_scene load_steps=49 format=3 uid="uid://bn7wp1p2ekyjx"]
+[gd_scene load_steps=56 format=3 uid="uid://bn7wp1p2ekyjx"]
 
 [ext_resource type="PackedScene" uid="uid://ba01biwqbxdxo" path="res://Assets/Models/Map/Models/Floors/Floor_Descent_01/Floor_Descent_01.fbx" id="5_y6apl"]
 [ext_resource type="PackedScene" uid="uid://6ji1qe4kv2bm" path="res://Assets/Models/Map/Models/Floors/Floor_Angle_01_6x6/Floor_Angle_01_6x6.fbx" id="6_5uurm"]
+[ext_resource type="PackedScene" uid="uid://b4idggouehntj" path="res://Assets/Models/Map/Models/Doors/Door_Vert_01/Door.tscn" id="7_m5bj0"]
 [ext_resource type="PackedScene" uid="uid://cw634qhh6n0hj" path="res://Assets/Models/Map/Models/Floors/Floor_Squared_01_6x6/Floor_Squared_01_6x6.fbx" id="7_ol57n"]
 [ext_resource type="PackedScene" uid="uid://d2dy1akvvjoil" path="res://Assets/Models/Map/Models/Floors/Floor_Third_02_Strip_2x6/Floor_Third_02_Strip_2x6.fbx" id="8_5uurm"]
 [ext_resource type="PackedScene" uid="uid://blcq17fwqqyiq" path="res://Assets/Models/Map/Models/Doors/Door_Vert_01/Door_Vert_01.fbx" id="8_75qhq"]
@@ -25,8 +26,11 @@
 [ext_resource type="PackedScene" uid="uid://bvh2rqpadg1wr" path="res://Assets/Models/Map/Models/Doors/DoorWay_01_Up/DoorWay_01_Up.fbx" id="26_dprnl"]
 [ext_resource type="PackedScene" uid="uid://u64x3xmgsypy" path="res://Assets/Models/Map/Models/Stuff/Pipes_03/Pipes_03.fbx" id="27_80omj"]
 [ext_resource type="PackedScene" uid="uid://pj13hab6kdpn" path="res://Assets/Models/Map/Models/Walls/Wall_Down_01_Long/Wall_Down_01_Long.fbx" id="27_m5bj0"]
+[ext_resource type="PackedScene" uid="uid://cvb1wivas1hce" path="res://Assets/Models/Map/Models/Stuff/Intercom_01/Intercom_01.fbx" id="28_3wxd1"]
 [ext_resource type="PackedScene" uid="uid://bla64fdbhvua6" path="res://Assets/Models/Map/Models/InteractiveModel/Reactor/Reactor.tscn" id="28_m5bj0"]
+[ext_resource type="Script" uid="uid://dgm1dk4tpagja" path="res://Scripts/Map/Door/IntercomControler.gd" id="29_3wxd1"]
 [ext_resource type="PackedScene" uid="uid://dncthok281tnn" path="res://Assets/Models/Map/Models/Walls/Porthole_01_Long/Porthole_01_Long.fbx" id="29_eseo8"]
+[ext_resource type="Script" uid="uid://dgug8ahxf32ef" path="res://Scripts/Map/LabelControler.gd" id="30_7thtt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m5bj0"]
 margin = 7.42
@@ -91,6 +95,94 @@ size = Vector3(0.23292232, 8.036183, 10.492247)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_go2nn"]
 size = Vector3(11.4037695, 4.967, 2.4174595)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_37uu3"]
+size = Vector3(0.7477339, 4.967, 11.95252)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nwbxx"]
+size = Vector3(0.8793564, 0.736084, 0.49799347)
+
+[sub_resource type="FontFile" id="FontFile_3wxd1"]
+cache/0/32/0/ascent = 0.0
+cache/0/32/0/descent = 0.0
+cache/0/32/0/underline_position = 0.0
+cache/0/32/0/underline_thickness = 0.0
+cache/0/32/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/57/0/ascent = 0.0
+cache/0/57/0/descent = 0.0
+cache/0/57/0/underline_position = 0.0
+cache/0/57/0/underline_thickness = 0.0
+cache/0/57/0/scale = 1.0
+cache/0/62/0/ascent = 0.0
+cache/0/62/0/descent = 0.0
+cache/0/62/0/underline_position = 0.0
+cache/0/62/0/underline_thickness = 0.0
+cache/0/62/0/scale = 1.0
+cache/0/67/0/ascent = 0.0
+cache/0/67/0/descent = 0.0
+cache/0/67/0/underline_position = 0.0
+cache/0/67/0/underline_thickness = 0.0
+cache/0/67/0/scale = 1.0
+cache/0/72/0/ascent = 0.0
+cache/0/72/0/descent = 0.0
+cache/0/72/0/underline_position = 0.0
+cache/0/72/0/underline_thickness = 0.0
+cache/0/72/0/scale = 1.0
+cache/0/77/0/ascent = 0.0
+cache/0/77/0/descent = 0.0
+cache/0/77/0/underline_position = 0.0
+cache/0/77/0/underline_thickness = 0.0
+cache/0/77/0/scale = 1.0
+cache/0/82/0/ascent = 0.0
+cache/0/82/0/descent = 0.0
+cache/0/82/0/underline_position = 0.0
+cache/0/82/0/underline_thickness = 0.0
+cache/0/82/0/scale = 1.0
+cache/0/87/0/ascent = 0.0
+cache/0/87/0/descent = 0.0
+cache/0/87/0/underline_position = 0.0
+cache/0/87/0/underline_thickness = 0.0
+cache/0/87/0/scale = 1.0
+cache/0/92/0/ascent = 0.0
+cache/0/92/0/descent = 0.0
+cache/0/92/0/underline_position = 0.0
+cache/0/92/0/underline_thickness = 0.0
+cache/0/92/0/scale = 1.0
+cache/0/97/0/ascent = 0.0
+cache/0/97/0/descent = 0.0
+cache/0/97/0/underline_position = 0.0
+cache/0/97/0/underline_thickness = 0.0
+cache/0/97/0/scale = 1.0
+cache/0/102/0/ascent = 0.0
+cache/0/102/0/descent = 0.0
+cache/0/102/0/underline_position = 0.0
+cache/0/102/0/underline_thickness = 0.0
+cache/0/102/0/scale = 1.0
+cache/0/107/0/ascent = 0.0
+cache/0/107/0/descent = 0.0
+cache/0/107/0/underline_position = 0.0
+cache/0/107/0/underline_thickness = 0.0
+cache/0/107/0/scale = 1.0
+cache/0/112/0/ascent = 0.0
+cache/0/112/0/descent = 0.0
+cache/0/112/0/underline_position = 0.0
+cache/0/112/0/underline_thickness = 0.0
+cache/0/112/0/scale = 1.0
+cache/0/52/0/ascent = 0.0
+cache/0/52/0/descent = 0.0
+cache/0/52/0/underline_position = 0.0
+cache/0/52/0/underline_thickness = 0.0
+cache/0/52/0/scale = 1.0
+cache/0/47/0/ascent = 0.0
+cache/0/47/0/descent = 0.0
+cache/0/47/0/underline_position = 0.0
+cache/0/47/0/underline_thickness = 0.0
+cache/0/47/0/scale = 1.0
 
 [node name="SpaceShip" type="Node3D"]
 
@@ -219,6 +311,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.153984, 1.4762912, -71.348
 shape = SubResource("BoxShape3D_go2nn")
 debug_color = Color(0.7997977, 0.03614273, 0.9999998, 0.41960785)
 
+[node name="CollisionShape3D20" type="CollisionShape3D" parent="Coliders/walls/wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.373644, 1.4762912, -59.833538)
+shape = SubResource("BoxShape3D_37uu3")
+debug_color = Color(0.7997977, 0.03614273, 0.9999998, 0.41960785)
+
 [node name="Map" type="Node3D" parent="."]
 
 [node name="Floor_Descent_01" parent="Map" instance=ExtResource("5_y6apl")]
@@ -244,6 +341,7 @@ transform = Transform3D(4.964872, 0, 0, 0, 2.8, 0, 0, 0, 1.782, 9.168729, 0, -22
 
 [node name="Door_Vert_02" parent="Map" instance=ExtResource("8_75qhq")]
 transform = Transform3D(1, 0, 0, 0, 1.1250658, 0, 0, 0, 1.0334994, 7.439949, 0, -18)
+visible = false
 
 [node name="DoorWay_01_Large" parent="Map" instance=ExtResource("11_e71rq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.119034, 0, -23.608805)
@@ -785,7 +883,53 @@ transform = Transform3D(1.509, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -
 [node name="Pipes_03" parent="Map" instance=ExtResource("27_80omj")]
 transform = Transform3D(1, 0, 0, 0, 1.2037904, 0, 0, 0, 1, 19.969038, -4.9466677, 14.602619)
 
+[node name="Doors" type="Node3D" parent="."]
+
+[node name="Door_Vert_03" parent="Doors" instance=ExtResource("7_m5bj0")]
+transform = Transform3D(0.967, 0, 0, 0, 1.15, 0, 0, 0, 1.073, 7.5000944, 0.0014703274, -18.12073)
+
+[node name="Intercom_01" parent="Doors/Door_Vert_03" node_paths=PackedStringArray("door") groups=["Intercom"] instance=ExtResource("28_3wxd1")]
+transform = Transform3D(-1.0341262, 0, -8.147509e-08, 0, 0.86956525, 0, 9.040617e-08, 0, -0.9319663, 1.7475429, 1.8538342, -0.017969131)
+script = ExtResource("29_3wxd1")
+door = NodePath("..")
+
+[node name="Intercom_02" parent="Doors/Door_Vert_03/Intercom_01" instance=ExtResource("28_3wxd1")]
+transform = Transform3D(-1, 0, 7.878643e-08, 0, 1, 0, -9.700584e-08, 0, -1.0000001, 0.7374077, 0, -1.9073486e-06)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Doors/Door_Vert_03/Intercom_01"]
+transform = Transform3D(-1, 0, 7.8786435e-08, 0, 1, 0, -9.7005845e-08, 0, -1.0000001, -0.11988449, 0.10351944, -0.08182907)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Doors/Door_Vert_03/Intercom_01/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.49076462, -0.10412288, -0.08282471)
+shape = SubResource("BoxShape3D_nwbxx")
+
+[node name="E" type="Label3D" parent="Doors/Door_Vert_03" node_paths=PackedStringArray("Labels")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 1.970819, 1.7193258, -0.011772156)
+billboard = 2
+shaded = true
+alpha_cut = 1
+text = "E"
+font = SubResource("FontFile_3wxd1")
+font_size = 47
+outline_size = 15
+script = ExtResource("30_7thtt")
+Labels = [NodePath("."), NodePath("../E2")]
+
+[node name="E2" type="Label3D" parent="Doors/Door_Vert_03"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 0.8092595, 1.7193258, -0.011772105)
+billboard = 2
+shaded = true
+alpha_cut = 1
+text = "E"
+font = SubResource("FontFile_3wxd1")
+font_size = 47
+outline_size = 15
+
 [node name="Lights" type="Node3D" parent="."]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(0.06427105, 0, 0.99793255, 0, 1, 0, -0.99793255, 0, 0.06427105, 15.391502, 1.9712927, -17.69879)
+spot_range = 72.603
 
 [node name="Reactor" parent="." instance=ExtResource("28_m5bj0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.736668, -4.7566414, 13.193343)

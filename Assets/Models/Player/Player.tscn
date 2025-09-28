@@ -1,6 +1,7 @@
-[gd_scene load_steps=20 format=4 uid="uid://bqay0w81atqtb"]
+[gd_scene load_steps=21 format=4 uid="uid://bqay0w81atqtb"]
 
 [ext_resource type="Script" uid="uid://dvtv1gx43d5ey" path="res://Scripts/Map/Movement.gd" id="1_854hw"]
+[ext_resource type="Script" uid="uid://boo27hlf6kvy8" path="res://Scripts/Map/RayCastControler.gd" id="2_cy1nd"]
 [ext_resource type="Texture2D" uid="uid://c5xdtuqidww16" path="res://Assets/Materials/Flashlight/Flashlight.png" id="3_l1yor"]
 [ext_resource type="Material" uid="uid://5lvs2qdklqyt" path="res://Assets/Models/Player/Models/Character_Texture.tres" id="3_xb7um"]
 [ext_resource type="Script" uid="uid://bjq7ubbkelrht" path="res://Scripts/Map/Lighter.gd" id="4_cy1nd"]
@@ -2444,6 +2445,7 @@ shape = SubResource("CapsuleShape3D_l1yor")
 
 [node name="Player_Model" type="Node3D" parent="CharacterBody3D"]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+script = ExtResource("2_cy1nd")
 
 [node name="Skeleton3D" type="Skeleton3D" parent="CharacterBody3D/Player_Model"]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
@@ -2944,3 +2946,6 @@ energy_on = 15.0
 fade_speed = 7.0
 flicker_enabled = true
 flicker_frequency = 9.0
+
+[node name="RayCast3D" type="RayCast3D" parent="CharacterBody3D/CameraPoint/Camera3D"]
+transform = Transform3D(1, -2.0130685e-07, 1.5046197e-07, 1.5099369e-07, 0.007050426, -1.0017481, 1.501973e-07, 1.333195, 0.005297613, 4.8428774e-08, 0, -0.29725337)

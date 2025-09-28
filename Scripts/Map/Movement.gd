@@ -24,7 +24,6 @@ const SAVE_PATH = "user://game_save.tres"
 @onready var collision_shape: CollisionShape3D = $CollisionShape3D
 @onready var camera_pivot: Node3D = $CameraPoint
 @onready var animation_player: AnimationPlayer = $Player_Model/AnimationPlayer
-
 var current_speed: float = WALK_SPEED
 var target_fov: float = NORMAL_FOV
 var is_crouching: bool = false
