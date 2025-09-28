@@ -107,7 +107,6 @@ shape = SubResource("BoxShape3D_m5bj0")
 debug_color = Color(0.98217446, 0, 0.36662665, 0.5019608)
 
 [node name="sloping floor" type="StaticBody3D" parent="Coliders/floor"]
-metadata/surface_type = "metal"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Coliders/floor/sloping floor"]
 shape = SubResource("ConvexPolygonShape3D_m5bj0")
@@ -262,7 +261,7 @@ transform = Transform3D(0.11296517, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, -6.414385)
 transform = Transform3D(4.964872, 0, 0, 0, 2.8, 0, 0, 0, 1.782, 9.168729, 0, -34.278408)
 
 [node name="Wall_Console_01_Half" parent="Map" instance=ExtResource("13_25l23")]
-transform = Transform3D(1, 0, 0, 0, 1.4216881, 0, 0, 0, 1, 18.799812, -1, -32.449863)
+transform = Transform3D(1, 0, 0, 0, 1.4456291, 0, 0, 0, 1, 18.799812, -1.0630469, -32.449863)
 
 [node name="Crate_01" parent="Map" instance=ExtResource("14_4h1n7")]
 transform = Transform3D(-4.3711392e-08, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, -4.3711392e-08, 17.811945, 0, -24.441656)
@@ -325,7 +324,7 @@ transform = Transform3D(-0.37322634, 0, -8.74228e-08, 0, 1, 0, 3.2628485e-08, 0,
 transform = Transform3D(0.37451354, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, -23.568068)
 
 [node name="Wall_Console_01_Large" parent="Map" instance=ExtResource("19_8yjdx")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1.4255532, 0, -8.742278e-08, 0, -1, 9.398623, -1.0141757, -26.448124)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1.4255532, 0, -8.742278e-08, 0, -1, 9.398623, -1.0673366, -26.448124)
 
 [node name="Wall_Pipes_01_Large" parent="Map" instance=ExtResource("20_25l23")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.67114, -1.1006548, -11.820392)
