@@ -2,7 +2,7 @@
 
 [ext_resource type="AudioStream" uid="uid://bhcqqt38uh7am" path="res://Assets/Audio/AmbientMenu.ogg" id="1_3qq0f"]
 [ext_resource type="Script" uid="uid://cbpbi0f8bhqun" path="res://Scripts/Core/audio_manager.gd" id="2_u7jhb"]
-[ext_resource type="AudioStream" uid="uid://c6nalpbxqfdcn" path="res://Assets/Audio/AmbientGAme.ogg" id="3_433xu"]
+[ext_resource type="AudioStream" uid="uid://c6nalpbxqfdcn" path="res://Assets/Audio/AmbientGame.ogg" id="3_433xu"]
 
 [node name="SoundManager" type="Node"]
 
