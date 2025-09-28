@@ -73,15 +73,9 @@ func _on_close_pressed() -> void:
 	save_settings()
 	visible = false
 	var parent = get_parent()
-	var buttons = [
-		"Start",
-		"Load",
-		"Settings",
-		"Exit"
-	]
-	for button_name in buttons:
-		if parent.has_node(button_name):
-			var button = parent.get_node(button_name)
+	for button_name in ["Start", "Load", "Settings", "Exit"]:
+		var button = parent.get_node_or_null(button_name)
+		if button:
 			button.visible = true
 
 func _on_button_hover() -> void:

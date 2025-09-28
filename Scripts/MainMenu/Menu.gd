@@ -22,12 +22,10 @@ func _ready() -> void:
 	settings_button.mouse_entered.connect(_on_button_hover)
 	quit_button.mouse_entered.connect(_on_button_hover)
 	
-	# Отключаем кнопку "Загрузить", если нет сохранения
 	load_button.disabled = not ResourceLoader.exists(SAVE_PATH)
 
 func _on_start_pressed() -> void:
 	if ResourceLoader.exists(SAVE_PATH):
-		# Создаем диалог подтверждения
 		var dialog = ConfirmationDialog.new()
 		dialog.dialog_text = "У вас есть сохранение. Вы уверены, что хотите начать новую игру? Это перезапишет текущее сохранение."
 		dialog.confirmed.connect(_start_new_game)
@@ -39,7 +37,6 @@ func _on_start_pressed() -> void:
 
 func _start_new_game() -> void:
 	if start_scene != "":
-		# Удаляем старое сохранение
 		if ResourceLoader.exists(SAVE_PATH):
 			DirAccess.remove_absolute(SAVE_PATH)
 		GameState.clear_loaded_data()
@@ -51,11 +48,7 @@ func _on_load_pressed() -> void:
 		if save_data and save_data.scene_data:
 			GameState.loaded_player_data = save_data.player_data
 			GameState.loaded_scene_data = save_data.scene_data
-			var error = get_tree().change_scene_to_packed(GameState.loaded_scene_data)
-			if error != OK:
-				push_error("Failed to load saved scene: ", error)
-		else:
-			push_error("No valid scene data found in save file")
+			get_tree().change_scene_to_packed(GameState.loaded_scene_data)
 
 func _on_button_hover() -> void:
 	if AudioManager.has_node("ButtonPlayer"):
