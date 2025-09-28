@@ -58,14 +58,14 @@ omni_shadow_mode = 0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 27.301323, 350.19022)
-light_energy = 16.0
+light_energy = 19.665
 light_indirect_energy = 16.0
-light_volumetric_fog_energy = 6.52
-light_angular_distance = 54.45
-light_specular = 3.58
+light_volumetric_fog_energy = 4.419
+light_angular_distance = 6.27
+light_specular = 0.509
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(0.34995455, -0.67768496, -0.6467418, 0.32251057, 0.7353524, -0.5960233, 0.87949914, 1.6898204e-08, 0.4759005, -5.019648, 15.270544, 12.022185)
+transform = Transform3D(0.34995455, -0.67768496, -0.6467418, 0.32251057, 0.7353524, -0.5960233, 0.87949914, 1.6932685e-08, 0.4759005, -6.309636, 15.270544, 12.022185)
 light_energy = 4.459
 light_indirect_energy = 3.586
 light_volumetric_fog_energy = 3.263
@@ -111,7 +111,6 @@ offset_bottom = 598.0
 text = "Выйти"
 
 [node name="Control" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("audio_slider", "sound_slider", "fullscreen_checkbox", "vsync_checkbox", "refresh_rate_option", "close_button")]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 81.0

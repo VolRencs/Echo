@@ -131,7 +131,8 @@ func _handle_crouching(delta: float) -> void:
 	target_fov = CROUCH_FOV if is_crouching else NORMAL_FOV
 
 func _handle_sprinting() -> void:
-	is_sprinting = Input.is_action_pressed("sprint") and is_on_floor() and not is_crouching
+	var input_dir: Vector2 = Input.get_vector("left", "right", "up", "down")
+	is_sprinting = Input.is_action_pressed("sprint") and is_on_floor() and not is_crouching and input_dir.y < 0
 	current_speed = SPRINT_SPEED if is_sprinting else (CROUCH_SPEED if is_crouching else WALK_SPEED)
 	target_fov = SPRINT_FOV if is_sprinting else (CROUCH_FOV if is_crouching else NORMAL_FOV)
 

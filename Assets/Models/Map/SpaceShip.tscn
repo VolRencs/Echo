@@ -39,10 +39,10 @@ points = PackedVector3Array(1.73, 0, 0, 6.445, 0, 0, 2.1, -4.975, 12.05, 5.775, 
 size = Vector3(21.171555, 0.51, 13.583633)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3wxd1"]
-size = Vector3(1.204, 5.74, 12.129)
+size = Vector3(1.204, 11.277226, 12.129)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7thtt"]
-size = Vector3(1.542, 5.74, 11.966)
+size = Vector3(1.542, 10.78394, 11.966)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wfvcp"]
 size = Vector3(4.523773, 1.0182381, 0.99453354)
@@ -107,6 +107,7 @@ shape = SubResource("BoxShape3D_m5bj0")
 debug_color = Color(0.98217446, 0, 0.36662665, 0.5019608)
 
 [node name="sloping floor" type="StaticBody3D" parent="Coliders/floor"]
+metadata/surface_type = "metal"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Coliders/floor/sloping floor"]
 shape = SubResource("ConvexPolygonShape3D_m5bj0")
@@ -125,12 +126,12 @@ debug_color = Color(0.96535945, 0, 0.48565158, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 36.28666)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Coliders/walls/wall"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3748422, -2.8747585, -30.21954)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3748422, -0.10614514, -30.21954)
 shape = SubResource("BoxShape3D_3wxd1")
 debug_color = Color(0.7997977, 0.03614273, 0.9999998, 0.41960785)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Coliders/walls/wall"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.727963, -2.874, -30.301474)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.727963, -0.3520298, -30.301474)
 shape = SubResource("BoxShape3D_7thtt")
 debug_color = Color(0.7997977, 0.03614273, 0.9999998, 0.41960785)
 
@@ -327,7 +328,7 @@ transform = Transform3D(0.37451354, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, -23.568068)
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1.4255532, 0, -8.742278e-08, 0, -1, 9.398623, -1.0141757, -26.448124)
 
 [node name="Wall_Pipes_01_Large" parent="Map" instance=ExtResource("20_25l23")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.67114, 0, -11)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.67114, -1.1006548, -11.820392)
 
 [node name="Floor_Third_03_Strip_2x8" parent="Map" instance=ExtResource("10_r85er")]
 transform = Transform3D(4.6686625, 0, 0, 0, 0.9, 0, 0, 0, 1.7160001, 19, 0, -20)

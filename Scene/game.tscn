@@ -17,14 +17,16 @@ radiance_size = 4
 
 [sub_resource type="Environment" id="Environment_q485k"]
 background_mode = 2
+background_energy_multiplier = 0.5
 sky = SubResource("Sky_thj8p")
-ambient_light_sky_contribution = 0.7
+ambient_light_sky_contribution = 0.43
 fog_enabled = true
-fog_light_color = Color(0.89787936, 0.9561569, 1.049908, 1)
-fog_light_energy = 0.01
-fog_sun_scatter = 0.01
-fog_density = 0.0205
-fog_sky_affect = 0.39
+fog_light_color = Color(0.442, 0.47189996, 0.52, 1)
+fog_light_energy = 0.15
+fog_sun_scatter = 0.02
+fog_density = 0.03
+fog_aerial_perspective = 0.295
+fog_sky_affect = 0.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j338d"]
 bg_color = Color(0, 0, 0, 0.6431373)
@@ -44,7 +46,7 @@ shader_parameter/opacity = 0.1200000057
 environment = SubResource("Environment_q485k")
 
 [node name="Player" parent="." instance=ExtResource("2_thj8p")]
-transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 4.0562706, 0.13462377, -3.191855)
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 4.0562706, 0.14923441, -3.191855)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("continue_button", "settings_button", "quit_button", "control_panel", "player_node")]
 process_mode = 3
