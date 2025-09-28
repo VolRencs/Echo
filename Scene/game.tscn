@@ -46,7 +46,7 @@ environment = SubResource("Environment_q485k")
 [node name="Player" parent="." instance=ExtResource("2_thj8p")]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 4.0562706, 0.13462377, -3.191855)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("continue_button", "settings_button", "quit_button", "control_panel")]
+[node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("continue_button", "settings_button", "quit_button", "control_panel", "player_node")]
 process_mode = 3
 process_priority = 1
 script = ExtResource("3_h8jt7")
@@ -54,6 +54,7 @@ continue_button = NodePath("Start")
 settings_button = NodePath("Settings")
 quit_button = NodePath("Exit")
 control_panel = NodePath("Control")
+player_node = NodePath("../Player")
 
 [node name="Start" type="Button" parent="CanvasLayer"]
 offset_left = 883.0

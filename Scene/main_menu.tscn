@@ -73,9 +73,10 @@ light_size = 1.0
 spot_range = 6.1486897
 spot_angle = 38.717186
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("start_button", "settings_button", "quit_button", "control_panel")]
+[node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("start_button", "load_button", "settings_button", "quit_button", "control_panel")]
 script = ExtResource("4_ejkra")
 start_button = NodePath("Start")
+load_button = NodePath("Load")
 settings_button = NodePath("Settings")
 quit_button = NodePath("Exit")
 control_panel = NodePath("Control")
@@ -83,10 +84,17 @@ start_scene = "uid://3w36cuohiy7j"
 
 [node name="Start" type="Button" parent="CanvasLayer"]
 offset_left = 883.0
-offset_top = 353.0
+offset_top = 282.0
 offset_right = 1136.0
-offset_bottom = 404.0
+offset_bottom = 333.0
 text = "Начать игру"
+
+[node name="Load" type="Button" parent="CanvasLayer"]
+offset_left = 883.0
+offset_top = 364.0
+offset_right = 1136.0
+offset_bottom = 415.0
+text = "Загрузить"
 
 [node name="Settings" type="Button" parent="CanvasLayer"]
 offset_left = 883.0
@@ -103,6 +111,7 @@ offset_bottom = 598.0
 text = "Выйти"
 
 [node name="Control" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("audio_slider", "sound_slider", "fullscreen_checkbox", "vsync_checkbox", "refresh_rate_option", "close_button")]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 81.0

@@ -72,9 +72,17 @@ func _on_refresh_rate_selected(index: int) -> void:
 func _on_close_pressed() -> void:
 	save_settings()
 	visible = false
-	
-	for button in [get_parent().get_node("Start"), get_parent().get_node("Settings"), get_parent().get_node("Exit")]:
-		button.visible = true
+	var parent = get_parent()
+	var buttons = [
+		"Start",
+		"Load",
+		"Settings",
+		"Exit"
+	]
+	for button_name in buttons:
+		if parent.has_node(button_name):
+			var button = parent.get_node(button_name)
+			button.visible = true
 
 func _on_button_hover() -> void:
 	var player = AudioManager.get_node("ButtonPlayer") as AudioStreamPlayer

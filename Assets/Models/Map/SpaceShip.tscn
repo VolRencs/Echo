@@ -94,9 +94,6 @@ size = Vector3(11.4037695, 4.967, 2.4174595)
 
 [node name="SpaceShip" type="Node3D"]
 
-[node name="Reactor" parent="." instance=ExtResource("28_m5bj0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.736668, -4.7566414, 13.193343)
-
 [node name="Coliders" type="Node3D" parent="."]
 
 [node name="floor" type="Node3D" parent="Coliders"]
@@ -789,3 +786,6 @@ transform = Transform3D(1.509, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -
 transform = Transform3D(1, 0, 0, 0, 1.2037904, 0, 0, 0, 1, 19.969038, -4.9466677, 14.602619)
 
 [node name="Lights" type="Node3D" parent="."]
+
+[node name="Reactor" parent="." instance=ExtResource("28_m5bj0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.736668, -4.7566414, 13.193343)

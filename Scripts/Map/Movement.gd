@@ -1,6 +1,5 @@
 extends CharacterBody3D
 
-# Константы движения
 const MOUSE_SENSITIVITY: float = 0.0015
 const MAX_PITCH: float = deg_to_rad(80.0)
 const MIN_PITCH: float = deg_to_rad(-60.0)
@@ -19,14 +18,13 @@ const CAMERA_SMOOTH_SPEED: float = 10.0
 const SPRINT_FOV: float = 80.0
 const NORMAL_FOV: float = 70.0
 const CROUCH_FOV: float = 65.0
+const SAVE_PATH = "user://game_save.tres"
 
-# Ссылки на узлы
 @onready var camera: Camera3D = $CameraPoint/Camera3D
 @onready var collision_shape: CollisionShape3D = $CollisionShape3D
 @onready var camera_pivot: Node3D = $CameraPoint
 @onready var animation_player: AnimationPlayer = $Player_Model/AnimationPlayer
 
-# Переменные состояния
 var current_speed: float = WALK_SPEED
 var target_fov: float = NORMAL_FOV
 var is_crouching: bool = false
@@ -39,16 +37,18 @@ var step_interval: float = 1.0
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	camera.rotation.x = rotation_y
-	rotation.y = rotation_x
+	if not GameState.loaded_player_data.is_empty():
+		var saved_position = GameState.loaded_player_data.get("position", position)
+		var saved_rotation = GameState.loaded_player_data.get("rotation_y", rotation.y)
+		position = saved_position
+		rotation.y = saved_rotation
+		GameState.clear_loaded_data()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		rotation_x -= event.relative.x * MOUSE_SENSITIVITY
-		rotation_y -= event.relative.y * MOUSE_SENSITIVITY
-		rotation_y = clamp(rotation_y, MIN_PITCH, MAX_PITCH)
+		rotate_y(-event.relative.x * MOUSE_SENSITIVITY)
+		rotation_y = clamp(rotation_y - event.relative.y * MOUSE_SENSITIVITY, MIN_PITCH, MAX_PITCH)
 		camera.rotation.x = rotation_y
-		rotation.y = rotation_x
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -134,3 +134,16 @@ func _handle_sprinting() -> void:
 	is_sprinting = Input.is_action_pressed("sprint") and is_on_floor() and not is_crouching
 	current_speed = SPRINT_SPEED if is_sprinting else (CROUCH_SPEED if is_crouching else WALK_SPEED)
 	target_fov = SPRINT_FOV if is_sprinting else (CROUCH_FOV if is_crouching else NORMAL_FOV)
+
+func save_position() -> void:
+	var save_data = GameSave.new()
+	save_data.player_data = {
+		"position": position,
+		"rotation_y": rotation.y
+	}
+	var current_scene = get_tree().current_scene
+	if current_scene and current_scene.name == "Game":
+		var packed_scene = PackedScene.new()
+		if packed_scene.pack(current_scene) == OK:
+			save_data.scene_data = packed_scene
+	ResourceSaver.save(save_data, SAVE_PATH)
