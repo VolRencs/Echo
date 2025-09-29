@@ -21,11 +21,13 @@ func door_close():
 	play_sound_Door()
 	
 func play_sound_Door():
-	if AudioManager.has_node("SecondDoor"):
-		var SecondDoor = AudioManager.get_node("SecondDoor") as AudioStreamPlayer
-		if SecondDoor.playing:
-			SecondDoor.stop()
-		SecondDoor.play()
+	var players = get_tree().get_nodes_in_group("Sound")
+	for player in players:
+		if player.name == "SecondDoor" and player is AudioStreamPlayer:
+			if player.playing:
+				player.stop()
+			player.play()
+			break
 
 func _on_animation_player_animation_finished(anim_name: String):
 	if anim_name == "Close":

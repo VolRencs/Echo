@@ -1,5 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bjt25wsqiork3"]
+[gd_scene load_steps=11 format=3 uid="uid://bjt25wsqiork3"]
 
+[ext_resource type="AudioStream" uid="uid://bhcqqt38uh7am" path="res://Assets/Audio/AmbientMenu.ogg" id="1_0uxn8"]
+[ext_resource type="Script" uid="uid://cbpbi0f8bhqun" path="res://Scripts/Core/audio_manager.gd" id="2_ipjx0"]
+[ext_resource type="AudioStream" uid="uid://c6nalpbxqfdcn" path="res://Assets/Audio/AmbientGame.ogg" id="3_vc04g"]
 [ext_resource type="AudioStream" uid="uid://duo77ldmx4gjh" path="res://Assets/Audio/Dver_2.ogg" id="4_hmrhg"]
 [ext_resource type="AudioStream" uid="uid://dia86g3wfevnx" path="res://Assets/Audio/ButtonHover.ogg" id="4_qb2uw"]
 [ext_resource type="AudioStream" uid="uid://bxowr8qutv17o" path="res://Assets/Audio/Dver_O.ogg" id="5_mtrov"]
@@ -10,23 +13,42 @@
 
 [node name="AudioManager" type="Node"]
 
-[node name="ButtonPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Music" type="Node" parent="."]
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="Music" groups=["Music"]]
+stream = ExtResource("1_0uxn8")
+autoplay = true
+parameters/looping = true
+script = ExtResource("2_ipjx0")
+scenes_to_play = Array[String](["MainMenu"])
+
+[node name="GameMusic" type="AudioStreamPlayer" parent="Music" groups=["Music"]]
+process_mode = 3
+stream = ExtResource("3_vc04g")
+autoplay = true
+parameters/looping = true
+script = ExtResource("2_ipjx0")
+scenes_to_play = Array[String](["Game"])
+
+[node name="Sound" type="Node" parent="."]
+
+[node name="Button" type="AudioStreamPlayer" parent="Sound" groups=["Sound"]]
 stream = ExtResource("4_qb2uw")
 
-[node name="StepPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Step" type="AudioStreamPlayer" parent="Sound" groups=["Sound"]]
 stream = ExtResource("5_t5cg5")
 
-[node name="LighterPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Lighter" type="AudioStreamPlayer" parent="Sound" groups=["Sound"]]
 stream = ExtResource("6_gh54k")
 
-[node name="SecondDoor" type="AudioStreamPlayer" parent="."]
+[node name="SecondDoor" type="AudioStreamPlayer" parent="Sound" groups=["Sound"]]
 stream = ExtResource("4_hmrhg")
 
-[node name="MainDoorOpen" type="AudioStreamPlayer" parent="."]
+[node name="MainDoorOpen" type="AudioStreamPlayer" parent="Sound" groups=["Sound"]]
 stream = ExtResource("5_mtrov")
 
-[node name="MainDoorClosed" type="AudioStreamPlayer" parent="."]
+[node name="MainDoorClosed" type="AudioStreamPlayer" parent="Sound" groups=["Sound"]]
 stream = ExtResource("6_t0e50")
 
-[node name="Intercom" type="AudioStreamPlayer" parent="."]
+[node name="Intercom" type="AudioStreamPlayer" parent="Sound" groups=["Sound"]]
 stream = ExtResource("7_av0mf")

@@ -33,6 +33,8 @@ func toggle_flashlight():
 	is_on = !is_on
 	target_energy = energy_on if is_on else energy_off
 	
-	if AudioManager.has_node("LighterPlayer"):
-		var player = AudioManager.get_node("LighterPlayer")
-		player.play()
+	var players = get_tree().get_nodes_in_group("Sound")
+	for player in players:
+			if player.name == "Lighter":
+				player.play()
+				break

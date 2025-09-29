@@ -51,11 +51,13 @@ func _on_load_pressed() -> void:
 			get_tree().change_scene_to_packed(GameState.loaded_scene_data)
 
 func _on_button_hover() -> void:
-	if AudioManager.has_node("ButtonPlayer"):
-		var player = AudioManager.get_node("ButtonPlayer") as AudioStreamPlayer
-		if player.playing:
-			player.stop()
-		player.play()
+	var players = get_tree().get_nodes_in_group("Sound")
+	for player in players:
+		if player.name == "Button" and player is AudioStreamPlayer:
+			if player.playing:
+				player.stop()
+			player.play()
+			break
 
 func _on_settings_pressed() -> void:
 	control_panel.visible = true

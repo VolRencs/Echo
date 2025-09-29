@@ -18,7 +18,6 @@ config/icon="uid://jaxmdqyhwsib"
 [autoload]
 
 AudioManager="*res://Scene/audio_manager.tscn"
-SoundManager="*res://Scene/sound_manager.tscn"
 GameState="*res://Scripts/Core/GameState.gd"
 
 [debug]
@@ -36,6 +35,8 @@ window/stretch/mode="canvas_items"
 [global_group]
 
 Intercom=""
+Sound=""
+Music=""
 
 [input]
 

@@ -110,13 +110,13 @@ offset_right = 1139.0
 offset_bottom = 598.0
 text = "Выйти"
 
-[node name="Control" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("audio_slider", "sound_slider", "fullscreen_checkbox", "vsync_checkbox", "refresh_rate_option", "close_button")]
+[node name="Control" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("music_slider", "sound_slider", "fullscreen_checkbox", "vsync_checkbox", "refresh_rate_option", "close_button")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 81.0
 offset_bottom = 76.0
 script = ExtResource("5_yok32")
-audio_slider = NodePath("Audio")
+music_slider = NodePath("Music")
 sound_slider = NodePath("Sound")
 fullscreen_checkbox = NodePath("Window")
 vsync_checkbox = NodePath("VSync")
@@ -131,14 +131,14 @@ offset_right = 240.0
 offset_bottom = 93.0
 text = "Назад"
 
-[node name="Sound" type="HSlider" parent="CanvasLayer/Control"]
+[node name="Music" type="HSlider" parent="CanvasLayer/Control"]
 layout_mode = 0
 offset_left = 798.0
 offset_top = 336.0
 offset_right = 1172.0
 offset_bottom = 445.0
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/Sound"]
+[node name="Label" type="Label" parent="CanvasLayer/Control/Music"]
 layout_mode = 0
 offset_left = 144.0
 offset_top = 16.0
@@ -148,21 +148,22 @@ theme_override_colors/font_shadow_color = Color(0.55815613, 0.55815613, 0.558156
 text = "Музыка"
 horizontal_alignment = 1
 
-[node name="Audio" type="HSlider" parent="CanvasLayer/Control"]
+[node name="Sound" type="HSlider" parent="CanvasLayer/Control"]
 layout_mode = 0
 offset_left = 798.0
-offset_top = 417.0
+offset_top = 405.0
 offset_right = 1172.0
-offset_bottom = 526.0
+offset_bottom = 514.0
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/Audio"]
+[node name="Label" type="Label" parent="CanvasLayer/Control/Sound"]
 layout_mode = 0
 offset_left = 144.0
 offset_top = 16.0
 offset_right = 230.0
 offset_bottom = 44.0
 theme_override_colors/font_shadow_color = Color(0.55815613, 0.55815613, 0.55815613, 1)
-text = "Звуки"
+text = "Звуки
+"
 horizontal_alignment = 1
 
 [node name="Window" type="CheckBox" parent="CanvasLayer/Control"]

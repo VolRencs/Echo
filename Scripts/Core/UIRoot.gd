@@ -53,11 +53,13 @@ func _on_settings_pressed() -> void:
 	quit_button.visible = false
 
 func _on_button_hover() -> void:
-	if AudioManager.has_node("ButtonPlayer"):
-		var player = AudioManager.get_node("ButtonPlayer") as AudioStreamPlayer
-		if player.playing:
-			player.stop()
-		player.play()
+	var players = get_tree().get_nodes_in_group("Sound")
+	for player in players:
+		if player.name == "Button" and player is AudioStreamPlayer:
+			if player.playing:
+				player.stop()
+			player.play()
+			break
 
 func _on_quit_pressed() -> void:
 	var player = _find_player()

@@ -7,9 +7,11 @@ func on_interact():
 	if door and door.has_method("on_interact"):
 		var doorstatus = door.door_open
 		if doorstatus == false:
-			if AudioManager.has_node("Intercom"):
-				var Intercom = AudioManager.get_node("Intercom") as AudioStreamPlayer
-				if Intercom.playing:
-					Intercom.stop()
-				Intercom.play()
+			var players = get_tree().get_nodes_in_group("Sound")
+			for player in players:
+				if player.name == "Intercom" and player is AudioStreamPlayer:
+					if player.playing:
+						player.stop()
+					player.play()
+					break
 		door.on_interact()
