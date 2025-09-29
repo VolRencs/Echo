@@ -2930,7 +2930,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.036014106, 3.19458, -0.2861
 cull_mask = 524287
 
 [node name="SpotLight3D" type="SpotLight3D" parent="CharacterBody3D/CameraPoint/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7252903e-08, -0.25701046, -0.5315032)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7252903e-09, -0.37068605, -0.304994)
 light_energy = 10.858
 light_indirect_energy = 3.101
 light_volumetric_fog_energy = 1.165
