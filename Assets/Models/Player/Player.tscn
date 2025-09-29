@@ -7,15 +7,15 @@
 [ext_resource type="Script" uid="uid://bjq7ubbkelrht" path="res://Scripts/Map/Lighter.gd" id="4_cy1nd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_854hw"]
-radius = 0.3203125
-height = 0.98957825
+radius = 0.35205078
+height = 0.94449615
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cy1nd"]
 size = Vector3(0.031042516, 0.001, 0.031442642)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l1yor"]
-radius = 0.23535156
-height = 0.48420715
+radius = 0.25048828
+height = 0.50097656
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bo5sc"]
 resource_name = "Character"
@@ -2432,7 +2432,7 @@ transform = Transform3D(-0.7, 0, -1.0569706e-07, 0, 0.7, 0, 1.0569706e-07, 0, -0
 script = ExtResource("1_854hw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
-transform = Transform3D(2.24, 0, 2.842171e-14, 0, 2.24, 0, -2.842171e-14, 0, 2.24, -1.0353838e-09, 1.4789561, 0.0068570375)
+transform = Transform3D(2.24, 0, 2.842171e-14, 0, 2.24, 0, -2.842171e-14, 0, 2.24, -1.0353838e-09, 1.4284642, 0.0068570375)
 shape = SubResource("CapsuleShape3D_854hw")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="CharacterBody3D"]
@@ -2440,7 +2440,7 @@ transform = Transform3D(5.0176, 0, -1.1368684e-13, 0, 5.0176, 0, 1.1368684e-13, 
 shape = SubResource("BoxShape3D_cy1nd")
 
 [node name="Head" type="CollisionShape3D" parent="CharacterBody3D"]
-transform = Transform3D(2.24, 0, 2.842171e-14, 0, 2.24, 0, -2.842171e-14, 0, 2.24, 2.5720253e-08, 3.1252902, -0.17033751)
+transform = Transform3D(2.24, 0, 2.842171e-14, 0, 2.24, 0, -2.842171e-14, 0, 2.24, 2.5720253e-08, 3.0953062, -0.17033751)
 shape = SubResource("CapsuleShape3D_l1yor")
 
 [node name="Player_Model" type="Node3D" parent="CharacterBody3D"]
