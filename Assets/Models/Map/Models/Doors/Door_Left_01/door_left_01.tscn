@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bd60vc52ssry8"]
+
+[ext_resource type="PackedScene" uid="uid://by0rk6au6ix7q" path="res://Assets/Models/Map/Models/Doors/Door_Left_01/Door_Left_01.fbx" id="1_gjpk6"]
+
+[node name="Door_Left_01" instance=ExtResource("1_gjpk6")]

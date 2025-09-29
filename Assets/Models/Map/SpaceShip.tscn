@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://bn7wp1p2ekyjx"]
+[gd_scene load_steps=60 format=3 uid="uid://bn7wp1p2ekyjx"]
 
 [ext_resource type="PackedScene" uid="uid://ba01biwqbxdxo" path="res://Assets/Models/Map/Models/Floors/Floor_Descent_01/Floor_Descent_01.fbx" id="5_y6apl"]
 [ext_resource type="PackedScene" uid="uid://6ji1qe4kv2bm" path="res://Assets/Models/Map/Models/Floors/Floor_Angle_01_6x6/Floor_Angle_01_6x6.fbx" id="6_5uurm"]
@@ -34,6 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://12s7q4xb6b4q" path="res://Assets/Models/Map/Models/Props/Airing_01/Airing_01.fbx" id="30_yhi06"]
 [ext_resource type="PackedScene" uid="uid://h5h35lac7jin" path="res://Assets/Models/Map/Models/Lights/Light_Corridor_01/Light_Corridor_01.fbx" id="31_kkwoi"]
 [ext_resource type="PackedScene" uid="uid://cmwb1ksjfg5m7" path="res://Assets/Models/Map/Models/Stuff/Air_Grid_01/Air_Grid_01.fbx" id="32_7s5p8"]
+[ext_resource type="PackedScene" uid="uid://h1omdvhg2127" path="res://Assets/Models/Map/Models/Doors/MainDoor/MainDoor.tscn" id="32_yhi06"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m5bj0"]
 margin = 7.42
@@ -103,7 +104,7 @@ size = Vector3(11.4037695, 4.967, 2.4174595)
 size = Vector3(0.7477339, 4.967, 11.95252)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nwbxx"]
-size = Vector3(0.8793564, 0.736084, 0.49799347)
+size = Vector3(1.0735989, 0.736084, 0.49799347)
 
 [sub_resource type="FontFile" id="FontFile_3wxd1"]
 subpixel_positioning = 0
@@ -937,6 +938,7 @@ transform = Transform3D(-1, 0, 7.8786435e-08, 0, 1, 0, -9.7005845e-08, 0, -1.000
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Doors/Door1/Intercom1/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.49076462, -0.10412288, -0.08282471)
 shape = SubResource("BoxShape3D_nwbxx")
+debug_color = Color(0.54883903, 0, 0.2815656, 0.41960785)
 
 [node name="Label1" type="Label3D" parent="Doors/Door1/Intercom1" groups=["LabelControllers"]]
 transform = Transform3D(-4.2268898e-08, 0, -0.967, 0, 1.15, 0, 1.0729998, 0, -4.6902333e-08, -0.21590805, -0.15468454, -0.0066452026)
@@ -975,6 +977,7 @@ transform = Transform3D(-1, 0, 7.8786435e-08, 0, 1, 0, -9.7005845e-08, 0, -1.000
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Doors/Door2/Intercom1/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.49076462, -0.10412288, -0.08282471)
 shape = SubResource("BoxShape3D_nwbxx")
+debug_color = Color(0.54883903, 0, 0.2815656, 0.41960785)
 
 [node name="Label1" type="Label3D" parent="Doors/Door2/Intercom1" groups=["LabelControllers"]]
 transform = Transform3D(-4.226892e-08, 0, -0.967, 0, 1.15, 0, 1.0730001, 0, -4.6902322e-08, -0.21590805, -0.15468454, -0.0066490173)
@@ -988,6 +991,50 @@ outline_size = 15
 
 [node name="Label2" type="Label3D" parent="Doors/Door2/Intercom1" groups=["LabelControllers"]]
 transform = Transform3D(-4.226892e-08, 0, -0.967, 0, 1.15, 0, 1.0730001, 0, -4.6902322e-08, 0.90732, -0.15468454, -0.0066490173)
+billboard = 2
+shaded = true
+alpha_cut = 1
+text = "E"
+font = SubResource("FontFile_3wxd1")
+font_size = 47
+outline_size = 15
+
+[node name="MainDoor" type="Node3D" parent="Doors"]
+
+[node name="MainDoor" parent="Doors/MainDoor" instance=ExtResource("32_yhi06")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.587644, 0.06061101, -23.605993)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Doors/MainDoor" groups=["Sound"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.495986, 2.0535324, -22.933052)
+
+[node name="Intercom1" parent="Doors/MainDoor" instance=ExtResource("28_3wxd1")]
+transform = Transform3D(1.3113416e-07, 0, 0.90121156, 0, 1, 0, -1.1096174, 0, 1.3113417e-07, 9.712002, 2.2690496, -22.605534)
+
+[node name="Intercom2" parent="Doors/MainDoor/Intercom1" node_paths=PackedStringArray("door") groups=["Intercom"] instance=ExtResource("28_3wxd1")]
+transform = Transform3D(-1, 0, -7.8786414e-08, 0, 1, 0, 9.7005824e-08, 0, -0.9999999, 0.91108954, 0, -1.9241968e-06)
+script = ExtResource("29_3wxd1")
+door = NodePath("../../MainDoor")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Doors/MainDoor/Intercom1/Intercom2"]
+transform = Transform3D(-1, 0, 7.8786435e-08, 0, 1, 0, -9.7005845e-08, 0, -1.0000001, -0.11988449, 0.10351944, -0.08182907)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Doors/MainDoor/Intercom1/Intercom2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.58371544, -0.10412288, -0.08282375)
+shape = SubResource("BoxShape3D_nwbxx")
+debug_color = Color(0.54883903, 0, 0.2815656, 0.41960785)
+
+[node name="Label1" type="Label3D" parent="Doors/MainDoor/Intercom1/Intercom2" groups=["LabelControllers"]]
+transform = Transform3D(-4.226892e-08, 0, -0.967, 0, 1.15, 0, 1.0730001, 0, -4.6902322e-08, -0.21590805, -0.15468454, -0.0066490173)
+billboard = 2
+shaded = true
+alpha_cut = 1
+text = "E"
+font = SubResource("FontFile_3wxd1")
+font_size = 47
+outline_size = 15
+
+[node name="Label2" type="Label3D" parent="Doors/MainDoor/Intercom1/Intercom2" groups=["LabelControllers"]]
+transform = Transform3D(-4.226892e-08, 0, -0.967, 0, 1.15, 0, 1.0730001, 0, -4.6902322e-08, 1.0735573, -0.15468454, -0.0066490094)
 billboard = 2
 shaded = true
 alpha_cut = 1
