@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var door: Node3D  # Ссылка на дверь (можно установить в инспекторе)
+@export var door: Node3D
  
 func on_interact():
 	print("1")

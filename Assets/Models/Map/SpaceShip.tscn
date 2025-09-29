@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://bn7wp1p2ekyjx"]
+[gd_scene load_steps=54 format=3 uid="uid://bn7wp1p2ekyjx"]
 
 [ext_resource type="PackedScene" uid="uid://ba01biwqbxdxo" path="res://Assets/Models/Map/Models/Floors/Floor_Descent_01/Floor_Descent_01.fbx" id="5_y6apl"]
 [ext_resource type="PackedScene" uid="uid://6ji1qe4kv2bm" path="res://Assets/Models/Map/Models/Floors/Floor_Angle_01_6x6/Floor_Angle_01_6x6.fbx" id="6_5uurm"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://c32h71lr36chc" path="res://Assets/Models/Map/Models/Walls/Wall_Cube_01_Long/Wall_Cube_01_Long.fbx" id="12_8yjdx"]
 [ext_resource type="PackedScene" uid="uid://c6q0ecyvhnlvr" path="res://Assets/Models/Map/Models/Walls/Wall_Console_01_Half/Wall_Console_01_Half.fbx" id="13_25l23"]
 [ext_resource type="PackedScene" uid="uid://e6oqk8t51hhr" path="res://Assets/Models/Map/Models/Props/Crate_01/Crate_01.fbx" id="14_4h1n7"]
-[ext_resource type="PackedScene" uid="uid://sscj3v0wvo2s" path="res://Assets/Models/Map/Models/Stuff/Intercom_02/Intercom_02.fbx" id="15_54gwy"]
 [ext_resource type="PackedScene" uid="uid://bpow08mwgje5l" path="res://Assets/Models/Map/Models/Stuff/Pipes_01/Pipes_01.fbx" id="16_1crl5"]
 [ext_resource type="PackedScene" uid="uid://c4ilylxqadbcm" path="res://Assets/Models/Map/Models/Walls/Wall_Simple_01_Coin/Wall_Simple_01_Coin.fbx" id="18_r85er"]
 [ext_resource type="PackedScene" uid="uid://68jf8t3dykk8" path="res://Assets/Models/Map/Models/Walls/Wall_Console_01_Large/Wall_Console_01_Large.fbx" id="19_8yjdx"]
@@ -28,9 +27,8 @@
 [ext_resource type="PackedScene" uid="uid://pj13hab6kdpn" path="res://Assets/Models/Map/Models/Walls/Wall_Down_01_Long/Wall_Down_01_Long.fbx" id="27_m5bj0"]
 [ext_resource type="PackedScene" uid="uid://cvb1wivas1hce" path="res://Assets/Models/Map/Models/Stuff/Intercom_01/Intercom_01.fbx" id="28_3wxd1"]
 [ext_resource type="PackedScene" uid="uid://bla64fdbhvua6" path="res://Assets/Models/Map/Models/InteractiveModel/Reactor/Reactor.tscn" id="28_m5bj0"]
-[ext_resource type="Script" uid="uid://dgm1dk4tpagja" path="res://Scripts/Map/Door/IntercomControler.gd" id="29_3wxd1"]
+[ext_resource type="Script" uid="uid://dgm1dk4tpagja" path="res://Scripts/Map/Door/IntercomController.gd" id="29_3wxd1"]
 [ext_resource type="PackedScene" uid="uid://dncthok281tnn" path="res://Assets/Models/Map/Models/Walls/Porthole_01_Long/Porthole_01_Long.fbx" id="29_eseo8"]
-[ext_resource type="Script" uid="uid://dgug8ahxf32ef" path="res://Scripts/Map/LabelControler.gd" id="30_7thtt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m5bj0"]
 margin = 7.42
@@ -103,6 +101,9 @@ size = Vector3(0.7477339, 4.967, 11.95252)
 size = Vector3(0.8793564, 0.736084, 0.49799347)
 
 [sub_resource type="FontFile" id="FontFile_3wxd1"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/32/0/ascent = 0.0
 cache/0/32/0/descent = 0.0
 cache/0/32/0/underline_position = 0.0
@@ -277,7 +278,7 @@ shape = SubResource("BoxShape3D_4glpf")
 debug_color = Color(0.7997977, 0.03614273, 0.9999998, 0.41960785)
 
 [node name="CollisionShape3D13" type="CollisionShape3D" parent="Coliders/walls/wall"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.994766, 1.4762912, -56.123886)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.994766, 1.4762912, -56.80224)
 shape = SubResource("BoxShape3D_h5fdi")
 debug_color = Color(0.7997977, 0.03614273, 0.9999998, 0.41960785)
 
@@ -330,14 +331,11 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7, 0
 [node name="Floor_Angle_01_6x7" parent="Map" instance=ExtResource("6_5uurm")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 19, 0, 0)
 
-[node name="Door_Vert_01" parent="Map" instance=ExtResource("8_75qhq")]
-transform = Transform3D(1, 0, 0, 0, 1.118844, 0, 0, 0, 1, 18, 0, -18)
-
 [node name="Floor_Squared_02_6x6" parent="Map" instance=ExtResource("9_vb7ca")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, -12)
 
 [node name="Floor_Third_03_Strip_2x6" parent="Map" instance=ExtResource("10_r85er")]
-transform = Transform3D(4.964872, 0, 0, 0, 2.8, 0, 0, 0, 1.782, 9.168729, 0, -22.689375)
+transform = Transform3D(5.229828, 0, 0, 0, 2.8, 0, 0, 0, 1.782, 8.884078, 0, -22.689375)
 
 [node name="Door_Vert_02" parent="Map" instance=ExtResource("8_75qhq")]
 transform = Transform3D(1, 0, 0, 0, 1.1250658, 0, 0, 0, 1.0334994, 7.439949, 0, -18)
@@ -363,9 +361,6 @@ transform = Transform3D(1, 0, 0, 0, 1.4456291, 0, 0, 0, 1, 18.799812, -1.0630469
 
 [node name="Crate_01" parent="Map" instance=ExtResource("14_4h1n7")]
 transform = Transform3D(-4.3711392e-08, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, -4.3711392e-08, 17.811945, 0, -24.441656)
-
-[node name="Intercom_02" parent="Map" instance=ExtResource("15_54gwy")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 18.482159, 2, -22.67405)
 
 [node name="Pipes_01" parent="Map" instance=ExtResource("16_1crl5")]
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 13.713015, 0, -8.573032)
@@ -428,19 +423,19 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1.4255532, 0, -8.742278e-08, 0, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.67114, -1.1006548, -11.820392)
 
 [node name="Floor_Third_03_Strip_2x8" parent="Map" instance=ExtResource("10_r85er")]
-transform = Transform3D(4.6686625, 0, 0, 0, 0.9, 0, 0, 0, 1.7160001, 19, 0, -20)
+transform = Transform3D(4.6686625, 0, 0, 0, 0.9, 0, 0, 0, 1.7160001, 19, 0, -20.469118)
 
 [node name="Wall_Cube_01_Long17" parent="Map" instance=ExtResource("12_8yjdx")]
 transform = Transform3D(0.37387675, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, -12.414385)
 
 [node name="Wall_Cube_01_Long18" parent="Map" instance=ExtResource("12_8yjdx")]
-transform = Transform3D(-3.9502916e-09, 0, -1.47015, 0, 1, 0, 0.09037214, 0, -6.426229e-08, 27.847332, 0, -19.849438)
+transform = Transform3D(-3.9502916e-09, 0, -1.47015, 0, 1, 0, 0.09037214, 0, -6.426229e-08, 27.847332, 0, -20.555553)
 
 [node name="Wall_Gear_03_Half" parent="Map" instance=ExtResource("21_448um")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1.3483801, 0, -1, 0, -4.371139e-08, 19.529463, -1.0163282, -18.159746)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1.3483801, 0, -1, 0, -4.371139e-08, 19.529463, -1.0163282, -18.954956)
 
 [node name="Wall_Gear_03_Half2" parent="Map" instance=ExtResource("21_448um")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1.3483801, 0, -1, 0, -4.371139e-08, 24.094376, -1.0162414, -18.159746)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1.3483801, 0, -1, 0, -4.371139e-08, 24.094376, -1.0162414, -18.866724)
 
 [node name="Wall_Gear_03_Half3" parent="Map" instance=ExtResource("21_448um")]
 transform = Transform3D(-4.3711395e-08, 0, -1, 0, 1.3483801, 0, 1, 0, -4.3711395e-08, 22.897158, -0.9942014, -11.883713)
@@ -464,7 +459,7 @@ transform = Transform3D(0.11296517, 0, 0, 0, 1.7580278, 0, 0, 0, 0.8334223, -1.0
 transform = Transform3D(-4.9393867e-09, 0, -0.9022659, 0, 1.758, 0, 0.113, 0, -3.9439296e-08, 4.558304, 0, -22.460985)
 
 [node name="Wall_Cube_01_Long24" parent="Map" instance=ExtResource("12_8yjdx")]
-transform = Transform3D(0.2122176, 0, 0, 0, 1, 0, 0, 0, 1.6, 27.843987, 0, -19.688437)
+transform = Transform3D(0.2122176, 0, 0, 0, 1, 0, 0, 0, 1.7302494, 27.843987, 0, -20.54104)
 
 [node name="Wall_Cube_01_Long23" parent="Map" instance=ExtResource("12_8yjdx")]
 transform = Transform3D(-4.9378643e-09, 0, -0.79322284, 0, 1, 0, 0.11296517, 0, -3.4672873e-08, 13.2118845, 0, -12.223343)
@@ -883,28 +878,34 @@ transform = Transform3D(1.509, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -
 [node name="Pipes_03" parent="Map" instance=ExtResource("27_80omj")]
 transform = Transform3D(1, 0, 0, 0, 1.2037904, 0, 0, 0, 1, 19.969038, -4.9466677, 14.602619)
 
+[node name="DoorWay_01_Up3" parent="Map" instance=ExtResource("26_dprnl")]
+transform = Transform3D(3.7802756e-08, -8.742277e-08, 0.6577259, -3.3048223e-15, -0.99999994, -5.7500227e-08, 0.8648264, 0, -2.8750113e-08, 19.049362, -0.055115342, -12.399955)
+
+[node name="DoorWay_01_Up4" parent="Map" instance=ExtResource("26_dprnl")]
+transform = Transform3D(3.8804973e-08, -8.742277e-08, 0.6577259, -3.392439e-15, -0.99999994, -5.7500227e-08, 0.88775444, 0, -2.8750113e-08, 8.501893, -0.055115342, -12.225789)
+
 [node name="Doors" type="Node3D" parent="."]
 
-[node name="Door_Vert_03" parent="Doors" instance=ExtResource("7_m5bj0")]
+[node name="Door1" parent="Doors" instance=ExtResource("7_m5bj0")]
 transform = Transform3D(0.967, 0, 0, 0, 1.15, 0, 0, 0, 1.073, 7.5000944, 0.0014703274, -18.12073)
 
-[node name="Intercom_01" parent="Doors/Door_Vert_03" node_paths=PackedStringArray("door") groups=["Intercom"] instance=ExtResource("28_3wxd1")]
+[node name="Intercom1" parent="Doors/Door1" node_paths=PackedStringArray("door") groups=["Intercom"] instance=ExtResource("28_3wxd1")]
 transform = Transform3D(-1.0341262, 0, -8.147509e-08, 0, 0.86956525, 0, 9.040617e-08, 0, -0.9319663, 1.7475429, 1.8538342, -0.017969131)
 script = ExtResource("29_3wxd1")
 door = NodePath("..")
 
-[node name="Intercom_02" parent="Doors/Door_Vert_03/Intercom_01" instance=ExtResource("28_3wxd1")]
+[node name="Intercom2" parent="Doors/Door1/Intercom1" instance=ExtResource("28_3wxd1")]
 transform = Transform3D(-1, 0, 7.878643e-08, 0, 1, 0, -9.700584e-08, 0, -1.0000001, 0.7374077, 0, -1.9073486e-06)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Doors/Door_Vert_03/Intercom_01"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Doors/Door1/Intercom1"]
 transform = Transform3D(-1, 0, 7.8786435e-08, 0, 1, 0, -9.7005845e-08, 0, -1.0000001, -0.11988449, 0.10351944, -0.08182907)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Doors/Door_Vert_03/Intercom_01/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Doors/Door1/Intercom1/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.49076462, -0.10412288, -0.08282471)
 shape = SubResource("BoxShape3D_nwbxx")
 
-[node name="E" type="Label3D" parent="Doors/Door_Vert_03" node_paths=PackedStringArray("Labels")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 1.970819, 1.7193258, -0.011772156)
+[node name="Label1" type="Label3D" parent="Doors/Door1/Intercom1" groups=["LabelControllers"]]
+transform = Transform3D(-4.2268898e-08, 0, -0.967, 0, 1.15, 0, 1.0729998, 0, -4.6902333e-08, -0.21590805, -0.15468454, -0.0066452026)
 billboard = 2
 shaded = true
 alpha_cut = 1
@@ -912,11 +913,47 @@ text = "E"
 font = SubResource("FontFile_3wxd1")
 font_size = 47
 outline_size = 15
-script = ExtResource("30_7thtt")
-Labels = [NodePath("."), NodePath("../E2")]
 
-[node name="E2" type="Label3D" parent="Doors/Door_Vert_03"]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 0.8092595, 1.7193258, -0.011772105)
+[node name="Label2" type="Label3D" parent="Doors/Door1/Intercom1" groups=["LabelControllers"]]
+transform = Transform3D(-4.2268898e-08, 0, -0.967, 0, 1.15, 0, 1.0729998, 0, -4.6902333e-08, 0.90732, -0.15468454, -0.0066452026)
+billboard = 2
+shaded = true
+alpha_cut = 1
+text = "E"
+font = SubResource("FontFile_3wxd1")
+font_size = 47
+outline_size = 15
+
+[node name="Door2" parent="Doors" instance=ExtResource("7_m5bj0")]
+transform = Transform3D(0.967, 0, 0, 0, 1.15, 0, 0, 0, 1.073, 18.042543, 0.0014703274, -18.12073)
+
+[node name="Intercom1" parent="Doors/Door2" node_paths=PackedStringArray("door") groups=["Intercom"] instance=ExtResource("28_3wxd1")]
+transform = Transform3D(-1.0341262, 0, -8.147509e-08, 0, 0.86956525, 0, 9.040617e-08, 0, -0.9319663, 1.7475429, 1.8538342, -0.017969131)
+script = ExtResource("29_3wxd1")
+door = NodePath("..")
+
+[node name="Intercom2" parent="Doors/Door2/Intercom1" instance=ExtResource("28_3wxd1")]
+transform = Transform3D(-1, 0, 7.878643e-08, 0, 1, 0, -9.700584e-08, 0, -1.0000001, 0.7374077, 0, -1.9073486e-06)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Doors/Door2/Intercom1"]
+transform = Transform3D(-1, 0, 7.8786435e-08, 0, 1, 0, -9.7005845e-08, 0, -1.0000001, -0.11988449, 0.10351944, -0.08182907)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Doors/Door2/Intercom1/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.49076462, -0.10412288, -0.08282471)
+shape = SubResource("BoxShape3D_nwbxx")
+
+[node name="Label1" type="Label3D" parent="Doors/Door2/Intercom1" groups=["LabelControllers"]]
+transform = Transform3D(-4.226892e-08, 0, -0.967, 0, 1.15, 0, 1.0730001, 0, -4.6902322e-08, -0.21590805, -0.15468454, -0.0066490173)
+billboard = 2
+shaded = true
+alpha_cut = 1
+text = "E"
+font = SubResource("FontFile_3wxd1")
+font_size = 47
+outline_size = 15
+
+[node name="Label2" type="Label3D" parent="Doors/Door2/Intercom1" groups=["LabelControllers"]]
+transform = Transform3D(-4.226892e-08, 0, -0.967, 0, 1.15, 0, 1.0730001, 0, -4.6902322e-08, 0.90732, -0.15468454, -0.0066490173)
 billboard = 2
 shaded = true
 alpha_cut = 1
@@ -926,10 +963,6 @@ font_size = 47
 outline_size = 15
 
 [node name="Lights" type="Node3D" parent="."]
-
-[node name="SpotLight3D" type="SpotLight3D" parent="Lights"]
-transform = Transform3D(0.06427105, 0, 0.99793255, 0, 1, 0, -0.99793255, 0, 0.06427105, 15.391502, 1.9712927, -17.69879)
-spot_range = 72.603
 
 [node name="Reactor" parent="." instance=ExtResource("28_m5bj0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.736668, -4.7566414, 13.193343)

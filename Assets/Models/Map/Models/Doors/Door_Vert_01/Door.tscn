@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://b4idggouehntj"]
 
 [ext_resource type="PackedScene" uid="uid://blcq17fwqqyiq" path="res://Assets/Models/Map/Models/Doors/Door_Vert_01/Door_Vert_01.fbx" id="1_6fdxe"]
-[ext_resource type="Script" uid="uid://cjm122l2mkilt" path="res://Scripts/Map/Door/DoorControler.gd" id="2_m1auf"]
+[ext_resource type="Script" uid="uid://cjm122l2mkilt" path="res://Scripts/Map/Door/DoorController.gd" id="2_m1auf"]
 
 [sub_resource type="Animation" id="Animation_m1auf"]
 resource_name = "Open"
