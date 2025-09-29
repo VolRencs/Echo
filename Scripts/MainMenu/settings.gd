@@ -10,19 +10,12 @@ extends Control
 var refresh_rates: Array[float] = [60.0, 75.0, 120.0, 144.0, 165.0, 240.0]
 
 func _ready() -> void:
-	for node in get_tree().get_nodes_in_group("Music"):
-		if node is AudioStreamPlayer:
-			pass
-	for node in get_tree().get_nodes_in_group("Sound"):
-		if node is AudioStreamPlayer:
-			pass
 	
 	music_slider.min_value = -40
 	music_slider.max_value = 0
 	sound_slider.min_value = -40
 	sound_slider.max_value = 0
 	
-	# Устанавливаем начальные значения слайдеров
 	var music_players = get_tree().get_nodes_in_group("Music")
 	var sound_players = get_tree().get_nodes_in_group("Sound")
 	if music_players.size() > 0:
