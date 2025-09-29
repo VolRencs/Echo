@@ -86,3 +86,6 @@ rendering_device/driver.ios="vulkan"
 rendering_device/driver.macos="vulkan"
 rendering_device/fallback_to_d3d12=false
 rendering_device/fallback_to_opengl3=false
+lights_and_shadows/directional_shadow/size=2048
+shader_compiler/shader_cache/strip_debug=true
+lights_and_shadows/positional_shadow/atlas_size=2048

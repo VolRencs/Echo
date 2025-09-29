@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://bn7wp1p2ekyjx"]
+[gd_scene load_steps=59 format=3 uid="uid://bn7wp1p2ekyjx"]
 
 [ext_resource type="PackedScene" uid="uid://ba01biwqbxdxo" path="res://Assets/Models/Map/Models/Floors/Floor_Descent_01/Floor_Descent_01.fbx" id="5_y6apl"]
 [ext_resource type="PackedScene" uid="uid://6ji1qe4kv2bm" path="res://Assets/Models/Map/Models/Floors/Floor_Angle_01_6x6/Floor_Angle_01_6x6.fbx" id="6_5uurm"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://bbogs24j1l7y0" path="res://Assets/Models/Map/Models/Walls/Wall_Pipes_02_Large/Wall_Pipes_02_Large.fbx" id="25_eseo8"]
 [ext_resource type="PackedScene" uid="uid://c2yp55iifsakc" path="res://Assets/Models/Map/Models/Walls/Wall_Gear_02_Half/Wall_Gear_02_Half.fbx" id="26_80omj"]
 [ext_resource type="PackedScene" uid="uid://bvh2rqpadg1wr" path="res://Assets/Models/Map/Models/Doors/DoorWay_01_Up/DoorWay_01_Up.fbx" id="26_dprnl"]
+[ext_resource type="PackedScene" uid="uid://q0fnfiefnjpg" path="res://Assets/Models/Map/Models/Stuff/Pipes_02/Pipes_02.fbx" id="27_7s5p8"]
 [ext_resource type="PackedScene" uid="uid://u64x3xmgsypy" path="res://Assets/Models/Map/Models/Stuff/Pipes_03/Pipes_03.fbx" id="27_80omj"]
 [ext_resource type="PackedScene" uid="uid://pj13hab6kdpn" path="res://Assets/Models/Map/Models/Walls/Wall_Down_01_Long/Wall_Down_01_Long.fbx" id="27_m5bj0"]
 [ext_resource type="PackedScene" uid="uid://cvb1wivas1hce" path="res://Assets/Models/Map/Models/Stuff/Intercom_01/Intercom_01.fbx" id="28_3wxd1"]
@@ -30,6 +31,7 @@
 [ext_resource type="Script" uid="uid://dgm1dk4tpagja" path="res://Scripts/Map/Door/IntercomController.gd" id="29_3wxd1"]
 [ext_resource type="PackedScene" uid="uid://dncthok281tnn" path="res://Assets/Models/Map/Models/Walls/Porthole_01_Long/Porthole_01_Long.fbx" id="29_eseo8"]
 [ext_resource type="PackedScene" uid="uid://bifevxfjwbxs2" path="res://Assets/Models/Map/Models/Lights/Light_Corridor_02/Light_Corridor_02.fbx" id="30_wfvcp"]
+[ext_resource type="PackedScene" uid="uid://12s7q4xb6b4q" path="res://Assets/Models/Map/Models/Props/Airing_01/Airing_01.fbx" id="30_yhi06"]
 [ext_resource type="PackedScene" uid="uid://h5h35lac7jin" path="res://Assets/Models/Map/Models/Lights/Light_Corridor_01/Light_Corridor_01.fbx" id="31_kkwoi"]
 [ext_resource type="PackedScene" uid="uid://cmwb1ksjfg5m7" path="res://Assets/Models/Map/Models/Stuff/Air_Grid_01/Air_Grid_01.fbx" id="32_7s5p8"]
 
@@ -872,7 +874,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.119034, 0, -23.608805)
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 9.119034, 0, -22.608805)
 
 [node name="Crate_01" parent="Map/Other" instance=ExtResource("14_4h1n7")]
-transform = Transform3D(-4.3711392e-08, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, -4.3711392e-08, 17.811945, 0, -24.441656)
+transform = Transform3D(1.0000001, 0, 3.5527137e-15, 0, 1, 0, -3.5527137e-15, 0, 1.0000001, 18.464348, 0, -25.311548)
 
 [node name="Pipes_01" parent="Map/Other" instance=ExtResource("16_1crl5")]
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 13.713015, 0, -8.573032)
@@ -895,7 +897,26 @@ transform = Transform3D(3.7802756e-08, -8.742277e-08, 0.6577259, -3.3048223e-15,
 [node name="DoorWay_01_Up4" parent="Map/Other" instance=ExtResource("26_dprnl")]
 transform = Transform3D(3.8804973e-08, -8.742277e-08, 0.6577259, -3.392439e-15, -0.99999994, -5.7500227e-08, 0.88775444, 0, -2.8750113e-08, 8.501893, -0.055115342, -12.225789)
 
-[node name="Lights" type="Node3D" parent="Map"]
+[node name="Air_Grid_01" parent="Map/Other" instance=ExtResource("32_7s5p8")]
+transform = Transform3D(-0.99999994, 0, -1.2387363e-07, 0, 1, 0, 8.742277e-08, 0, -1.4169493, 9.196408, 3.3842335, -21.574205)
+
+[node name="Air_Grid_02" parent="Map/Other" instance=ExtResource("32_7s5p8")]
+transform = Transform3D(-0.99999994, 0, -7.7366785e-08, 0, 0.8135953, 0, 8.742277e-08, 0, -0.8849728, -0.85363096, 3.2451813, -21.07537)
+
+[node name="Air_Grid_03" parent="Map/Other" instance=ExtResource("32_7s5p8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.844736, 3.2754674, -15.366375)
+
+[node name="Air_Grid_04" parent="Map/Other" instance=ExtResource("32_7s5p8")]
+transform = Transform3D(-4.371139e-08, 0, 1.7051096, 0, 1, 0, -1, 0, -7.45327e-08, 7.673172, -1.1748999, 12.146259)
+
+[node name="Pipes_02" parent="Map/Other" instance=ExtResource("27_7s5p8")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 23.566957, 0.012958673, -10.716014)
+
+[node name="Airing_01" parent="Map/Other" instance=ExtResource("30_yhi06")]
+transform = Transform3D(0.14552361, 0, 0, 0, 0.14552361, 0, 0, 0, 0.14552361, 25.188082, 4.023344, -15.389773)
+
+[node name="Crate_02" parent="Map/Other" instance=ExtResource("14_4h1n7")]
+transform = Transform3D(-2.767229e-08, 0, -0.5293133, 0, 1, 0, 0.6330682, 0, -2.3137021e-08, 23.420294, 0.012884378, -19.527681)
 
 [node name="Doors" type="Node3D" parent="."]
 
@@ -977,47 +998,245 @@ outline_size = 15
 
 [node name="Lights" type="Node3D" parent="."]
 
-[node name="Reactor" parent="." instance=ExtResource("28_m5bj0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.736668, -4.7566414, 13.193343)
-
-[node name="Light_Corridor_02" parent="." instance=ExtResource("30_wfvcp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.992117, 4.004058, -8.3186)
-
-[node name="Light_Corridor_03" parent="." instance=ExtResource("30_wfvcp")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9.151251, 3.7461376, -3.2427166)
-
-[node name="Light_Corridor_04" parent="." instance=ExtResource("30_wfvcp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9651403, 3.8469195, 4.293635)
-
-[node name="Light_Corridor_01" parent="." instance=ExtResource("31_kkwoi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.800865, -0.18899328, 19.209175)
-
-[node name="Light_Corridor_05" parent="." instance=ExtResource("31_kkwoi")]
+[node name="Reactor" parent="Lights" instance=ExtResource("31_kkwoi")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8.27809, -0.15575284, 23.363173)
 
-[node name="Light_Corridor_06" parent="." instance=ExtResource("31_kkwoi")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.8916454, 3.9760888, -21.741947)
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights/Reactor"]
+light_color = Color(0.71825725, 0.6630902, 0.58039236, 1)
+light_energy = 2.0
+light_indirect_energy = 0.8
+light_volumetric_fog_energy = 1.5
+light_size = 2.0
+light_specular = 0.3
+light_cull_mask = 4294966273
+shadow_enabled = true
+shadow_bias = 2.0
+shadow_normal_bias = 0.5
+shadow_transmittance_bias = 0.0
+shadow_opacity = 0.9
+shadow_blur = 2.0
+shadow_caster_mask = 4294966273
+distance_fade_enabled = true
+distance_fade_begin = 10.0
+distance_fade_shadow = 10.0
+omni_range = 10.0
+omni_attenuation = 0.8
 
-[node name="Light_Corridor_07" parent="." instance=ExtResource("30_wfvcp")]
+[node name="Reactor2" parent="Lights" instance=ExtResource("31_kkwoi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.800865, -0.115848124, 19.209175)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights/Reactor2"]
+light_color = Color(0.71825725, 0.6630902, 0.58039236, 1)
+light_energy = 2.0
+light_indirect_energy = 0.8
+light_volumetric_fog_energy = 1.5
+light_size = 2.0
+light_specular = 0.3
+light_cull_mask = 4294966273
+shadow_enabled = true
+shadow_bias = 2.0
+shadow_normal_bias = 0.5
+shadow_transmittance_bias = 0.0
+shadow_opacity = 0.9
+shadow_blur = 2.0
+shadow_caster_mask = 4294966273
+distance_fade_enabled = true
+distance_fade_begin = 10.0
+distance_fade_shadow = 10.0
+omni_range = 10.0
+omni_attenuation = 0.8
+
+[node name="Corridor" parent="Lights" instance=ExtResource("30_wfvcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9651403, 3.9937806, 4.293635)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights/Corridor"]
+light_color = Color(0.71825725, 0.6630902, 0.58039236, 1)
+light_energy = 2.0
+light_indirect_energy = 0.8
+light_volumetric_fog_energy = 1.5
+light_size = 2.0
+light_specular = 0.3
+light_cull_mask = 4294966273
+shadow_enabled = true
+shadow_bias = 2.0
+shadow_normal_bias = 0.5
+shadow_transmittance_bias = 0.0
+shadow_opacity = 0.9
+shadow_blur = 2.0
+shadow_caster_mask = 4294966273
+distance_fade_enabled = true
+distance_fade_begin = 10.0
+distance_fade_shadow = 10.0
+omni_range = 10.0
+omni_attenuation = 0.8
+
+[node name="Corridor2" parent="Lights" instance=ExtResource("30_wfvcp")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9.151251, 4.0094304, -3.2427166)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights/Corridor2"]
+light_color = Color(0.71825725, 0.6630902, 0.58039236, 1)
+light_energy = 2.0
+light_indirect_energy = 0.8
+light_volumetric_fog_energy = 1.5
+light_size = 2.0
+light_specular = 0.3
+light_cull_mask = 4294966273
+shadow_enabled = true
+shadow_bias = 2.0
+shadow_normal_bias = 0.5
+shadow_transmittance_bias = 0.0
+shadow_opacity = 0.9
+shadow_blur = 2.0
+shadow_caster_mask = 4294966273
+distance_fade_enabled = true
+distance_fade_begin = 10.0
+distance_fade_shadow = 10.0
+omni_range = 10.0
+omni_attenuation = 0.8
+
+[node name="Corridor3" parent="Lights" instance=ExtResource("30_wfvcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.992117, 4.004058, -8.3186)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights/Corridor3"]
+light_color = Color(0.71825725, 0.6630902, 0.58039236, 1)
+light_energy = 2.0
+light_indirect_energy = 0.8
+light_volumetric_fog_energy = 1.5
+light_size = 2.0
+light_specular = 0.3
+light_cull_mask = 4294966273
+shadow_enabled = true
+shadow_bias = 2.0
+shadow_normal_bias = 0.5
+shadow_transmittance_bias = 0.0
+shadow_opacity = 0.9
+shadow_blur = 2.0
+shadow_caster_mask = 4294966273
+distance_fade_enabled = true
+distance_fade_begin = 10.0
+distance_fade_shadow = 10.0
+omni_range = 10.0
+omni_attenuation = 0.8
+
+[node name="Corridor4" parent="Lights" instance=ExtResource("30_wfvcp")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 13.99345, 4.004058, -17.325386)
 
-[node name="Light_Corridor_08" parent="." instance=ExtResource("30_wfvcp")]
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights/Corridor4"]
+light_color = Color(0.71825725, 0.6630902, 0.58039236, 1)
+light_energy = 2.0
+light_indirect_energy = 0.8
+light_volumetric_fog_energy = 1.5
+light_size = 2.0
+light_specular = 0.3
+light_cull_mask = 4294966273
+shadow_enabled = true
+shadow_bias = 2.0
+shadow_normal_bias = 0.5
+shadow_transmittance_bias = 0.0
+shadow_opacity = 0.9
+shadow_blur = 2.0
+shadow_caster_mask = 4294966273
+distance_fade_enabled = true
+distance_fade_begin = 10.0
+distance_fade_shadow = 10.0
+omni_range = 10.0
+omni_attenuation = 0.8
+
+[node name="Home" parent="Lights" instance=ExtResource("31_kkwoi")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.8916454, 4.003229, -21.741947)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights/Home"]
+light_color = Color(0.71825725, 0.6630902, 0.58039236, 1)
+light_energy = 2.0
+light_indirect_energy = 0.8
+light_volumetric_fog_energy = 1.5
+light_size = 2.0
+light_specular = 0.3
+light_cull_mask = 4294966273
+shadow_enabled = true
+shadow_bias = 2.0
+shadow_normal_bias = 0.5
+shadow_transmittance_bias = 0.0
+shadow_opacity = 0.9
+shadow_blur = 2.0
+shadow_caster_mask = 4294966273
+distance_fade_enabled = true
+distance_fade_begin = 10.0
+distance_fade_shadow = 10.0
+omni_range = 10.0
+omni_attenuation = 0.8
+
+[node name="Home2" parent="Lights" instance=ExtResource("30_wfvcp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.011593, 3.9763906, -15.236196)
 
-[node name="Light_Corridor_09" parent="." instance=ExtResource("31_kkwoi")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 11.64015, 3.9579782, -32.1428)
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights/Home2"]
+light_color = Color(0.71825725, 0.6630902, 0.58039236, 1)
+light_energy = 2.0
+light_indirect_energy = 0.8
+light_volumetric_fog_energy = 1.5
+light_size = 2.0
+light_specular = 0.3
+light_cull_mask = 4294966273
+shadow_enabled = true
+shadow_bias = 2.0
+shadow_normal_bias = 0.5
+shadow_transmittance_bias = 0.0
+shadow_opacity = 0.9
+shadow_blur = 2.0
+shadow_caster_mask = 4294966273
+distance_fade_enabled = true
+distance_fade_begin = 10.0
+distance_fade_shadow = 10.0
+omni_range = 10.0
+omni_attenuation = 0.8
 
-[node name="Light_Corridor_10" parent="." instance=ExtResource("31_kkwoi")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 16.595095, 3.9579782, -32.1428)
+[node name="Home3" parent="Lights" instance=ExtResource("31_kkwoi")]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 11.64015, 4.0114636, -32.1428)
 
-[node name="Air_Grid_01" parent="." instance=ExtResource("32_7s5p8")]
-transform = Transform3D(-0.99999994, 0, -1.2387363e-07, 0, 1, 0, 8.742277e-08, 0, -1.4169493, 9.196408, 3.3842335, -21.574205)
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights/Home3"]
+light_color = Color(0.71825725, 0.6630902, 0.58039236, 1)
+light_energy = 2.0
+light_indirect_energy = 0.8
+light_volumetric_fog_energy = 1.5
+light_size = 2.0
+light_specular = 0.3
+light_cull_mask = 4294966273
+shadow_enabled = true
+shadow_bias = 2.0
+shadow_normal_bias = 0.5
+shadow_transmittance_bias = 0.0
+shadow_opacity = 0.9
+shadow_blur = 2.0
+shadow_caster_mask = 4294966273
+distance_fade_enabled = true
+distance_fade_begin = 10.0
+distance_fade_shadow = 10.0
+omni_range = 10.0
+omni_attenuation = 0.8
 
-[node name="Air_Grid_02" parent="." instance=ExtResource("32_7s5p8")]
-transform = Transform3D(-0.99999994, 0, -7.7366785e-08, 0, 0.8135953, 0, 8.742277e-08, 0, -0.8849728, -0.7192844, 3.2451813, -21.07537)
+[node name="Home4" parent="Lights" instance=ExtResource("31_kkwoi")]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 16.595095, 3.9873142, -32.1428)
 
-[node name="Air_Grid_03" parent="." instance=ExtResource("32_7s5p8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.844736, 3.2754674, -15.366375)
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights/Home4"]
+light_color = Color(0.71825725, 0.6630902, 0.58039236, 1)
+light_energy = 2.0
+light_indirect_energy = 0.8
+light_volumetric_fog_energy = 1.5
+light_size = 2.0
+light_specular = 0.3
+light_cull_mask = 4294966273
+shadow_enabled = true
+shadow_bias = 2.0
+shadow_normal_bias = 0.5
+shadow_transmittance_bias = 0.0
+shadow_opacity = 0.9
+shadow_blur = 2.0
+shadow_caster_mask = 4294966273
+distance_fade_enabled = true
+distance_fade_begin = 10.0
+distance_fade_shadow = 10.0
+omni_range = 10.0
+omni_attenuation = 0.8
 
-[node name="Air_Grid_04" parent="." instance=ExtResource("32_7s5p8")]
-transform = Transform3D(-4.371139e-08, 0, 1.7051096, 0, 1, 0, -1, 0, -7.45327e-08, 7.673172, -1.1748999, 12.146259)
+[node name="Reactor" parent="." instance=ExtResource("28_m5bj0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.736668, -4.7566414, 13.193343)
