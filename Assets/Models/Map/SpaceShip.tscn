@@ -1,11 +1,10 @@
-[gd_scene load_steps=63 format=3 uid="uid://bn7wp1p2ekyjx"]
+[gd_scene load_steps=62 format=3 uid="uid://bn7wp1p2ekyjx"]
 
 [ext_resource type="PackedScene" uid="uid://ba01biwqbxdxo" path="res://Assets/Models/Map/Models/Floors/Floor_Descent_01/Floor_Descent_01.fbx" id="5_y6apl"]
 [ext_resource type="PackedScene" uid="uid://6ji1qe4kv2bm" path="res://Assets/Models/Map/Models/Floors/Floor_Angle_01_6x6/Floor_Angle_01_6x6.fbx" id="6_5uurm"]
 [ext_resource type="PackedScene" uid="uid://b4idggouehntj" path="res://Assets/Models/Map/Models/Doors/Door_Vert_01/Door.tscn" id="7_m5bj0"]
 [ext_resource type="PackedScene" uid="uid://cw634qhh6n0hj" path="res://Assets/Models/Map/Models/Floors/Floor_Squared_01_6x6/Floor_Squared_01_6x6.fbx" id="7_ol57n"]
 [ext_resource type="PackedScene" uid="uid://d2dy1akvvjoil" path="res://Assets/Models/Map/Models/Floors/Floor_Third_02_Strip_2x6/Floor_Third_02_Strip_2x6.fbx" id="8_5uurm"]
-[ext_resource type="PackedScene" uid="uid://blcq17fwqqyiq" path="res://Assets/Models/Map/Models/Doors/Door_Vert_01/Door_Vert_01.fbx" id="8_75qhq"]
 [ext_resource type="PackedScene" uid="uid://tarre310wcpc" path="res://Assets/Models/Map/Models/Floors/Floor_Squared_02_6x6/Floor_Squared_02_6x6.fbx" id="9_vb7ca"]
 [ext_resource type="PackedScene" uid="uid://dgoqyb4r17vwn" path="res://Assets/Models/Map/Models/Floors/Floor_Third_03_Strip_2x6/Floor_Third_03_Strip_2x6.fbx" id="10_r85er"]
 [ext_resource type="PackedScene" uid="uid://3w2fvk5n6ru2" path="res://Assets/Models/Map/Models/Doors/DoorWay_01_Large/DoorWay_01_Large.fbx" id="11_e71rq"]
@@ -648,10 +647,10 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 19, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, -12)
 
 [node name="Floor_Third_03_Strip_2x6" parent="Map/Floor" instance=ExtResource("10_r85er")]
-transform = Transform3D(5.229828, 0, 0, 0, 2.8, 0, 0, 0, 1.782, 8.884078, 0, -22.689375)
+transform = Transform3D(5.12, 0, 0, 0, 2.766, 0, 0, 0, 1.761, 8.884078, 0, -22.689375)
 
 [node name="Floor_Third_03_Strip_2x8" parent="Map/Floor" instance=ExtResource("10_r85er")]
-transform = Transform3D(4.6686625, 0, 0, 0, 0.9, 0, 0, 0, 1.7160001, 19, 0, -20.469118)
+transform = Transform3D(4.6686625, 0, 0, 0, 0.9, 0, 0, 0, 1.7160001, 19.11982, 0, -20.469118)
 
 [node name="Floor_Third_03_Strip_2x9" parent="Map/Floor" instance=ExtResource("10_r85er")]
 transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 1.6776862, -1.0280809, 0, -22.254301)
@@ -867,10 +866,6 @@ transform = Transform3D(1, 0, 0, 0, 1.4456291, 0, 0, 0, 1, 18.799812, -1.0630469
 
 [node name="Other" type="Node3D" parent="Map"]
 
-[node name="Door_Vert_02" parent="Map/Other" instance=ExtResource("8_75qhq")]
-transform = Transform3D(1, 0, 0, 0, 1.1250658, 0, 0, 0, 1.0334994, 7.439949, 0, -18)
-visible = false
-
 [node name="DoorWay_01_Large" parent="Map/Other" instance=ExtResource("11_e71rq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.119034, 0, -23.608805)
 
@@ -896,7 +891,7 @@ transform = Transform3D(-3.903427e-08, 0, -0.749, 0, 1, 0, 0.893, 0, -3.273983e-
 transform = Transform3D(1, 0, 0, 0, 1.2037904, 0, 0, 0, 1, 19.969038, -4.9466677, 14.602619)
 
 [node name="DoorWay_01_Up3" parent="Map/Other" instance=ExtResource("26_dprnl")]
-transform = Transform3D(3.7802756e-08, -8.742277e-08, 0.6577259, -3.3048223e-15, -0.99999994, -5.7500227e-08, 0.8648264, 0, -2.8750113e-08, 19.049362, -0.055115342, -12.399955)
+transform = Transform3D(3.7802756e-08, -8.742277e-08, 0.6577259, -3.3048223e-15, -0.99999994, -5.7500227e-08, 0.8648264, 0, -2.8750113e-08, 19.049362, -0.0138139725, -12.399955)
 
 [node name="DoorWay_01_Up4" parent="Map/Other" instance=ExtResource("26_dprnl")]
 transform = Transform3D(3.8804973e-08, -8.742277e-08, 0.6577259, -3.392439e-15, -0.99999994, -5.7500227e-08, 0.88775444, 0, -2.8750113e-08, 8.501893, -0.055115342, -12.225789)
@@ -966,7 +961,7 @@ outline_size = 15
 
 [node name="Door" type="AudioStreamPlayer3D" parent="Doors/Door1" groups=["Sound"]]
 transform = Transform3D(1.0341262, 0, 0, 0, 0.86956525, 0, 0, 0, 0.9319664, 1.8086171, 1.9929215, 2.9945946)
-max_distance = 7.0
+max_distance = 12.0
 
 [node name="Door2" parent="Doors" instance=ExtResource("7_m5bj0")]
 transform = Transform3D(0.967, 0, 0, 0, 1.15, 0, 0, 0, 1.073, 18.042543, 0.0014703274, -18.12073)
@@ -1010,7 +1005,7 @@ outline_size = 15
 
 [node name="Door" type="AudioStreamPlayer3D" parent="Doors/Door2" groups=["Sound"]]
 transform = Transform3D(1.0341262, 0, 0, 0, 0.86956525, 0, 0, 0, 0.9319664, 0.96125793, 1.9929215, 2.999609)
-max_distance = 7.0
+max_distance = 12.0
 
 [node name="MainDoor" parent="Doors" instance=ExtResource("32_yhi06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.587644, 0.06061101, -23.605993)
@@ -1055,7 +1050,7 @@ outline_size = 15
 
 [node name="Door" type="AudioStreamPlayer3D" parent="Doors/MainDoor" groups=["Sound"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.90834236, 1.9929214, 0.6729412)
-max_distance = 7.0
+max_distance = 12.0
 
 [node name="Lights" type="Node3D" parent="."]
 
