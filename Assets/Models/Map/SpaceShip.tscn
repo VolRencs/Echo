@@ -1015,7 +1015,7 @@ sound_open = ExtResource("33_cxx40")
 sound_close = ExtResource("34_48wqt")
 
 [node name="Intercom1" parent="Doors/MainDoor" instance=ExtResource("28_3wxd1")]
-transform = Transform3D(1.3113416e-07, 0, 0.90121156, 0, 1, 0, -1.1096174, 0, 1.3113417e-07, -3.8756418, 2.2084386, 1.0004597)
+transform = Transform3D(1.3113416e-07, 0, 0.90121156, 0, 1, 0, -1.1096174, 0, 1.3113417e-07, -3.6270008, 2.0798726, 1.0004597)
 
 [node name="Intercom2" parent="Doors/MainDoor/Intercom1" node_paths=PackedStringArray("door") groups=["Intercom"] instance=ExtResource("28_3wxd1")]
 transform = Transform3D(-1, 0, -7.8786414e-08, 0, 1, 0, 9.7005824e-08, 0, -0.9999999, 0.91108954, 0, -1.9241968e-06)

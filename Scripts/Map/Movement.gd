@@ -32,11 +32,11 @@ var is_jumping: bool = false
 var rotation_y: float = 0.0
 var step_timer: float = 0.0
 var step_interval: float = 1.0
-var camera_offset: float = STAND_CAMERA_HEIGHT  # Начальная высота камеры
+var camera_offset: float = STAND_CAMERA_HEIGHT
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	camera.position.y = camera_offset  # Устанавливаем начальную высоту камеры
+	camera.position.y = camera_offset
 	if not GameState.loaded_player_data.is_empty():
 		position = GameState.loaded_player_data.get("position", position)
 		rotation.y = GameState.loaded_player_data.get("rotation_y", rotation.y)

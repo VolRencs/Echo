@@ -20,7 +20,7 @@ func spawn_single_asteroid():
 	var state = {
 		"position": generate_spawn_position(),
 		"velocity": generate_velocity(),
-		"model_path": asteroid_models_paths[randi() % asteroid_models_paths.size()], # Исправлено здесь
+		"model_path": asteroid_models_paths[randi() % asteroid_models_paths.size()],
 		"rotation_velocity": Vector3(randf_range(-0.5, 0.5), randf_range(-0.5, 0.5), randf_range(-0.5, 0.5))
 	}
 	asteroids.append(state)
