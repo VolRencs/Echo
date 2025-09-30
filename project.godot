@@ -17,7 +17,7 @@ config/icon="uid://jaxmdqyhwsib"
 
 [autoload]
 
-AudioManager="*res://Scene/audio_manager.tscn"
+AudioManager="*res://Scene/Core/AudioManager.tscn"
 GameState="*res://Scripts/Core/GameState.gd"
 
 [debug]

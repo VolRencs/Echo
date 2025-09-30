@@ -66,7 +66,7 @@ func _on_quit_pressed() -> void:
 	if player and player.has_method("save_position"):
 		player.save_position()
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://Scene/main_menu.tscn")
+	get_tree().change_scene_to_file("res://Scene/MainMenu/MainMenu.tscn")
 
 func _find_player() -> Node:
 	if not player_node:
