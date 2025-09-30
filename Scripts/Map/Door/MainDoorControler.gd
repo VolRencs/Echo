@@ -27,4 +27,7 @@ func door_close():
 	DoorOpenSound.play()
 	DoorLeftAnim.play("DoorLeftClose")
 	DoorRightAnim.play("DoorRightClose")
-	door_open = false
+
+func _on_animation_player_animation_finished(anim_name: String):
+	if anim_name == "DoorRightClose":
+		door_open = false

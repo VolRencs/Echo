@@ -322,3 +322,5 @@ shape = SubResource("BoxShape3D_4rs61")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
+
+[connection signal="animation_finished" from="Door_Right_01/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
