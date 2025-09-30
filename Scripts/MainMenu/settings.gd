@@ -48,12 +48,12 @@ func _populate_refresh_rates() -> void:
 
 func _on_music_slider_changed(value: float) -> void:
 	for player in get_tree().get_nodes_in_group("Music"):
-		if player is AudioStreamPlayer:
+		if player is AudioStreamPlayer or player is AudioStreamPlayer3D:
 			player.volume_db = value
 
 func _on_sound_slider_changed(value: float) -> void:
 	for player in get_tree().get_nodes_in_group("Sound"):
-		if player is AudioStreamPlayer:
+		if player is AudioStreamPlayer or player is AudioStreamPlayer3D:
 			player.volume_db = value
 
 func _on_fullscreen_toggled(pressed: bool) -> void:
