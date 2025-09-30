@@ -1006,6 +1006,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.587644, 0.06061101, -23.60
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Doors/MainDoor" groups=["Sound"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.495986, 2.0535324, -22.933052)
+max_distance = 7.0
 
 [node name="Intercom1" parent="Doors/MainDoor" instance=ExtResource("28_3wxd1")]
 transform = Transform3D(1.3113416e-07, 0, 0.90121156, 0, 1, 0, -1.1096174, 0, 1.3113417e-07, 9.712002, 2.2690496, -22.605534)
