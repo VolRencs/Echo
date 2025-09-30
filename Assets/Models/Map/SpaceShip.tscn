@@ -638,13 +638,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0087284, 1, 0, -6.042584)
 
 [node name="Floor_Squared_01_6x6" parent="Map/Floor" instance=ExtResource("7_ol57n")]
-transform = Transform3D(-4.4092918e-08, 0, 1, 0, 1, 0, -1.0087284, 0, -4.371139e-08, 7, 0, 0.00978601)
+transform = Transform3D(-4.432335e-08, 0, 1, 0, 1, 0, -1.014, 0, -4.371139e-08, 7, 0, 0.00978601)
 
 [node name="Floor_Angle_01_6x7" parent="Map/Floor" instance=ExtResource("6_5uurm")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 19, 0, 0)
+transform = Transform3D(-1, 0, -1.5039181e-07, 0, 1, 0, 1.509958e-07, 0, -0.996, 19, 0, -0.02243781)
 
 [node name="Floor_Squared_02_6x6" parent="Map/Floor" instance=ExtResource("9_vb7ca")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, -12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.022, 13, 0, -12.129556)
 
 [node name="Floor_Third_03_Strip_2x6" parent="Map/Floor" instance=ExtResource("10_r85er")]
 transform = Transform3D(5.12, 0, 0, 0, 2.766, 0, 0, 0, 1.761, 8.884078, 0, -22.689375)
@@ -961,7 +961,7 @@ outline_size = 15
 
 [node name="Door" type="AudioStreamPlayer3D" parent="Doors/Door1" groups=["Sound"]]
 transform = Transform3D(1.0341262, 0, 0, 0, 0.86956525, 0, 0, 0, 0.9319664, 1.8086171, 1.9929215, 2.9945946)
-max_distance = 12.0
+max_distance = 20.0
 
 [node name="Door2" parent="Doors" instance=ExtResource("7_m5bj0")]
 transform = Transform3D(0.967, 0, 0, 0, 1.15, 0, 0, 0, 1.073, 18.042543, 0.0014703274, -18.12073)
@@ -1005,7 +1005,7 @@ outline_size = 15
 
 [node name="Door" type="AudioStreamPlayer3D" parent="Doors/Door2" groups=["Sound"]]
 transform = Transform3D(1.0341262, 0, 0, 0, 0.86956525, 0, 0, 0, 0.9319664, 0.96125793, 1.9929215, 2.999609)
-max_distance = 12.0
+max_distance = 20.0
 
 [node name="MainDoor" parent="Doors" instance=ExtResource("32_yhi06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.587644, 0.06061101, -23.605993)
@@ -1050,7 +1050,7 @@ outline_size = 15
 
 [node name="Door" type="AudioStreamPlayer3D" parent="Doors/MainDoor" groups=["Sound"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.90834236, 1.9929214, 0.6729412)
-max_distance = 12.0
+max_distance = 20.0
 
 [node name="Lights" type="Node3D" parent="."]
 
