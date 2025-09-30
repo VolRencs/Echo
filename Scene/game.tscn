@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://rn2twt62et04" path="res://Assets/PNG/WorldEnvironment/MainMenu.png" id="1_ihreq"]
 [ext_resource type="PackedScene" uid="uid://bqay0w81atqtb" path="res://Assets/Models/Player/Player.tscn" id="2_thj8p"]
 [ext_resource type="Script" uid="uid://dh4b3tkg3bxnl" path="res://Scripts/Core/UIRoot.gd" id="3_h8jt7"]
-[ext_resource type="Script" uid="uid://tda8lwoyorg6" path="res://Scripts/MainMenu/settings.gd" id="4_sagxc"]
+[ext_resource type="Script" uid="uid://tda8lwoyorg6" path="res://Scripts/MainMenu/Settings.gd" id="4_sagxc"]
 [ext_resource type="Shader" uid="uid://bjr4hnsy2qv6l" path="res://Assets/Shader/Menu.gdshader" id="5_8f6ah"]
 [ext_resource type="PackedScene" uid="uid://bn7wp1p2ekyjx" path="res://Assets/Models/Map/SpaceShip.tscn" id="6_thj8p"]
 
@@ -46,7 +46,7 @@ shader_parameter/opacity = 0.1200000057
 environment = SubResource("Environment_q485k")
 
 [node name="Player" parent="." instance=ExtResource("2_thj8p")]
-transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 4.0562706, 0.14923441, -3.191855)
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 2.4205456, 0.12281841, -19.836605)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("continue_button", "settings_button", "quit_button", "control_panel", "player_node")]
 process_mode = 3

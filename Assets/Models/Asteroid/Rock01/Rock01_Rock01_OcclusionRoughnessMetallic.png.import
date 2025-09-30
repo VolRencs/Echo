@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dk13pmb5d7l6p"
-path.s3tc="res://.godot/imported/Rock01_Rock01_BaseColor.png-885a2e2a09983de223ff29fa25a86382.s3tc.ctex"
+uid="uid://xv0uefq57xjf"
+path.s3tc="res://.godot/imported/Rock01_Rock01_OcclusionRoughnessMetallic.png-c855f968a5a96ee387f3965d4dbea243.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "554786bd4dd56dde03514299181845e9"
+"md5": "e7f0d97be1cde36ce94120405895a0bf"
 }
 
 [deps]
 
-source_file="res://Assets/Models/asteroid/Rock01/Rock01_Rock01_BaseColor.png"
-dest_files=["res://.godot/imported/Rock01_Rock01_BaseColor.png-885a2e2a09983de223ff29fa25a86382.s3tc.ctex"]
+source_file="res://Assets/Models/Asteroid/Rock01/Rock01_Rock01_OcclusionRoughnessMetallic.png"
+dest_files=["res://.godot/imported/Rock01_Rock01_OcclusionRoughnessMetallic.png-c855f968a5a96ee387f3965d4dbea243.s3tc.ctex"]
 
 [params]
 

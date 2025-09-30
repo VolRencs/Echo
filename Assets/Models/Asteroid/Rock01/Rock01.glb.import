@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ctyk68ejbqq1d"
-path="res://.godot/imported/Rock02.glb-fe6651f9671a33b3b1dcadfb8f28f7e5.scn"
+uid="uid://hwixiwm3s5f3"
+path="res://.godot/imported/Rock01.glb-bebabc4d433ab0b40e642609d14423fa.scn"
 
 [deps]
 
-source_file="res://Assets/Models/asteroid/Rock02/Rock02.glb"
-dest_files=["res://.godot/imported/Rock02.glb-fe6651f9671a33b3b1dcadfb8f28f7e5.scn"]
+source_file="res://Assets/Models/Asteroid/Rock01/Rock01.glb"
+dest_files=["res://.godot/imported/Rock01.glb-bebabc4d433ab0b40e642609d14423fa.scn"]
 
 [params]
 

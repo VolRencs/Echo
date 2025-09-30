@@ -1,6 +1,6 @@
 extends Node
 
-@onready var ray = $"../CameraPoint/Camera3D/RayCast3D"
+@onready var ray = $"../Camera3D/RayCast3D"
 @onready var label_controllers = get_tree().get_nodes_in_group("LabelControllers")
 var current_target: Node = null
 

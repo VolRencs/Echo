@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://yskauub60nvs"]
+[gd_scene load_steps=8 format=3 uid="uid://yskauub60nvs"]
 
 [ext_resource type="Script" uid="uid://bgn5ixrrw3spy" path="res://Assets/Asteroid/AsteroidManager.gd" id="1_o57nq"]
 [ext_resource type="Script" uid="uid://baoh82300krux" path="res://Assets/Asteroid/SpawnArea.gd" id="2_2n38o"]
+[ext_resource type="PackedScene" uid="uid://hwixiwm3s5f3" path="res://Assets/Models/Asteroid/Rock01/Rock01.glb" id="2_ulnk0"]
+[ext_resource type="PackedScene" uid="uid://ctyk68ejbqq1d" path="res://Assets/Models/Asteroid/Rock02/Rock02.glb" id="3_y5jmp"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_wc73l"]
 
@@ -13,6 +15,7 @@ material = SubResource("StandardMaterial3D_2n38o")
 
 [node name="AsteroidManager" type="Node3D"]
 script = ExtResource("1_o57nq")
+asteroid_models_paths = Array[PackedScene]([ExtResource("2_ulnk0"), ExtResource("3_y5jmp")])
 spawn_area_path = NodePath("SpawnArea")
 spawn_side = "front"
 

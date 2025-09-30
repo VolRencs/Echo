@@ -4,10 +4,7 @@ extends Node3D
 @export var min_speed: float = 5.0
 @export var max_speed: float = 15.0
 @export var max_distance_from_camera: float = 50
-@export var asteroid_model_paths: Array[String] = [
-	"res://Assets/Models/asteroid/Rock01/Rock01.glb",
-	"res://Assets/Models/asteroid/Rock02/Rock02.glb"
-]
+@export var asteroid_models_paths: Array[PackedScene] = []
 @export var spawn_area_path: NodePath
 @export var spawn_side: String = "left"
 
@@ -23,7 +20,7 @@ func spawn_single_asteroid():
 	var state = {
 		"position": generate_spawn_position(),
 		"velocity": generate_velocity(),
-		"model_path": asteroid_model_paths[randi() % asteroid_model_paths.size()],
+		"model_path": asteroid_models_paths[randi() % asteroid_models_paths.size()], # Исправлено здесь
 		"rotation_velocity": Vector3(randf_range(-0.5, 0.5), randf_range(-0.5, 0.5), randf_range(-0.5, 0.5))
 	}
 	asteroids.append(state)
@@ -54,7 +51,7 @@ func generate_velocity() -> Vector3:
 	return direction.normalized() * randf_range(min_speed, max_speed)
 
 func create_asteroid_visual(state: Dictionary):
-	var asteroid = load(state.model_path).instantiate() as Node3D
+	var asteroid = state.model_path.instantiate() as Node3D
 	add_child(asteroid)
 	state.node = asteroid
 	asteroid.position = state.position
