@@ -438,7 +438,7 @@ transform = Transform3D(-4.9378643e-09, 0, -1, 0, 1, 0, 0.11296517, 0, -4.371139
 transform = Transform3D(-4.9378643e-09, 0, -1, 0, 1, 0, 0.11296517, 0, -4.371139e-08, 13, 0, -6.2448397)
 
 [node name="Wall_Cube_01_Long12" parent="Map/Wall" instance=ExtResource("12_8yjdx")]
-transform = Transform3D(-4.9378643e-09, 0, -1, 0, 1, 0, 0.11296517, 0, -4.371139e-08, 7, 0, 11.907527)
+transform = Transform3D(-4.9378643e-09, 0, -1, 0, 1, 0, 0.11296517, 0, -4.371139e-08, 7, 0, 11.677512)
 
 [node name="Wall_Cube_01_Long13" parent="Map/Wall" instance=ExtResource("12_8yjdx")]
 transform = Transform3D(0.11296517, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, -12.016418)
