@@ -11,8 +11,8 @@ radius = 0.25048828
 height = 0.50097656
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_854hw"]
-radius = 0.35205078
-height = 0.94449615
+radius = 0.2919922
+height = 0.9512119
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cy1nd"]
 size = Vector3(0.21687546, 0.001, 0.20293546)
@@ -2436,7 +2436,7 @@ transform = Transform3D(2.24, 0, 2.842171e-14, 0, 2.24, 0, -2.842171e-14, 0, 2.2
 shape = SubResource("CapsuleShape3D_l1yor")
 
 [node name="Character" type="CollisionShape3D" parent="CharacterBody3D"]
-transform = Transform3D(2.24, 0, 2.842171e-14, 0, 2.24, 0, -2.842171e-14, 0, 2.24, -1.0353838e-09, 1.4284642, 0.0068570375)
+transform = Transform3D(2.24, 0, 2.842171e-14, 0, 2.24, 0, -2.842171e-14, 0, 2.24, 1.2051668e-08, 1.4357984, -0.07981459)
 shape = SubResource("CapsuleShape3D_854hw")
 
 [node name="Ground" type="CollisionShape3D" parent="CharacterBody3D"]
@@ -2935,7 +2935,9 @@ light_indirect_energy = 3.101
 light_volumetric_fog_energy = 1.165
 light_projector = ExtResource("3_l1yor")
 light_size = 0.231
+light_cull_mask = 4293918721
 shadow_enabled = true
+shadow_caster_mask = 4293918721
 spot_range = 60.0
 spot_attenuation = 0.6
 spot_angle = 35.91
