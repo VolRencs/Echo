@@ -2907,12 +2907,14 @@ bones/64/scale = Vector3(1, 1, 1)
 
 [node name="Character" type="MeshInstance3D" parent="CharacterBody3D/Player_Model/Skeleton3D"]
 layers = 524288
+cast_shadow = 3
 mesh = SubResource("ArrayMesh_l1yor")
 skin = SubResource("Skin_cy1nd")
 surface_material_override/0 = ExtResource("3_xb7um")
 
 [node name="Helmet" type="MeshInstance3D" parent="CharacterBody3D/Player_Model/Skeleton3D"]
 layers = 524288
+cast_shadow = 3
 mesh = SubResource("ArrayMesh_y3uxw")
 skin = SubResource("Skin_jbe30")
 surface_material_override/0 = ExtResource("3_xb7um")
@@ -2924,7 +2926,7 @@ libraries = {
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
 transform = Transform3D(1.4285715, 0, 0, 0, 1.4285715, 0, 0, 0, 1.4285715, 0.03601411, 3.1324537, -0.28613847)
-cull_mask = 524287
+cull_mask = 524289
 
 [node name="SpotLight3D" type="SpotLight3D" parent="CharacterBody3D/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7252903e-09, -0.37068605, -0.304994)
