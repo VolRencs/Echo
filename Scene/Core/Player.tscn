@@ -15,7 +15,7 @@ radius = 0.35205078
 height = 0.94449615
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cy1nd"]
-size = Vector3(0.031042516, 0.001, 0.031442642)
+size = Vector3(0.21687546, 0.001, 0.20293546)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bo5sc"]
 resource_name = "Character"
@@ -2440,7 +2440,7 @@ transform = Transform3D(2.24, 0, 2.842171e-14, 0, 2.24, 0, -2.842171e-14, 0, 2.2
 shape = SubResource("CapsuleShape3D_854hw")
 
 [node name="Ground" type="CollisionShape3D" parent="CharacterBody3D"]
-transform = Transform3D(5.0176, 0, -1.1368684e-13, 0, 5.0176, 0, 1.1368684e-13, 0, 5.0176, -0.095760845, -0.0056234, -0.08940711)
+transform = Transform3D(5.0176, 0, -1.1368684e-13, 0, 5.0176, 0, 1.1368684e-13, 0, 5.0176, -0.06821935, -0.0056234, -0.19516805)
 shape = SubResource("BoxShape3D_cy1nd")
 
 [node name="Player_Model" type="Node3D" parent="CharacterBody3D"]
