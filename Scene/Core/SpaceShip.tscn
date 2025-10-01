@@ -70,7 +70,7 @@ size = Vector3(1.2036133, 9.946289, 12.734726)
 size = Vector3(19.934204, 9.946289, 0.86572266)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bxdwb"]
-size = Vector3(14.568976, 9.946, 11.972318)
+size = Vector3(14.568976, 9.946, 11.9656315)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cxx40"]
 size = Vector3(0.4924028, 9.946, 18.668776)
@@ -261,7 +261,7 @@ shape = SubResource("BoxShape3D_yhi06")
 debug_color = Color(0.7997977, 0.03614273, 0.9999998, 0.41960785)
 
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="Coliders/walls/wall"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.319481, -0.80936384, -30.30504)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.319481, -0.80936384, -30.308384)
 shape = SubResource("BoxShape3D_bxdwb")
 debug_color = Color(0.7997977, 0.03614273, 0.9999998, 0.41960785)
 
@@ -353,10 +353,10 @@ transform = Transform3D(1.3349154, 0, 0, 0, 1, 0, 0, 0, 1.1327289, 1.007, 4.021,
 transform = Transform3D(1.022, 0, 0, 0, 1, 0, 0, 0, 2.041, 1.007, 4.021, -0.14043081)
 
 [node name="Roof_Squared_02_6x10" parent="Map/Roof" instance=ExtResource("39_kixto")]
-transform = Transform3D(1.5643314, 0, 0, 0, 1.9979097, 0, 0, 0, 1.9979097, 1.8797114, -0.15273523, 11.926101)
+transform = Transform3D(1.5643314, 0, 0, 0, 1.9979097, 0, 0, 0, 2.0171611, 1.8797112, -0.15273523, 11.909653)
 
 [node name="Roof_Squared_02_6x11" parent="Map/Roof" instance=ExtResource("39_kixto")]
-transform = Transform3D(1.5379112, 0, 0, 0, 1.9979097, 0, 0, 0, 1.9979097, 11.248686, -0.15273523, 11.926101)
+transform = Transform3D(1.5379112, 0, 0, 0, 1.9979097, 0, 0, 0, 2.0171611, 11.248686, -0.15273523, 11.909653)
 
 [node name="Roof_Squared_01_6x8" parent="Map/Roof" instance=ExtResource("30_apcmj")]
 transform = Transform3D(1.7068006, 0, 0, 0, 1, 0, 0, 0, 1.6514709, 8.95868, 3.9440227, -33.422897)
@@ -379,7 +379,7 @@ transform = Transform3D(-1, 0, -1.5039181e-07, 0, 1, 0, 1.509958e-07, 0, -0.996,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.022, 13, 0, -12.129556)
 
 [node name="Floor_Squared_01_6x7" parent="Map/Floor" instance=ExtResource("7_ol57n")]
-transform = Transform3D(1, 1.5869518e-09, 1.3843585e-11, -9.492457e-10, 1.407109, -0.8911567, -4.1506026e-10, 0.60535645, 2.0714319, 1.0169096, -0.024428844, 0.008239448)
+transform = Transform3D(0.99999994, 1.668629e-09, 1.5584737e-11, -9.545128e-10, 1.4876058, -0.97311485, -4.027994e-10, 0.61740357, 2.3446763, 0.9828974, -0.15415335, 0.008239448)
 
 [node name="Floor_Third_02_Strip_2x6" parent="Map/Floor" instance=ExtResource("8_5uurm")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 17.185518, 0.06437564, -29.251522)
@@ -531,10 +531,10 @@ transform = Transform3D(-4.9393867e-09, 0, 0.9959174, 0, 2.1150467, 0, -0.113, 0
 transform = Transform3D(-4.9393867e-09, 0, 0.9996134, 0, 2.1150467, 0, -0.113, 0, -4.3694488e-08, 14.315541, -4.989922, 24.076763)
 
 [node name="Wall_Cube_01_Long35" parent="Map/Wall" instance=ExtResource("12_8yjdx")]
-transform = Transform3D(-4.9393867e-09, 0, 1.1963627, 0, 2.1150467, 0, -0.113, 0, -5.229468e-08, 6.004053, -4.989922, 12.1451435)
+transform = Transform3D(-4.9393867e-09, 0, 1.1963627, 0, 2.1150467, 0, -0.113, 0, -5.229468e-08, 5.982637, -4.989922, 11.983963)
 
 [node name="Wall_Cube_01_Long36" parent="Map/Wall" instance=ExtResource("12_8yjdx")]
-transform = Transform3D(-4.9393867e-09, 0, 1.1963627, 0, 2.1150467, 0, -0.113, 0, -5.229468e-08, 13.153702, -4.989922, 12.129291)
+transform = Transform3D(-4.9393867e-09, 0, 1.1963627, 0, 2.1150467, 0, -0.113, 0, -5.229468e-08, 13.153702, -4.989922, 11.982308)
 
 [node name="Wall_Cube_01_Long37" parent="Map/Wall" instance=ExtResource("12_8yjdx")]
 transform = Transform3D(0.28108832, 0, 0, 0, 2.1150465, 0, 0, 0, 1.0362893, 20.32193, -4.989922, 11.885989)
@@ -561,7 +561,7 @@ transform = Transform3D(-4.371139e-08, 0, -0.86, 0, 1, 0, 1, 0, -3.7591793e-08, 
 transform = Transform3D(-4.371139e-08, 0, -0.86, 0, 1, 0, 1, 0, -3.7591793e-08, 7.1405745, -5, 22.439259)
 
 [node name="Wall_Table_02" parent="Map/Wall" instance=ExtResource("23_80omj")]
-transform = Transform3D(-5.8179857e-08, 0, 1.4520001, 0, 1.4641001, 0, -1.3310001, 0, -6.346894e-08, 5.141083, -4.9079046, 11.017471)
+transform = Transform3D(-5.8179857e-08, 0, 1.4520001, 0, 1.4641001, 0, -1.3310001, 0, -6.346894e-08, 5.5770483, -4.9079046, 10.828712)
 
 [node name="Wall_Pipes_02_Large2" parent="Map/Wall" instance=ExtResource("25_eseo8")]
 transform = Transform3D(0.99999994, 0, 0, 0, 1.3005769, 0, 0, 0, 1.3709484, 18.90281, -8.009619, 15.151146)

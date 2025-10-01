@@ -3,7 +3,6 @@ extends Node3D
 @export var door: Node3D
  
 func on_interact():
-	print("1")
 	if door and door.has_method("on_interact"):
 		var doorstatus = door.door_open
 		if doorstatus == false:
