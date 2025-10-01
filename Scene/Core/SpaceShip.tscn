@@ -1,12 +1,12 @@
-[gd_scene load_steps=62 format=3 uid="uid://bn7wp1p2ekyjx"]
+[gd_scene load_steps=65 format=3 uid="uid://bn7wp1p2ekyjx"]
 
 [ext_resource type="PackedScene" uid="uid://ba01biwqbxdxo" path="res://Assets/Models/Map/Models/Floors/Floor_Descent_01/Floor_Descent_01.fbx" id="5_y6apl"]
 [ext_resource type="PackedScene" uid="uid://6ji1qe4kv2bm" path="res://Assets/Models/Map/Models/Floors/Floor_Angle_01_6x6/Floor_Angle_01_6x6.fbx" id="6_5uurm"]
+[ext_resource type="PackedScene" uid="uid://dy4xk02uf4r3m" path="res://Assets/Models/Map/Models/Floors/Floor_3_1/Floor_Third_3_1.tscn" id="6_64q2v"]
 [ext_resource type="PackedScene" uid="uid://b4idggouehntj" path="res://Assets/Models/Map/Models/Doors/Door_Vert_01/Door.tscn" id="7_m5bj0"]
 [ext_resource type="PackedScene" uid="uid://cw634qhh6n0hj" path="res://Assets/Models/Map/Models/Floors/Floor_Squared_01_6x6/Floor_Squared_01_6x6.fbx" id="7_ol57n"]
 [ext_resource type="PackedScene" uid="uid://d2dy1akvvjoil" path="res://Assets/Models/Map/Models/Floors/Floor_Third_02_Strip_2x6/Floor_Third_02_Strip_2x6.fbx" id="8_5uurm"]
 [ext_resource type="PackedScene" uid="uid://tarre310wcpc" path="res://Assets/Models/Map/Models/Floors/Floor_Squared_02_6x6/Floor_Squared_02_6x6.fbx" id="9_vb7ca"]
-[ext_resource type="PackedScene" uid="uid://dgoqyb4r17vwn" path="res://Assets/Models/Map/Models/Floors/Floor_Third_03_Strip_2x6/Floor_Third_03_Strip_2x6.fbx" id="10_r85er"]
 [ext_resource type="PackedScene" uid="uid://3w2fvk5n6ru2" path="res://Assets/Models/Map/Models/Doors/DoorWay_01_Large/DoorWay_01_Large.fbx" id="11_e71rq"]
 [ext_resource type="PackedScene" uid="uid://c32h71lr36chc" path="res://Assets/Models/Map/Models/Walls/Wall_Cube_01_Long/Wall_Cube_01_Long.fbx" id="12_8yjdx"]
 [ext_resource type="PackedScene" uid="uid://c6q0ecyvhnlvr" path="res://Assets/Models/Map/Models/Walls/Wall_Console_01_Half/Wall_Console_01_Half.fbx" id="13_25l23"]
@@ -26,17 +26,20 @@
 [ext_resource type="PackedScene" uid="uid://u64x3xmgsypy" path="res://Assets/Models/Map/Models/Stuff/Pipes_03/Pipes_03.fbx" id="27_80omj"]
 [ext_resource type="PackedScene" uid="uid://pj13hab6kdpn" path="res://Assets/Models/Map/Models/Walls/Wall_Down_01_Long/Wall_Down_01_Long.fbx" id="27_m5bj0"]
 [ext_resource type="PackedScene" uid="uid://cvb1wivas1hce" path="res://Assets/Models/Map/Models/Stuff/Intercom_01/Intercom_01.fbx" id="28_3wxd1"]
+[ext_resource type="PackedScene" uid="uid://cfmsf4mc04chx" path="res://Assets/Models/Map/Models/Doors/DoorWay_01_Ramp/DoorWay_01_Ramp.fbx" id="28_64q2v"]
 [ext_resource type="PackedScene" uid="uid://bla64fdbhvua6" path="res://Assets/Models/Map/Models/InteractiveModel/Reactor/Reactor.tscn" id="28_m5bj0"]
 [ext_resource type="Script" uid="uid://dgm1dk4tpagja" path="res://Scripts/Map/Door/IntercomController.gd" id="29_3wxd1"]
 [ext_resource type="PackedScene" uid="uid://dncthok281tnn" path="res://Assets/Models/Map/Models/Walls/Porthole_01_Long/Porthole_01_Long.fbx" id="29_eseo8"]
 [ext_resource type="AudioStream" uid="uid://duo77ldmx4gjh" path="res://Assets/Audio/Door.ogg" id="30_48wqt"]
+[ext_resource type="PackedScene" uid="uid://c3lmwjg7y4dsi" path="res://Assets/Models/Map/Models/Roofs/Roof_Squared_01_6x6/Roof_Squared_01_6x6.fbx" id="30_apcmj"]
 [ext_resource type="PackedScene" uid="uid://bifevxfjwbxs2" path="res://Assets/Models/Map/Models/Lights/Light_Corridor_02/Light_Corridor_02.fbx" id="30_wfvcp"]
 [ext_resource type="PackedScene" uid="uid://12s7q4xb6b4q" path="res://Assets/Models/Map/Models/Props/Airing_01/Airing_01.fbx" id="30_yhi06"]
 [ext_resource type="PackedScene" uid="uid://h5h35lac7jin" path="res://Assets/Models/Map/Models/Lights/Light_Corridor_01/Light_Corridor_01.fbx" id="31_kkwoi"]
 [ext_resource type="PackedScene" uid="uid://cmwb1ksjfg5m7" path="res://Assets/Models/Map/Models/Stuff/Air_Grid_01/Air_Grid_01.fbx" id="32_7s5p8"]
-[ext_resource type="PackedScene" uid="uid://h1omdvhg2127" path="res://Assets/Models/Map/Models/Doors/MainDoor/MainDoor.tscn" id="32_yhi06"]
+[ext_resource type="PackedScene" uid="uid://h1omdvhg2127" path="res://Scene/Map/MainDoor.tscn" id="32_yhi06"]
 [ext_resource type="AudioStream" uid="uid://bxowr8qutv17o" path="res://Assets/Audio/Door_Open.ogg" id="33_cxx40"]
 [ext_resource type="AudioStream" uid="uid://dlvgswmuubclu" path="res://Assets/Audio/Door_Closed.ogg" id="34_48wqt"]
+[ext_resource type="PackedScene" uid="uid://bucwys7mv8v8q" path="res://Assets/Models/Map/Models/Roofs/Roof_Squared_02_6x6/Roof_Squared_02_6x6.fbx" id="39_kixto"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m5bj0"]
 margin = 7.42
@@ -329,6 +332,35 @@ debug_color = Color(0.7997977, 0.03614273, 0.9999998, 0.41960785)
 
 [node name="Map" type="Node3D" parent="."]
 
+[node name="Roof" type="Node3D" parent="Map"]
+
+[node name="Roof_Squared_02_6x6" parent="Map/Roof" instance=ExtResource("39_kixto")]
+transform = Transform3D(1.6906912, 0, 0, 0, 1, 0, 0, 0, 1.9036077, 9.00711, 4.020844, -23.18046)
+
+[node name="Roof_Squared_01_6x6" parent="Map/Roof" instance=ExtResource("30_apcmj")]
+transform = Transform3D(1.5949075, 0, 0, 0, 1, 0, 0, 0, 1.6801716, -0.6489303, 3.8822393, -22.237442)
+
+[node name="Roof_Squared_01_6x7" parent="Map/Roof" instance=ExtResource("30_apcmj")]
+transform = Transform3D(1.435074, 0, 0, 0, 1, 0, 0, 0, 1.6801716, 19.468472, 3.8822393, -20.398033)
+
+[node name="Roof_Squared_02_6x7" parent="Map/Roof" instance=ExtResource("39_kixto")]
+transform = Transform3D(1.6906912, 0, 0, 0, 1, 0, 0, 0, 1.9427943, 9.00711, 4.020844, -11.767707)
+
+[node name="Roof_Squared_02_6x8" parent="Map/Roof" instance=ExtResource("39_kixto")]
+transform = Transform3D(1.3349154, 0, 0, 0, 1, 0, 0, 0, 1.1327289, 1.007, 4.021, -6.936)
+
+[node name="Roof_Squared_02_6x9" parent="Map/Roof" instance=ExtResource("39_kixto")]
+transform = Transform3D(1.022, 0, 0, 0, 1, 0, 0, 0, 2.041, 1.007, 4.021, -0.14043081)
+
+[node name="Roof_Squared_02_6x10" parent="Map/Roof" instance=ExtResource("39_kixto")]
+transform = Transform3D(1.5643314, 0, 0, 0, 1.9979097, 0, 0, 0, 1.9979097, 1.8797114, -0.15273523, 11.926101)
+
+[node name="Roof_Squared_02_6x11" parent="Map/Roof" instance=ExtResource("39_kixto")]
+transform = Transform3D(1.5379112, 0, 0, 0, 1.9979097, 0, 0, 0, 1.9979097, 11.248686, -0.15273523, 11.926101)
+
+[node name="Roof_Squared_01_6x8" parent="Map/Roof" instance=ExtResource("30_apcmj")]
+transform = Transform3D(1.7068006, 0, 0, 0, 1, 0, 0, 0, 1.6514709, 8.95868, 3.9440227, -33.422897)
+
 [node name="Floor" type="Node3D" parent="Map"]
 
 [node name="Floor_Descent_01" parent="Map/Floor" instance=ExtResource("5_y6apl")]
@@ -346,331 +378,29 @@ transform = Transform3D(-1, 0, -1.5039181e-07, 0, 1, 0, 1.509958e-07, 0, -0.996,
 [node name="Floor_Squared_02_6x6" parent="Map/Floor" instance=ExtResource("9_vb7ca")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.022, 13, 0, -12.129556)
 
-[node name="Floor_Third_03_Strip_2x6" parent="Map/Floor" instance=ExtResource("10_r85er")]
-transform = Transform3D(5.12, 0, 0, 0, 2.766, 0, 0, 0, 1.761, 8.884078, 0, -22.689375)
-
-[node name="Floor_Third_03_Strip_2x8" parent="Map/Floor" instance=ExtResource("10_r85er")]
-transform = Transform3D(4.6686625, 0, 0, 0, 0.9, 0, 0, 0, 1.7160001, 19.11982, 0, -20.469118)
-
-[node name="Floor_Third_03_Strip_2x9" parent="Map/Floor" instance=ExtResource("10_r85er")]
-transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 1.6776862, -1.0280809, 0, -22.254301)
-
 [node name="Floor_Squared_01_6x7" parent="Map/Floor" instance=ExtResource("7_ol57n")]
 transform = Transform3D(1, 1.5682523e-09, 1.3470241e-11, -9.492457e-10, 1.3905287, -0.86712337, -4.1506026e-10, 0.5982234, 2.015568, 1.0169096, -0.024428844, 0.032705307)
-
-[node name="Floor_Third_03_Strip_2x10" parent="Map/Floor" instance=ExtResource("10_r85er")]
-transform = Transform3D(4.800333, 0, 0, 0, 0.9, 0, 0, 0, 2.0099256, 1.7803516, -4.9481163, 11.903005)
-
-[node name="Floor_Third_03_Strip_2x11" parent="Map/Floor" instance=ExtResource("10_r85er")]
-transform = Transform3D(4.800333, 0, 0, 0, 0.9, 0, 0, 0, 2.0099256, 11.352523, -4.9481163, 11.903005)
-
-[node name="Floor_Third_03_Strip_2x7" parent="Map/Floor" instance=ExtResource("10_r85er")]
-transform = Transform3D(4.964872, 0, 0, 0, 2.8, 0, 0, 0, 1.782, 9.168729, 0, -34.278408)
 
 [node name="Floor_Third_02_Strip_2x6" parent="Map/Floor" instance=ExtResource("8_5uurm")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 17.185518, 0.06437564, -29.251522)
 
-[node name="Roof" type="Node3D" parent="Map"]
+[node name="Floor_Third_3_1" parent="Map/Floor" instance=ExtResource("6_64q2v")]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 1.6776862, -1.0280809, 0, -22.254301)
 
-[node name="Floor_Third_03_Strip_2x64" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.3785633, 0, 0, 0, -0.9, -4.4169376e-08, 0, 7.86805e-08, -0.5052388, 13.230176, 3.986494, -18.2865)
+[node name="Floor_Third_3_2" parent="Map/Floor" instance=ExtResource("6_64q2v")]
+transform = Transform3D(5.12, 0, 0, 0, 2.766, 0, 0, 0, 1.761, 8.884078, 0, -22.689375)
 
-[node name="Floor_Third_03_Strip_2x65" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.509, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -0.505, 15.980262, 3.986494, -18.2865)
+[node name="Floor_Third_3_3" parent="Map/Floor" instance=ExtResource("6_64q2v")]
+transform = Transform3D(4.964872, 0, 0, 0, 2.8, 0, 0, 0, 1.782, 9.168729, 0, -34.278408)
 
-[node name="Floor_Third_03_Strip_2x66" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.3785633, 0, 0, 0, -0.9, -4.4169376e-08, 0, 7.86805e-08, -0.5052388, 13.230176, 3.986494, -21.315907)
+[node name="Floor_Third_3_4" parent="Map/Floor" instance=ExtResource("6_64q2v")]
+transform = Transform3D(4.800333, 0, 0, 0, 0.9, 0, 0, 0, 2.0099256, 1.7803516, -4.9481163, 11.903005)
 
-[node name="Floor_Third_03_Strip_2x67" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.509, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -0.505, 15.980262, 3.986494, -21.315907)
+[node name="Floor_Third_3_5" parent="Map/Floor" instance=ExtResource("6_64q2v")]
+transform = Transform3D(4.800333, 0, 0, 0, 0.9, 0, 0, 0, 2.0099256, 11.352523, -4.9481163, 11.903005)
 
-[node name="Floor_Third_03_Strip_2x68" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.3785633, 0, 0, 0, -0.9, -5.910877e-08, 0, 7.86805e-08, -0.6761256, 13.230176, 3.986494, -24.342136)
-
-[node name="Floor_Third_03_Strip_2x69" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.509, 0, 0, 0, -0.8999999, -1.0204387e-07, 0, 1.358962e-07, -0.67580605, 15.980262, 3.986494, -24.342136)
-
-[node name="Floor_Third_03_Strip_2x70" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.3785633, 0, 0, 0, -0.9, -5.910877e-08, 0, 7.86805e-08, -0.6761256, 13.230176, 3.986494, -28.396177)
-
-[node name="Floor_Third_03_Strip_2x71" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.509, 0, 0, 0, -0.8999999, -1.0204387e-07, 0, 1.358962e-07, -0.67580605, 15.980262, 3.986494, -28.396177)
-
-[node name="Floor_Third_03_Strip_2x72" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.149526, 0, 0, 0, -0.9, -4.4169376e-08, 0, 7.86805e-08, -0.5052388, 8.43922, 3.986494, -21.315907)
-
-[node name="Floor_Third_03_Strip_2x73" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.2582917, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -0.505, 10.732401, 3.986494, -21.315907)
-
-[node name="Floor_Third_03_Strip_2x74" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.149526, 0, 0, 0, -0.9, -5.910877e-08, 0, 7.86805e-08, -0.6761256, 8.43922, 3.986494, -24.342136)
-
-[node name="Floor_Third_03_Strip_2x75" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.2582917, 0, 0, 0, -0.8999999, -1.0204387e-07, 0, 1.358962e-07, -0.67580605, 10.732401, 3.986494, -24.342136)
-
-[node name="Floor_Third_03_Strip_2x76" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.149526, 0, 0, 0, -0.9, -5.910877e-08, 0, 7.86805e-08, -0.6761256, 8.43922, 3.986494, -28.396177)
-
-[node name="Floor_Third_03_Strip_2x77" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.2582917, 0, 0, 0, -0.8999999, -1.0204387e-07, 0, 1.358962e-07, -0.67580605, 10.732401, 3.986494, -28.396177)
-
-[node name="Floor_Third_03_Strip_2x78" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.149526, 0, 0, 0, -0.9, -4.4169376e-08, 0, 7.86805e-08, -0.5052388, 8.43922, 3.986494, -18.297367)
-
-[node name="Floor_Third_03_Strip_2x79" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.2582917, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -0.505, 10.732401, 3.986494, -18.297367)
-
-[node name="Floor_Third_03_Strip_2x80" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.149526, 0, 0, 0, -0.9, -4.4169376e-08, 0, 7.86805e-08, -0.5052388, 8.43922, 3.986494, -15.272984)
-
-[node name="Floor_Third_03_Strip_2x81" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.2582917, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -0.505, 10.732401, 3.986494, -15.272984)
-
-[node name="Floor_Third_03_Strip_2x82" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.149526, 0, 0, 0, -0.9, -4.584863e-08, 0, 7.86805e-08, -0.5244472, 8.43922, 3.986494, -12.138927)
-
-[node name="Floor_Third_03_Strip_2x83" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.2582917, 0, 0, 0, -0.9, -7.91519e-08, 0, 1.3589622e-07, -0.52419937, 10.732401, 3.986494, -12.138927)
-
-[node name="Floor_Third_03_Strip_2x84" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.149526, 0, 0, 0, -0.9, -4.4169376e-08, 0, 7.86805e-08, -0.5052388, -0.8685663, 3.986494, -21.315907)
-
-[node name="Floor_Third_03_Strip_2x85" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.2582917, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -0.505, 1.4246142, 3.986494, -21.315907)
-
-[node name="Floor_Third_03_Strip_2x86" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.149526, 0, 0, 0, -0.9, -4.4169376e-08, 0, 7.86805e-08, -0.5052388, -0.8685663, 3.986494, -18.297367)
-
-[node name="Floor_Third_03_Strip_2x87" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.2582917, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -0.505, 1.4246142, 3.986494, -18.297367)
-
-[node name="Floor_Third_03_Strip_2x88" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.149526, 0, 0, 0, -0.9, -4.4169376e-08, 0, 7.86805e-08, -0.5052388, -0.8685663, 3.986494, -15.272984)
-
-[node name="Floor_Third_03_Strip_2x89" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.2582917, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -0.505, 1.4246142, 3.986494, -15.272984)
-
-[node name="Floor_Third_03_Strip_2x90" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.149526, 0, 0, 0, -0.9, -4.584863e-08, 0, 7.86805e-08, -0.5244472, -0.8685663, 3.986494, -12.138927)
-
-[node name="Floor_Third_03_Strip_2x91" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.2582917, 0, 0, 0, -0.9, -7.91519e-08, 0, 1.3589622e-07, -0.52419937, 1.4246142, 3.986494, -12.138927)
-
-[node name="Floor_Third_03_Strip_2x92" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.149526, 0, 0, 0, -0.9, -4.4169376e-08, 0, 7.86805e-08, -0.5052388, 3.9273095, 3.986494, -21.315907)
-
-[node name="Floor_Third_03_Strip_2x93" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.2582917, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -0.505, 6.22049, 3.986494, -21.315907)
-
-[node name="Floor_Third_03_Strip_2x94" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.149526, 0, 0, 0, -0.9, -4.4169376e-08, 0, 7.86805e-08, -0.5052388, 3.9273095, 3.986494, -18.297367)
-
-[node name="Floor_Third_03_Strip_2x95" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.2582917, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -0.505, 6.22049, 3.986494, -18.297367)
-
-[node name="Floor_Third_03_Strip_2x96" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.149526, 0, 0, 0, -0.9, -4.4169376e-08, 0, 7.86805e-08, -0.5052388, 3.9273095, 3.986494, -15.272984)
-
-[node name="Floor_Third_03_Strip_2x97" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.2582917, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -0.505, 6.22049, 3.986494, -15.272984)
-
-[node name="Floor_Third_03_Strip_2x98" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.149526, 0, 0, 0, -0.9, -4.584863e-08, 0, 7.86805e-08, -0.5244472, 3.9273095, 3.986494, -12.138927)
-
-[node name="Floor_Third_03_Strip_2x99" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.2582917, 0, 0, 0, -0.9, -7.91519e-08, 0, 1.3589622e-07, -0.52419937, 6.22049, 3.986494, -12.138927)
-
-[node name="Floor_Third_03_Strip_2x100" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.509, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -0.505, 19.750647, 3.986494, -9.206604)
-
-[node name="Floor_Third_03_Strip_2x101" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.509, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -0.505, 19.750647, 3.986494, -12.228746)
-
-[node name="Floor_Third_03_Strip_2x102" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.509, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -0.505, 19.750647, 3.986494, -15.258153)
-
-[node name="Floor_Third_03_Strip_2x103" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.509, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -0.505, 19.750647, 3.986494, -18.2865)
-
-[node name="Floor_Third_03_Strip_2x104" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.509, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -0.505, 22.743774, 3.986494, -9.206604)
-
-[node name="Floor_Third_03_Strip_2x105" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.509, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -0.505, 22.743774, 3.986494, -12.228746)
-
-[node name="Floor_Third_03_Strip_2x106" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.509, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -0.505, 22.743774, 3.986494, -15.258153)
-
-[node name="Floor_Third_03_Strip_2x107" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.509, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -0.505, 22.743774, 3.986494, -18.2865)
-
-[node name="Floor_Third_03_Strip_2x108" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.509, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -0.505, 25.758232, 3.986494, -9.206604)
-
-[node name="Floor_Third_03_Strip_2x109" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.509, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -0.505, 25.758232, 3.986494, -12.228746)
-
-[node name="Floor_Third_03_Strip_2x110" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.509, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -0.505, 25.758232, 3.986494, -15.258153)
-
-[node name="Floor_Third_03_Strip_2x111" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.509, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -0.505, 25.758232, 3.986494, -18.2865)
-
-[node name="Floor_Third_03_Strip_2x36" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.3900188, 0, 0, 0, -0.9, -4.4169376e-08, 0, 7.86805e-08, -0.5052388, 1.1863754, 3.986494, 11.895988)
-
-[node name="Floor_Third_03_Strip_2x37" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.5215393, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -0.505, 3.9593136, 3.986494, 11.895988)
-
-[node name="Floor_Third_03_Strip_2x38" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.3900188, 0, 0, 0, -0.9, -4.4169376e-08, 0, 7.86805e-08, -0.5052388, 1.1863754, 3.986494, 8.866582)
-
-[node name="Floor_Third_03_Strip_2x39" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.5215393, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -0.505, 3.9593136, 3.986494, 8.866582)
-
-[node name="Floor_Third_03_Strip_2x40" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.3900188, 0, 0, 0, -0.9, -4.4169376e-08, 0, 7.86805e-08, -0.5052388, 1.1863754, 3.986494, 5.8409348)
-
-[node name="Floor_Third_03_Strip_2x41" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.5215393, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -0.505, 3.9593136, 3.986494, 5.8409348)
-
-[node name="Floor_Third_03_Strip_2x42" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.3900188, 0, 0, 0, -0.9, -4.4169376e-08, 0, 7.86805e-08, -0.5052388, 1.1863754, 3.986494, 2.8115282)
-
-[node name="Floor_Third_03_Strip_2x43" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.5215393, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -0.505, 3.9593136, 3.986494, 2.8115282)
-
-[node name="Floor_Third_03_Strip_2x44" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.3900188, 0, 0, 0, -0.9, -4.4169376e-08, 0, 7.86805e-08, -0.5052388, 1.1863754, 3.986494, -0.20724201)
-
-[node name="Floor_Third_03_Strip_2x45" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.5215393, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -0.505, 3.9593136, 3.986494, -0.20724201)
-
-[node name="Floor_Third_03_Strip_2x46" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.3900188, 0, 0, 0, -0.9, -4.4169376e-08, 0, 7.86805e-08, -0.5052388, 1.1863754, 3.986494, -3.2366486)
-
-[node name="Floor_Third_03_Strip_2x47" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.5215393, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -0.505, 3.9593136, 3.986494, -3.2366486)
-
-[node name="Floor_Third_03_Strip_2x48" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.4979314, 0, 0, 0, -0.9, -4.4169376e-08, 0, 7.86805e-08, -0.5052388, 6.977196, 3.986494, -0.20724177)
-
-[node name="Floor_Third_03_Strip_2x49" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.6396624, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -0.505, 9.965408, 3.986494, -0.20724177)
-
-[node name="Floor_Third_03_Strip_2x50" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.4979314, 0, 0, 0, -0.9, -4.4169376e-08, 0, 7.86805e-08, -0.5052388, 6.977, 3.986, -3.237)
-
-[node name="Floor_Third_03_Strip_2x51" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.6396624, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -0.505, 9.965, 3.986, -3.237)
-
-[node name="Floor_Third_03_Strip_2x52" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.3785633, 0, 0, 0, -0.9, -4.4169376e-08, 0, 7.86805e-08, -0.5052388, 13.230176, 3.986494, -0.15038276)
-
-[node name="Floor_Third_03_Strip_2x53" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.509, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -0.505, 15.980262, 3.986494, -0.11551285)
-
-[node name="Floor_Third_03_Strip_2x54" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.3785633, 0, 0, 0, -0.9, -4.4169376e-08, 0, 7.86805e-08, -0.5052388, 13.230176, 3.986494, -3.1449194)
-
-[node name="Floor_Third_03_Strip_2x55" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.509, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -0.505, 15.980262, 3.986494, -3.1449194)
-
-[node name="Floor_Third_03_Strip_2x56" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.3785633, 0, 0, 0, -0.9, -4.4169376e-08, 0, 7.86805e-08, -0.5052388, 13.230176, 3.986494, -6.1718874)
-
-[node name="Floor_Third_03_Strip_2x57" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.509, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -0.505, 15.980262, 3.986494, -6.1718874)
-
-[node name="Floor_Third_03_Strip_2x58" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.3785633, 0, 0, 0, -0.9, -4.4169376e-08, 0, 7.86805e-08, -0.5052388, 13.230176, 3.986494, -9.201294)
-
-[node name="Floor_Third_03_Strip_2x59" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.509, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -0.505, 15.980262, 3.986494, -9.201294)
-
-[node name="Floor_Third_03_Strip_2x60" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.3785633, 0, 0, 0, -0.9, -4.4169376e-08, 0, 7.86805e-08, -0.5052388, 13.230176, 3.986494, -12.228746)
-
-[node name="Floor_Third_03_Strip_2x61" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.509, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -0.505, 15.980262, 3.986494, -12.228746)
-
-[node name="Floor_Third_03_Strip_2x62" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.3785633, 0, 0, 0, -0.9, -4.4169376e-08, 0, 7.86805e-08, -0.5052388, 13.230176, 3.986494, -15.258153)
-
-[node name="Floor_Third_03_Strip_2x63" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.509, 0, 0, 0, -0.9, -7.625288e-08, 0, 1.3589622e-07, -0.505, 15.980262, 3.986494, -15.258153)
-
-[node name="Floor_Third_03_Strip_2x12" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.5386509, 0, 0, 0, -0.9, -4.4169376e-08, 0, 7.86805e-08, -0.5052388, 1.9349356, -0.1514889, 15.034725)
-
-[node name="Floor_Third_03_Strip_2x13" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.5386509, 0, 0, 0, -0.9, -4.4169376e-08, 0, 7.86805e-08, -0.5052388, 1.9349356, -0.1514889, 18.034725)
-
-[node name="Floor_Third_03_Strip_2x14" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.5386509, 0, 0, 0, -0.9, -4.267541e-08, 0, 7.86805e-08, -0.4881498, 1.9349356, -0.1514889, 20.952408)
-
-[node name="Floor_Third_03_Strip_2x15" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.5386509, 0, 0, 0, -0.9, -4.267541e-08, 0, 7.86805e-08, -0.4881498, 1.9349356, -0.1514889, 23.850937)
-
-[node name="Floor_Third_03_Strip_2x16" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.5386509, 0, 0, 0, -0.9, -4.4169376e-08, 0, 7.86805e-08, -0.5052388, 4.997064, -0.1514889, 15.034725)
-
-[node name="Floor_Third_03_Strip_2x17" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.5386509, 0, 0, 0, -0.9, -4.4169376e-08, 0, 7.86805e-08, -0.5052388, 4.997064, -0.1514889, 18.034725)
-
-[node name="Floor_Third_03_Strip_2x18" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.5386509, 0, 0, 0, -0.9, -4.267541e-08, 0, 7.86805e-08, -0.4881498, 4.997064, -0.1514889, 20.952408)
-
-[node name="Floor_Third_03_Strip_2x19" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.5386509, 0, 0, 0, -0.9, -4.267541e-08, 0, 7.86805e-08, -0.4881498, 4.997064, -0.1514889, 23.850937)
-
-[node name="Floor_Third_03_Strip_2x20" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.5386509, 0, 0, 0, -0.9, -4.4169376e-08, 0, 7.86805e-08, -0.5052388, 8.052768, -0.1514889, 15.034725)
-
-[node name="Floor_Third_03_Strip_2x21" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.5386509, 0, 0, 0, -0.9, -4.4169376e-08, 0, 7.86805e-08, -0.5052388, 8.052768, -0.1514889, 18.034725)
-
-[node name="Floor_Third_03_Strip_2x22" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.5386509, 0, 0, 0, -0.9, -4.267541e-08, 0, 7.86805e-08, -0.4881498, 8.052768, -0.1514889, 20.952408)
-
-[node name="Floor_Third_03_Strip_2x23" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.5386509, 0, 0, 0, -0.9, -4.267541e-08, 0, 7.86805e-08, -0.4881498, 8.052768, -0.1514889, 23.850937)
-
-[node name="Floor_Third_03_Strip_2x24" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.5386509, 0, 0, 0, -0.9, -4.4169376e-08, 0, 7.86805e-08, -0.5052388, 11.114897, -0.1514889, 15.034725)
-
-[node name="Floor_Third_03_Strip_2x25" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.5386509, 0, 0, 0, -0.9, -4.4169376e-08, 0, 7.86805e-08, -0.5052388, 11.114897, -0.1514889, 18.034725)
-
-[node name="Floor_Third_03_Strip_2x26" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.5386509, 0, 0, 0, -0.9, -4.267541e-08, 0, 7.86805e-08, -0.4881498, 11.114897, -0.1514889, 20.952408)
-
-[node name="Floor_Third_03_Strip_2x27" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.5386509, 0, 0, 0, -0.9, -4.267541e-08, 0, 7.86805e-08, -0.4881498, 11.114897, -0.1514889, 23.850937)
-
-[node name="Floor_Third_03_Strip_2x28" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.5386509, 0, 0, 0, -0.9, -4.4169376e-08, 0, 7.86805e-08, -0.5052388, 14.170096, -0.1514889, 15.034725)
-
-[node name="Floor_Third_03_Strip_2x29" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.5386509, 0, 0, 0, -0.9, -4.4169376e-08, 0, 7.86805e-08, -0.5052388, 14.170096, -0.1514889, 18.034725)
-
-[node name="Floor_Third_03_Strip_2x30" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.5386509, 0, 0, 0, -0.9, -4.267541e-08, 0, 7.86805e-08, -0.4881498, 14.170096, -0.1514889, 20.952408)
-
-[node name="Floor_Third_03_Strip_2x31" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.5386509, 0, 0, 0, -0.9, -4.267541e-08, 0, 7.86805e-08, -0.4881498, 14.170096, -0.1514889, 23.850937)
-
-[node name="Floor_Third_03_Strip_2x32" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.5386509, 0, 0, 0, -0.9, -4.4169376e-08, 0, 7.86805e-08, -0.5052388, 17.232224, -0.1514889, 15.034725)
-
-[node name="Floor_Third_03_Strip_2x33" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.5386509, 0, 0, 0, -0.9, -4.4169376e-08, 0, 7.86805e-08, -0.5052388, 17.232224, -0.1514889, 18.034725)
-
-[node name="Floor_Third_03_Strip_2x34" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.5386509, 0, 0, 0, -0.9, -4.267541e-08, 0, 7.86805e-08, -0.4881498, 17.232224, -0.1514889, 20.952408)
-
-[node name="Floor_Third_03_Strip_2x35" parent="Map/Roof" instance=ExtResource("10_r85er")]
-transform = Transform3D(1.5386509, 0, 0, 0, -0.9, -4.267541e-08, 0, 7.86805e-08, -0.4881498, 17.232224, -0.1514889, 23.850937)
+[node name="Floor_Third_3_6" parent="Map/Floor" instance=ExtResource("6_64q2v")]
+transform = Transform3D(4.6686625, 0, 0, 0, 0.9, 0, 0, 0, 1.7160001, 19.11982, 0, -20.469118)
 
 [node name="Wall" type="Node3D" parent="Map"]
 
@@ -892,12 +622,6 @@ transform = Transform3D(-3.903427e-08, 0, -0.749, 0, 1, 0, 0.893, 0, -3.273983e-
 [node name="Pipes_03" parent="Map/Other" instance=ExtResource("27_80omj")]
 transform = Transform3D(1, 0, 0, 0, 1.2037904, 0, 0, 0, 1, 19.969038, -4.9466677, 14.602619)
 
-[node name="DoorWay_01_Up3" parent="Map/Other" instance=ExtResource("26_dprnl")]
-transform = Transform3D(3.7802756e-08, -8.742277e-08, 0.6577259, -3.3048223e-15, -0.99999994, -5.7500227e-08, 0.8648264, 0, -2.8750113e-08, 19.049362, -0.0138139725, -12.399955)
-
-[node name="DoorWay_01_Up4" parent="Map/Other" instance=ExtResource("26_dprnl")]
-transform = Transform3D(3.8804973e-08, -8.742277e-08, 0.6577259, -3.392439e-15, -0.99999994, -5.7500227e-08, 0.88775444, 0, -2.8750113e-08, 8.501893, -0.055115342, -12.225789)
-
 [node name="Air_Grid_01" parent="Map/Other" instance=ExtResource("32_7s5p8")]
 transform = Transform3D(-0.99999994, 0, -1.2387363e-07, 0, 1, 0, 8.742277e-08, 0, -1.4169493, 9.196408, 3.3842335, -21.574205)
 
@@ -914,10 +638,16 @@ transform = Transform3D(-4.371139e-08, 0, 1.7051096, 0, 1, 0, -1, 0, -7.45327e-0
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 23.566957, 0.012958673, -10.716014)
 
 [node name="Airing_01" parent="Map/Other" instance=ExtResource("30_yhi06")]
-transform = Transform3D(0.14552361, 0, 0, 0, 0.14552361, 0, 0, 0, 0.14552361, 25.188082, 4.023344, -15.389773)
+transform = Transform3D(-6.3610384e-09, 0.1455236, 0, -0.1455236, -6.3610384e-09, 0, 0, 0, 0.1455236, 27.797657, 1.8451791, -15.389773)
 
 [node name="Crate_02" parent="Map/Other" instance=ExtResource("14_4h1n7")]
 transform = Transform3D(-2.767229e-08, 0, -0.5293133, 0, 1, 0, 0.6330682, 0, -2.3137021e-08, 23.420294, 0.012884378, -19.527681)
+
+[node name="DoorWay_01_Ramp" parent="Map/Other" instance=ExtResource("28_64q2v")]
+transform = Transform3D(-3.9424815e-08, 0, -0.7114551, 0, 1, 0, 0.9019346, 0, -3.1098693e-08, 19.736937, 0.026183963, -17.729864)
+
+[node name="DoorWay_01_Ramp2" parent="Map/Other" instance=ExtResource("28_64q2v")]
+transform = Transform3D(-3.9424815e-08, 0, -0.6697615, 0, 1, 0, 0.9019346, 0, -2.9276205e-08, 9.158328, 0.026183963, -17.56326)
 
 [node name="Doors" type="Node3D" parent="."]
 
@@ -1056,94 +786,24 @@ max_distance = 20.0
 
 [node name="Lights" type="Node3D" parent="."]
 
-[node name="Reactor" parent="Lights" instance=ExtResource("31_kkwoi")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8.27809, -0.15575284, 23.363173)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Lights/Reactor"]
-light_color = Color(0.71825725, 0.6630902, 0.58039236, 1)
-light_energy = 2.0
-light_indirect_energy = 0.8
-light_volumetric_fog_energy = 1.5
-light_size = 2.0
-light_specular = 0.3
-light_cull_mask = 4294966273
-shadow_enabled = true
-shadow_bias = 2.0
-shadow_normal_bias = 0.5
-shadow_transmittance_bias = 0.0
-shadow_opacity = 0.9
-shadow_blur = 2.0
-shadow_caster_mask = 4294966273
-distance_fade_enabled = true
-distance_fade_begin = 10.0
-distance_fade_shadow = 10.0
-omni_range = 10.0
-omni_attenuation = 0.8
-
-[node name="Reactor2" parent="Lights" instance=ExtResource("31_kkwoi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.800865, -0.115848124, 18.110489)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Lights/Reactor2"]
-light_color = Color(0.71825725, 0.6630902, 0.58039236, 1)
-light_energy = 2.0
-light_indirect_energy = 0.8
-light_volumetric_fog_energy = 1.5
-light_size = 2.0
-light_specular = 0.3
-light_cull_mask = 4294966273
-shadow_enabled = true
-shadow_bias = 2.0
-shadow_normal_bias = 0.5
-shadow_transmittance_bias = 0.0
-shadow_opacity = 0.9
-shadow_blur = 2.0
-shadow_caster_mask = 4294966273
-distance_fade_enabled = true
-distance_fade_begin = 10.0
-distance_fade_shadow = 10.0
-omni_range = 10.0
-omni_attenuation = 0.8
-
-[node name="Reactor3" parent="Lights" instance=ExtResource("31_kkwoi")]
-transform = Transform3D(8.940697e-08, 0, 1, 0, 1, 0, -1, 0, 8.940697e-08, 8.27809, -0.15575284, 12.721684)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Lights/Reactor3"]
-light_color = Color(0.71825725, 0.6630902, 0.58039236, 1)
-light_energy = 2.0
-light_indirect_energy = 0.8
-light_volumetric_fog_energy = 1.5
-light_size = 2.0
-light_specular = 0.3
-light_cull_mask = 4294966273
-shadow_enabled = true
-shadow_bias = 2.0
-shadow_normal_bias = 0.5
-shadow_transmittance_bias = 0.0
-shadow_opacity = 0.9
-shadow_blur = 2.0
-shadow_caster_mask = 4294966273
-distance_fade_enabled = true
-distance_fade_begin = 10.0
-distance_fade_shadow = 10.0
-omni_range = 10.0
-omni_attenuation = 0.8
-
 [node name="Corridor" parent="Lights" instance=ExtResource("30_wfvcp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9651403, 3.9937806, 4.293635)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights/Corridor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2810707, 0)
+layers = 524289
 light_color = Color(0.71825725, 0.6630902, 0.58039236, 1)
 light_energy = 2.0
 light_indirect_energy = 0.8
 light_volumetric_fog_energy = 1.5
-light_size = 2.0
+light_size = 0.1
 light_specular = 0.3
 light_cull_mask = 4294966273
 shadow_enabled = true
 shadow_bias = 2.0
 shadow_normal_bias = 0.5
 shadow_transmittance_bias = 0.0
-shadow_opacity = 0.9
+shadow_opacity = 0.8
 shadow_blur = 2.0
 shadow_caster_mask = 4294966273
 distance_fade_enabled = true
@@ -1156,18 +816,20 @@ omni_attenuation = 0.8
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9.151251, 4.0094304, -3.2427166)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights/Corridor2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.28634548, 0)
+layers = 524289
 light_color = Color(0.71825725, 0.6630902, 0.58039236, 1)
 light_energy = 2.0
 light_indirect_energy = 0.8
 light_volumetric_fog_energy = 1.5
-light_size = 2.0
+light_size = 0.1
 light_specular = 0.3
 light_cull_mask = 4294966273
 shadow_enabled = true
 shadow_bias = 2.0
 shadow_normal_bias = 0.5
 shadow_transmittance_bias = 0.0
-shadow_opacity = 0.9
+shadow_opacity = 0.8
 shadow_blur = 2.0
 shadow_caster_mask = 4294966273
 distance_fade_enabled = true
@@ -1180,18 +842,20 @@ omni_attenuation = 0.8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.992117, 4.004058, -8.3186)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights/Corridor3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2845788, 0)
+layers = 524289
 light_color = Color(0.71825725, 0.6630902, 0.58039236, 1)
 light_energy = 2.0
 light_indirect_energy = 0.8
 light_volumetric_fog_energy = 1.5
-light_size = 2.0
+light_size = 0.1
 light_specular = 0.3
 light_cull_mask = 4294966273
 shadow_enabled = true
 shadow_bias = 2.0
 shadow_normal_bias = 0.5
 shadow_transmittance_bias = 0.0
-shadow_opacity = 0.9
+shadow_opacity = 0.8
 shadow_blur = 2.0
 shadow_caster_mask = 4294966273
 distance_fade_enabled = true
@@ -1204,19 +868,20 @@ omni_attenuation = 0.8
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 13.99345, 4.004058, -17.325386)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights/Corridor4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8022523, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014753342, -0.31444025, 0)
+layers = 524289
 light_color = Color(0.71825725, 0.6630902, 0.58039236, 1)
 light_energy = 2.0
 light_indirect_energy = 0.8
 light_volumetric_fog_energy = 1.5
-light_size = 2.0
+light_size = 0.1
 light_specular = 0.3
 light_cull_mask = 4294966273
 shadow_enabled = true
 shadow_bias = 2.0
 shadow_normal_bias = 0.5
 shadow_transmittance_bias = 0.0
-shadow_opacity = 0.9
+shadow_opacity = 0.8
 shadow_blur = 2.0
 shadow_caster_mask = 4294966273
 distance_fade_enabled = true
@@ -1226,21 +891,23 @@ omni_range = 10.0
 omni_attenuation = 0.8
 
 [node name="Home" parent="Lights" instance=ExtResource("31_kkwoi")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.8916454, 4.003229, -17.55364)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.5869968, 4.394416, -17.1186)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights/Home"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.37376165, 0)
+layers = 524289
 light_color = Color(0.71825725, 0.6630902, 0.58039236, 1)
 light_energy = 2.0
 light_indirect_energy = 0.8
 light_volumetric_fog_energy = 1.5
-light_size = 2.0
+light_size = 0.1
 light_specular = 0.3
 light_cull_mask = 4294966273
 shadow_enabled = true
 shadow_bias = 2.0
 shadow_normal_bias = 0.5
 shadow_transmittance_bias = 0.0
-shadow_opacity = 0.9
+shadow_opacity = 0.8
 shadow_blur = 2.0
 shadow_caster_mask = 4294966273
 distance_fade_enabled = true
@@ -1250,21 +917,23 @@ omni_range = 10.0
 omni_attenuation = 0.8
 
 [node name="Home2" parent="Lights" instance=ExtResource("30_wfvcp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.011593, 3.9763906, -15.236196)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.011593, 4.386755, -15.236196)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights/Home2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.26557302, 0)
+layers = 524289
 light_color = Color(0.71825725, 0.6630902, 0.58039236, 1)
 light_energy = 2.0
 light_indirect_energy = 0.8
 light_volumetric_fog_energy = 1.5
-light_size = 2.0
+light_size = 0.1
 light_specular = 0.3
 light_cull_mask = 4294966273
 shadow_enabled = true
 shadow_bias = 2.0
 shadow_normal_bias = 0.5
 shadow_transmittance_bias = 0.0
-shadow_opacity = 0.9
+shadow_opacity = 0.8
 shadow_blur = 2.0
 shadow_caster_mask = 4294966273
 distance_fade_enabled = true
@@ -1273,22 +942,24 @@ distance_fade_shadow = 10.0
 omni_range = 10.0
 omni_attenuation = 0.8
 
-[node name="Home3" parent="Lights" instance=ExtResource("31_kkwoi")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 11.64015, 4.0114636, -32.1428)
+[node name="Home3" parent="Lights" instance=ExtResource("30_wfvcp")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 14.093963, 4.469281, -28.094353)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights/Home3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014753342, -0.31444025, 0)
+layers = 524289
 light_color = Color(0.71825725, 0.6630902, 0.58039236, 1)
 light_energy = 2.0
 light_indirect_energy = 0.8
 light_volumetric_fog_energy = 1.5
-light_size = 2.0
+light_size = 0.1
 light_specular = 0.3
 light_cull_mask = 4294966273
 shadow_enabled = true
 shadow_bias = 2.0
 shadow_normal_bias = 0.5
 shadow_transmittance_bias = 0.0
-shadow_opacity = 0.9
+shadow_opacity = 0.8
 shadow_blur = 2.0
 shadow_caster_mask = 4294966273
 distance_fade_enabled = true
@@ -1297,22 +968,50 @@ distance_fade_shadow = 10.0
 omni_range = 10.0
 omni_attenuation = 0.8
 
-[node name="Home4" parent="Lights" instance=ExtResource("31_kkwoi")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 16.595095, 3.9873142, -32.1428)
+[node name="Reactor" parent="Lights" instance=ExtResource("30_wfvcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.693661, -0.1310358, 17.996628)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Lights/Home4"]
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights/Reactor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2810707, 0)
+layers = 524289
 light_color = Color(0.71825725, 0.6630902, 0.58039236, 1)
 light_energy = 2.0
 light_indirect_energy = 0.8
 light_volumetric_fog_energy = 1.5
-light_size = 2.0
+light_size = 0.1
 light_specular = 0.3
 light_cull_mask = 4294966273
 shadow_enabled = true
 shadow_bias = 2.0
 shadow_normal_bias = 0.5
 shadow_transmittance_bias = 0.0
-shadow_opacity = 0.9
+shadow_opacity = 0.8
+shadow_blur = 2.0
+shadow_caster_mask = 4294966273
+distance_fade_enabled = true
+distance_fade_begin = 10.0
+distance_fade_shadow = 10.0
+omni_range = 10.0
+omni_attenuation = 0.8
+
+[node name="Reactor2" parent="Lights" instance=ExtResource("30_wfvcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.836304, -0.1310358, 17.958845)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights/Reactor2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2810707, 0)
+layers = 524289
+light_color = Color(0.71825725, 0.6630902, 0.58039236, 1)
+light_energy = 2.0
+light_indirect_energy = 0.8
+light_volumetric_fog_energy = 1.5
+light_size = 0.1
+light_specular = 0.3
+light_cull_mask = 4294966273
+shadow_enabled = true
+shadow_bias = 2.0
+shadow_normal_bias = 0.5
+shadow_transmittance_bias = 0.0
+shadow_opacity = 0.8
 shadow_blur = 2.0
 shadow_caster_mask = 4294966273
 distance_fade_enabled = true

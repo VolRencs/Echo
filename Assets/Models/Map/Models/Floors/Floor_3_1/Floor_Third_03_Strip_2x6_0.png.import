@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://co6fnjelslt0p"
-path.s3tc="res://.godot/imported/Fence_Turn_90_Short_01_1.png-022e2f2de9de482f7543f5ed979c1e48.s3tc.ctex"
+uid="uid://dsmt8tmxk7pq6"
+path.s3tc="res://.godot/imported/Floor_Third_03_Strip_2x6_0.png-bc36abc25271325d35f00e98cee9428e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "248bd003cdfa2ca2c80b4d0ac208d07d"
+"md5": "6ee890a6cac3de743603ceeaeef5aa83"
 }
 
 [deps]
 
-source_file="res://Assets/Models/Map/Models/Fences/Fence_Turn_90_Short_01/Fence_Turn_90_Short_01_1.png"
-dest_files=["res://.godot/imported/Fence_Turn_90_Short_01_1.png-022e2f2de9de482f7543f5ed979c1e48.s3tc.ctex"]
+source_file="res://Assets/Models/Map/Models/Floors/Floor_3_1/Floor_Third_03_Strip_2x6_0.png"
+dest_files=["res://.godot/imported/Floor_Third_03_Strip_2x6_0.png-bc36abc25271325d35f00e98cee9428e.s3tc.ctex"]
 
 [params]
 
