@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://bn7wp1p2ekyjx"]
+[gd_scene load_steps=86 format=3 uid="uid://bn7wp1p2ekyjx"]
 
 [ext_resource type="PackedScene" uid="uid://ba01biwqbxdxo" path="res://Assets/Models/Map/Models/Floors/Floor_Descent_01/Floor_Descent_01.fbx" id="5_y6apl"]
 [ext_resource type="PackedScene" uid="uid://6ji1qe4kv2bm" path="res://Assets/Models/Map/Models/Floors/Floor_Angle_01_6x6/Floor_Angle_01_6x6.fbx" id="6_5uurm"]
@@ -109,10 +109,10 @@ size = Vector3(11.4037695, 4.967, 2.4174595)
 size = Vector3(0.7477339, 4.967, 11.95252)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_apcmj"]
-size = Vector3(0.99108887, 1.1486511, 5.1416626)
+size = Vector3(0.99108887, 1.4258881, 5.1416626)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ylsd1"]
-size = Vector3(0.8427124, 1, 5.013443)
+size = Vector3(0.8427124, 1.2680664, 5.013443)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lut6s"]
 size = Vector3(1.0409851, 1, 2.028658)
@@ -130,7 +130,7 @@ size = Vector3(1.3533316, 3.9955292, 3.0674672)
 size = Vector3(2.777786, 3.9955292, 1.2881281)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mw8d5"]
-size = Vector3(1.0731087, 0.98801804, 0.6464949)
+size = Vector3(1.0731087, 1.7165432, 0.6464949)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y42f4"]
 size = Vector3(2.777786, 3.9955292, 1.2881281)
@@ -157,16 +157,13 @@ height = 6.780383
 radius = 1.0258789
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cl4u5"]
-size = Vector3(4.436038, 1.0481472, 1.0052543)
+size = Vector3(4.436038, 1.2063727, 1.0052543)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rshgw"]
-size = Vector3(0.7357192, 4.792487, 1.762483)
+size = Vector3(0.699753, 4.852663, 1.8147132)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p5a3g"]
-size = Vector3(0.7357192, 1.2501237, 5.0481114)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_u12dh"]
-size = Vector3(0.7404182, 0.63665855, 0.6626626)
+size = Vector3(0.8576057, 1.4663396, 5.0481114)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3ddf8"]
 size = Vector3(2.8415987, 3.4918137, 2.183663)
@@ -175,7 +172,7 @@ size = Vector3(2.8415987, 3.4918137, 2.183663)
 size = Vector3(15.526806, 1.1980553, 2.183663)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yjfdn"]
-size = Vector3(1.0397887, 1.3573644, 5.3225183)
+size = Vector3(1.0397887, 2.3075886, 5.844376)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nwbxx"]
 size = Vector3(1.0735989, 0.736084, 0.49799347)
@@ -399,117 +396,112 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.373644, 1.4762912, -59.833
 shape = SubResource("BoxShape3D_37uu3")
 debug_color = Color(0.7997977, 0.03614273, 0.9999998, 0.41960785)
 
-[node name="Node3D" type="Node3D" parent="Coliders"]
+[node name="other" type="Node3D" parent="Coliders"]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Coliders/Node3D"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Coliders/other"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Coliders/Node3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.712272, 0.5185585, -8.596776)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Coliders/other/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.712272, 0.657177, -8.596776)
 shape = SubResource("BoxShape3D_apcmj")
 debug_color = Color(0.5684909, 0.49231848, 0, 1)
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Coliders/Node3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.574007, 0.76161575, -8.836148)
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Coliders/other/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.574007, 0.62758255, -8.836148)
 shape = SubResource("BoxShape3D_ylsd1")
 debug_color = Color(0.5686275, 0.49411765, 0, 1)
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="Coliders/Node3D/StaticBody3D"]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Coliders/other/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.47487, 0.28009665, -25.313171)
 shape = SubResource("BoxShape3D_lut6s")
 debug_color = Color(0.5686275, 0.49411765, 0, 1)
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="Coliders/Node3D/StaticBody3D"]
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Coliders/other/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4164276, 0.4725405, -21.115398)
 shape = SubResource("BoxShape3D_ym822")
 debug_color = Color(0.5686275, 0.49411765, 0, 1)
 
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="Coliders/Node3D/StaticBody3D"]
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Coliders/other/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17778206, 0.5721804, -17.26464)
 shape = SubResource("BoxShape3D_i01n2")
 debug_color = Color(0.5686275, 0.49411765, 0, 1)
 
-[node name="CollisionShape3D6" type="CollisionShape3D" parent="Coliders/Node3D/StaticBody3D"]
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Coliders/other/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22452974, 1.7778612, -13.809044)
 shape = SubResource("BoxShape3D_tbjgl")
 debug_color = Color(0.5686275, 0.49411765, 0, 1)
 
-[node name="CollisionShape3D7" type="CollisionShape3D" parent="Coliders/Node3D/StaticBody3D"]
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="Coliders/other/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.158506, 1.7778612, -19.7361)
 shape = SubResource("BoxShape3D_8g0hj")
 debug_color = Color(0.5686275, 0.49411765, 0, 1)
 
-[node name="CollisionShape3D8" type="CollisionShape3D" parent="Coliders/Node3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.421888, 0.27410567, -19.52662)
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="Coliders/other/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.421888, 0.63836825, -19.52662)
 shape = SubResource("BoxShape3D_mw8d5")
 debug_color = Color(0.5686275, 0.49411765, 0, 1)
 
-[node name="CollisionShape3D9" type="CollisionShape3D" parent="Coliders/Node3D/StaticBody3D"]
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="Coliders/other/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.734615, 1.7778612, -19.7361)
 shape = SubResource("BoxShape3D_y42f4")
 debug_color = Color(0.5686275, 0.49411765, 0, 1)
 
-[node name="CollisionShape3D10" type="CollisionShape3D" parent="Coliders/Node3D/StaticBody3D"]
+[node name="CollisionShape3D10" type="CollisionShape3D" parent="Coliders/other/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.734615, 1.7778612, -11.048934)
 shape = SubResource("BoxShape3D_j5snb")
 debug_color = Color(0.5686275, 0.49411765, 0, 1)
 
-[node name="CollisionShape3D11" type="CollisionShape3D" parent="Coliders/Node3D/StaticBody3D"]
+[node name="CollisionShape3D11" type="CollisionShape3D" parent="Coliders/other/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.272085, 1.7778612, -11.048934)
 shape = SubResource("BoxShape3D_a85jf")
 debug_color = Color(0.5686275, 0.49411765, 0, 1)
 
-[node name="CollisionShape3D12" type="CollisionShape3D" parent="Coliders/Node3D/StaticBody3D"]
+[node name="CollisionShape3D12" type="CollisionShape3D" parent="Coliders/other/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.469812, 1.8280512, -10.726902)
 shape = SubResource("BoxShape3D_145oh")
 debug_color = Color(0.5686275, 0.49411765, 0, 1)
 
-[node name="CyliderShape3D13" type="CollisionShape3D" parent="Coliders/Node3D/StaticBody3D"]
+[node name="CyliderShape3D13" type="CollisionShape3D" parent="Coliders/other/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.381477, 2.1463835, -0.9636445)
 shape = SubResource("CylinderShape3D_gbk55")
 debug_color = Color(0.5686275, 0.49411765, 0, 1)
 
-[node name="CyliderShape3D14" type="CollisionShape3D" parent="Coliders/Node3D/StaticBody3D"]
+[node name="CyliderShape3D14" type="CollisionShape3D" parent="Coliders/other/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8481581, 2.1463835, -5.345297)
 shape = SubResource("CylinderShape3D_6i24d")
 debug_color = Color(0.5686275, 0.49411765, 0, 1)
 
-[node name="CyliderShape3D15" type="CollisionShape3D" parent="Coliders/Node3D/StaticBody3D"]
+[node name="CyliderShape3D15" type="CollisionShape3D" parent="Coliders/other/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.731817, -3.4333947, 13.287234)
 shape = SubResource("CylinderShape3D_apcmj")
 debug_color = Color(0.5686275, 0.49411765, 0, 1)
 
-[node name="CollisionShape3D13" type="CollisionShape3D" parent="Coliders/Node3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.89995, -4.4042473, 12.466385)
+[node name="CollisionShape3D13" type="CollisionShape3D" parent="Coliders/other/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.89995, -4.393834, 12.466385)
 shape = SubResource("BoxShape3D_cl4u5")
 debug_color = Color(0.5686275, 0.49411765, 0, 1)
 
-[node name="CollisionShape3D14" type="CollisionShape3D" parent="Coliders/Node3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.941883, -2.5320773, 14.708037)
+[node name="CollisionShape3D14" type="CollisionShape3D" parent="Coliders/other/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.959866, -2.5621653, 14.734153)
 shape = SubResource("BoxShape3D_rshgw")
 debug_color = Color(0.5686275, 0.49411765, 0, 1)
 
-[node name="CollisionShape3D15" type="CollisionShape3D" parent="Coliders/Node3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.941883, -4.303259, 18.17707)
+[node name="CollisionShape3D15" type="CollisionShape3D" parent="Coliders/other/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.88094, -4.257589, 18.17707)
 shape = SubResource("BoxShape3D_p5a3g")
 debug_color = Color(0.5686275, 0.49411765, 0, 1)
 
-[node name="CollisionShape3D16" type="CollisionShape3D" parent="Coliders/Node3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.939533, -3.3748798, 17.154398)
-shape = SubResource("BoxShape3D_u12dh")
-debug_color = Color(0.5686275, 0.49411765, 0, 1)
-
-[node name="CollisionShape3D17" type="CollisionShape3D" parent="Coliders/Node3D/StaticBody3D"]
+[node name="CollisionShape3D17" type="CollisionShape3D" parent="Coliders/other/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.888943, -3.2132163, 23.520039)
 shape = SubResource("BoxShape3D_3ddf8")
 debug_color = Color(0.5686275, 0.49411765, 0, 1)
 
-[node name="CollisionShape3D18" type="CollisionShape3D" parent="Coliders/Node3D/StaticBody3D"]
+[node name="CollisionShape3D18" type="CollisionShape3D" parent="Coliders/other/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.707132, -4.3600955, 23.520039)
 shape = SubResource("BoxShape3D_lhws3")
 debug_color = Color(0.5686275, 0.49411765, 0, 1)
 
-[node name="CollisionShape3D19" type="CollisionShape3D" parent="Coliders/Node3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4636238, -3.322937, 19.336586)
+[node name="CollisionShape3D19" type="CollisionShape3D" parent="Coliders/other/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4636238, -3.798049, 19.573536)
 shape = SubResource("BoxShape3D_yjfdn")
 debug_color = Color(0.5686275, 0.49411765, 0, 1)
 
