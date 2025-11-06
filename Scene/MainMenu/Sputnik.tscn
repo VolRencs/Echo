@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddvdsy8r0d6mo"]
+
+[ext_resource type="PackedScene" uid="uid://cl46o7qdb71nv" path="res://Assets/Models/Sputnik/space_satellite.glb" id="1_ynrwn"]
+[ext_resource type="Script" uid="uid://ca4jwambwidvs" path="res://Scripts/MainMenu/Sputnik.gd" id="2_2nyyg"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_e55d6"]
+
+[node name="Sputnik" type="Node3D" unique_id=347973457]
+
+[node name="Sputnik" parent="." unique_id=1018566134 instance=ExtResource("1_ynrwn")]
+transform = Transform3D(-0.72107434, 0.41124392, 0.5576112, 0.32532, 0.91152537, -0.25157198, -0.6117342, 0, -0.79106337, -2.2208495, -0.3715694, 0.104460716)
+script = ExtResource("2_2nyyg")
+
+[node name="BulbMesh" type="MeshInstance3D" parent="Sputnik" unique_id=967858594]
+transform = Transform3D(0.07182053, 2.1045459e-09, -1.8626451e-08, 4.379974e-09, 0.069507934, -1.4017825e-08, 7.450581e-09, -2.5315124e-08, 0.07493672, -0.009004116, -0.48694706, 0.002035141)
+mesh = SubResource("SphereMesh_e55d6")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Sputnik/BulbMesh" unique_id=1244042688]
+light_color = Color(0.7252515, 0, 0.05347681, 1)
+light_energy = 3.585
+light_indirect_energy = 4.232
+light_volumetric_fog_energy = 3.424
+light_specular = 0.153
+shadow_enabled = true
+shadow_normal_bias = 1.909
+shadow_opacity = 0.05
+omni_range = 0.715
+omni_attenuation = -2.232
+omni_shadow_mode = 0
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Sputnik" unique_id=1773510443]
+transform = Transform3D(0.94666594, -0.06789726, -0.3149817, 0.103272125, 0.9899123, 0.09699572, 0.30521858, -0.12435132, 0.94412833, -1.3134245, 1.6427567, 4.2537785)
+light_energy = 3.813
+light_indirect_energy = 2.758
+light_volumetric_fog_energy = 1.703
+light_size = 0.231
+light_specular = 1.731
+shadow_enabled = true
+spot_range = 9.717192
+spot_angle = 34.583313

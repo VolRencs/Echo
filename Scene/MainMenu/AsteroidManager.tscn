@@ -12,20 +12,19 @@ albedo_color = Color(1, 0, 1, 1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_o57nq"]
 material = SubResource("StandardMaterial3D_2n38o")
 
-[node name="AsteroidManager" type="Node3D"]
+[node name="AsteroidManager" type="Node3D" unique_id=361236505]
 script = ExtResource("1_o57nq")
 asteroid_models_paths = Array[PackedScene]([ExtResource("2_ulnk0"), ExtResource("3_y5jmp")])
 spawn_side = "front"
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=373999646]
 autostart = true
 
-[node name="SpawnArea" type="MeshInstance3D" parent="."]
+[node name="SpawnArea" type="MeshInstance3D" parent="." unique_id=696510328]
 transform = Transform3D(3.4514844, 0, 0, 0, 2.749165, 0, 0, 0, 20, -2.8742313, 0, 0)
 mesh = SubResource("BoxMesh_wc73l")
-skeleton = NodePath("")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SpawnArea"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SpawnArea" unique_id=894107801]
 transform = Transform3D(0.36, 0, 0, 0, 0.00077231467, -0.38499385, 0, 0.13699782, 0.0021703735, 0.0084216, 0, 0.5063879)
 mesh = SubResource("PlaneMesh_o57nq")
 skeleton = NodePath("../..")

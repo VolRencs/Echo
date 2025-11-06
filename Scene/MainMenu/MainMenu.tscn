@@ -1,7 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://cpjd1usw6npr6"]
+[gd_scene load_steps=11 format=3 uid="uid://cpjd1usw6npr6"]
 
-[ext_resource type="PackedScene" uid="uid://cl46o7qdb71nv" path="res://Assets/Models/Sputnik/space_satellite.glb" id="1_hptlk"]
-[ext_resource type="Script" uid="uid://ca4jwambwidvs" path="res://Scripts/MainMenu/Sputnik.gd" id="2_oqads"]
+[ext_resource type="PackedScene" uid="uid://ddvdsy8r0d6mo" path="res://Scene/MainMenu/Sputnik.tscn" id="2_bqsmv"]
 [ext_resource type="Texture2D" uid="uid://rn2twt62et04" path="res://Assets/Images/WorldEnvironment/MainMenu.png" id="3_s2f1d"]
 [ext_resource type="Script" uid="uid://c0kctcrume220" path="res://Scripts/MainMenu/Menu.gd" id="4_ejkra"]
 [ext_resource type="Script" uid="uid://tda8lwoyorg6" path="res://Scripts/MainMenu/Settings.gd" id="5_yok32"]
@@ -18,45 +17,25 @@ background_mode = 2
 sky = SubResource("Sky_qouvi")
 glow_enabled = true
 
-[sub_resource type="SphereMesh" id="SphereMesh_j338d"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j338d"]
 bg_color = Color(0, 0, 0, 0.6431373)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a1aw0"]
 bg_color = Color(0, 0, 0, 0.7019608)
 
-[node name="MainMenu" type="Node3D"]
+[node name="MainMenu" type="Node3D" unique_id=477239717]
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=443453903]
 transform = Transform3D(-0.9910489, -0.021608694, -0.13173977, 0.019551074, 0.95268106, -0.30334243, 0.13206081, -0.3032028, -0.94373095, -2.6335983, 15.12727, 4.1622343)
 fov = 87.1875
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1177831478]
 environment = SubResource("Environment_202op")
 
-[node name="Sputnik" parent="." instance=ExtResource("1_hptlk")]
-transform = Transform3D(-0.72107434, 0.41124392, 0.5576112, 0.32532, 0.91152537, -0.25157198, -0.6117342, 0, -0.79106337, -2.2208495, 16.32248, 10.245081)
-script = ExtResource("2_oqads")
+[node name="Sputnik" parent="." unique_id=347973457 instance=ExtResource("2_bqsmv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35676718, 18.197985, 10.256187)
 
-[node name="BulbMesh" type="MeshInstance3D" parent="Sputnik"]
-transform = Transform3D(0.07182053, 2.1045459e-09, -1.8626451e-08, 4.379974e-09, 0.069507934, -1.4017825e-08, 7.450581e-09, -2.5315124e-08, 0.07493672, -0.009004116, -0.48694706, 0.002035141)
-mesh = SubResource("SphereMesh_j338d")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Sputnik/BulbMesh"]
-light_color = Color(0.7252515, 0, 0.05347681, 1)
-light_energy = 3.585
-light_indirect_energy = 4.232
-light_volumetric_fog_energy = 3.424
-light_specular = 0.153
-shadow_enabled = true
-shadow_normal_bias = 1.909
-shadow_opacity = 0.05
-omni_range = 0.715
-omni_attenuation = -2.232
-omni_shadow_mode = 0
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1335519978]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 27.301323, 350.19022)
 light_energy = 19.665
 light_indirect_energy = 16.0
@@ -64,16 +43,7 @@ light_volumetric_fog_energy = 4.419
 light_angular_distance = 6.27
 light_specular = 0.509
 
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(0.34995455, -0.67768496, -0.6467418, 0.32251057, 0.7353524, -0.5960233, 0.87949914, 1.6932685e-08, 0.4759005, -6.309636, 15.270544, 12.022185)
-light_energy = 4.459
-light_indirect_energy = 3.586
-light_volumetric_fog_energy = 3.263
-light_size = 1.0
-spot_range = 6.1486897
-spot_angle = 38.717186
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("start_button", "load_button", "settings_button", "quit_button", "control_panel")]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2070419436 node_paths=PackedStringArray("start_button", "load_button", "settings_button", "quit_button", "control_panel")]
 script = ExtResource("4_ejkra")
 start_button = NodePath("Start")
 load_button = NodePath("Load")
@@ -82,35 +52,35 @@ quit_button = NodePath("Exit")
 control_panel = NodePath("Control")
 start_scene = "uid://3w36cuohiy7j"
 
-[node name="Start" type="Button" parent="CanvasLayer"]
+[node name="Start" type="Button" parent="CanvasLayer" unique_id=1565654411]
 offset_left = 883.0
 offset_top = 282.0
 offset_right = 1136.0
 offset_bottom = 333.0
 text = "Начать игру"
 
-[node name="Load" type="Button" parent="CanvasLayer"]
+[node name="Load" type="Button" parent="CanvasLayer" unique_id=1214854815]
 offset_left = 883.0
 offset_top = 364.0
 offset_right = 1136.0
 offset_bottom = 415.0
 text = "Загрузить"
 
-[node name="Settings" type="Button" parent="CanvasLayer"]
+[node name="Settings" type="Button" parent="CanvasLayer" unique_id=224088234]
 offset_left = 883.0
 offset_top = 449.0
 offset_right = 1136.0
 offset_bottom = 500.0
 text = "Настройки"
 
-[node name="Exit" type="Button" parent="CanvasLayer"]
+[node name="Exit" type="Button" parent="CanvasLayer" unique_id=1454212744]
 offset_left = 886.0
 offset_top = 547.0
 offset_right = 1139.0
 offset_bottom = 598.0
 text = "Выйти"
 
-[node name="Control" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("music_slider", "sound_slider", "fullscreen_checkbox", "vsync_checkbox", "refresh_rate_option", "close_button")]
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=69655441 node_paths=PackedStringArray("music_slider", "sound_slider", "fullscreen_checkbox", "vsync_checkbox", "refresh_rate_option", "close_button")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 81.0
@@ -123,7 +93,7 @@ vsync_checkbox = NodePath("VSync")
 refresh_rate_option = NodePath("Hz")
 close_button = NodePath("Button")
 
-[node name="Button" type="Button" parent="CanvasLayer/Control"]
+[node name="Button" type="Button" parent="CanvasLayer/Control" unique_id=307625046]
 layout_mode = 0
 offset_left = 80.0
 offset_top = 37.0
@@ -131,14 +101,14 @@ offset_right = 240.0
 offset_bottom = 93.0
 text = "Назад"
 
-[node name="Music" type="HSlider" parent="CanvasLayer/Control"]
+[node name="Music" type="HSlider" parent="CanvasLayer/Control" unique_id=74818452]
 layout_mode = 0
 offset_left = 798.0
 offset_top = 336.0
 offset_right = 1172.0
 offset_bottom = 445.0
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/Music"]
+[node name="Label" type="Label" parent="CanvasLayer/Control/Music" unique_id=534630589]
 layout_mode = 0
 offset_left = 144.0
 offset_top = 16.0
@@ -148,14 +118,14 @@ theme_override_colors/font_shadow_color = Color(0.55815613, 0.55815613, 0.558156
 text = "Музыка"
 horizontal_alignment = 1
 
-[node name="Sound" type="HSlider" parent="CanvasLayer/Control"]
+[node name="Sound" type="HSlider" parent="CanvasLayer/Control" unique_id=284909997]
 layout_mode = 0
 offset_left = 798.0
 offset_top = 405.0
 offset_right = 1172.0
 offset_bottom = 514.0
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/Sound"]
+[node name="Label" type="Label" parent="CanvasLayer/Control/Sound" unique_id=1271687319]
 layout_mode = 0
 offset_left = 144.0
 offset_top = 16.0
@@ -166,7 +136,7 @@ text = "Звуки
 "
 horizontal_alignment = 1
 
-[node name="Window" type="CheckBox" parent="CanvasLayer/Control"]
+[node name="Window" type="CheckBox" parent="CanvasLayer/Control" unique_id=132159639]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.021000002
@@ -177,7 +147,7 @@ offset_right = 1012.299
 offset_bottom = 541.188
 text = "Полноэкранный режим"
 
-[node name="VSync" type="CheckBox" parent="CanvasLayer/Control"]
+[node name="VSync" type="CheckBox" parent="CanvasLayer/Control" unique_id=214648133]
 layout_mode = 0
 offset_left = 1054.0
 offset_top = 504.0
@@ -185,7 +155,7 @@ offset_right = 1137.0
 offset_bottom = 537.0
 text = "VSync"
 
-[node name="Hz" type="OptionButton" parent="CanvasLayer/Control"]
+[node name="Hz" type="OptionButton" parent="CanvasLayer/Control" unique_id=510654246]
 layout_mode = 0
 offset_left = 954.0
 offset_top = 598.0
@@ -194,7 +164,7 @@ offset_bottom = 626.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_j338d")
 theme_override_styles/hover = SubResource("StyleBoxFlat_a1aw0")
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/Hz"]
+[node name="Label" type="Label" parent="CanvasLayer/Control/Hz" unique_id=1967361119]
 layout_mode = 0
 offset_left = -2.0
 offset_top = -29.0
@@ -204,6 +174,6 @@ theme_override_colors/font_shadow_color = Color(0.55815613, 0.55815613, 0.558156
 text = "Hz"
 horizontal_alignment = 1
 
-[node name="AsteroidManager" parent="." instance=ExtResource("6_klvvj")]
+[node name="AsteroidManager" parent="." unique_id=2043044221 instance=ExtResource("6_klvvj")]
 transform = Transform3D(0.5698816, 0, 0, 0, 0.99433726, 0, 0, 0, 0.7090423, -2.6416316, 16.5957, -5.3779664)
 max_distance_from_camera = 1000.0
