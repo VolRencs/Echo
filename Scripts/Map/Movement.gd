@@ -61,11 +61,10 @@ func _ready() -> void:
 		GameState.clear_loaded_data()
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		var rel: Vector2 = event.relative * MOUSE_SENSITIVITY
 		rotate_y(-rel.x)
-		rotation_y = clamp(rotation_y - rel.y, MIN_PITCH, MAX_PITCH)
-		camera.rotation.x = rotation_y
+		camera.rotation.x = clamp(camera.rotation.x - rel.y, MIN_PITCH, MAX_PITCH)
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
