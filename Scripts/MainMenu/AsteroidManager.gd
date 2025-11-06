@@ -3,7 +3,6 @@ extends Node3D
 @export var asteroid_count := 100
 @export var min_speed := 5.0
 @export var max_speed := 15.0
-@export var removal_distance_multiplier := 2.0
 @export var asteroid_models: Array[PackedScene] = []
 @export var area_size := Vector3(40, 40, 40)
 @export var spawn_side := "left"
@@ -11,7 +10,7 @@ extends Node3D
 var asteroids := []
 var area_mesh: MeshInstance3D
 var side_highlight: MeshInstance3D
-var removal_distance: float = 200.0
+var camera: Camera3D
 
 const SIDES := {
 	"left":   [Vector3(-1, 0, 0), Vector3(0.01, 1, 1)],
@@ -24,26 +23,28 @@ const SIDES := {
 
 func _ready() -> void:
 	await get_tree().process_frame
-	var camera := get_viewport().get_camera_3d()
-	if camera and camera.far > 0:
-		removal_distance = camera.far * removal_distance_multiplier
-	
+
+	camera = get_viewport().get_camera_3d()
+	if not camera:
+		push_error("No camera found, deletion distance may not work!")
+
+	# Создаём визуализацию области
 	area_mesh = _create_mesh(area_size, Color(0, 1, 0, 0.2))
 	side_highlight = _create_mesh(Vector3.ONE * 0.01, Color(1, 0, 0, 0.5))
 	add_child(area_mesh)
 	add_child(side_highlight)
 	_update_highlight()
-	
+
 	$Timer.timeout.connect(_spawn_asteroid)
 	if $Timer.is_stopped():
 		$Timer.start()
 
 func _create_mesh(size: Vector3, color: Color) -> MeshInstance3D:
-	var mi := MeshInstance3D.new()
-	var mesh := BoxMesh.new()
+	var mi = MeshInstance3D.new()
+	var mesh = BoxMesh.new()
 	mesh.size = size
 	mi.mesh = mesh
-	var mat := StandardMaterial3D.new()
+	var mat = StandardMaterial3D.new()
 	mat.albedo_color = color
 	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	mi.material_override = mat
@@ -55,22 +56,22 @@ func _update_highlight() -> void:
 	var dir: Vector3 = SIDES[spawn_side][0]
 	var _scale: Vector3 = SIDES[spawn_side][1]
 	side_highlight.position = dir * half
-	side_highlight.scale = scale * area_size
+	side_highlight.scale = _scale * area_size
 
 func _spawn_asteroid() -> void:
 	if asteroids.size() >= asteroid_count: return
 	if asteroid_models.is_empty(): return
-	
-	var pos := _spawn_position()
-	var vel := (global_position - pos).normalized()
+
+	var pos = _spawn_position()
+	var vel = (global_position - pos).normalized()
 	vel += Vector3(randf_range(-0.3, 0.3), randf_range(-0.3, 0.3), randf_range(-0.3, 0.3))
 	vel = vel.normalized() * randf_range(min_speed, max_speed)
-	
-	var model := asteroid_models[randi() % asteroid_models.size()].instantiate() as Node3D
+
+	var model = asteroid_models[randi() % asteroid_models.size()].instantiate() as Node3D
 	add_child(model)
 	model.position = pos
 	model.scale = Vector3.ONE * 0.1
-	
+
 	asteroids.append({
 		"node": model,
 		"pos": pos,
@@ -79,8 +80,8 @@ func _spawn_asteroid() -> void:
 	})
 
 func _spawn_position() -> Vector3:
-	var c := global_position
-	var h := area_size * 0.5
+	var c = global_position
+	var h = area_size * 0.5
 	match spawn_side:
 		"left":   return Vector3(c.x - h.x, randf_range(c.y - h.y, c.y + h.y), randf_range(c.z - h.z, c.z + h.z))
 		"right":  return Vector3(c.x + h.x, randf_range(c.y - h.y, c.y + h.y), randf_range(c.z - h.z, c.z + h.z))
@@ -91,7 +92,10 @@ func _spawn_position() -> Vector3:
 	return c
 
 func _process(delta: float) -> void:
-	var center := global_position
+	if not camera: return
+	var center = global_position
+	var max_distance = camera.far * 2.0 # расстояние удаления зависит от камеры
+
 	for i in range(asteroids.size() - 1, -1, -1):
 		var a = asteroids[i]
 		a.pos += a.vel * delta
@@ -99,7 +103,7 @@ func _process(delta: float) -> void:
 		a.node.rotate_x(a.rot.x * delta)
 		a.node.rotate_y(a.rot.y * delta)
 		a.node.rotate_z(a.rot.z * delta)
-		
-		if a.pos.distance_to(center) > removal_distance:
+
+		if a.pos.distance_to(center) > max_distance:
 			a.node.queue_free()
 			asteroids.remove_at(i)

@@ -25,7 +25,6 @@ const SAVE_PATH = "user://game_save.tres"
 @onready var animation_player: AnimationPlayer = $Player_Model/AnimationPlayer
 @onready var inventory: Control = $"../Inventory"
 
-# Анимации как словарь — удобно менять имена в одном месте
 var anim_states := {
 	"jump": "Jump",
 	"walk": "Walk",
