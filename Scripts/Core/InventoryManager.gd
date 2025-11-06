@@ -16,14 +16,12 @@ func _ready() -> void:
 
 func _init_inventory() -> void:
 	if icons.size() < TOTAL_SLOTS:
-		push_warning("Недостаточно иконок (нужно %d, есть %d)" % [TOTAL_SLOTS, icons.size()])
 		return
-	
-	for i in range(TOTAL_SLOTS):
-		if not is_instance_valid(icons[i]):
-			push_warning("Иконка слота %d не назначена или повреждена!" % (i + 1))
+
+	for i in icons.slice(0, TOTAL_SLOTS):
+		if not is_instance_valid(i):
 			return
-	
+
 	call_deferred("update_highlight")
 
 func update_highlight() -> void:

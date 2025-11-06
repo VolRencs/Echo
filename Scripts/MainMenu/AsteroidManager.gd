@@ -53,7 +53,7 @@ func _update_highlight() -> void:
 	if not SIDES.has(spawn_side): return
 	var half := area_size * 0.5
 	var dir: Vector3 = SIDES[spawn_side][0]
-	var scale: Vector3 = SIDES[spawn_side][1]
+	var ascale: Vector3 = SIDES[spawn_side][1]
 	side_highlight.position = dir * half
 	side_highlight.scale = scale * area_size
 
