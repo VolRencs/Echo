@@ -9,7 +9,7 @@ const CROUCH_SPEED: float = 2.5
 const ACCELERATION: float = 15.0
 const DECELERATION: float = 20.0
 const JUMP_VELOCITY: float = 4.5
-const GRAVITY: float = 9.81
+const GRAVITY: float = 12.5
 const STAND_CAMERA_HEIGHT: float = 3.2
 const CROUCH_CAMERA_HEIGHT: float = 1.5
 const CROUCH_HEIGHT: float = 0.5
@@ -23,6 +23,7 @@ const SAVE_PATH = "user://game_save.tres"
 @onready var camera: Camera3D = $Camera3D
 @onready var collision_shape: CollisionShape3D = $Character
 @onready var animation_player: AnimationPlayer = $Player_Model/AnimationPlayer
+@onready var inventory: Control = $"../Inventory"
 
 var current_speed: float = WALK_SPEED
 var target_fov: float = NORMAL_FOV
@@ -66,8 +67,10 @@ func _physics_process(delta: float) -> void:
 	else:
 		animation_player.play("Crouch_Idle" if is_crouching else "Idle", 0.2)
 
-	velocity.x = lerp(velocity.x, direction.x * current_speed, (ACCELERATION if direction.length() > 0 else DECELERATION) * delta)
-	velocity.z = lerp(velocity.z, direction.z * current_speed, (ACCELERATION if direction.length() > 0 else DECELERATION) * delta)
+	if is_on_floor():
+		var speed_multiplier = ACCELERATION if direction.length() > 0 else DECELERATION
+		velocity.x = lerp(velocity.x, direction.x * current_speed, speed_multiplier * delta)
+		velocity.z = lerp(velocity.z, direction.z * current_speed, speed_multiplier * delta)
 
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and not is_crouching:
 		is_jumping = true

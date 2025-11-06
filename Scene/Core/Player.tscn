@@ -1,10 +1,12 @@
-[gd_scene load_steps=21 format=4 uid="uid://bqay0w81atqtb"]
+[gd_scene load_steps=23 format=4 uid="uid://bqay0w81atqtb"]
 
 [ext_resource type="Script" uid="uid://dvtv1gx43d5ey" path="res://Scripts/Map/Movement.gd" id="1_854hw"]
 [ext_resource type="Script" uid="uid://boo27hlf6kvy8" path="res://Scripts/Map/RayCastController.gd" id="2_cy1nd"]
 [ext_resource type="Texture2D" uid="uid://c5xdtuqidww16" path="res://Assets/Materials/Flashlight/Flashlight.png" id="3_l1yor"]
 [ext_resource type="Material" uid="uid://5lvs2qdklqyt" path="res://Assets/Models/Player/Models/Character_Texture.tres" id="3_xb7um"]
 [ext_resource type="Script" uid="uid://bjq7ubbkelrht" path="res://Scripts/Map/Lighter.gd" id="4_cy1nd"]
+[ext_resource type="Texture2D" uid="uid://cqb1m4soqq6t1" path="res://Assets/Images/Inventory/InventorySlot.png" id="6_b4okt"]
+[ext_resource type="Script" uid="uid://cg0n35yfkugfw" path="res://Scripts/Core/InventoryManager.gd" id="6_r68dh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l1yor"]
 radius = 0.25048828
@@ -2425,29 +2427,29 @@ _data = {
 &"Walk": SubResource("Animation_x1rxh")
 }
 
-[node name="Player" type="Node3D"]
+[node name="Player" type="Node3D" unique_id=359096447]
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1582200481]
 transform = Transform3D(-0.7, 0, -1.0569706e-07, 0, 0.7, 0, 1.0569706e-07, 0, -0.7, 0, 0, 0)
 script = ExtResource("1_854hw")
 
-[node name="Head" type="CollisionShape3D" parent="CharacterBody3D"]
+[node name="Head" type="CollisionShape3D" parent="CharacterBody3D" unique_id=179415315]
 transform = Transform3D(2.24, 0, 2.842171e-14, 0, 2.24, 0, -2.842171e-14, 0, 2.24, 2.5720253e-08, 3.0953062, -0.17033751)
 shape = SubResource("CapsuleShape3D_l1yor")
 
-[node name="Character" type="CollisionShape3D" parent="CharacterBody3D"]
+[node name="Character" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1305367055]
 transform = Transform3D(2.24, 0, 2.842171e-14, 0, 2.24, 0, -2.842171e-14, 0, 2.24, 1.2051668e-08, 1.4357984, -0.07981459)
 shape = SubResource("CapsuleShape3D_854hw")
 
-[node name="Ground" type="CollisionShape3D" parent="CharacterBody3D"]
+[node name="Ground" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1028064391]
 transform = Transform3D(5.0176, 0, -1.1368684e-13, 0, 5.0176, 0, 1.1368684e-13, 0, 5.0176, -0.06821935, -0.0056234, -0.19516805)
 shape = SubResource("BoxShape3D_cy1nd")
 
-[node name="Player_Model" type="Node3D" parent="CharacterBody3D"]
+[node name="Player_Model" type="Node3D" parent="CharacterBody3D" unique_id=277439893]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
 script = ExtResource("2_cy1nd")
 
-[node name="Skeleton3D" type="Skeleton3D" parent="CharacterBody3D/Player_Model"]
+[node name="Skeleton3D" type="Skeleton3D" parent="CharacterBody3D/Player_Model" unique_id=993184671]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
 bones/0/name = "mixamorig_Hips"
 bones/0/parent = -1
@@ -2905,30 +2907,30 @@ bones/64/position = Vector3(1.3787258e-09, 8.771244, 1.3546877e-08)
 bones/64/rotation = Quaternion(2.3726868e-10, 1.3129688e-16, 5.2041704e-18, 1)
 bones/64/scale = Vector3(1, 1, 1)
 
-[node name="Character" type="MeshInstance3D" parent="CharacterBody3D/Player_Model/Skeleton3D"]
+[node name="Character" type="MeshInstance3D" parent="CharacterBody3D/Player_Model/Skeleton3D" unique_id=1315034897]
 layers = 524288
 cast_shadow = 3
 mesh = SubResource("ArrayMesh_l1yor")
 skin = SubResource("Skin_cy1nd")
 surface_material_override/0 = ExtResource("3_xb7um")
 
-[node name="Helmet" type="MeshInstance3D" parent="CharacterBody3D/Player_Model/Skeleton3D"]
+[node name="Helmet" type="MeshInstance3D" parent="CharacterBody3D/Player_Model/Skeleton3D" unique_id=1655001383]
 layers = 524288
 cast_shadow = 3
 mesh = SubResource("ArrayMesh_y3uxw")
 skin = SubResource("Skin_jbe30")
 surface_material_override/0 = ExtResource("3_xb7um")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody3D/Player_Model"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody3D/Player_Model" unique_id=490765151]
 libraries = {
 &"": SubResource("AnimationLibrary_xifky")
 }
 
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D" unique_id=451644438]
 transform = Transform3D(1.4285715, 0, 0, 0, 1.4285715, 0, 0, 0, 1.4285715, 0.03601411, 3.1324537, -0.28613847)
 cull_mask = 524289
 
-[node name="SpotLight3D" type="SpotLight3D" parent="CharacterBody3D/Camera3D"]
+[node name="SpotLight3D" type="SpotLight3D" parent="CharacterBody3D/Camera3D" unique_id=499336964]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7252903e-09, -0.37068605, -0.304994)
 light_energy = 10.858
 light_indirect_energy = 3.101
@@ -2948,5 +2950,64 @@ fade_speed = 7.0
 flicker_enabled = true
 flicker_frequency = 9.0
 
-[node name="RayCast3D" type="RayCast3D" parent="CharacterBody3D/Camera3D"]
+[node name="RayCast3D" type="RayCast3D" parent="CharacterBody3D/Camera3D" unique_id=1895836603]
 transform = Transform3D(1, -3.333111e-07, 1.5098375e-07, 1.5099369e-07, 0.011673649, -1.005222, 1.501973e-07, 2.2074196, 0.005315984, -0.006123718, 0, -0.29725337)
+
+[node name="Inventory" type="Control" parent="." unique_id=1373647732 node_paths=PackedStringArray("icons")]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -191.0
+offset_top = -163.0
+offset_right = 240.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("6_r68dh")
+icons = [NodePath("SlotsContainer/Slot1/Icon"), NodePath("SlotsContainer/Slot2/Icon"), NodePath("SlotsContainer/Slot3/Icon"), NodePath("SlotsContainer/Slot4/Icon")]
+
+[node name="SlotsContainer" type="HBoxContainer" parent="Inventory" unique_id=978819541]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.13100001
+offset_left = -16.0
+offset_top = 49.0
+offset_right = -24.0
+offset_bottom = 115.76
+theme_override_constants/separation = 25
+
+[node name="Slot1" type="PanelContainer" parent="Inventory/SlotsContainer" unique_id=264987831]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Inventory/SlotsContainer/Slot1" unique_id=1199535440]
+layout_mode = 2
+texture = ExtResource("6_b4okt")
+expand_mode = 2
+
+[node name="Slot2" type="PanelContainer" parent="Inventory/SlotsContainer" unique_id=1083231266]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Inventory/SlotsContainer/Slot2" unique_id=657486744]
+layout_mode = 2
+texture = ExtResource("6_b4okt")
+expand_mode = 2
+
+[node name="Slot3" type="PanelContainer" parent="Inventory/SlotsContainer" unique_id=897087837]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Inventory/SlotsContainer/Slot3" unique_id=458659585]
+layout_mode = 2
+texture = ExtResource("6_b4okt")
+expand_mode = 2
+
+[node name="Slot4" type="PanelContainer" parent="Inventory/SlotsContainer" unique_id=1029708679]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Inventory/SlotsContainer/Slot4" unique_id=1979150655]
+layout_mode = 2
+texture = ExtResource("6_b4okt")
+expand_mode = 2

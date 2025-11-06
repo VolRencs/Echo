@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://3w36cuohiy7j"]
 
-[ext_resource type="Texture2D" uid="uid://rn2twt62et04" path="res://Assets/PNG/WorldEnvironment/MainMenu.png" id="1_q4fkk"]
+[ext_resource type="Texture2D" uid="uid://rn2twt62et04" path="res://Assets/Images/WorldEnvironment/MainMenu.png" id="1_q4fkk"]
 [ext_resource type="PackedScene" uid="uid://bqay0w81atqtb" path="res://Scene/Core/Player.tscn" id="2_2xbbe"]
 [ext_resource type="Script" uid="uid://dh4b3tkg3bxnl" path="res://Scripts/Core/UIRoot.gd" id="3_md6at"]
 [ext_resource type="Script" uid="uid://tda8lwoyorg6" path="res://Scripts/MainMenu/Settings.gd" id="4_bpc8p"]
@@ -39,15 +39,15 @@ shader_parameter/blur_size = 2.000000095
 shader_parameter/iterations = 6
 shader_parameter/opacity = 0.1200000057
 
-[node name="Game" type="Node3D"]
+[node name="Game" type="Node3D" unique_id=764023004]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1587375534]
 environment = SubResource("Environment_q485k")
 
-[node name="Player" parent="." instance=ExtResource("2_2xbbe")]
+[node name="Player" parent="." unique_id=1736660798 instance=ExtResource("2_2xbbe")]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 2.4205456, 0.12281841, -19.836605)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("continue_button", "settings_button", "quit_button", "control_panel", "player_node")]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1122548874 node_paths=PackedStringArray("continue_button", "settings_button", "quit_button", "control_panel", "player_node")]
 process_mode = 3
 process_priority = 1
 script = ExtResource("3_md6at")
@@ -57,28 +57,28 @@ quit_button = NodePath("Exit")
 control_panel = NodePath("Control")
 player_node = NodePath("../Player")
 
-[node name="Start" type="Button" parent="CanvasLayer"]
+[node name="Start" type="Button" parent="CanvasLayer" unique_id=1913918325]
 offset_left = 883.0
 offset_top = 353.0
 offset_right = 1136.0
 offset_bottom = 404.0
 text = "Продолжить"
 
-[node name="Settings" type="Button" parent="CanvasLayer"]
+[node name="Settings" type="Button" parent="CanvasLayer" unique_id=979019917]
 offset_left = 883.0
 offset_top = 449.0
 offset_right = 1136.0
 offset_bottom = 500.0
 text = "Настройки"
 
-[node name="Exit" type="Button" parent="CanvasLayer"]
+[node name="Exit" type="Button" parent="CanvasLayer" unique_id=2076741887]
 offset_left = 886.0
 offset_top = 547.0
 offset_right = 1139.0
 offset_bottom = 598.0
 text = "Главное меню"
 
-[node name="Control" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("music_slider", "sound_slider", "fullscreen_checkbox", "vsync_checkbox", "refresh_rate_option", "close_button")]
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1127005779 node_paths=PackedStringArray("music_slider", "sound_slider", "fullscreen_checkbox", "vsync_checkbox", "refresh_rate_option", "close_button")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 0
@@ -92,7 +92,7 @@ vsync_checkbox = NodePath("VSync")
 refresh_rate_option = NodePath("Hz")
 close_button = NodePath("Button")
 
-[node name="Button" type="Button" parent="CanvasLayer/Control"]
+[node name="Button" type="Button" parent="CanvasLayer/Control" unique_id=615268066]
 layout_mode = 0
 offset_left = 80.0
 offset_top = 37.0
@@ -100,14 +100,14 @@ offset_right = 240.0
 offset_bottom = 93.0
 text = "Назад"
 
-[node name="Music" type="HSlider" parent="CanvasLayer/Control"]
+[node name="Music" type="HSlider" parent="CanvasLayer/Control" unique_id=1791525991]
 layout_mode = 0
 offset_left = 798.0
 offset_top = 336.0
 offset_right = 1172.0
 offset_bottom = 445.0
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/Music"]
+[node name="Label" type="Label" parent="CanvasLayer/Control/Music" unique_id=2083864712]
 layout_mode = 0
 offset_left = 144.0
 offset_top = 16.0
@@ -117,14 +117,14 @@ theme_override_colors/font_shadow_color = Color(0.55815613, 0.55815613, 0.558156
 text = "Музыка"
 horizontal_alignment = 1
 
-[node name="Sound" type="HSlider" parent="CanvasLayer/Control"]
+[node name="Sound" type="HSlider" parent="CanvasLayer/Control" unique_id=804390149]
 layout_mode = 0
 offset_left = 798.0
 offset_top = 405.0
 offset_right = 1172.0
 offset_bottom = 514.0
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/Sound"]
+[node name="Label" type="Label" parent="CanvasLayer/Control/Sound" unique_id=2034827771]
 layout_mode = 0
 offset_left = 144.0
 offset_top = 16.0
@@ -135,7 +135,7 @@ text = "Звуки
 "
 horizontal_alignment = 1
 
-[node name="Window" type="CheckBox" parent="CanvasLayer/Control"]
+[node name="Window" type="CheckBox" parent="CanvasLayer/Control" unique_id=1676778387]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.021000002
@@ -146,7 +146,7 @@ offset_right = 1012.299
 offset_bottom = 541.188
 text = "Полноэкранный режим"
 
-[node name="VSync" type="CheckBox" parent="CanvasLayer/Control"]
+[node name="VSync" type="CheckBox" parent="CanvasLayer/Control" unique_id=1437446119]
 layout_mode = 0
 offset_left = 1054.0
 offset_top = 504.0
@@ -154,7 +154,7 @@ offset_right = 1137.0
 offset_bottom = 537.0
 text = "VSync"
 
-[node name="Hz" type="OptionButton" parent="CanvasLayer/Control"]
+[node name="Hz" type="OptionButton" parent="CanvasLayer/Control" unique_id=1197686815]
 layout_mode = 0
 offset_left = 954.0
 offset_top = 598.0
@@ -163,7 +163,7 @@ offset_bottom = 626.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_thj8p")
 theme_override_styles/hover = SubResource("StyleBoxFlat_h8jt7")
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/Hz"]
+[node name="Label" type="Label" parent="CanvasLayer/Control/Hz" unique_id=559072055]
 layout_mode = 0
 offset_left = -2.0
 offset_top = -29.0
@@ -173,17 +173,17 @@ theme_override_colors/font_shadow_color = Color(0.55815613, 0.55815613, 0.558156
 text = "Hz"
 horizontal_alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1113582366]
 z_index = -3
 material = SubResource("ShaderMaterial_bvub4")
 offset_right = 1925.0
 offset_bottom = 1081.0
 mouse_filter = 2
 
-[node name="BackBufferCopy" type="BackBufferCopy" parent="CanvasLayer/ColorRect"]
+[node name="BackBufferCopy" type="BackBufferCopy" parent="CanvasLayer/ColorRect" unique_id=1277722439]
 position = Vector2(955, 547.5)
 scale = Vector2(9.72, 5.475)
 copy_mode = 2
 
-[node name="SpaceShip" parent="." instance=ExtResource("6_wphkj")]
+[node name="SpaceShip" parent="." unique_id=672535999 instance=ExtResource("6_wphkj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27715492, -4.7683716e-07, -0.8430977)

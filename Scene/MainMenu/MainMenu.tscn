@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cl46o7qdb71nv" path="res://Assets/Models/Sputnik/space_satellite.glb" id="1_hptlk"]
 [ext_resource type="Script" uid="uid://ca4jwambwidvs" path="res://Scripts/MainMenu/Sputnik.gd" id="2_oqads"]
-[ext_resource type="Texture2D" uid="uid://rn2twt62et04" path="res://Assets/PNG/WorldEnvironment/MainMenu.png" id="3_s2f1d"]
+[ext_resource type="Texture2D" uid="uid://rn2twt62et04" path="res://Assets/Images/WorldEnvironment/MainMenu.png" id="3_s2f1d"]
 [ext_resource type="Script" uid="uid://c0kctcrume220" path="res://Scripts/MainMenu/Menu.gd" id="4_ejkra"]
 [ext_resource type="Script" uid="uid://tda8lwoyorg6" path="res://Scripts/MainMenu/Settings.gd" id="5_yok32"]
 [ext_resource type="PackedScene" uid="uid://yskauub60nvs" path="res://Scene/MainMenu/AsteroidManager.tscn" id="6_klvvj"]
