@@ -25,6 +25,18 @@ const SAVE_PATH = "user://game_save.tres"
 @onready var animation_player: AnimationPlayer = $Player_Model/AnimationPlayer
 @onready var inventory: Control = $"../Inventory"
 
+# Анимации как словарь — удобно менять имена в одном месте
+var anim_states := {
+	"jump": "Jump",
+	"walk": "Walk",
+	"run": "Running",
+	"crouch_walk": "Crouch_Walk",
+	"idle": "Idle",
+	"crouch_idle": "Crouch_Idle"
+}
+
+var step_player: AudioStreamPlayer = null
+
 var current_speed: float = WALK_SPEED
 var target_fov: float = NORMAL_FOV
 var is_crouching: bool = false
@@ -38,6 +50,12 @@ var camera_offset: float = STAND_CAMERA_HEIGHT
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	camera.position.y = camera_offset
+
+	for node in get_tree().get_nodes_in_group("Sound"):
+		if node is AudioStreamPlayer and node.name == "Step":
+			step_player = node
+			break
+
 	if not GameState.loaded_player_data.is_empty():
 		position = GameState.loaded_player_data.get("position", position)
 		rotation.y = GameState.loaded_player_data.get("rotation_y", rotation.y)
@@ -45,37 +63,53 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		rotate_y(-event.relative.x * MOUSE_SENSITIVITY)
-		rotation_y = clamp(rotation_y - event.relative.y * MOUSE_SENSITIVITY, MIN_PITCH, MAX_PITCH)
+		var rel: Vector2 = event.relative * MOUSE_SENSITIVITY
+		rotate_y(-rel.x)
+		rotation_y = clamp(rotation_y - rel.y, MIN_PITCH, MAX_PITCH)
 		camera.rotation.x = rotation_y
 
 func _physics_process(delta: float) -> void:
-	velocity.y -= GRAVITY * delta if not is_on_floor() else 0.0
-	is_jumping = false if is_on_floor() else is_jumping
-
-	_handle_crouching(delta)
-	_handle_sprinting()
-
-	var input_dir: Vector2 = Input.get_vector("left", "right", "up", "down")
-	var direction: Vector3 = (transform.basis.z * input_dir.y + transform.basis.x * input_dir.x).normalized() if input_dir.length() > 0 else Vector3.ZERO
-
-	if is_jumping:
-		if animation_player.current_animation != "Jump":
-			animation_player.play("Jump", 0.2)
-	elif input_dir.length() > 0:
-		animation_player.play("Crouch_Walk" if is_crouching else "Running" if is_sprinting else "Walk", 0.2)
+	if not is_on_floor():
+		velocity.y -= GRAVITY * delta
 	else:
-		animation_player.play("Crouch_Idle" if is_crouching else "Idle", 0.2)
+		velocity.y = 0.0
+		is_jumping = false
+
+	var input_vec: Vector2 = Input.get_vector("left", "right", "up", "down")
+	var crouch_pressed: bool = Input.is_action_pressed("crouch")
+	var sprint_pressed: bool = Input.is_action_pressed("sprint")
+
+	_handle_crouching(delta, crouch_pressed)
+	_handle_sprinting(input_vec, sprint_pressed)
+
+	var direction: Vector3 = Vector3.ZERO
+	if input_vec.length() > 0:
+		direction = (transform.basis.z * input_vec.y + transform.basis.x * input_vec.x).normalized()
+
+	var desired_anim: String = ""
+	if is_jumping:
+		desired_anim = anim_states["jump"]
+	elif input_vec.length() > 0:
+		if is_crouching:
+			desired_anim = anim_states["crouch_walk"]
+		elif is_sprinting:
+			desired_anim = anim_states["run"]
+		else:
+			desired_anim = anim_states["walk"]
+	else:
+		desired_anim = anim_states["crouch_idle"] if is_crouching else anim_states["idle"]
+
+	_play_anim(desired_anim)
 
 	if is_on_floor():
-		var speed_multiplier = ACCELERATION if direction.length() > 0 else DECELERATION
-		velocity.x = lerp(velocity.x, direction.x * current_speed, speed_multiplier * delta)
-		velocity.z = lerp(velocity.z, direction.z * current_speed, speed_multiplier * delta)
+		var lerp_speed: float = ACCELERATION if direction.length() > 0 else DECELERATION
+		velocity.x = lerp(velocity.x, direction.x * current_speed, lerp_speed * delta)
+		velocity.z = lerp(velocity.z, direction.z * current_speed, lerp_speed * delta)
 
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and not is_crouching:
 		is_jumping = true
 		velocity.y = JUMP_VELOCITY
-		animation_player.play("Jump", 0.2)
+		_play_anim(anim_states["jump"])
 
 	camera.fov = lerp(camera.fov, target_fov, CAMERA_SMOOTH_SPEED * delta)
 
@@ -83,34 +117,36 @@ func _physics_process(delta: float) -> void:
 	if horizontal_velocity > 0.1 and is_on_floor() and not is_crouching:
 		step_timer -= delta
 		if step_timer <= 0.0:
-			for player in get_tree().get_nodes_in_group("Sound"):
-				if player.name == "Step" and player is AudioStreamPlayer:
-					player.stop()
-					player.pitch_scale = randf_range(0.8, 1.2)
-					player.play()
-					break
+			if step_player:
+				step_player.stop()
+				step_player.pitch_scale = randf_range(0.8, 1.2)
+				step_player.play()
 			step_timer = step_interval / (current_speed / WALK_SPEED)
 	else:
 		step_timer = 0.0
 
 	move_and_slide()
 
-func _handle_crouching(delta: float) -> void:
-	var target_height: float = CROUCH_HEIGHT if Input.is_action_pressed("crouch") else NORMAL_HEIGHT
-	(collision_shape.shape as CapsuleShape3D).height = lerp(collision_shape.shape.height, target_height, 10.0 * delta)
+func _play_anim(anim_name: String) -> void:
+	if animation_player and animation_player.current_animation != anim_name:
+		animation_player.play(anim_name, 0.2)
 
-	camera_offset = CROUCH_CAMERA_HEIGHT if Input.is_action_pressed("crouch") else STAND_CAMERA_HEIGHT
+func _handle_crouching(delta: float, crouch_pressed: bool) -> void:
+	var target_height: float = CROUCH_HEIGHT if crouch_pressed else NORMAL_HEIGHT
+	var capsule: CapsuleShape3D = collision_shape.shape as CapsuleShape3D
+	capsule.height = lerp(capsule.height, target_height, 10.0 * delta)
+
+	camera_offset = CROUCH_CAMERA_HEIGHT if crouch_pressed else STAND_CAMERA_HEIGHT
 	camera.position.y = lerp(camera.position.y, camera_offset, 10.0 * delta)
 
 	if $Head:
-		$Head.disabled = Input.is_action_pressed("crouch")
+		$Head.disabled = crouch_pressed
 
-	is_crouching = Input.is_action_pressed("crouch")
+	is_crouching = crouch_pressed
 	target_fov = CROUCH_FOV if is_crouching else NORMAL_FOV
 
-func _handle_sprinting() -> void:
-	var input_dir: Vector2 = Input.get_vector("left", "right", "up", "down")
-	is_sprinting = Input.is_action_pressed("sprint") and is_on_floor() and not is_crouching and input_dir.y < 0
+func _handle_sprinting(input_vec: Vector2, sprint_pressed: bool) -> void:
+	is_sprinting = sprint_pressed and is_on_floor() and not is_crouching and input_vec.y < 0
 	current_speed = SPRINT_SPEED if is_sprinting else (CROUCH_SPEED if is_crouching else WALK_SPEED)
 	target_fov = SPRINT_FOV if is_sprinting else (CROUCH_FOV if is_crouching else NORMAL_FOV)
 
