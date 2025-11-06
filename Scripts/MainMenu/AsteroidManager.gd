@@ -28,7 +28,6 @@ func _ready() -> void:
 	if not camera:
 		push_error("No camera found, deletion distance may not work!")
 
-	# Создаём визуализацию области
 	area_mesh = _create_mesh(area_size, Color(0, 1, 0, 0.2))
 	side_highlight = _create_mesh(Vector3.ONE * 0.01, Color(1, 0, 0, 0.5))
 	add_child(area_mesh)
@@ -94,7 +93,7 @@ func _spawn_position() -> Vector3:
 func _process(delta: float) -> void:
 	if not camera: return
 	var center = global_position
-	var max_distance = camera.far * 2.0 # расстояние удаления зависит от камеры
+	var max_distance = camera.far * 2.0
 
 	for i in range(asteroids.size() - 1, -1, -1):
 		var a = asteroids[i]

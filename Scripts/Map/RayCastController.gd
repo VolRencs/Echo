@@ -1,16 +1,17 @@
 extends Node
 
-@onready var ray = $"../Camera3D/RayCast3D"
+@onready var ray: RayCast3D = $"../Camera3D/RayCast3D"
 @onready var label_controllers = get_tree().get_nodes_in_group("LabelControllers")
 var current_target: Node = null
 
-func _ready():
+func _ready() -> void:
 	for lc in label_controllers:
 		lc.visible = false
 
-func _process(_delta):
-	var collider = ray.get_collider()
-	var intercom_node = find_intercom_parent(collider)
+func _process(_delta: float) -> void:
+	var collider: Node = ray.get_collider()
+	var intercom_node: Node = find_intercom_parent(collider)
+
 	if intercom_node != current_target:
 		if current_target:
 			enable_labels_for_target(null)
@@ -18,22 +19,18 @@ func _process(_delta):
 		if current_target:
 			enable_labels_for_target(current_target)
 
-func enable_labels_for_target(target):
+func enable_labels_for_target(target: Node) -> void:
 	for lc in label_controllers:
-		if target and target.is_ancestor_of(lc):
-			lc.visible = true
-		else:
-			lc.visible = false
+		lc.visible = target != null and target.is_ancestor_of(lc)
 
 func find_intercom_parent(node: Node) -> Node:
-	var current = node
+	var current: Node = node
 	while current:
 		if current.is_in_group("Intercom"):
 			return current
 		current = current.get_parent()
 	return null
 
-func _input(event):
-	if event.is_action_pressed("interact") and current_target:
-		if current_target.has_method("on_interact"):
-			current_target.on_interact()
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("interact") and current_target and current_target.has_method("on_interact"):
+		current_target.on_interact()

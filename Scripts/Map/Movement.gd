@@ -85,18 +85,12 @@ func _physics_process(delta: float) -> void:
 	if input_vec.length() > 0:
 		direction = (transform.basis.z * input_vec.y + transform.basis.x * input_vec.x).normalized()
 
-	var desired_anim: String = ""
-	if is_jumping:
-		desired_anim = anim_states["jump"]
-	elif input_vec.length() > 0:
-		if is_crouching:
-			desired_anim = anim_states["crouch_walk"]
-		elif is_sprinting:
-			desired_anim = anim_states["run"]
-		else:
-			desired_anim = anim_states["walk"]
-	else:
-		desired_anim = anim_states["crouch_idle"] if is_crouching else anim_states["idle"]
+	var desired_anim: String = anim_states["jump"] if is_jumping else \
+	   anim_states["crouch_walk"] if input_vec.length() > 0 and is_crouching else \
+	   anim_states["run"] if input_vec.length() > 0 and is_sprinting else \
+	   anim_states["walk"] if input_vec.length() > 0 else \
+	   anim_states["crouch_idle"] if is_crouching else \
+	   anim_states["idle"]
 
 	_play_anim(desired_anim)
 
