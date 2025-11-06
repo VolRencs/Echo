@@ -1,106 +1,105 @@
 extends Node3D
 
-@export var asteroid_count: int = 100
-@export var min_speed: float = 5.0
-@export var max_speed: float = 15.0
-@export var max_distance_from_camera: float = 50.0
-@export var asteroid_models_paths: Array[PackedScene] = []
-@export var area_size: Vector3 = Vector3(40, 40, 40)
-@export var spawn_side: String = "left"  # Options: left, right, front, back, top, bottom
+@export var asteroid_count := 100
+@export var min_speed := 5.0
+@export var max_speed := 15.0
+@export var removal_distance_multiplier := 2.0
+@export var asteroid_models: Array[PackedScene] = []
+@export var area_size := Vector3(40, 40, 40)
+@export var spawn_side := "left"
 
-var asteroids: Array[Dictionary] = []
-var mesh_instance: MeshInstance3D
-var highlight_mesh: MeshInstance3D
+var asteroids := []
+var area_mesh: MeshInstance3D
+var side_highlight: MeshInstance3D
+var removal_distance: float = 200.0
 
-func _ready():
-	mesh_instance = create_mesh_instance(area_size, Color(0, 1, 0, 0.2))
-	add_child(mesh_instance)
-	
-	highlight_mesh = create_mesh_instance(Vector3.ZERO, Color(1, 0, 0, 0.5))
-	add_child(highlight_mesh)
-	update_highlight_position()
-	
-	$Timer.timeout.connect(spawn_single_asteroid)
-	$Timer.start()
+const SIDES := {
+	"left":   [Vector3(-1, 0, 0), Vector3(0.01, 1, 1)],
+	"right":  [Vector3( 1, 0, 0), Vector3(0.01, 1, 1)],
+	"front":  [Vector3( 0, 0,-1), Vector3(1, 1, 0.01)],
+	"back":   [Vector3( 0, 0, 1), Vector3(1, 1, 0.01)],
+	"top":    [Vector3( 0, 1, 0), Vector3(1, 0.01, 1)],
+	"bottom": [Vector3( 0,-1, 0), Vector3(1, 0.01, 1)]
+}
 
-func create_mesh_instance(size: Vector3, color: Color) -> MeshInstance3D:
-	var new_mesh_instance = MeshInstance3D.new()
-	var box_mesh = BoxMesh.new()
-	box_mesh.size = size if size != Vector3.ZERO else area_size * 0.01
-	new_mesh_instance.mesh = box_mesh
+func _ready() -> void:
+	await get_tree().process_frame
+	var camera := get_viewport().get_camera_3d()
+	if camera and camera.far > 0:
+		removal_distance = camera.far * removal_distance_multiplier
 	
-	var material = StandardMaterial3D.new()
-	material.albedo_color = color
-	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	new_mesh_instance.material_override = material
+	area_mesh = _create_mesh(area_size, Color(0, 1, 0, 0.2))
+	side_highlight = _create_mesh(Vector3.ONE * 0.01, Color(1, 0, 0, 0.5))
+	add_child(area_mesh)
+	add_child(side_highlight)
+	_update_highlight()
 	
-	return new_mesh_instance
+	$Timer.timeout.connect(_spawn_asteroid)
+	if $Timer.is_stopped():
+		$Timer.start()
 
-func update_highlight_position() -> void:
-	var half = area_size / 2
-	var config = {
-		"left":   { "position": Vector3(-half.x, 0, 0), "scale": Vector3(0.01, 1, 1) },
-		"right":  { "position": Vector3(half.x, 0, 0),  "scale": Vector3(0.01, 1, 1) },
-		"front":  { "position": Vector3(0, 0, -half.z), "scale": Vector3(1, 1, 0.01) },
-		"back":   { "position": Vector3(0, 0, half.z),  "scale": Vector3(1, 1, 0.01) },
-		"top":    { "position": Vector3(0, half.y, 0),  "scale": Vector3(1, 0.01, 1) },
-		"bottom": { "position": Vector3(0, -half.y, 0), "scale": Vector3(1, 0.01, 1) }
-	}
-	
-	if config.has(spawn_side):
-		highlight_mesh.position = config[spawn_side].position
-		highlight_mesh.scale = config[spawn_side].scale
+func _create_mesh(size: Vector3, color: Color) -> MeshInstance3D:
+	var mi := MeshInstance3D.new()
+	var mesh := BoxMesh.new()
+	mesh.size = size
+	mi.mesh = mesh
+	var mat := StandardMaterial3D.new()
+	mat.albedo_color = color
+	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	mi.material_override = mat
+	return mi
 
-func spawn_single_asteroid():
+func _update_highlight() -> void:
+	if not SIDES.has(spawn_side): return
+	var half := area_size * 0.5
+	var dir: Vector3 = SIDES[spawn_side][0]
+	var scale: Vector3 = SIDES[spawn_side][1]
+	side_highlight.position = dir * half
+	side_highlight.scale = scale * area_size
+
+func _spawn_asteroid() -> void:
 	if asteroids.size() >= asteroid_count: return
-	var state = {
-		"position": generate_spawn_position(),
-		"velocity": generate_velocity(),
-		"model_path": asteroid_models_paths[randi() % asteroid_models_paths.size()],
-		"rotation_velocity": Vector3(randf_range(-0.5, 0.5), randf_range(-0.5, 0.5), randf_range(-0.5, 0.5))
-	}
-	asteroids.append(state)
-	create_asteroid_visual(state)
+	if asteroid_models.is_empty(): return
+	
+	var pos := _spawn_position()
+	var vel := (global_position - pos).normalized()
+	vel += Vector3(randf_range(-0.3, 0.3), randf_range(-0.3, 0.3), randf_range(-0.3, 0.3))
+	vel = vel.normalized() * randf_range(min_speed, max_speed)
+	
+	var model := asteroid_models[randi() % asteroid_models.size()].instantiate() as Node3D
+	add_child(model)
+	model.position = pos
+	model.scale = Vector3.ONE * 0.1
+	
+	asteroids.append({
+		"node": model,
+		"pos": pos,
+		"vel": vel,
+		"rot": Vector3(randf_range(-0.5, 0.5), randf_range(-0.5, 0.5), randf_range(-0.5, 0.5))
+	})
 
-func generate_spawn_position() -> Vector3:
-	var center = global_position
-	var size = area_size
-	var pos = Vector3.ZERO
+func _spawn_position() -> Vector3:
+	var c := global_position
+	var h := area_size * 0.5
 	match spawn_side:
-		"left":
-			pos = Vector3(center.x - size.x/2, randf_range(center.y - size.y/2, center.y + size.y/2), randf_range(center.z - size.z/2, center.z + size.z/2))
-		"right":
-			pos = Vector3(center.x + size.x/2, randf_range(center.y - size.y/2, center.y + size.y/2), randf_range(center.z - size.z/2, center.z + size.z/2))
-		"front":
-			pos = Vector3(randf_range(center.x - size.x/2, center.x + size.x/2), randf_range(center.y - size.y/2, center.y + size.y/2), center.z - size.z/2)
-		"back":
-			pos = Vector3(randf_range(center.x - size.x/2, center.x + size.x/2), randf_range(center.y - size.y/2, center.y + size.y/2), center.z + size.z/2)
-		"top":
-			pos = Vector3(randf_range(center.x - size.x/2, center.x + size.x/2), center.y + size.y/2, randf_range(center.z - size.z/2, center.z + size.z/2))
-		"bottom":
-			pos = Vector3(randf_range(center.x - size.x/2, center.x + size.x/2), center.y - size.y/2, randf_range(center.z - size.z/2, center.z + size.z/2))
-	return pos
+		"left":   return Vector3(c.x - h.x, randf_range(c.y - h.y, c.y + h.y), randf_range(c.z - h.z, c.z + h.z))
+		"right":  return Vector3(c.x + h.x, randf_range(c.y - h.y, c.y + h.y), randf_range(c.z - h.z, c.z + h.z))
+		"front":  return Vector3(randf_range(c.x - h.x, c.x + h.x), randf_range(c.y - h.y, c.y + h.y), c.z - h.z)
+		"back":   return Vector3(randf_range(c.x - h.x, c.x + h.x), randf_range(c.y - h.y, c.y + h.y), c.z + h.z)
+		"top":    return Vector3(randf_range(c.x - h.x, c.x + h.x), c.y + h.y, randf_range(c.z - h.z, c.z + h.z))
+		"bottom": return Vector3(randf_range(c.x - h.x, c.x + h.x), c.y - h.y, randf_range(c.z - h.z, c.z + h.z))
+	return c
 
-func generate_velocity() -> Vector3:
-	var direction = (global_position - generate_spawn_position()).normalized()
-	direction += Vector3(randf_range(-0.3, 0.3), randf_range(-0.3, 0.3), randf_range(-0.3, 0.3))
-	return direction.normalized() * randf_range(min_speed, max_speed)
-
-func create_asteroid_visual(state: Dictionary):
-	var asteroid = state.model_path.instantiate() as Node3D
-	add_child(asteroid)
-	state.node = asteroid
-	asteroid.position = state.position
-	asteroid.scale = Vector3(0.1, 0.1, 0.1)
-
-func _process(delta):
+func _process(delta: float) -> void:
+	var center := global_position
 	for i in range(asteroids.size() - 1, -1, -1):
-		var state = asteroids[i]
-		state.position += state.velocity * delta
-		state.node.position = state.position
-		state.node.rotate_x(state.rotation_velocity.x * delta)
-		state.node.rotate_y(state.rotation_velocity.y * delta)
-		state.node.rotate_z(state.rotation_velocity.z * delta)
-		if state.position.distance_to(global_position) > max_distance_from_camera:
-			state.node.queue_free()
+		var a = asteroids[i]
+		a.pos += a.vel * delta
+		a.node.position = a.pos
+		a.node.rotate_x(a.rot.x * delta)
+		a.node.rotate_y(a.rot.y * delta)
+		a.node.rotate_z(a.rot.z * delta)
+		
+		if a.pos.distance_to(center) > removal_distance:
+			a.node.queue_free()
 			asteroids.remove_at(i)

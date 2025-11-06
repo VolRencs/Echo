@@ -30,6 +30,8 @@ bg_color = Color(0, 0, 0, 0.7019608)
 [node name="Camera3D" type="Camera3D" parent="." unique_id=443453903]
 transform = Transform3D(-0.9910489, -0.021608694, -0.13173977, 0.019551074, 0.95268106, -0.30334243, 0.13206081, -0.3032028, -0.94373095, -2.6335983, 15.12727, 4.1622343)
 fov = 87.1875
+near = 0.1
+far = 1000.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1177831478]
 environment = SubResource("Environment_202op")
@@ -178,4 +180,3 @@ horizontal_alignment = 1
 
 [node name="AsteroidManager" parent="." unique_id=2043044221 instance=ExtResource("6_klvvj")]
 transform = Transform3D(0.5698816, 0, 0, 0, 0.99433726, 0, 0, 0, 0.7090423, -2.6416316, 16.5957, -5.3779664)
-max_distance_from_camera = 1000.0

@@ -1,30 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://yskauub60nvs"]
+[gd_scene load_steps=4 format=3 uid="uid://yskauub60nvs"]
 
 [ext_resource type="Script" uid="uid://bgn5ixrrw3spy" path="res://Scripts/MainMenu/AsteroidManager.gd" id="1_o57nq"]
 [ext_resource type="PackedScene" uid="uid://hwixiwm3s5f3" path="res://Assets/Models/Asteroid/Rock01/Rock01.glb" id="2_ulnk0"]
 [ext_resource type="PackedScene" uid="uid://ctyk68ejbqq1d" path="res://Assets/Models/Asteroid/Rock02/Rock02.glb" id="3_y5jmp"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_wc73l"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2n38o"]
-albedo_color = Color(1, 0, 1, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_o57nq"]
-material = SubResource("StandardMaterial3D_2n38o")
-
 [node name="AsteroidManager" type="Node3D" unique_id=361236505]
 script = ExtResource("1_o57nq")
-asteroid_models_paths = Array[PackedScene]([ExtResource("2_ulnk0"), ExtResource("3_y5jmp")])
+asteroid_models = Array[PackedScene]([ExtResource("3_y5jmp"), ExtResource("2_ulnk0")])
 spawn_side = "front"
 
 [node name="Timer" type="Timer" parent="." unique_id=373999646]
 autostart = true
-
-[node name="SpawnArea" type="MeshInstance3D" parent="." unique_id=696510328]
-transform = Transform3D(3.4514844, 0, 0, 0, 2.749165, 0, 0, 0, 20, -2.8742313, 0, 0)
-mesh = SubResource("BoxMesh_wc73l")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SpawnArea" unique_id=894107801]
-transform = Transform3D(0.36, 0, 0, 0, 0.00077231467, -0.38499385, 0, 0.13699782, 0.0021703735, 0.0084216, 0, 0.5063879)
-mesh = SubResource("PlaneMesh_o57nq")
-skeleton = NodePath("../..")
