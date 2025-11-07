@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://bn7wp1p2ekyjx"]
+[gd_scene load_steps=84 format=3 uid="uid://bn7wp1p2ekyjx"]
 
 [ext_resource type="PackedScene" uid="uid://ba01biwqbxdxo" path="res://Assets/Models/Map/Models/Floors/Floor_Descent_01/Floor_Descent_01.fbx" id="5_y6apl"]
 [ext_resource type="PackedScene" uid="uid://6ji1qe4kv2bm" path="res://Assets/Models/Map/Models/Floors/Floor_Angle_01_6x6/Floor_Angle_01_6x6.fbx" id="6_5uurm"]
@@ -27,7 +27,6 @@
 [ext_resource type="PackedScene" uid="uid://pj13hab6kdpn" path="res://Assets/Models/Map/Models/Walls/Wall_Down_01_Long/Wall_Down_01_Long.fbx" id="27_m5bj0"]
 [ext_resource type="PackedScene" uid="uid://cvb1wivas1hce" path="res://Assets/Models/Map/Models/Stuff/Intercom_01/Intercom_01.fbx" id="28_3wxd1"]
 [ext_resource type="PackedScene" uid="uid://cfmsf4mc04chx" path="res://Assets/Models/Map/Models/Doors/DoorWay_01_Ramp/DoorWay_01_Ramp.fbx" id="28_64q2v"]
-[ext_resource type="PackedScene" uid="uid://bla64fdbhvua6" path="res://Assets/Models/Map/Models/InteractiveModel/Reactor/Reactor.tscn" id="28_m5bj0"]
 [ext_resource type="Script" uid="uid://dgm1dk4tpagja" path="res://Scripts/Map/Door/IntercomController.gd" id="29_3wxd1"]
 [ext_resource type="PackedScene" uid="uid://dncthok281tnn" path="res://Assets/Models/Map/Models/Walls/Porthole_01_Long/Porthole_01_Long.fbx" id="29_eseo8"]
 [ext_resource type="AudioStream" uid="uid://duo77ldmx4gjh" path="res://Assets/Audio/Door.ogg" id="30_48wqt"]
@@ -151,10 +150,6 @@ radius = 0.967
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_6i24d"]
 height = 4.0685782
 radius = 0.967
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_apcmj"]
-height = 6.780383
-radius = 1.0258789
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cl4u5"]
 size = Vector3(4.436038, 1.2063727, 1.0052543)
@@ -468,11 +463,6 @@ debug_color = Color(0.5686275, 0.49411765, 0, 1)
 [node name="CyliderShape3D14" type="CollisionShape3D" parent="Coliders/other/StaticBody3D" unique_id=899457727]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8481581, 2.1463835, -5.345297)
 shape = SubResource("CylinderShape3D_6i24d")
-debug_color = Color(0.5686275, 0.49411765, 0, 1)
-
-[node name="CyliderShape3D15" type="CollisionShape3D" parent="Coliders/other/StaticBody3D" unique_id=504626691]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.731817, -3.4333947, 13.287234)
-shape = SubResource("CylinderShape3D_apcmj")
 debug_color = Color(0.5686275, 0.49411765, 0, 1)
 
 [node name="CollisionShape3D13" type="CollisionShape3D" parent="Coliders/other/StaticBody3D" unique_id=913595493]
@@ -985,10 +975,10 @@ distance_fade_shadow = 10.0
 omni_range = 10.0
 omni_attenuation = 0.8
 
-[node name="Corridor3" parent="Lights" unique_id=1001786599 instance=ExtResource("30_wfvcp")]
+[node name="Corridor2" parent="Lights" unique_id=1001786599 instance=ExtResource("30_wfvcp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.992117, 4.004058, -4.735794)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Lights/Corridor3" unique_id=1304784071]
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights/Corridor2" unique_id=1304784071]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2845788, 0)
 layers = 524289
 light_color = Color(0.71825725, 0.6630902, 0.58039236, 1)
@@ -1009,10 +999,10 @@ distance_fade_shadow = 10.0
 omni_range = 10.0
 omni_attenuation = 0.8
 
-[node name="Corridor4" parent="Lights" unique_id=1965471773 instance=ExtResource("30_wfvcp")]
+[node name="Corridor3" parent="Lights" unique_id=1965471773 instance=ExtResource("30_wfvcp")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 13.99345, 4.004058, -17.325386)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Lights/Corridor4" unique_id=1183472559]
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights/Corridor3" unique_id=1183472559]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014753342, -0.31444025, 0)
 layers = 524289
 light_color = Color(0.71825725, 0.6630902, 0.58039236, 1)
@@ -1105,10 +1095,10 @@ distance_fade_shadow = 10.0
 omni_range = 10.0
 omni_attenuation = 0.8
 
-[node name="Reactor" parent="Lights" unique_id=641899957 instance=ExtResource("30_wfvcp")]
+[node name="Engine" parent="Lights" unique_id=641899957 instance=ExtResource("30_wfvcp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.693661, -0.1310358, 17.996628)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Lights/Reactor" unique_id=1407449724]
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights/Engine" unique_id=1407449724]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2810707, 0)
 layers = 524289
 light_color = Color(0.71825725, 0.6630902, 0.58039236, 1)
@@ -1129,10 +1119,10 @@ distance_fade_shadow = 10.0
 omni_range = 10.0
 omni_attenuation = 0.8
 
-[node name="Reactor2" parent="Lights" unique_id=2012380325 instance=ExtResource("30_wfvcp")]
+[node name="Engine2" parent="Lights" unique_id=2012380325 instance=ExtResource("30_wfvcp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.836304, -0.1310358, 17.958845)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Lights/Reactor2" unique_id=1190329429]
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights/Engine2" unique_id=1190329429]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2810707, 0)
 layers = 524289
 light_color = Color(0.71825725, 0.6630902, 0.58039236, 1)
@@ -1152,6 +1142,3 @@ distance_fade_begin = 10.0
 distance_fade_shadow = 10.0
 omni_range = 10.0
 omni_attenuation = 0.8
-
-[node name="Reactor" parent="." unique_id=121649194 instance=ExtResource("28_m5bj0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.736668, -4.7566414, 13.193343)
