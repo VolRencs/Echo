@@ -103,11 +103,9 @@ func _physics_process(delta: float) -> void:
 
 	camera.fov = lerp(camera.fov, target_fov, CAMERA_SMOOTH_SPEED * delta)
 
-	var horizontal_velocity := Vector2(velocity.x, velocity.z).length()
-	if horizontal_velocity > 0.1 and is_on_floor() and not is_crouching:
+	if is_on_floor() and not is_crouching and Vector2(velocity.x, velocity.z).length() > 0.1:
 		step_timer -= delta
 		if step_timer <= 0.0 and step_player:
-			step_player.stop()
 			step_player.pitch_scale = randf_range(0.8, 1.2)
 			step_player.play()
 			step_timer = step_interval / (current_speed / WALK_SPEED)
