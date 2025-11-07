@@ -2,13 +2,12 @@
 
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
-uid="uid://duo77ldmx4gjh"
-path="res://.godot/imported/Door.ogg-412606781e4f47dc46c82ef892369ee4.oggvorbisstr"
+uid="uid://bpin02ahp1kl2"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Audio/Door.ogg"
-dest_files=["res://.godot/imported/Door.ogg-412606781e4f47dc46c82ef892369ee4.oggvorbisstr"]
 
 [params]
 

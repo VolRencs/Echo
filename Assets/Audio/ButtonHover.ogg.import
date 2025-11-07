@@ -2,13 +2,12 @@
 
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
-uid="uid://dia86g3wfevnx"
-path="res://.godot/imported/ButtonHover.ogg-0211234c1cfafa76f10f21fdcf7f4b35.oggvorbisstr"
+uid="uid://bfqnymy438e0t"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Audio/ButtonHover.ogg"
-dest_files=["res://.godot/imported/ButtonHover.ogg-0211234c1cfafa76f10f21fdcf7f4b35.oggvorbisstr"]
 
 [params]
 

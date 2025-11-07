@@ -2,13 +2,12 @@
 
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
-uid="uid://b61prwc0dm5e0"
-path="res://.godot/imported/Intercom.ogg-1f6cdcc492438e144885f1e3653ca68e.oggvorbisstr"
+uid="uid://cf5mngicsj3l1"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Audio/Intercom.ogg"
-dest_files=["res://.godot/imported/Intercom.ogg-1f6cdcc492438e144885f1e3653ca68e.oggvorbisstr"]
 
 [params]
 

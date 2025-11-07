@@ -2,18 +2,17 @@
 
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
-uid="uid://c6nalpbxqfdcn"
-path="res://.godot/imported/AmbientGame.ogg-f890542b444f914cd6abe3e0b14f823e.oggvorbisstr"
+uid="uid://lsiggsp1yci8"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Audio/AmbientGame.ogg"
-dest_files=["res://.godot/imported/AmbientGame.ogg-f890542b444f914cd6abe3e0b14f823e.oggvorbisstr"]
 
 [params]
 
 loop=false
-loop_offset=1.0
-bpm=0.0
+loop_offset=0
+bpm=0
 beat_count=0
 bar_beats=4

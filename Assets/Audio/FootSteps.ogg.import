@@ -2,13 +2,12 @@
 
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
-uid="uid://wvmjj4f3igjj"
-path="res://.godot/imported/FootSteps.ogg-8cc4ecea3ab3b1051f5c0b5a7ce5a997.oggvorbisstr"
+uid="uid://v1x5vbq15jv7"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Audio/FootSteps.ogg"
-dest_files=["res://.godot/imported/FootSteps.ogg-8cc4ecea3ab3b1051f5c0b5a7ce5a997.oggvorbisstr"]
 
 [params]
 
