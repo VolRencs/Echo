@@ -6,23 +6,22 @@ extends CanvasLayer
 @export var control_panel: Control
 @export var player_node: Node3D
 
-var menu_open := false
+var menu_open: bool = false
 
 func _ready() -> void:
 	visible = false
 	control_panel.visible = false
-	
-	continue_button.pressed.connect(_on_continue_pressed)
-	settings_button.pressed.connect(_on_settings_pressed)
-	quit_button.pressed.connect(_on_quit_pressed)
 
-	continue_button.mouse_entered.connect(_on_button_hover)
-	settings_button.mouse_entered.connect(_on_button_hover)
-	quit_button.mouse_entered.connect(_on_button_hover)
+	continue_button.pressed.connect(Callable(self, "_on_button_pressed").bind(continue_button))
+	settings_button.pressed.connect(Callable(self, "_on_button_pressed").bind(settings_button))
+	quit_button.pressed.connect(Callable(self, "_on_button_pressed").bind(quit_button))
+
+	for button in [continue_button, settings_button, quit_button]:
+		button.mouse_entered.connect(_on_button_hover)
 
 	_restore_player_position()
 
-func _restore_player_position():
+func _restore_player_position() -> void:
 	var player = _find_player()
 	if player:
 		player.position = GameState.loaded_player_data.get("position", player.position)
@@ -31,37 +30,38 @@ func _restore_player_position():
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
-		menu_open = !menu_open
-		visible = menu_open
-		if menu_open:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			get_tree().paused = true
-		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			get_tree().paused = false
+		_toggle_menu()
 
-func _on_continue_pressed() -> void:
-	menu_open = false
-	visible = false
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	get_tree().paused = false
+func _toggle_menu() -> void:
+	menu_open = !menu_open
+	visible = menu_open
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE if menu_open else Input.MOUSE_MODE_CAPTURED)
+	get_tree().paused = menu_open
 
-func _on_settings_pressed() -> void:
+# sender передаётся через bind
+func _on_button_pressed(sender: Button) -> void:
+	match sender:
+		continue_button:
+			_toggle_menu()
+		settings_button:
+			_show_settings()
+		quit_button:
+			_quit_game()
+
+func _show_settings() -> void:
 	control_panel.visible = true
-	continue_button.visible = false
-	settings_button.visible = false
-	quit_button.visible = false
+	for btn in [continue_button, settings_button, quit_button]:
+		btn.visible = false
 
 func _on_button_hover() -> void:
-	var players = get_tree().get_nodes_in_group("Sound")
-	for player in players:
+	for player in get_tree().get_nodes_in_group("Sound"):
 		if player.name == "Button" and player is AudioStreamPlayer:
 			if player.playing:
 				player.stop()
 			player.play()
 			break
 
-func _on_quit_pressed() -> void:
+func _quit_game() -> void:
 	var player = _find_player()
 	if player and player.has_method("save_position"):
 		player.save_position()

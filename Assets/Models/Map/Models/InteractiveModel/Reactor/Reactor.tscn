@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dqgn8shfknm0" path="res://Assets/Models/Map/Models/InteractiveModel/Reactor/Model/nuclear_reactor_bomb_chamber_3.jpg" id="4_p06pt"]
 [ext_resource type="Texture2D" uid="uid://bqo237wrw67qx" path="res://Assets/Models/Map/Models/InteractiveModel/Reactor/Model/nuclear_reactor_bomb_chamber_4.jpg" id="5_tse4n"]
 [ext_resource type="Texture2D" uid="uid://b7wdm45whnvcf" path="res://Assets/Models/Map/Models/InteractiveModel/Reactor/Model/nuclear_reactor_bomb_chamber_5.png" id="6_1u6kg"]
-[ext_resource type="Script" uid="uid://bg1siuwlq4bys" path="res://Scripts/Reactor/ReactorControler.gd" id="7_571wb"]
+[ext_resource type="Script" uid="uid://bg1siuwlq4bys" path="res://Scripts/Map/Engine/EngineControler.gd" id="7_571wb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xdldc"]
 resource_name = "Bomb_Metal"

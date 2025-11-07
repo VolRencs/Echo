@@ -962,7 +962,7 @@ max_distance = 20.0
 [node name="Lights" type="Node3D" parent="." unique_id=231798629]
 
 [node name="Corridor" parent="Lights" unique_id=79096543 instance=ExtResource("30_wfvcp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9651403, 3.9937806, 0.092142105)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9651403, 3.9937806, 2.7619643)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights/Corridor" unique_id=1836822399]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2810707, 0)
@@ -986,7 +986,7 @@ omni_range = 10.0
 omni_attenuation = 0.8
 
 [node name="Corridor3" parent="Lights" unique_id=1001786599 instance=ExtResource("30_wfvcp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.992117, 4.004058, -8.3186)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.992117, 4.004058, -4.735794)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights/Corridor3" unique_id=1304784071]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2845788, 0)
