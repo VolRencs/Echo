@@ -17,7 +17,7 @@
 - **Esc** — Open menu  
 
 ## Requirements
-- Godot 4.2+ with **Vulkan 3.3**  
+- Godot 4.6 with **Vulkan 3.3**  
 - GPU with Vulkan support  
 - Windows, Linux
 
