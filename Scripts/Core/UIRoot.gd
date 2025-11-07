@@ -71,6 +71,6 @@ func _find_player() -> Node:
 	if not player_node:
 		return null
 	for child in player_node.get_children():
-		if child.get_script() == load("res://Scripts/Map/Movement.gd"):
+		if child.get_script() == load("res://Scripts/Player/Movement.gd"):
 			return child
 	return null

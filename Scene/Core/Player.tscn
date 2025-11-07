@@ -1,12 +1,12 @@
 [gd_scene load_steps=23 format=4 uid="uid://bqay0w81atqtb"]
 
-[ext_resource type="Script" uid="uid://dvtv1gx43d5ey" path="res://Scripts/Map/Movement.gd" id="1_854hw"]
-[ext_resource type="Script" uid="uid://boo27hlf6kvy8" path="res://Scripts/Map/RayCastController.gd" id="2_cy1nd"]
+[ext_resource type="Script" uid="uid://dvtv1gx43d5ey" path="res://Scripts/Player/Movement.gd" id="1_854hw"]
+[ext_resource type="Script" uid="uid://boo27hlf6kvy8" path="res://Scripts/Player/RayCastController.gd" id="2_cy1nd"]
 [ext_resource type="Texture2D" uid="uid://c5xdtuqidww16" path="res://Assets/Materials/Flashlight/Flashlight.png" id="3_l1yor"]
 [ext_resource type="Material" uid="uid://5lvs2qdklqyt" path="res://Assets/Models/Player/Models/Character_Texture.tres" id="3_xb7um"]
-[ext_resource type="Script" uid="uid://bjq7ubbkelrht" path="res://Scripts/Map/Lighter.gd" id="4_cy1nd"]
+[ext_resource type="Script" uid="uid://bjq7ubbkelrht" path="res://Scripts/Player/Lighter.gd" id="4_cy1nd"]
 [ext_resource type="Texture2D" uid="uid://cqb1m4soqq6t1" path="res://Assets/Images/Inventory/InventorySlot.png" id="6_b4okt"]
-[ext_resource type="Script" uid="uid://cg0n35yfkugfw" path="res://Scripts/Core/InventoryManager.gd" id="6_r68dh"]
+[ext_resource type="Script" uid="uid://cg0n35yfkugfw" path="res://Scripts/Player/InventoryManager.gd" id="6_r68dh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l1yor"]
 radius = 0.25048828
