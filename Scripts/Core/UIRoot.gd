@@ -38,7 +38,6 @@ func _toggle_menu() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE if menu_open else Input.MOUSE_MODE_CAPTURED)
 	get_tree().paused = menu_open
 
-# sender передаётся через bind
 func _on_button_pressed(sender: Button) -> void:
 	match sender:
 		continue_button:
