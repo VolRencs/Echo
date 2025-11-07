@@ -164,7 +164,7 @@ size = Vector3(0.8576057, 1.4663396, 5.0481114)
 size = Vector3(2.8415987, 3.4918137, 2.183663)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lhws3"]
-size = Vector3(15.526806, 1.1980553, 2.183663)
+size = Vector3(15.526806, 1.9505148, 2.193394)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yjfdn"]
 size = Vector3(1.0397887, 2.3075886, 5.844376)
@@ -486,12 +486,12 @@ shape = SubResource("BoxShape3D_3ddf8")
 debug_color = Color(0.5686275, 0.49411765, 0, 1)
 
 [node name="CollisionShape3D18" type="CollisionShape3D" parent="Coliders/other/StaticBody3D" unique_id=1445591678]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.707132, -4.3600955, 23.520039)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.707, -4.355, 23.525)
 shape = SubResource("BoxShape3D_lhws3")
 debug_color = Color(0.5686275, 0.49411765, 0, 1)
 
 [node name="CollisionShape3D19" type="CollisionShape3D" parent="Coliders/other/StaticBody3D" unique_id=555914446]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4636238, -3.798049, 19.573536)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.464, -3.798, 19.509)
 shape = SubResource("BoxShape3D_yjfdn")
 debug_color = Color(0.5686275, 0.49411765, 0, 1)
 

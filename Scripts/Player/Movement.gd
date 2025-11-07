@@ -21,7 +21,8 @@ const CROUCH_FOV: float = 65.0
 const SAVE_PATH = "user://game_save.tres"
 
 @onready var camera: Camera3D = $Camera3D
-@onready var collision_shape: CollisionShape3D = $Character
+@onready var body_collision: CollisionShape3D = $Character
+@onready var head_collision: CollisionShape3D = $Head
 @onready var animation_player: AnimationPlayer = $Player_Model/AnimationPlayer
 @onready var inventory: Control = $"../Inventory"
 
@@ -35,7 +36,6 @@ var anim_states := {
 }
 
 var step_player: AudioStreamPlayer = null
-
 var current_speed: float = WALK_SPEED
 var target_fov: float = NORMAL_FOV
 var is_crouching: bool = false
@@ -67,30 +67,28 @@ func _unhandled_input(event: InputEvent) -> void:
 		camera.rotation.x = clamp(camera.rotation.x - rel.y, MIN_PITCH, MAX_PITCH)
 
 func _physics_process(delta: float) -> void:
-	if not is_on_floor():
-		velocity.y -= GRAVITY * delta
-	else:
-		velocity.y = 0.0
+	velocity.y -= GRAVITY * delta
+	if is_on_floor() and velocity.y <= 0.0:
 		is_jumping = false
+		velocity.y = 0.0
 
 	var input_vec: Vector2 = Input.get_vector("left", "right", "up", "down")
 	var crouch_pressed: bool = Input.is_action_pressed("crouch")
 	var sprint_pressed: bool = Input.is_action_pressed("sprint")
 
-	_handle_crouching(delta, crouch_pressed)
-	_handle_sprinting(input_vec, sprint_pressed)
+	_update_crouch(crouch_pressed, delta)
+	_update_movement_state(input_vec, crouch_pressed, sprint_pressed)
 
 	var direction: Vector3 = Vector3.ZERO
 	if input_vec.length() > 0:
 		direction = (transform.basis.z * input_vec.y + transform.basis.x * input_vec.x).normalized()
 
 	var desired_anim: String = anim_states["jump"] if is_jumping else \
-	   anim_states["crouch_walk"] if input_vec.length() > 0 and is_crouching else \
-	   anim_states["run"] if input_vec.length() > 0 and is_sprinting else \
-	   anim_states["walk"] if input_vec.length() > 0 else \
-	   anim_states["crouch_idle"] if is_crouching else \
-	   anim_states["idle"]
-
+		anim_states["crouch_walk"] if input_vec.length() > 0 and is_crouching else \
+		anim_states["run"] if input_vec.length() > 0 and is_sprinting else \
+		anim_states["walk"] if input_vec.length() > 0 else \
+		anim_states["crouch_idle"] if is_crouching else \
+		anim_states["idle"]
 	_play_anim(desired_anim)
 
 	if is_on_floor():
@@ -108,14 +106,11 @@ func _physics_process(delta: float) -> void:
 	var horizontal_velocity := Vector2(velocity.x, velocity.z).length()
 	if horizontal_velocity > 0.1 and is_on_floor() and not is_crouching:
 		step_timer -= delta
-		if step_timer <= 0.0:
-			if step_player:
-				step_player.stop()
-				step_player.pitch_scale = randf_range(0.8, 1.2)
-				step_player.play()
+		if step_timer <= 0.0 and step_player:
+			step_player.stop()
+			step_player.pitch_scale = randf_range(0.8, 1.2)
+			step_player.play()
 			step_timer = step_interval / (current_speed / WALK_SPEED)
-	else:
-		step_timer = 0.0
 
 	move_and_slide()
 
@@ -123,22 +118,19 @@ func _play_anim(anim_name: String) -> void:
 	if animation_player and animation_player.current_animation != anim_name:
 		animation_player.play(anim_name, 0.2)
 
-func _handle_crouching(delta: float, crouch_pressed: bool) -> void:
-	var target_height: float = CROUCH_HEIGHT if crouch_pressed else NORMAL_HEIGHT
-	var capsule: CapsuleShape3D = collision_shape.shape as CapsuleShape3D
+func _update_crouch(crouch: bool, delta: float) -> void:
+	var capsule: CapsuleShape3D = body_collision.shape as CapsuleShape3D
+	var target_height: float = NORMAL_HEIGHT * (0.8 if crouch else 1.0)
+	position.y += (target_height - capsule.height) / 2.0
 	capsule.height = lerp(capsule.height, target_height, 10.0 * delta)
 
-	camera_offset = CROUCH_CAMERA_HEIGHT if crouch_pressed else STAND_CAMERA_HEIGHT
-	camera.position.y = lerp(camera.position.y, camera_offset, 10.0 * delta)
+	camera.position.y = lerp(camera.position.y, STAND_CAMERA_HEIGHT * (0.6 if crouch else 1.0), 10.0 * delta)
+	if head_collision:
+		head_collision.disabled = crouch
 
-	if $Head:
-		$Head.disabled = crouch_pressed
-
-	is_crouching = crouch_pressed
-	target_fov = CROUCH_FOV if is_crouching else NORMAL_FOV
-
-func _handle_sprinting(input_vec: Vector2, sprint_pressed: bool) -> void:
-	is_sprinting = sprint_pressed and is_on_floor() and not is_crouching and input_vec.y < 0
+func _update_movement_state(input_vec: Vector2, crouch: bool, sprint: bool) -> void:
+	is_crouching = crouch
+	is_sprinting = sprint and not is_crouching and is_on_floor() and input_vec.y < 0
 	current_speed = SPRINT_SPEED if is_sprinting else (CROUCH_SPEED if is_crouching else WALK_SPEED)
 	target_fov = SPRINT_FOV if is_sprinting else (CROUCH_FOV if is_crouching else NORMAL_FOV)
 

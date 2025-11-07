@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://bqay0w81atqtb"]
+[gd_scene load_steps=22 format=4 uid="uid://bqay0w81atqtb"]
 
 [ext_resource type="Script" uid="uid://dvtv1gx43d5ey" path="res://Scripts/Player/Movement.gd" id="1_854hw"]
 [ext_resource type="Script" uid="uid://boo27hlf6kvy8" path="res://Scripts/Player/RayCastController.gd" id="2_cy1nd"]
@@ -14,10 +14,7 @@ height = 0.50097656
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_854hw"]
 radius = 0.2919922
-height = 0.9512119
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_cy1nd"]
-size = Vector3(0.21687546, 0.001, 0.20293546)
+height = 1.1030298
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bo5sc"]
 resource_name = "Character"
@@ -2438,12 +2435,8 @@ transform = Transform3D(2.24, 0, 2.842171e-14, 0, 2.24, 0, -2.842171e-14, 0, 2.2
 shape = SubResource("CapsuleShape3D_l1yor")
 
 [node name="Character" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1305367055]
-transform = Transform3D(2.24, 0, 2.842171e-14, 0, 2.24, 0, -2.842171e-14, 0, 2.24, 1.2051668e-08, 1.4357984, -0.07981459)
+transform = Transform3D(2.24, 0, 2.842171e-14, 0, 2.24, 0, -2.842171e-14, 0, 2.24, 1.2051668e-08, 1.2493505, -0.07981459)
 shape = SubResource("CapsuleShape3D_854hw")
-
-[node name="Ground" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1028064391]
-transform = Transform3D(5.0176, 0, -1.1368684e-13, 0, 5.0176, 0, 1.1368684e-13, 0, 5.0176, -0.06821935, -0.0056234, -0.19516805)
-shape = SubResource("BoxShape3D_cy1nd")
 
 [node name="Player_Model" type="Node3D" parent="CharacterBody3D" unique_id=277439893]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
