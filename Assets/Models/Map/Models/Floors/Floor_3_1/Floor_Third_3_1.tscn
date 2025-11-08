@@ -44,10 +44,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_pibub")
 
-[node name="Floor_Third_3_1" type="Node3D"]
+[node name="Floor_Third_3_1" type="Node3D" unique_id=2141004463]
 
-[node name="Floor" type="MeshInstance3D" parent="."]
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=27526184]
 transform = Transform3D(0.50318646, 0, 0, 0, 0, 1.0000002, 0, -1.0000002, 0, 0, 0, 0)
 layers = 524289
 mesh = SubResource("ArrayMesh_yqg87")
-skeleton = NodePath("")

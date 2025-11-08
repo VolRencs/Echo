@@ -1,9 +1,8 @@
-[gd_scene load_steps=84 format=3 uid="uid://bn7wp1p2ekyjx"]
+[gd_scene load_steps=83 format=3 uid="uid://bn7wp1p2ekyjx"]
 
 [ext_resource type="PackedScene" uid="uid://ba01biwqbxdxo" path="res://Assets/Models/Map/Models/Floors/Floor_Descent_01/Floor_Descent_01.fbx" id="5_y6apl"]
 [ext_resource type="PackedScene" uid="uid://6ji1qe4kv2bm" path="res://Assets/Models/Map/Models/Floors/Floor_Angle_01_6x6/Floor_Angle_01_6x6.fbx" id="6_5uurm"]
 [ext_resource type="PackedScene" uid="uid://dy4xk02uf4r3m" path="res://Assets/Models/Map/Models/Floors/Floor_3_1/Floor_Third_3_1.tscn" id="6_64q2v"]
-[ext_resource type="PackedScene" uid="uid://b4idggouehntj" path="res://Assets/Models/Map/Models/Doors/Door_Vert_01/Door.tscn" id="7_m5bj0"]
 [ext_resource type="PackedScene" uid="uid://cw634qhh6n0hj" path="res://Assets/Models/Map/Models/Floors/Floor_Squared_01_6x6/Floor_Squared_01_6x6.fbx" id="7_ol57n"]
 [ext_resource type="PackedScene" uid="uid://d2dy1akvvjoil" path="res://Assets/Models/Map/Models/Floors/Floor_Third_02_Strip_2x6/Floor_Third_02_Strip_2x6.fbx" id="8_5uurm"]
 [ext_resource type="PackedScene" uid="uid://tarre310wcpc" path="res://Assets/Models/Map/Models/Floors/Floor_Squared_02_6x6/Floor_Squared_02_6x6.fbx" id="9_vb7ca"]
@@ -34,15 +33,17 @@
 [ext_resource type="PackedScene" uid="uid://bifevxfjwbxs2" path="res://Assets/Models/Map/Models/Lights/Light_Corridor_02/Light_Corridor_02.fbx" id="30_wfvcp"]
 [ext_resource type="PackedScene" uid="uid://12s7q4xb6b4q" path="res://Assets/Models/Map/Models/Props/Airing_01/Airing_01.fbx" id="30_yhi06"]
 [ext_resource type="PackedScene" uid="uid://h5h35lac7jin" path="res://Assets/Models/Map/Models/Lights/Light_Corridor_01/Light_Corridor_01.fbx" id="31_kkwoi"]
+[ext_resource type="PackedScene" uid="uid://bukedwswi56vp" path="res://Scene/Map/Door/Door.tscn" id="31_ylsd1"]
 [ext_resource type="PackedScene" uid="uid://cmwb1ksjfg5m7" path="res://Assets/Models/Map/Models/Stuff/Air_Grid_01/Air_Grid_01.fbx" id="32_7s5p8"]
-[ext_resource type="PackedScene" uid="uid://h1omdvhg2127" path="res://Scene/Map/MainDoor.tscn" id="32_yhi06"]
+[ext_resource type="Script" uid="uid://cjm122l2mkilt" path="res://Scripts/Map/Door/DoorController.gd" id="32_lut6s"]
+[ext_resource type="PackedScene" uid="uid://h1omdvhg2127" path="res://Scene/Map/Door/MainDoor.tscn" id="32_yhi06"]
 [ext_resource type="AudioStream" uid="uid://bxowr8qutv17o" path="res://Assets/Audio/Door_Open.ogg" id="33_cxx40"]
 [ext_resource type="AudioStream" uid="uid://dlvgswmuubclu" path="res://Assets/Audio/Door_Closed.ogg" id="34_48wqt"]
 [ext_resource type="PackedScene" uid="uid://bucwys7mv8v8q" path="res://Assets/Models/Map/Models/Roofs/Roof_Squared_02_6x6/Roof_Squared_02_6x6.fbx" id="39_kixto"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m5bj0"]
 margin = 7.42
-size = Vector3(31.421, 0.985, 34.871)
+size = Vector3(29.766277, 0.985, 34.52681)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_apcmj"]
 points = PackedVector3Array(2, 0, 0, -2, 0, 0, -2, -5, 12, 2, -5, 12)
@@ -51,31 +52,25 @@ points = PackedVector3Array(2, 0, 0, -2, 0, 0, -2, -5, 12, 2, -5, 12)
 size = Vector3(21.171555, 0.51, 13.583633)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3wxd1"]
-size = Vector3(1.204, 11.277226, 12.129)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_7thtt"]
-size = Vector3(1.542, 10.78394, 11.966)
+size = Vector3(0.9594219, 10.009858, 24.256603)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wfvcp"]
 size = Vector3(4.523773, 1.0182381, 0.99453354)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_kkwoi"]
-size = Vector3(1.2036133, 9.946289, 12.734726)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_7s5p8"]
-size = Vector3(1.2036133, 9.946289, 12.734726)
+size = Vector3(0.6105957, 9.24707, 12.822441)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yhi06"]
-size = Vector3(19.934204, 9.946289, 0.86572266)
+size = Vector3(19.934204, 9.242126, 0.34777832)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bxdwb"]
-size = Vector3(14.568976, 9.946, 11.9656315)
+size = Vector3(14.667492, 9.788551, 12.086622)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cxx40"]
 size = Vector3(0.4924028, 9.946, 18.668776)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_48wqt"]
-size = Vector3(14.578352, 8.046473, 6.207814)
+size = Vector3(14.578352, 5.144452, 6.207814)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rt515"]
 size = Vector3(9.296218, 4.96745, 13.92185)
@@ -90,7 +85,7 @@ size = Vector3(0.7159862, 4.967, 12.238603)
 size = Vector3(8.573957, 4.967, 0.33839178)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rxbpj"]
-size = Vector3(0.50314116, 4.967, 10.326632)
+size = Vector3(0.50314116, 4.967, 10.672105)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d4c3v"]
 size = Vector3(0.7477339, 4.967, 6.032818)
@@ -120,7 +115,7 @@ size = Vector3(1.0409851, 1, 2.028658)
 size = Vector3(4.6352463, 1.3848877, 2.1544657)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i01n2"]
-size = Vector3(2.1579552, 1.5841675, 3.0674672)
+size = Vector3(2.1579552, 0.2001648, 2.996136)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tbjgl"]
 size = Vector3(1.3533316, 3.9955292, 3.0674672)
@@ -152,7 +147,7 @@ height = 4.0685782
 radius = 0.967
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cl4u5"]
-size = Vector3(4.436038, 1.2063727, 1.0052543)
+size = Vector3(4.3923354, 0.28006905, 1.0052543)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rshgw"]
 size = Vector3(0.699753, 4.852663, 1.8147132)
@@ -167,7 +162,7 @@ size = Vector3(2.8415987, 3.4918137, 2.183663)
 size = Vector3(15.526806, 1.9505148, 2.193394)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yjfdn"]
-size = Vector3(1.0397887, 2.3075886, 5.844376)
+size = Vector3(0.97314143, 1.1508718, 5.2257767)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nwbxx"]
 size = Vector3(1.0735989, 0.736084, 0.49799347)
@@ -267,7 +262,7 @@ cache/0/47/0/scale = 1.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.010384321, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Coliders/floor/floor upper floor" unique_id=94266634]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.787, -0.505, -17.43)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.654959, -0.505, -17.257906)
 shape = SubResource("BoxShape3D_m5bj0")
 debug_color = Color(0.75, 0.45000002, 0, 0.972549)
 
@@ -292,13 +287,8 @@ debug_color = Color(0.96535945, 0, 0.48565158, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 36.28666)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Coliders/walls/wall" unique_id=1398832599]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3748422, -0.10614514, -30.21954)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4971312, -0.7398293, -24.155737)
 shape = SubResource("BoxShape3D_3wxd1")
-debug_color = Color(0.7997977, 0.03614273, 0.9999998, 0.41960785)
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Coliders/walls/wall" unique_id=474417084]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.727963, -0.3520298, -30.301474)
-shape = SubResource("BoxShape3D_7thtt")
 debug_color = Color(0.7997977, 0.03614273, 0.9999998, 0.41960785)
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Coliders/walls/wall" unique_id=223667880]
@@ -306,23 +296,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.012451, -0.5070834, -24.779
 shape = SubResource("BoxShape3D_wfvcp")
 debug_color = Color(0.7997977, 0.03614273, 0.9999998, 0.41960785)
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="Coliders/walls/wall" unique_id=298357307]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.375, -0.7837901, -17.930452)
-shape = SubResource("BoxShape3D_kkwoi")
-debug_color = Color(0.7997977, 0.03614273, 0.9999998, 0.41960785)
-
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="Coliders/walls/wall" unique_id=847513116]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.934135, -0.7837901, -17.930452)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.637627, -1.1333995, -17.97431)
 shape = SubResource("BoxShape3D_7s5p8")
 debug_color = Color(0.7997977, 0.03614273, 0.9999998, 0.41960785)
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="Coliders/walls/wall" unique_id=651451914]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.56884, -0.7837901, -11.995949)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.56884, -1.1358714, -12.329994)
 shape = SubResource("BoxShape3D_yhi06")
 debug_color = Color(0.7997977, 0.03614273, 0.9999998, 0.41960785)
 
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="Coliders/walls/wall" unique_id=354851424]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.319481, -0.80936384, -30.308384)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.265886, -0.8880882, -30.36888)
 shape = SubResource("BoxShape3D_bxdwb")
 debug_color = Color(0.7997977, 0.03614273, 0.9999998, 0.41960785)
 
@@ -332,7 +317,7 @@ shape = SubResource("BoxShape3D_cxx40")
 debug_color = Color(0.7997977, 0.03614273, 0.9999998, 0.41960785)
 
 [node name="CollisionShape3D9" type="CollisionShape3D" parent="Coliders/walls/wall" unique_id=1140338275]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.930464, 3.0158024, -45.419144)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.930464, 1.5647922, -45.419144)
 shape = SubResource("BoxShape3D_48wqt")
 debug_color = Color(0.7997977, 0.03614273, 0.9999998, 0.41960785)
 
@@ -357,7 +342,7 @@ shape = SubResource("BoxShape3D_h5fdi")
 debug_color = Color(0.7997977, 0.03614273, 0.9999998, 0.41960785)
 
 [node name="CollisionShape3D14" type="CollisionShape3D" parent="Coliders/walls/wall" unique_id=935243820]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.09666, 1.4762912, -51.12977)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.09666, 1.4762912, -51.302505)
 shape = SubResource("BoxShape3D_rxbpj")
 debug_color = Color(0.7997977, 0.03614273, 0.9999998, 0.41960785)
 
@@ -416,7 +401,7 @@ shape = SubResource("BoxShape3D_ym822")
 debug_color = Color(0.5686275, 0.49411765, 0, 1)
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="Coliders/other/StaticBody3D" unique_id=862228669]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17778206, 0.5721804, -17.26464)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17778206, 1.2641817, -17.228975)
 shape = SubResource("BoxShape3D_i01n2")
 debug_color = Color(0.5686275, 0.49411765, 0, 1)
 
@@ -466,7 +451,7 @@ shape = SubResource("CylinderShape3D_6i24d")
 debug_color = Color(0.5686275, 0.49411765, 0, 1)
 
 [node name="CollisionShape3D13" type="CollisionShape3D" parent="Coliders/other/StaticBody3D" unique_id=913595493]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.89995, -4.393834, 12.466385)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.921802, -4.008398, 12.466385)
 shape = SubResource("BoxShape3D_cl4u5")
 debug_color = Color(0.5686275, 0.49411765, 0, 1)
 
@@ -491,7 +476,7 @@ shape = SubResource("BoxShape3D_lhws3")
 debug_color = Color(0.5686275, 0.49411765, 0, 1)
 
 [node name="CollisionShape3D19" type="CollisionShape3D" parent="Coliders/other/StaticBody3D" unique_id=555914446]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.464, -3.798, 19.509)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4306765, -3.3812556, 19.199701)
 shape = SubResource("BoxShape3D_yjfdn")
 debug_color = Color(0.5686275, 0.49411765, 0, 1)
 
@@ -624,7 +609,7 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1.4255532, 0, -8.742278e-08, 0, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.67114, -1.1006548, -11.820392)
 
 [node name="Wall_Cube_01_Long17" parent="Map/Wall" unique_id=990749148 instance=ExtResource("12_8yjdx")]
-transform = Transform3D(0.37387675, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, -12.414385)
+transform = Transform3D(0.372, 0, 0, 0, 0.995, 0, 0, 0, 0.974, 19, 0, -12.261333)
 
 [node name="Wall_Cube_01_Long18" parent="Map/Wall" unique_id=1808153472 instance=ExtResource("12_8yjdx")]
 transform = Transform3D(-3.9502916e-09, 0, -1.47015, 0, 1, 0, 0.09037214, 0, -6.426229e-08, 27.847332, 0, -20.555553)
@@ -816,27 +801,28 @@ transform = Transform3D(-3.9424815e-08, 0, -0.6697615, 0, 1, 0, 0.9019346, 0, -2
 
 [node name="Doors" type="Node3D" parent="." unique_id=598958930]
 
-[node name="Door1" parent="Doors" unique_id=241824656 instance=ExtResource("7_m5bj0")]
-transform = Transform3D(0.967, 0, 0, 0, 1.15, 0, 0, 0, 1.073, 7.5000944, 0.0014703274, -18.12073)
+[node name="Door" parent="Doors" unique_id=2073991288 instance=ExtResource("31_ylsd1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.446307, 0, -18.011875)
+script = ExtResource("32_lut6s")
 sound = ExtResource("30_48wqt")
 
-[node name="Intercom1" parent="Doors/Door1" unique_id=204839646 node_paths=PackedStringArray("door") groups=["Intercom"] instance=ExtResource("28_3wxd1")]
-transform = Transform3D(-1.0341262, 0, -8.147509e-08, 0, 0.86956525, 0, 9.040617e-08, 0, -0.9319663, 1.7475429, 1.8538342, -0.017969131)
+[node name="Intercom1" parent="Doors/Door" unique_id=204839646 node_paths=PackedStringArray("door") groups=["Intercom"] instance=ExtResource("28_3wxd1")]
+transform = Transform3D(-1, 0, -7.8786414e-08, 0, 1, 0, 9.700582e-08, 0, -0.9999998, 1.7436609, 2.1333795, -0.12813568)
 script = ExtResource("29_3wxd1")
 door = NodePath("..")
 
-[node name="Intercom2" parent="Doors/Door1/Intercom1" unique_id=392116782 instance=ExtResource("28_3wxd1")]
+[node name="Intercom2" parent="Doors/Door/Intercom1" unique_id=392116782 instance=ExtResource("28_3wxd1")]
 transform = Transform3D(-1, 0, 7.878643e-08, 0, 1, 0, -9.700584e-08, 0, -1.0000001, 0.7374077, 0, -1.9073486e-06)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Doors/Door1/Intercom1" unique_id=1867288578]
+[node name="StaticBody3D" type="StaticBody3D" parent="Doors/Door/Intercom1" unique_id=1867288578]
 transform = Transform3D(-1, 0, 7.8786435e-08, 0, 1, 0, -9.7005845e-08, 0, -1.0000001, -0.11988449, 0.10351944, -0.08182907)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Doors/Door1/Intercom1/StaticBody3D" unique_id=9681694]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Doors/Door/Intercom1/StaticBody3D" unique_id=9681694]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.49076462, -0.10412288, -0.08282471)
 shape = SubResource("BoxShape3D_nwbxx")
 debug_color = Color(0.54883903, 0, 0.2815656, 0.41960785)
 
-[node name="Label1" type="Label3D" parent="Doors/Door1/Intercom1" unique_id=841084298 groups=["LabelControllers"]]
+[node name="Label1" type="Label3D" parent="Doors/Door/Intercom1" unique_id=841084298 groups=["LabelControllers"]]
 transform = Transform3D(-4.2268898e-08, 0, -0.967, 0, 1.15, 0, 1.0729998, 0, -4.6902333e-08, -0.21590805, -0.15468454, -0.0066452026)
 billboard = 2
 shaded = true
@@ -846,7 +832,7 @@ font = SubResource("FontFile_3wxd1")
 font_size = 47
 outline_size = 15
 
-[node name="Label2" type="Label3D" parent="Doors/Door1/Intercom1" unique_id=728950144 groups=["LabelControllers"]]
+[node name="Label2" type="Label3D" parent="Doors/Door/Intercom1" unique_id=728950144 groups=["LabelControllers"]]
 transform = Transform3D(-4.2268898e-08, 0, -0.967, 0, 1.15, 0, 1.0729998, 0, -4.6902333e-08, 0.90732, -0.15468454, -0.0066452026)
 billboard = 2
 shaded = true
@@ -856,16 +842,17 @@ font = SubResource("FontFile_3wxd1")
 font_size = 47
 outline_size = 15
 
-[node name="Door" type="AudioStreamPlayer3D" parent="Doors/Door1" unique_id=289255382 groups=["Sound"]]
-transform = Transform3D(1.0341262, 0, 0, 0, 0.86956525, 0, 0, 0, 0.9319664, 1.8086171, 1.9929215, 2.9945946)
+[node name="Door" type="AudioStreamPlayer3D" parent="Doors/Door" unique_id=289255382 groups=["Sound"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8027201, 2.29333, 3.1043453)
 max_distance = 20.0
 
-[node name="Door2" parent="Doors" unique_id=2049573755 instance=ExtResource("7_m5bj0")]
-transform = Transform3D(0.967, 0, 0, 0, 1.15, 0, 0, 0, 1.073, 18.042543, 0.0014703274, -18.12073)
+[node name="Door2" parent="Doors" unique_id=1288789662 instance=ExtResource("31_ylsd1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.00634, 0, -18.051643)
+script = ExtResource("32_lut6s")
 sound = ExtResource("30_48wqt")
 
 [node name="Intercom1" parent="Doors/Door2" unique_id=2136790797 node_paths=PackedStringArray("door") groups=["Intercom"] instance=ExtResource("28_3wxd1")]
-transform = Transform3D(-1.0341262, 0, -8.147509e-08, 0, 0.86956525, 0, 9.040617e-08, 0, -0.9319663, 1.7475429, 1.8538342, -0.017969131)
+transform = Transform3D(-1, 0, -7.8786414e-08, 0, 1, 0, 9.700582e-08, 0, -0.9999998, 1.726078, 2.1333795, -0.08836746)
 script = ExtResource("29_3wxd1")
 door = NodePath("..")
 
@@ -901,7 +888,7 @@ font_size = 47
 outline_size = 15
 
 [node name="Door" type="AudioStreamPlayer3D" parent="Doors/Door2" unique_id=973107893 groups=["Sound"]]
-transform = Transform3D(1.0341262, 0, 0, 0, 0.86956525, 0, 0, 0, 0.9319664, 0.96125793, 1.9929215, 2.999609)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9657402, 2.29333, 3.1494942)
 max_distance = 20.0
 
 [node name="MainDoor" parent="Doors" unique_id=2137651142 instance=ExtResource("32_yhi06")]

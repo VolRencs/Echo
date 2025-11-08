@@ -273,54 +273,52 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_4rs61"]
 size = Vector3(5.0113525, 3.989685, 0.60839844)
 
-[node name="MainDoor" type="Node3D"]
+[node name="MainDoor" type="Node3D" unique_id=1278288162]
 script = ExtResource("1_ekg1u")
 
-[node name="Door_Right_01" type="MeshInstance3D" parent="."]
+[node name="Door_Right_01" type="MeshInstance3D" parent="." unique_id=405838028]
 transform = Transform3D(1, 0, 0, 0, 1, -4.371139e-08, 0, 4.371139e-08, 1, 5.513214, 0, 0)
 mesh = SubResource("ArrayMesh_85u3w")
-skeleton = NodePath("")
 
-[node name="Glass" type="MeshInstance3D" parent="Door_Right_01"]
+[node name="Glass" type="MeshInstance3D" parent="Door_Right_01" unique_id=226767224]
 transform = Transform3D(-1, 1.2246064e-16, 1.2246064e-16, 1.2246064e-16, 1, -8.742277e-08, 1.2246064e-16, 8.742277e-08, 1, -3.575468, 2.5031393, 0.4994583)
+transparency = 0.6
 mesh = SubResource("ArrayMesh_ekg1u")
-skeleton = NodePath("")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Door_Right_01"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Door_Right_01" unique_id=1220059576]
 libraries = {
 &"": SubResource("AnimationLibrary_v6akd")
 }
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Door_Right_01"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Door_Right_01" unique_id=1960641229]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Door_Right_01/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door_Right_01/StaticBody3D" unique_id=676711698]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7328491, 1.9762878, 0.6020723)
 shape = SubResource("BoxShape3D_ekg1u")
 
-[node name="Door_Left_01" type="MeshInstance3D" parent="."]
+[node name="Door_Left_01" type="MeshInstance3D" parent="." unique_id=1235413167]
 transform = Transform3D(1, 0, 0, 0, 1, -4.371139e-08, 0, 4.371139e-08, 1, -4.4365053, 0, 0)
 mesh = SubResource("ArrayMesh_qu3t4")
-skeleton = NodePath("")
 
-[node name="Glass" type="MeshInstance3D" parent="Door_Left_01"]
+[node name="Glass" type="MeshInstance3D" parent="Door_Left_01" unique_id=956173467]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.575469, 2.5031395, 0.49964142)
+transparency = 0.6
 mesh = SubResource("ArrayMesh_pauj1")
-skeleton = NodePath("")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Door_Left_01"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Door_Left_01" unique_id=452107955]
 root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_4rs61")
 }
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="Door_Left_01"]
+[node name="StaticBody3D2" type="StaticBody3D" parent="Door_Left_01" unique_id=14455053]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.949719, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Door_Left_01/StaticBody3D2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door_Left_01/StaticBody3D2" unique_id=305569555]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.465897, 1.9571838, 0.6020723)
 shape = SubResource("BoxShape3D_4rs61")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1063025546]
 wait_time = 3.0
 
 [connection signal="animation_finished" from="Door_Right_01/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

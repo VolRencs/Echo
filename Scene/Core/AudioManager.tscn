@@ -8,18 +8,18 @@
 [ext_resource type="AudioStream" uid="uid://i0iwvmagqcck" path="res://Assets/Audio/FlashLight.ogg" id="6_gh54k"]
 [ext_resource type="AudioStream" uid="uid://b61prwc0dm5e0" path="res://Assets/Audio/Intercom.ogg" id="7_av0mf"]
 
-[node name="AudioManager" type="Node"]
+[node name="AudioManager" type="Node" unique_id=692178819]
 
-[node name="Music" type="Node" parent="."]
+[node name="Music" type="Node" parent="." unique_id=1375169462]
 
-[node name="MenuMusic" type="AudioStreamPlayer" parent="Music" groups=["Music"]]
+[node name="MenuMusic" type="AudioStreamPlayer" parent="Music" unique_id=2136327419 groups=["Music"]]
 stream = ExtResource("1_0uxn8")
 autoplay = true
 parameters/looping = true
 script = ExtResource("2_ipjx0")
 scenes_to_play = Array[String](["MainMenu"])
 
-[node name="GameMusic" type="AudioStreamPlayer" parent="Music" groups=["Music"]]
+[node name="GameMusic" type="AudioStreamPlayer" parent="Music" unique_id=723956871 groups=["Music"]]
 process_mode = 3
 stream = ExtResource("3_vc04g")
 autoplay = true
@@ -27,16 +27,16 @@ parameters/looping = true
 script = ExtResource("2_ipjx0")
 scenes_to_play = Array[String](["Game"])
 
-[node name="Sound" type="Node" parent="."]
+[node name="Sound" type="Node" parent="." unique_id=75971507]
 
-[node name="Button" type="AudioStreamPlayer" parent="Sound" groups=["Sound"]]
+[node name="Button" type="AudioStreamPlayer" parent="Sound" unique_id=8986466 groups=["Sound"]]
 stream = ExtResource("4_qb2uw")
 
-[node name="Step" type="AudioStreamPlayer" parent="Sound" groups=["Sound"]]
+[node name="Step" type="AudioStreamPlayer" parent="Sound" unique_id=1476071896 groups=["Sound"]]
 stream = ExtResource("5_t5cg5")
 
-[node name="Lighter" type="AudioStreamPlayer" parent="Sound" groups=["Sound"]]
+[node name="Lighter" type="AudioStreamPlayer" parent="Sound" unique_id=763842622 groups=["Sound"]]
 stream = ExtResource("6_gh54k")
 
-[node name="Intercom" type="AudioStreamPlayer" parent="Sound" groups=["Sound"]]
+[node name="Intercom" type="AudioStreamPlayer" parent="Sound" unique_id=98080698 groups=["Sound"]]
 stream = ExtResource("7_av0mf")
