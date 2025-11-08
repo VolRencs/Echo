@@ -35,9 +35,9 @@ bg_color = Color(0, 0, 0, 0.7019608)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bvub4"]
 shader = ExtResource("5_jonpj")
-shader_parameter/blur_size = 2.000000095
-shader_parameter/iterations = 6
-shader_parameter/opacity = 0.1200000057
+shader_parameter/blur_size = 1.5000000712500001
+shader_parameter/iterations = 10
+shader_parameter/opacity = 1.282000060895
 
 [node name="Game" type="Node3D" unique_id=764023004]
 
