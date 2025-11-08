@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://bn7wp1p2ekyjx"]
+[gd_scene load_steps=84 format=3 uid="uid://bn7wp1p2ekyjx"]
 
 [ext_resource type="PackedScene" uid="uid://ba01biwqbxdxo" path="res://Assets/Models/Map/Models/Floors/Floor_Descent_01/Floor_Descent_01.fbx" id="5_y6apl"]
 [ext_resource type="PackedScene" uid="uid://6ji1qe4kv2bm" path="res://Assets/Models/Map/Models/Floors/Floor_Angle_01_6x6/Floor_Angle_01_6x6.fbx" id="6_5uurm"]
@@ -40,6 +40,7 @@
 [ext_resource type="AudioStream" uid="uid://bxowr8qutv17o" path="res://Assets/Audio/Door_Open.ogg" id="33_cxx40"]
 [ext_resource type="AudioStream" uid="uid://dlvgswmuubclu" path="res://Assets/Audio/Door_Closed.ogg" id="34_48wqt"]
 [ext_resource type="PackedScene" uid="uid://bucwys7mv8v8q" path="res://Assets/Models/Map/Models/Roofs/Roof_Squared_02_6x6/Roof_Squared_02_6x6.fbx" id="39_kixto"]
+[ext_resource type="PackedScene" uid="uid://g1ydslgowm53" path="res://Assets/Models/Map/Models/Reactor/Sci-fi Power generator Free.glb" id="41_ylsd1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m5bj0"]
 margin = 7.42
@@ -1129,3 +1130,6 @@ distance_fade_begin = 10.0
 distance_fade_shadow = 10.0
 omni_range = 10.0
 omni_attenuation = 0.8
+
+[node name="Sci-fi Power generator Free2" parent="." unique_id=205655824 instance=ExtResource("41_ylsd1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.313196, 0.24809635, -13.62057)
