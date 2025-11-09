@@ -37,7 +37,7 @@ far = 1000.0
 environment = SubResource("Environment_202op")
 
 [node name="Sputnik" parent="." unique_id=347973457 instance=ExtResource("2_bqsmv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35676718, 18.197985, 10.256187)
+transform = Transform3D(0.8283888, -0.13133578, -0.5445391, 0.2600118, 0.9512073, 0.16612807, 0.49615088, -0.27920517, 0.8221184, -1.8023987, 17.905334, 10.256187)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1335519978]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 27.301323, 350.19022)

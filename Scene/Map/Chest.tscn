@@ -118,7 +118,9 @@ shadow_mesh = SubResource("ArrayMesh_h70mv")
 [sub_resource type="BoxShape3D" id="BoxShape3D_r523l"]
 size = Vector3(1.4120941, 3.357788, 2.624878)
 
-[node name="Chest" type="Node3D" unique_id=122438233 groups=["Chest"]]
+[node name="Chest" type="Node3D" unique_id=122438233 node_paths=PackedStringArray("animated_objects") groups=["Chest"]]
+script = ExtResource("1_r523l")
+animated_objects = [NodePath("Wall_Gear_01_Half2/Door_Left"), NodePath("Wall_Gear_01_Half2/Door_Right")]
 
 [node name="Wall_Gear_01_Half2" type="MeshInstance3D" parent="." unique_id=111141713]
 transform = Transform3D(1, 0, 0, 0, 0, 1.1203146, 0, -0.94534826, 0, 0, -0.8226104, 0)
@@ -129,11 +131,10 @@ transform = Transform3D(1, -1.7484555e-07, 1.2246402e-16, -1.7484555e-07, -1, 1.
 mesh = SubResource("ArrayMesh_k4ak1")
 
 [node name="Door_Right" type="MeshInstance3D" parent="Wall_Gear_01_Half2" unique_id=767576647]
-transform = Transform3D(1, 1.7484555e-07, 3.057097e-14, -1.7484555e-07, 1, 1.7484555e-07, -1.6940659e-21, -1.7484555e-07, 1, 0.34715524, -2.760378, 1.949744)
+transform = Transform3D(1, 1.7484555e-07, 3.057097e-14, -1.7484555e-07, 1, 1.7484555e-07, -3.3881318e-21, -1.7484555e-07, 1, 0.34715524, -2.760378, 1.949744)
 mesh = SubResource("ArrayMesh_ja0ek")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=622306039]
-script = ExtResource("1_r523l")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=904060482]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.83694804, 1.4473083, 1.5320252)
