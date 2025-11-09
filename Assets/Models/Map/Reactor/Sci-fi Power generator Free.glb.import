@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://g1ydslgowm53"
-path="res://.godot/imported/Sci-fi Power generator Free.glb-5872a39a0940c29e2604b4fcd54ddb96.scn"
+path="res://.godot/imported/Sci-fi Power generator Free.glb-65a8d60a1fcc6033d2ac57512b8092d7.scn"
 
 [deps]
 
-source_file="res://Assets/Models/Map/Models/Reactor/Sci-fi Power generator Free.glb"
-dest_files=["res://.godot/imported/Sci-fi Power generator Free.glb-5872a39a0940c29e2604b4fcd54ddb96.scn"]
+source_file="res://Assets/Models/Map/Reactor/Sci-fi Power generator Free.glb"
+dest_files=["res://.godot/imported/Sci-fi Power generator Free.glb-65a8d60a1fcc6033d2ac57512b8092d7.scn"]
 
 [params]
 
@@ -41,37 +41,37 @@ _subresources={
 "materials": {
 "Ligh ": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Assets/Models/Map/Models/Reactor/Ligh.tres",
+"use_external/fallback_path": "res://Assets/Models/Map/Reactor/Ligh.tres",
 "use_external/path": "uid://dx8c0y80g71po"
 },
 "Ligh2": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Assets/Models/Map/Models/Reactor/Ligh2.tres",
+"use_external/fallback_path": "res://Assets/Models/Map/Reactor/Ligh2.tres",
 "use_external/path": "uid://b6aytmd28t6hm"
 },
 "Ligh3": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Assets/Models/Map/Models/Reactor/Ligh3.tres",
+"use_external/fallback_path": "res://Assets/Models/Map/Reactor/Ligh3.tres",
 "use_external/path": "uid://bwbhpmvfqmlpf"
 },
 "Ligh4": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Assets/Models/Map/Models/Reactor/Ligh4.tres",
+"use_external/fallback_path": "res://Assets/Models/Map/Reactor/Ligh4.tres",
 "use_external/path": "uid://dlsgbsk47eguu"
 },
 "Metal": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Assets/Models/Map/Models/Reactor/Metal.tres",
+"use_external/fallback_path": "res://Assets/Models/Map/Reactor/Metal.tres",
 "use_external/path": "uid://csqjwg1wtfkdi"
 },
 "Plastic1": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Assets/Models/Map/Models/Reactor/Plastic1.tres",
+"use_external/fallback_path": "res://Assets/Models/Map/Reactor/Plastic1.tres",
 "use_external/path": "uid://casdijuswd8ts"
 },
 "Plastic2": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Assets/Models/Map/Models/Reactor/Plastic2.tres",
+"use_external/fallback_path": "res://Assets/Models/Map/Reactor/Plastic2.tres",
 "use_external/path": "uid://w7v01k70o4vc"
 }
 },
@@ -82,7 +82,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/Models/Map/Models/Reactor/Sci-fi Power generator Free_Меш.res",
+"save_to_file/fallback_path": "res://Assets/Models/Map/Reactor/Sci-fi Power generator Free_Меш.res",
 "save_to_file/path": "uid://mjg5d1ofsvfm"
 }
 }
