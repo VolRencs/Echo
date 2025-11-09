@@ -26,17 +26,17 @@
 [ext_resource type="PackedScene" uid="uid://cfmsf4mc04chx" path="res://Assets/Models/Map/Doors/DoorWay_01_Ramp/DoorWay_01_Ramp.fbx" id="28_64q2v"]
 [ext_resource type="Script" uid="uid://dgm1dk4tpagja" path="res://Scripts/Map/Door/IntercomController.gd" id="29_3wxd1"]
 [ext_resource type="PackedScene" uid="uid://dncthok281tnn" path="res://Assets/Models/Map/Walls/Porthole_01_Long/Porthole_01_Long.fbx" id="29_eseo8"]
-[ext_resource type="PackedScene" path="res://Scene/Map/Vents.tscn" id="29_kixto"]
+[ext_resource type="PackedScene" uid="uid://do7ufeb1e6y6b" path="res://Scene/Map/Vents.tscn" id="29_kixto"]
 [ext_resource type="AudioStream" uid="uid://duo77ldmx4gjh" path="res://Assets/Audio/Door.ogg" id="30_48wqt"]
 [ext_resource type="PackedScene" uid="uid://c3lmwjg7y4dsi" path="res://Assets/Models/Map/Roofs/Roof_Squared_01_6x6/Roof_Squared_01_6x6.fbx" id="30_apcmj"]
-[ext_resource type="PackedScene" path="res://Scene/Map/Chest.tscn" id="30_kixto"]
+[ext_resource type="PackedScene" uid="uid://i2s54dn08idc" path="res://Scene/Map/Chest.tscn" id="30_kixto"]
 [ext_resource type="PackedScene" uid="uid://bukedwswi56vp" path="res://Scene/Map/Door/Door.tscn" id="31_ylsd1"]
 [ext_resource type="PackedScene" uid="uid://cmwb1ksjfg5m7" path="res://Assets/Models/Map/Stuff/Air_Grid_01/Air_Grid_01.fbx" id="32_7s5p8"]
 [ext_resource type="Script" uid="uid://cjm122l2mkilt" path="res://Scripts/Map/Door/DoorController.gd" id="32_lut6s"]
 [ext_resource type="PackedScene" uid="uid://h1omdvhg2127" path="res://Scene/Map/Door/MainDoor.tscn" id="32_yhi06"]
 [ext_resource type="AudioStream" uid="uid://bxowr8qutv17o" path="res://Assets/Audio/Door_Open.ogg" id="33_cxx40"]
 [ext_resource type="AudioStream" uid="uid://dlvgswmuubclu" path="res://Assets/Audio/Door_Closed.ogg" id="34_48wqt"]
-[ext_resource type="PackedScene" path="res://Scene/Map/Lights.tscn" id="37_kixto"]
+[ext_resource type="PackedScene" uid="uid://b0oapq7llrkau" path="res://Scene/Map/Lights.tscn" id="37_kixto"]
 [ext_resource type="PackedScene" uid="uid://bucwys7mv8v8q" path="res://Assets/Models/Map/Roofs/Roof_Squared_02_6x6/Roof_Squared_02_6x6.fbx" id="39_kixto"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m5bj0"]
@@ -147,9 +147,6 @@ size = Vector3(15.526806, 1.9505148, 2.193394)
 [sub_resource type="BoxShape3D" id="BoxShape3D_yjfdn"]
 size = Vector3(0.97314143, 1.1508718, 5.2257767)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_nwbxx"]
-size = Vector3(1.0735989, 0.736084, 0.49799347)
-
 [sub_resource type="FontFile" id="FontFile_3wxd1"]
 subpixel_positioning = 0
 msdf_pixel_range = 14
@@ -234,6 +231,9 @@ cache/0/47/0/descent = 0.0
 cache/0/47/0/underline_position = 0.0
 cache/0/47/0/underline_thickness = 0.0
 cache/0/47/0/scale = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nwbxx"]
+size = Vector3(1.0735989, 0.736084, 0.49799347)
 
 [node name="SpaceShip" type="Node3D" unique_id=878422035]
 
@@ -725,7 +725,7 @@ transform = Transform3D(-0.99999994, 0, -7.7366785e-08, 0, 0.8135953, 0, 8.74227
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 23.456768, 3.2754674, -20.400475)
 
 [node name="Air_Grid_04" parent="Map/Other" unique_id=294310949 instance=ExtResource("32_7s5p8")]
-transform = Transform3D(-4.371139e-08, 0, 1.7051096, 0, 1, 0, -1, 0, -7.45327e-08, 7.673172, -1.1748999, 12.146259)
+transform = Transform3D(-4.371139e-08, 0, 1.7051096, 0, 1, 0, -1, 0, -7.45327e-08, 7.673172, -1.1748999, 11.976306)
 
 [node name="Pipes_02" parent="Map/Other" unique_id=79930708 instance=ExtResource("27_7s5p8")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 23.566957, 0.012958673, -10.716014)
@@ -760,14 +760,6 @@ door = NodePath("..")
 [node name="Intercom2" parent="Doors/Door/Intercom1" unique_id=1665164088 instance=ExtResource("28_3wxd1")]
 transform = Transform3D(-1, 0, 7.878643e-08, 0, 1, 0, -9.700584e-08, 0, -1.0000001, 0.7374077, 0, -1.9073486e-06)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Doors/Door/Intercom1" unique_id=1867288578]
-transform = Transform3D(-1, 0, 7.8786435e-08, 0, 1, 0, -9.7005845e-08, 0, -1.0000001, -0.11988449, 0.10351944, -0.08182907)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Doors/Door/Intercom1/StaticBody3D" unique_id=9681694]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.49076462, -0.10412288, -0.08282471)
-shape = SubResource("BoxShape3D_nwbxx")
-debug_color = Color(0.54883903, 0, 0.2815656, 0.41960785)
-
 [node name="Label1" type="Label3D" parent="Doors/Door/Intercom1" unique_id=841084298 groups=["LabelControllers"]]
 transform = Transform3D(-4.2268898e-08, 0, -0.967, 0, 1.15, 0, 1.0729998, 0, -4.6902333e-08, -0.21590805, -0.15468454, -0.0066452026)
 billboard = 2
@@ -787,6 +779,14 @@ text = "E"
 font = SubResource("FontFile_3wxd1")
 font_size = 47
 outline_size = 15
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Doors/Door/Intercom1" unique_id=1867288578]
+transform = Transform3D(-1, 0, 7.878645e-08, 0, 1, 0, -9.700586e-08, 0, -1.0000001, -0.11988449, 0.10351944, -0.08182907)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Doors/Door/Intercom1/StaticBody3D" unique_id=9681694]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.49076462, -0.10412288, -0.08282471)
+shape = SubResource("BoxShape3D_nwbxx")
+debug_color = Color(0.54883903, 0, 0.2815656, 0.41960785)
 
 [node name="Door2" parent="Doors" unique_id=1288789662 instance=ExtResource("31_ylsd1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.00634, 0, -18.051643)
