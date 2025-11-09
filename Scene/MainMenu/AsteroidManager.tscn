@@ -1,12 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://yskauub60nvs"]
 
 [ext_resource type="Script" uid="uid://bgn5ixrrw3spy" path="res://Scripts/MainMenu/AsteroidManager.gd" id="1_o57nq"]
-[ext_resource type="PackedScene" uid="uid://hwixiwm3s5f3" path="res://Assets/Models/Asteroid/Rock01/Rock01.glb" id="2_ulnk0"]
-[ext_resource type="PackedScene" uid="uid://ctyk68ejbqq1d" path="res://Assets/Models/Asteroid/Rock02/Rock02.glb" id="3_y5jmp"]
+[ext_resource type="PackedScene" uid="uid://taphgifc73t2" path="res://Assets/Models/Asteroid/Rock1/Rock1.tscn" id="2_2h3ef"]
+[ext_resource type="PackedScene" uid="uid://cxfqk5i1powe5" path="res://Assets/Models/Asteroid/Rock2/Rock2.tscn" id="3_2h3ef"]
 
 [node name="AsteroidManager" type="Node3D" unique_id=361236505]
 script = ExtResource("1_o57nq")
-asteroid_models = Array[PackedScene]([ExtResource("3_y5jmp"), ExtResource("2_ulnk0")])
+asteroid_models = Array[PackedScene]([ExtResource("2_2h3ef"), ExtResource("3_2h3ef")])
 spawn_side = "front"
 
 [node name="Timer" type="Timer" parent="." unique_id=373999646]

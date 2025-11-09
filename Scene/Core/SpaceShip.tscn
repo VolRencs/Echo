@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://bn7wp1p2ekyjx"]
+[gd_scene load_steps=75 format=3 uid="uid://bn7wp1p2ekyjx"]
 
 [ext_resource type="PackedScene" uid="uid://ba01biwqbxdxo" path="res://Assets/Models/Map/Models/Floors/Floor_Descent_01/Floor_Descent_01.fbx" id="5_y6apl"]
 [ext_resource type="PackedScene" uid="uid://6ji1qe4kv2bm" path="res://Assets/Models/Map/Models/Floors/Floor_Angle_01_6x6/Floor_Angle_01_6x6.fbx" id="6_5uurm"]
@@ -14,8 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://c4ilylxqadbcm" path="res://Assets/Models/Map/Models/Walls/Wall_Simple_01_Coin/Wall_Simple_01_Coin.fbx" id="18_r85er"]
 [ext_resource type="PackedScene" uid="uid://68jf8t3dykk8" path="res://Assets/Models/Map/Models/Walls/Wall_Console_01_Large/Wall_Console_01_Large.fbx" id="19_8yjdx"]
 [ext_resource type="PackedScene" uid="uid://b3v0y2ws82rhq" path="res://Assets/Models/Map/Models/Walls/Wall_Pipes_01_Large/Wall_Pipes_01_Large.fbx" id="20_25l23"]
-[ext_resource type="PackedScene" uid="uid://cqdntiut1nbp6" path="res://Assets/Models/Map/Models/Walls/Wall_Gear_03_Half/Wall_Gear_03_Half.fbx" id="21_448um"]
-[ext_resource type="PackedScene" uid="uid://dr7e42x0sjqcc" path="res://Assets/Models/Map/Models/Walls/Wall_Gear_01_Half/Wall_Gear_01_Half.fbx" id="22_dprnl"]
 [ext_resource type="PackedScene" uid="uid://c5fxgyamp5glm" path="res://Assets/Models/Map/Models/Walls/Wall_Table_01/Wall_Table_01.fbx" id="23_80omj"]
 [ext_resource type="PackedScene" uid="uid://bsfaiajbnhs50" path="res://Assets/Models/Map/Models/Walls/Wall_Bed_01/Wall_Bed_01.fbx" id="24_m5bj0"]
 [ext_resource type="PackedScene" uid="uid://bbogs24j1l7y0" path="res://Assets/Models/Map/Models/Walls/Wall_Pipes_02_Large/Wall_Pipes_02_Large.fbx" id="25_eseo8"]
@@ -28,17 +26,16 @@
 [ext_resource type="PackedScene" uid="uid://cfmsf4mc04chx" path="res://Assets/Models/Map/Models/Doors/DoorWay_01_Ramp/DoorWay_01_Ramp.fbx" id="28_64q2v"]
 [ext_resource type="Script" uid="uid://dgm1dk4tpagja" path="res://Scripts/Map/Door/IntercomController.gd" id="29_3wxd1"]
 [ext_resource type="PackedScene" uid="uid://dncthok281tnn" path="res://Assets/Models/Map/Models/Walls/Porthole_01_Long/Porthole_01_Long.fbx" id="29_eseo8"]
+[ext_resource type="PackedScene" uid="uid://do7ufeb1e6y6b" path="res://Scene/Map/Vents.tscn" id="29_kixto"]
 [ext_resource type="AudioStream" uid="uid://duo77ldmx4gjh" path="res://Assets/Audio/Door.ogg" id="30_48wqt"]
 [ext_resource type="PackedScene" uid="uid://c3lmwjg7y4dsi" path="res://Assets/Models/Map/Models/Roofs/Roof_Squared_01_6x6/Roof_Squared_01_6x6.fbx" id="30_apcmj"]
-[ext_resource type="PackedScene" uid="uid://bifevxfjwbxs2" path="res://Assets/Models/Map/Models/Lights/Light_Corridor_02/Light_Corridor_02.fbx" id="30_wfvcp"]
-[ext_resource type="PackedScene" uid="uid://12s7q4xb6b4q" path="res://Assets/Models/Map/Models/Props/Airing_01/Airing_01.fbx" id="30_yhi06"]
-[ext_resource type="PackedScene" uid="uid://h5h35lac7jin" path="res://Assets/Models/Map/Models/Lights/Light_Corridor_01/Light_Corridor_01.fbx" id="31_kkwoi"]
 [ext_resource type="PackedScene" uid="uid://bukedwswi56vp" path="res://Scene/Map/Door/Door.tscn" id="31_ylsd1"]
 [ext_resource type="PackedScene" uid="uid://cmwb1ksjfg5m7" path="res://Assets/Models/Map/Models/Stuff/Air_Grid_01/Air_Grid_01.fbx" id="32_7s5p8"]
 [ext_resource type="Script" uid="uid://cjm122l2mkilt" path="res://Scripts/Map/Door/DoorController.gd" id="32_lut6s"]
 [ext_resource type="PackedScene" uid="uid://h1omdvhg2127" path="res://Scene/Map/Door/MainDoor.tscn" id="32_yhi06"]
 [ext_resource type="AudioStream" uid="uid://bxowr8qutv17o" path="res://Assets/Audio/Door_Open.ogg" id="33_cxx40"]
 [ext_resource type="AudioStream" uid="uid://dlvgswmuubclu" path="res://Assets/Audio/Door_Closed.ogg" id="34_48wqt"]
+[ext_resource type="PackedScene" uid="uid://b0oapq7llrkau" path="res://Scene/Map/Lights.tscn" id="37_kixto"]
 [ext_resource type="PackedScene" uid="uid://bucwys7mv8v8q" path="res://Assets/Models/Map/Models/Roofs/Roof_Squared_02_6x6/Roof_Squared_02_6x6.fbx" id="39_kixto"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m5bj0"]
@@ -117,23 +114,8 @@ size = Vector3(4.6352463, 1.3848877, 2.1544657)
 [sub_resource type="BoxShape3D" id="BoxShape3D_i01n2"]
 size = Vector3(2.1579552, 0.2001648, 2.996136)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_tbjgl"]
-size = Vector3(1.3533316, 3.9955292, 3.0674672)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_8g0hj"]
-size = Vector3(2.777786, 3.9955292, 1.2881281)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_mw8d5"]
 size = Vector3(1.0731087, 1.7165432, 0.6464949)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_y42f4"]
-size = Vector3(2.777786, 3.9955292, 1.2881281)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_j5snb"]
-size = Vector3(2.777786, 3.9955292, 1.2881281)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_a85jf"]
-size = Vector3(2.777786, 3.9955292, 1.2881281)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_145oh"]
 size = Vector3(1.397223, 4.095909, 0.64406407)
@@ -405,34 +387,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17778206, 1.2641817, -17.22
 shape = SubResource("BoxShape3D_i01n2")
 debug_color = Color(0.5686275, 0.49411765, 0, 1)
 
-[node name="CollisionShape3D6" type="CollisionShape3D" parent="Coliders/other/StaticBody3D" unique_id=2081256972]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22452974, 1.7778612, -13.809044)
-shape = SubResource("BoxShape3D_tbjgl")
-debug_color = Color(0.5686275, 0.49411765, 0, 1)
-
-[node name="CollisionShape3D7" type="CollisionShape3D" parent="Coliders/other/StaticBody3D" unique_id=1636446646]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.158506, 1.7778612, -19.7361)
-shape = SubResource("BoxShape3D_8g0hj")
-debug_color = Color(0.5686275, 0.49411765, 0, 1)
-
 [node name="CollisionShape3D8" type="CollisionShape3D" parent="Coliders/other/StaticBody3D" unique_id=1296272329]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.421888, 0.63836825, -19.52662)
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 27.47583, 0.63836825, -15.356399)
 shape = SubResource("BoxShape3D_mw8d5")
-debug_color = Color(0.5686275, 0.49411765, 0, 1)
-
-[node name="CollisionShape3D9" type="CollisionShape3D" parent="Coliders/other/StaticBody3D" unique_id=1274034164]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.734615, 1.7778612, -19.7361)
-shape = SubResource("BoxShape3D_y42f4")
-debug_color = Color(0.5686275, 0.49411765, 0, 1)
-
-[node name="CollisionShape3D10" type="CollisionShape3D" parent="Coliders/other/StaticBody3D" unique_id=1768849687]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.734615, 1.7778612, -11.048934)
-shape = SubResource("BoxShape3D_j5snb")
-debug_color = Color(0.5686275, 0.49411765, 0, 1)
-
-[node name="CollisionShape3D11" type="CollisionShape3D" parent="Coliders/other/StaticBody3D" unique_id=108032381]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.272085, 1.7778612, -11.048934)
-shape = SubResource("BoxShape3D_a85jf")
 debug_color = Color(0.5686275, 0.49411765, 0, 1)
 
 [node name="CollisionShape3D12" type="CollisionShape3D" parent="Coliders/other/StaticBody3D" unique_id=1922427792]
@@ -614,18 +571,6 @@ transform = Transform3D(0.372, 0, 0, 0, 0.995, 0, 0, 0, 0.974, 19, 0, -12.261333
 [node name="Wall_Cube_01_Long18" parent="Map/Wall" unique_id=1808153472 instance=ExtResource("12_8yjdx")]
 transform = Transform3D(-3.9502916e-09, 0, -1.47015, 0, 1, 0, 0.09037214, 0, -6.426229e-08, 27.847332, 0, -20.555553)
 
-[node name="Wall_Gear_03_Half" parent="Map/Wall" unique_id=1165852825 instance=ExtResource("21_448um")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1.3483801, 0, -1, 0, -4.371139e-08, 19.529463, -1.0163282, -18.954956)
-
-[node name="Wall_Gear_03_Half2" parent="Map/Wall" unique_id=616790582 instance=ExtResource("21_448um")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1.3483801, 0, -1, 0, -4.371139e-08, 24.094376, -1.0162414, -18.866724)
-
-[node name="Wall_Gear_03_Half3" parent="Map/Wall" unique_id=408103256 instance=ExtResource("21_448um")]
-transform = Transform3D(-4.3711395e-08, 0, -1, 0, 1.3483801, 0, 1, 0, -4.3711395e-08, 22.897158, -0.9942014, -11.883713)
-
-[node name="Wall_Gear_03_Half4" parent="Map/Wall" unique_id=621111862 instance=ExtResource("21_448um")]
-transform = Transform3D(-4.3711395e-08, 0, -1, 0, 1.3483801, 0, 1, 0, -4.3711395e-08, 27.37024, -0.9942014, -11.883713)
-
 [node name="Wall_Cube_01_Long19" parent="Map/Wall" unique_id=1297614288 instance=ExtResource("12_8yjdx")]
 transform = Transform3D(-4.9830984e-09, 0, -0.907, 0, 1.758, 0, 0.114, 0, -3.9646228e-08, 4.558304, 0, -12.252815)
 
@@ -646,9 +591,6 @@ transform = Transform3D(-4.9378643e-09, 0, -0.79322284, 0, 1, 0, 0.11296517, 0, 
 
 [node name="Wall_Cube_01_Long25" parent="Map/Wall" unique_id=1954844397 instance=ExtResource("12_8yjdx")]
 transform = Transform3D(-4.9393867e-09, 0, 0.64690983, 0, 1.758, 0, -0.113, 0, -2.8277325e-08, 4.558, 0, -22.25)
-
-[node name="Wall_Gear_01_Half" parent="Map/Wall" unique_id=885774704 instance=ExtResource("22_dprnl")]
-transform = Transform3D(-1, 0, 9.616505e-08, 0, 1.3609465, 0, -8.742278e-08, 0, -1.1, 0.6443913, -1.0159236, -12.008263)
 
 [node name="Wall_Table_01" parent="Map/Wall" unique_id=1814620068 instance=ExtResource("23_80omj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.036671877, -4.7683716e-07, -20.224361)
@@ -755,7 +697,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.119034, 0, -23.608805)
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 9.119034, 0, -22.608805)
 
 [node name="Crate_01" parent="Map/Other" unique_id=427403469 instance=ExtResource("14_4h1n7")]
-transform = Transform3D(1.0000001, 0, 3.5527137e-15, 0, 1, 0, -3.5527137e-15, 0, 1.0000001, 18.464348, 0, -25.311548)
+transform = Transform3D(-1.0000001, 0, -8.742279e-08, 0, 1, 0, 8.742279e-08, 0, -1.0000001, 18.464348, 0, -25.311548)
 
 [node name="Pipes_01" parent="Map/Other" unique_id=870039812 instance=ExtResource("16_1crl5")]
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 13.713015, 0, -8.573032)
@@ -779,7 +721,7 @@ transform = Transform3D(-0.99999994, 0, -1.2387363e-07, 0, 1, 0, 8.742277e-08, 0
 transform = Transform3D(-0.99999994, 0, -7.7366785e-08, 0, 0.8135953, 0, 8.742277e-08, 0, -0.8849728, -0.85363096, 3.2451813, -21.07537)
 
 [node name="Air_Grid_03" parent="Map/Other" unique_id=1330656353 instance=ExtResource("32_7s5p8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.844736, 3.2754674, -15.366375)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 23.456768, 3.2754674, -20.400475)
 
 [node name="Air_Grid_04" parent="Map/Other" unique_id=590510734 instance=ExtResource("32_7s5p8")]
 transform = Transform3D(-4.371139e-08, 0, 1.7051096, 0, 1, 0, -1, 0, -7.45327e-08, 7.673172, -1.1748999, 12.146259)
@@ -787,17 +729,17 @@ transform = Transform3D(-4.371139e-08, 0, 1.7051096, 0, 1, 0, -1, 0, -7.45327e-0
 [node name="Pipes_02" parent="Map/Other" unique_id=338809598 instance=ExtResource("27_7s5p8")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 23.566957, 0.012958673, -10.716014)
 
-[node name="Airing_01" parent="Map/Other" unique_id=1197356312 instance=ExtResource("30_yhi06")]
-transform = Transform3D(1.110223e-16, 0, 0.1455236, -0.1455236, -6.361039e-09, 0, 6.361039e-09, -0.1455236, 0, 23.451136, 3.2226565, -20.379108)
-
 [node name="Crate_02" parent="Map/Other" unique_id=9201591 instance=ExtResource("14_4h1n7")]
-transform = Transform3D(-2.767229e-08, 0, -0.5293133, 0, 1, 0, 0.6330682, 0, -2.3137021e-08, 23.420294, 0.012884378, -19.527681)
+transform = Transform3D(-0.6326974, 0, 0.018112691, 0, 1, 0, -0.021663105, 0, -0.5290033, 27.454529, 0.012884378, -15.347213)
 
 [node name="DoorWay_01_Ramp" parent="Map/Other" unique_id=1354600657 instance=ExtResource("28_64q2v")]
 transform = Transform3D(-3.9424815e-08, 0, -0.7114551, 0, 1, 0, 0.9019346, 0, -3.1098693e-08, 19.736937, 0.026183963, -17.729864)
 
 [node name="DoorWay_01_Ramp2" parent="Map/Other" unique_id=398444806 instance=ExtResource("28_64q2v")]
 transform = Transform3D(-3.9424815e-08, 0, -0.6697615, 0, 1, 0, 0.9019346, 0, -2.9276205e-08, 9.158328, 0.026183963, -17.56326)
+
+[node name="Vents" parent="Map/Other" unique_id=1333339779 instance=ExtResource("29_kixto")]
+transform = Transform3D(0, 0, -0.8, 0, 0.336, 0, 0.3456, 0, 0, 27.871756, 3.2350168, -15.376408)
 
 [node name="Doors" type="Node3D" parent="." unique_id=598958930]
 
@@ -938,194 +880,26 @@ max_distance = 20.0
 
 [node name="Lights" type="Node3D" parent="." unique_id=231798629]
 
-[node name="Corridor" parent="Lights" unique_id=79096543 instance=ExtResource("30_wfvcp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9651403, 3.9937806, 2.7619643)
+[node name="Corridor" parent="Lights" unique_id=2067421121 instance=ExtResource("37_kixto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9230237, 4.037342, 2.7851346)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Lights/Corridor" unique_id=1836822399]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2810707, 0)
-layers = 524289
-light_color = Color(0.71825725, 0.6630902, 0.58039236, 1)
-light_energy = 2.079
-light_size = 0.135
-light_specular = 1.0
-light_cull_mask = 4294443009
-shadow_enabled = true
-shadow_normal_bias = 3.0
-shadow_reverse_cull_face = true
-shadow_transmittance_bias = 0.0
-shadow_opacity = 0.6
-shadow_blur = 1.989
-shadow_caster_mask = 4294443009
-distance_fade_enabled = true
-distance_fade_begin = 10.0
-distance_fade_shadow = 10.0
-omni_range = 10.0
-omni_attenuation = 0.8
+[node name="Corridor2" parent="Lights" unique_id=999326191 instance=ExtResource("37_kixto")]
+transform = Transform3D(1.0000001, 0, -5.9604645e-08, 0, 1, 0, 5.9604645e-08, 0, 1.0000001, 15.995651, 4.037342, -4.7283926)
 
-[node name="Corridor2" parent="Lights" unique_id=1001786599 instance=ExtResource("30_wfvcp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.992117, 4.004058, -4.735794)
+[node name="Corridor3" parent="Lights" unique_id=809966260 instance=ExtResource("37_kixto")]
+transform = Transform3D(1.5893253e-08, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 1.5893253e-08, 14.000335, 4.037342, -17.334677)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Lights/Corridor2" unique_id=1304784071]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2845788, 0)
-layers = 524289
-light_color = Color(0.71825725, 0.6630902, 0.58039236, 1)
-light_energy = 2.079
-light_size = 0.135
-light_specular = 1.0
-light_cull_mask = 4294443009
-shadow_enabled = true
-shadow_normal_bias = 3.0
-shadow_reverse_cull_face = true
-shadow_transmittance_bias = 0.0
-shadow_opacity = 0.6
-shadow_blur = 1.989
-shadow_caster_mask = 4294443009
-distance_fade_enabled = true
-distance_fade_begin = 10.0
-distance_fade_shadow = 10.0
-omni_range = 10.0
-omni_attenuation = 0.8
+[node name="Home" parent="Lights" unique_id=1190550374 instance=ExtResource("37_kixto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1699526, 4.3939757, -17.116669)
 
-[node name="Corridor3" parent="Lights" unique_id=1965471773 instance=ExtResource("30_wfvcp")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 13.99345, 4.004058, -17.325386)
+[node name="Home2" parent="Lights" unique_id=1458187623 instance=ExtResource("37_kixto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.010746, 4.3939757, -15.230681)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Lights/Corridor3" unique_id=1183472559]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014753342, -0.31444025, 0)
-layers = 524289
-light_color = Color(0.71825725, 0.6630902, 0.58039236, 1)
-light_energy = 2.079
-light_size = 0.135
-light_specular = 1.0
-light_cull_mask = 4294443009
-shadow_enabled = true
-shadow_normal_bias = 3.0
-shadow_reverse_cull_face = true
-shadow_transmittance_bias = 0.0
-shadow_opacity = 0.6
-shadow_blur = 1.989
-shadow_caster_mask = 4294443009
-distance_fade_enabled = true
-distance_fade_begin = 10.0
-distance_fade_shadow = 10.0
-omni_range = 10.0
-omni_attenuation = 0.8
+[node name="Home3" parent="Lights" unique_id=1163094313 instance=ExtResource("37_kixto")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 14.098583, 4.4487586, -28.097574)
 
-[node name="Home" parent="Lights" unique_id=645224749 instance=ExtResource("31_kkwoi")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.5869968, 4.394416, -17.1186)
+[node name="Engine" parent="Lights" unique_id=560840065 instance=ExtResource("37_kixto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.731636, -0.13430893, 17.97717)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Lights/Home" unique_id=1092317839]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.37376165, 0)
-layers = 524289
-light_color = Color(0.71825725, 0.6630902, 0.58039236, 1)
-light_energy = 2.079
-light_size = 0.135
-light_specular = 1.0
-light_cull_mask = 4294443009
-shadow_enabled = true
-shadow_normal_bias = 3.0
-shadow_reverse_cull_face = true
-shadow_transmittance_bias = 0.0
-shadow_opacity = 0.6
-shadow_blur = 1.989
-shadow_caster_mask = 4294443009
-distance_fade_enabled = true
-distance_fade_begin = 10.0
-distance_fade_shadow = 10.0
-omni_range = 10.0
-omni_attenuation = 0.8
-
-[node name="Home2" parent="Lights" unique_id=2061241335 instance=ExtResource("30_wfvcp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.011593, 4.386755, -15.236196)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Lights/Home2" unique_id=2098681760]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.26557302, 0)
-layers = 524289
-light_color = Color(0.71825725, 0.6630902, 0.58039236, 1)
-light_energy = 2.079
-light_size = 0.135
-light_specular = 1.0
-light_cull_mask = 4294443009
-shadow_enabled = true
-shadow_normal_bias = 3.0
-shadow_reverse_cull_face = true
-shadow_transmittance_bias = 0.0
-shadow_opacity = 0.6
-shadow_blur = 1.989
-shadow_caster_mask = 4294443009
-distance_fade_enabled = true
-distance_fade_begin = 10.0
-distance_fade_shadow = 10.0
-omni_range = 10.0
-omni_attenuation = 0.8
-
-[node name="Home3" parent="Lights" unique_id=1547382682 instance=ExtResource("30_wfvcp")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 14.093963, 4.469281, -28.094353)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Lights/Home3" unique_id=698637464]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014753342, -0.31444025, 0)
-layers = 524289
-light_color = Color(0.71825725, 0.6630902, 0.58039236, 1)
-light_energy = 2.079
-light_size = 0.135
-light_specular = 1.0
-light_cull_mask = 4294443009
-shadow_enabled = true
-shadow_normal_bias = 3.0
-shadow_reverse_cull_face = true
-shadow_transmittance_bias = 0.0
-shadow_opacity = 0.6
-shadow_blur = 1.989
-shadow_caster_mask = 4294443009
-distance_fade_enabled = true
-distance_fade_begin = 10.0
-distance_fade_shadow = 10.0
-omni_range = 10.0
-omni_attenuation = 0.8
-
-[node name="Engine" parent="Lights" unique_id=641899957 instance=ExtResource("30_wfvcp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.693661, -0.1310358, 17.996628)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Lights/Engine" unique_id=1407449724]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2810707, 0)
-layers = 524289
-light_color = Color(0.71825725, 0.6630902, 0.58039236, 1)
-light_energy = 2.079
-light_size = 0.135
-light_specular = 1.0
-light_cull_mask = 4294443009
-shadow_enabled = true
-shadow_normal_bias = 3.0
-shadow_reverse_cull_face = true
-shadow_transmittance_bias = 0.0
-shadow_opacity = 0.6
-shadow_blur = 1.989
-shadow_caster_mask = 4294443009
-distance_fade_enabled = true
-distance_fade_begin = 10.0
-distance_fade_shadow = 10.0
-omni_range = 10.0
-omni_attenuation = 0.8
-
-[node name="Engine2" parent="Lights" unique_id=2012380325 instance=ExtResource("30_wfvcp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.836304, -0.1310358, 17.958845)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Lights/Engine2" unique_id=1190329429]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2810707, 0)
-layers = 524289
-light_color = Color(0.71825725, 0.6630902, 0.58039236, 1)
-light_energy = 2.079
-light_size = 0.135
-light_specular = 1.0
-light_cull_mask = 4294443009
-shadow_enabled = true
-shadow_normal_bias = 3.0
-shadow_reverse_cull_face = true
-shadow_transmittance_bias = 0.0
-shadow_opacity = 0.6
-shadow_blur = 1.989
-shadow_caster_mask = 4294443009
-distance_fade_enabled = true
-distance_fade_begin = 10.0
-distance_fade_shadow = 10.0
-omni_range = 10.0
-omni_attenuation = 0.8
+[node name="Engine2" parent="Lights" unique_id=1669039473 instance=ExtResource("37_kixto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.951779, -0.13430893, 17.97717)
