@@ -27,22 +27,14 @@ func load_settings():
 		_on_vsync_toggled(vsync_checkbox.button_pressed)
 
 func _ready() -> void:
-	music_slider.min_value = -40
-	music_slider.max_value = 0
-	sound_slider.min_value = -40
-	sound_slider.max_value = 0
-	
-	var music_players := get_tree().get_nodes_in_group("Music")
-	var sound_players := get_tree().get_nodes_in_group("Sound")
+	for slider in [music_slider, sound_slider]:
+		slider.min_value = -40
+		slider.max_value = 0
 
-	if music_players.size() > 0:
-		music_slider.value = music_players[0].volume_db
-	if sound_players.size() > 0:
-		sound_slider.value = sound_players[0].volume_db
-
-	fullscreen_checkbox.button_pressed = DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN
-
-	_populate_refresh_rates()
+	if get_tree().get_nodes_in_group("Music").size() > 0:
+		music_slider.value = get_tree().get_nodes_in_group("Music")[0].volume_db
+	if get_tree().get_nodes_in_group("Sound").size() > 0:
+		sound_slider.value = get_tree().get_nodes_in_group("Sound")[0].volume_db
 
 	music_slider.value_changed.connect(_on_music_slider_changed)
 	sound_slider.value_changed.connect(_on_sound_slider_changed)
@@ -52,6 +44,9 @@ func _ready() -> void:
 	close_button.pressed.connect(_on_close_pressed)
 	close_button.mouse_entered.connect(_on_button_hover)
 
+	fullscreen_checkbox.button_pressed = DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN
+
+	_populate_refresh_rates()
 	load_settings()
 
 func _populate_refresh_rates() -> void:
@@ -59,20 +54,20 @@ func _populate_refresh_rates() -> void:
 	var monitor_rate := DisplayServer.screen_get_refresh_rate(DisplayServer.window_get_current_screen())
 	for rate in refresh_rates:
 		if rate <= monitor_rate + 0.1:
-			refresh_rate_option.add_item(str(rate) + " Hz", refresh_rates.find(rate))
+			refresh_rate_option.add_item(str(rate) + " Hz")
 	if refresh_rate_option.item_count == 0:
-		refresh_rates.append(monitor_rate)
-		refresh_rate_option.add_item(str(monitor_rate) + " Hz", refresh_rates.find(monitor_rate))
+		refresh_rate_option.add_item(str(monitor_rate) + " Hz")
+
+func _set_group_volume(group: String, vol: float) -> void:
+	for node in get_tree().get_nodes_in_group(group):
+		if node is AudioStreamPlayer or node is AudioStreamPlayer2D or node is AudioStreamPlayer3D:
+			node.volume_db = vol if vol > -40.0 else -80.0
 
 func _on_music_slider_changed(value: float) -> void:
-	for player in get_tree().get_nodes_in_group("Music"):
-		if player is AudioStreamPlayer or player is AudioStreamPlayer3D:
-			player.volume_db = value
+	_set_group_volume("Music", value)
 
 func _on_sound_slider_changed(value: float) -> void:
-	for player in get_tree().get_nodes_in_group("Sound"):
-		if player is AudioStreamPlayer or player is AudioStreamPlayer3D:
-			player.volume_db = value
+	_set_group_volume("Sound", value)
 
 func _on_fullscreen_toggled(pressed: bool) -> void:
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN if pressed else DisplayServer.WINDOW_MODE_WINDOWED)
@@ -86,7 +81,6 @@ func _on_refresh_rate_selected(index: int) -> void:
 	var selected_rate := refresh_rates[index]
 	Engine.max_fps = int(selected_rate)
 
-
 func _on_close_pressed() -> void:
 	save_settings()
 	visible = false
@@ -97,14 +91,11 @@ func _on_close_pressed() -> void:
 			button.visible = true
 
 func _on_button_hover() -> void:
-	var player_list := get_tree().get_nodes_in_group("Sound").filter(func(n): return n.name == "Button")
-	if player_list.size() == 0:
-		return
-	var player := player_list[0] as AudioStreamPlayer
-	if player:
-		if player.playing:
-			player.stop()
-		player.play()
+	for button in get_tree().get_nodes_in_group("Sound"):
+		if button is AudioStreamPlayer and button.name == "Button":
+			button.stop()
+			button.play()
+			break
 
 func save_settings():
 	var config := ConfigFile.new()

@@ -109,3 +109,7 @@ debug_color = Color(0.9499975, 0, 0.5730574, 1)
 
 [node name="Timer" type="Timer" parent="." unique_id=1407133430]
 wait_time = 3.0
+
+[node name="Door" type="AudioStreamPlayer3D" parent="." unique_id=36096625 groups=["Sound"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8027201, 2.29333, 3.1043453)
+max_distance = 20.0
