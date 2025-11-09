@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dvtv1gx43d5ey" path="res://Scripts/Player/Movement.gd" id="1_854hw"]
 [ext_resource type="Script" uid="uid://boo27hlf6kvy8" path="res://Scripts/Player/RayCastController.gd" id="2_cy1nd"]
 [ext_resource type="Texture2D" uid="uid://c5xdtuqidww16" path="res://Assets/Materials/Flashlight/Flashlight.png" id="3_l1yor"]
-[ext_resource type="Material" uid="uid://5lvs2qdklqyt" path="res://Assets/Models/Player/Models/Character_Texture.tres" id="3_xb7um"]
+[ext_resource type="Material" uid="uid://5lvs2qdklqyt" path="res://Assets/Models/Player/Character_Texture.tres" id="3_xb7um"]
 [ext_resource type="Script" uid="uid://bjq7ubbkelrht" path="res://Scripts/Player/Lighter.gd" id="4_cy1nd"]
 [ext_resource type="Texture2D" uid="uid://cqb1m4soqq6t1" path="res://Assets/Images/Inventory/InventorySlot.png" id="6_b4okt"]
 [ext_resource type="Script" uid="uid://cg0n35yfkugfw" path="res://Scripts/Player/InventoryManager.gd" id="6_r68dh"]
@@ -2443,6 +2443,8 @@ shader_parameter/opacity = 1.282000060895
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1582200481]
 transform = Transform3D(-0.7, 0, -1.0569706e-07, 0, 0.7, 0, 1.0569706e-07, 0, -0.7, 0, 0, 0)
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_854hw")
 
 [node name="Head" type="CollisionShape3D" parent="CharacterBody3D" unique_id=179415315]

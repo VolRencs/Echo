@@ -1,10 +1,10 @@
 [gd_scene load_steps=14 format=4 uid="uid://do7ufeb1e6y6b"]
 
-[ext_resource type="Texture2D" uid="uid://lv2g173teofv" path="res://Assets/Models/Map/Models/Props/Airing_01/Airing_01_0.png" id="1_3wbjc"]
-[ext_resource type="Texture2D" uid="uid://brp0f26iomd5p" path="res://Assets/Models/Map/Models/Props/Airing_01/Airing_01_1.png" id="2_tws34"]
-[ext_resource type="Texture2D" uid="uid://dj6f621d2523h" path="res://Assets/Models/Map/Models/Props/Airing_01/Airing_01_2.png" id="3_53601"]
-[ext_resource type="Texture2D" uid="uid://bueuts2yushua" path="res://Assets/Models/Map/Models/Props/Airing_01/Airing_01_3.png" id="4_guyai"]
-[ext_resource type="Texture2D" uid="uid://c6lf7rcawqieb" path="res://Assets/Models/Map/Models/Props/Airing_01/Airing_01_4.png" id="5_13ctq"]
+[ext_resource type="Texture2D" uid="uid://lv2g173teofv" path="res://Assets/Models/Map/Props/Airing_01/Airing_01_0.png" id="1_3wbjc"]
+[ext_resource type="Texture2D" uid="uid://brp0f26iomd5p" path="res://Assets/Models/Map/Props/Airing_01/Airing_01_1.png" id="2_tws34"]
+[ext_resource type="Texture2D" uid="uid://dj6f621d2523h" path="res://Assets/Models/Map/Props/Airing_01/Airing_01_2.png" id="3_53601"]
+[ext_resource type="Texture2D" uid="uid://bueuts2yushua" path="res://Assets/Models/Map/Props/Airing_01/Airing_01_3.png" id="4_guyai"]
+[ext_resource type="Texture2D" uid="uid://c6lf7rcawqieb" path="res://Assets/Models/Map/Props/Airing_01/Airing_01_4.png" id="5_13ctq"]
 [ext_resource type="Script" uid="uid://bevchfx5geysr" path="res://Scripts/Map/Vents.gd" id="6_tws34"]
 [ext_resource type="AudioStream" uid="uid://we4o5j66bolc" path="res://Assets/Audio/Vents.ogg" id="7_53601"]
 

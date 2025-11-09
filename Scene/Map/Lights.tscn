@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=4 uid="uid://b0oapq7llrkau"]
 
-[ext_resource type="Texture2D" uid="uid://bdps0l1uuh7xu" path="res://Assets/Models/Map/Models/Lights/Light_Corridor_02/Light_Corridor_02_0.png" id="1_g6cfj"]
-[ext_resource type="Texture2D" uid="uid://jr7gmkvux2xb" path="res://Assets/Models/Map/Models/Lights/Light_Corridor_02/Light_Corridor_02_1.png" id="2_j7tsp"]
-[ext_resource type="Texture2D" uid="uid://dg3d322k4uf1v" path="res://Assets/Models/Map/Models/Lights/Light_Corridor_02/Light_Corridor_02_2.png" id="3_qnict"]
+[ext_resource type="Texture2D" uid="uid://bdps0l1uuh7xu" path="res://Assets/Models/Map/Lights/Light_Corridor_02/Light_Corridor_02_0.png" id="1_g6cfj"]
+[ext_resource type="Texture2D" uid="uid://jr7gmkvux2xb" path="res://Assets/Models/Map/Lights/Light_Corridor_02/Light_Corridor_02_1.png" id="2_j7tsp"]
+[ext_resource type="Texture2D" uid="uid://dg3d322k4uf1v" path="res://Assets/Models/Map/Lights/Light_Corridor_02/Light_Corridor_02_2.png" id="3_qnict"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r313v"]
 resource_name = "HD_Stuff_01_Norm"
