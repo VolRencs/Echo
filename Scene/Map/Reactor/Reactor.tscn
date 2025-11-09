@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4osdho2h0wun"]
+
+[ext_resource type="PackedScene" uid="uid://g1ydslgowm53" path="res://Assets/Models/Map/Reactor/Sci-fi Power generator Free.glb" id="1_dd0f0"]
+
+[node name="Sci-fi Power generator Free2" unique_id=1795870546 instance=ExtResource("1_dd0f0")]
