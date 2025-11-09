@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://w7v01k70o4vc"]
+
+[resource]
+resource_name = "Plastic2"
+cull_mode = 2
+albedo_color = Color(0.36363044, 0.36363044, 0.36363044, 1)
+metallic = 0.7880597
+roughness = 0.39253733

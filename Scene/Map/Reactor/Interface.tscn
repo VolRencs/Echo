@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://2cqpp5i4u4kc"]
+
+[ext_resource type="Script" uid="uid://2ep4q2jxgoag" path="res://Scripts/Map/Engine/Reactor_Interface.gd" id="1_rrcki"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_2gfpe"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rrcki"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_2gfpe")
+
+[sub_resource type="QuadMesh" id="QuadMesh_1uts1"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_rrcki")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vpmij"]
+resource_local_to_scene = true
+size = Vector3(1, 1, 0.07421875)
+
+[node name="Interface" type="Node3D" unique_id=257092843]
+script = ExtResource("1_rrcki")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1881421045]
+size = Vector2i(511, 391)
+
+[node name="Quad" type="MeshInstance3D" parent="." unique_id=1847370563]
+mesh = SubResource("QuadMesh_1uts1")
+
+[node name="Area3D" type="Area3D" parent="Quad" unique_id=1788861567]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quad/Area3D" unique_id=122833807]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.001688391)
+shape = SubResource("BoxShape3D_vpmij")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1925345722]
+transform = Transform3D(0.9353021, 0, -0.35385033, 0, 1, 0, 0.35385033, 0, 0.9353021, -0.48733187, 0, 1.0349923)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1581138452]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.492964)
+
+[node name="Control" type="Control" parent="." unique_id=1904948408]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 704.0
+offset_bottom = 640.0
+
+[node name="Panel" type="Panel" parent="Control" unique_id=585861869]
+layout_mode = 0
+offset_right = 704.0
+offset_bottom = 640.0
+
+[node name="Button" type="Button" parent="Control/Panel" unique_id=1305726345]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 392.0
+offset_bottom = 192.0
+text = "Test"
