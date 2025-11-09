@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=4 uid="uid://bukedwswi56vp"]
 
-[ext_resource type="Texture2D" uid="uid://c6ukf5wijk0mk" path="res://Assets/Models/Map/Models/Doors/Door_Vert_01/Door_Vert_01_0.png" id="1_7ciy0"]
-[ext_resource type="Texture2D" uid="uid://wuf4t24cb8jn" path="res://Assets/Models/Map/Models/Doors/Door_Vert_01/Door_Vert_01_1.png" id="2_8dc2x"]
-[ext_resource type="Texture2D" uid="uid://cl3fngdv2pide" path="res://Assets/Models/Map/Models/Doors/Door_Vert_01/Door_Vert_01_2.png" id="3_278ac"]
+[ext_resource type="Texture2D" uid="uid://c6ukf5wijk0mk" path="res://Assets/Models/Map/Doors/Door_Vert_01/Door_Vert_01_0.png" id="1_7ciy0"]
+[ext_resource type="Texture2D" uid="uid://wuf4t24cb8jn" path="res://Assets/Models/Map/Doors/Door_Vert_01/Door_Vert_01_1.png" id="2_8dc2x"]
+[ext_resource type="Texture2D" uid="uid://cl3fngdv2pide" path="res://Assets/Models/Map/Doors/Door_Vert_01/Door_Vert_01_2.png" id="3_278ac"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e613o"]
 resource_name = "HD_Wall_11_Norm"
@@ -109,3 +109,7 @@ debug_color = Color(0.9499975, 0, 0.5730574, 1)
 
 [node name="Timer" type="Timer" parent="." unique_id=1407133430]
 wait_time = 3.0
+
+[node name="Door" type="AudioStreamPlayer3D" parent="." unique_id=36096625 groups=["Sound"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8027201, 2.29333, 3.1043453)
+max_distance = 20.0

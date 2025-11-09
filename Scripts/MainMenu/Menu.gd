@@ -66,10 +66,8 @@ func _handle_quit() -> void:
 	get_tree().quit()
 
 func _on_button_hover() -> void:
-	var players := get_tree().get_nodes_in_group("Sound")
-	for player in players:
-		if player.name == "Button" and player is AudioStreamPlayer:
-			if player.playing:
-				player.stop()
-			player.play()
+	for button in get_tree().get_nodes_in_group("Sound"):
+		if button is AudioStreamPlayer and button.name == "Button":
+			button.stop()
+			button.play()
 			break
