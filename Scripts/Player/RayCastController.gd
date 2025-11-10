@@ -13,12 +13,7 @@ static var instance: RaycastDetector
 
 func _ready() -> void:
 	instance = self
-	
-	var raycasts = get_tree().get_nodes_in_group(raycast_group)
-	if raycasts.is_empty():
-		push_error("Нет RayCast в группе '%s'!" % raycast_group)
-		return
-	ray = raycasts[0] as RayCast3D
+	ray = get_tree().get_first_node_in_group(raycast_group) as RayCast3D
 
 func _process(_delta: float) -> void:
 	if not ray or not ray.is_enabled():

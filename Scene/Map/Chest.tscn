@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=4 uid="uid://i2s54dn08idc"]
+[gd_scene load_steps=14 format=4 uid="uid://i2s54dn08idc"]
 
 [ext_resource type="Texture2D" uid="uid://b468ugxpcxyx8" path="res://Assets/Models/Map/Walls/Wall_Gear_01_Half/Wall_Gear_01_Half_0.png" id="1_o6w34"]
 [ext_resource type="Script" uid="uid://dlokscxwvtq6m" path="res://Scripts/Map/Chest/Chest.gd" id="1_r523l"]
 [ext_resource type="Texture2D" uid="uid://badkkilvkaipg" path="res://Assets/Models/Map/Walls/Wall_Gear_01_Half/Wall_Gear_01_Half_1.png" id="2_r523l"]
 [ext_resource type="Texture2D" uid="uid://difbsdnmluupt" path="res://Assets/Models/Map/Walls/Wall_Gear_01_Half/Wall_Gear_01_Half_2.png" id="3_6xryv"]
+[ext_resource type="PackedScene" uid="uid://cqmxy7l6s2v2w" path="res://Scene/Map/Chest/ChestInventory.tscn" id="5_7yenm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2o7co"]
 resource_name = "HD_Stuff_03_Norm"
@@ -118,9 +119,10 @@ shadow_mesh = SubResource("ArrayMesh_h70mv")
 [sub_resource type="BoxShape3D" id="BoxShape3D_r523l"]
 size = Vector3(1.4120941, 3.357788, 2.624878)
 
-[node name="Chest" type="Node3D" unique_id=122438233 node_paths=PackedStringArray("animated_objects") groups=["Chest"]]
+[node name="Chest" type="Node3D" unique_id=122438233 node_paths=PackedStringArray("animated_objects", "chest_inventory") groups=["Chest"]]
 script = ExtResource("1_r523l")
 animated_objects = [NodePath("Wall_Gear_01_Half2/Door_Left"), NodePath("Wall_Gear_01_Half2/Door_Right")]
+chest_inventory = NodePath("ChestInventory")
 
 [node name="Wall_Gear_01_Half2" type="MeshInstance3D" parent="." unique_id=111141713]
 transform = Transform3D(1, 0, 0, 0, 0, 1.1203146, 0, -0.94534826, 0, 0, -0.8226104, 0)
@@ -140,3 +142,5 @@ mesh = SubResource("ArrayMesh_ja0ek")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.83694804, 1.4473083, 1.5320252)
 shape = SubResource("BoxShape3D_r523l")
 debug_color = Color(0.67638963, 0.50538844, 0.066673614, 0.41960785)
+
+[node name="ChestInventory" parent="." unique_id=528275786 instance=ExtResource("5_7yenm")]
