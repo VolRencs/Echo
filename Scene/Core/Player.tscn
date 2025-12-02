@@ -2439,7 +2439,7 @@ shader_parameter/blur_size = 1.50000007125
 shader_parameter/iterations = 10
 shader_parameter/opacity = 1.282000060895
 
-[node name="Player2" type="Node3D" unique_id=359096447]
+[node name="Player" type="Node3D" unique_id=359096447]
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=1582200481 groups=["Player"]]
 transform = Transform3D(-0.7, 0, -1.0569706e-07, 0, 0.7, 0, 1.0569706e-07, 0, -0.7, 0, 0, 0)
