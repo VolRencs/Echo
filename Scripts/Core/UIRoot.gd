@@ -19,15 +19,6 @@ func _ready() -> void:
 	for button in [continue_button, settings_button, quit_button]:
 		button.mouse_entered.connect(_on_button_hover)
 
-	_restore_player_position()
-
-func _restore_player_position() -> void:
-	var player = _find_player()
-	if player:
-		player.position = GameState.loaded_player_data.get("position", player.position)
-		player.rotation.y = GameState.loaded_player_data.get("rotation_y", player.rotation.y)
-		GameState.clear_loaded_data()
-
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
 		_toggle_menu()
@@ -61,16 +52,13 @@ func _on_button_hover() -> void:
 			break
 
 func _quit_game() -> void:
-	var player = _find_player()
+	var player = get_tree().get_nodes_in_group("Player")[0]
 	if player and player.has_method("save_position"):
 		player.save_position()
+	if get_tree().current_scene:
+		var packed_scene = PackedScene.new()
+		if packed_scene.pack(get_tree().current_scene) == OK:
+			SaveManager.loaded_scene_data = packed_scene
+
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Scene/MainMenu/MainMenu.tscn")
-
-func _find_player() -> Node:
-	if not player_node:
-		return null
-	for child in player_node.get_children():
-		if child.get_script() == load("res://Scripts/Player/Player.gd"):
-			return child
-	return null
