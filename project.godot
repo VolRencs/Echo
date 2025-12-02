@@ -25,7 +25,7 @@ boot_splash/minimum_display_time=2000
 [autoload]
 
 AudioManager="*res://Scene/Core/AudioManager.tscn"
-GameState="*res://Scripts/Core/GameState.gd"
+SaveManager="*uid://dplrwnl1ksc6"
 
 [debug]
 
@@ -43,6 +43,7 @@ window/stretch/mode="canvas_items"
 
 Sound=""
 Music=""
+Player=""
 
 [input]
 
