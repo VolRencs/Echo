@@ -5,7 +5,7 @@ extends CanvasLayer
 @export var settings_button: Button
 @export var quit_button: Button
 @export var control_panel: Control
-@export_file("*.tscn") var start_scene: String
+var start_scene: String = "res://Scene/Core/Game.tscn"
 
 func _ready() -> void:
 	SaveManager.load_game()
@@ -31,16 +31,15 @@ func _handle_button_pressed(button: Button) -> void:
 func _on_start_pressed() -> void:
 	if not SaveManager.loaded_player_data.is_empty():
 		var dialog := ConfirmationDialog.new()
-		dialog.dialog_text = "У вас есть сохранение. Вы уверены, что хотите начать новую игру? Это перезапишет текущее сохранение."
-		dialog.confirmed.connect(_start_new_game)
+		dialog.set_title("Подтверждение")
+		dialog.set_text("Сохранение найдено. Начать новую игру и перезаписать его?")
 		add_child(dialog)
+		dialog.confirmed.connect(_start_new_game)
 		dialog.popup_centered()
 	else:
 		_start_new_game()
 
 func _start_new_game() -> void:
-	if start_scene == "":
-		return
 	SaveManager.clear_loaded_data()
 	SaveManager.delete_save()
 	get_tree().change_scene_to_file(start_scene)
