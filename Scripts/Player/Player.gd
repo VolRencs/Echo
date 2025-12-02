@@ -28,7 +28,7 @@ extends CharacterBody3D
 @onready var head_collision: CollisionShape3D = $Head
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var inventory: Control = $"../Inventory"
-const SAVE_PATH = "user://game_save.tres"
+
 var anim_states := {
 	"jump": "Jump",
 	"walk": "Walk",
