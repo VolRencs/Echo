@@ -286,9 +286,7 @@ transparency = 0.6
 mesh = SubResource("ArrayMesh_ekg1u")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Door_Right_01" unique_id=1220059576]
-libraries = {
-&"": SubResource("AnimationLibrary_v6akd")
-}
+libraries/ = SubResource("AnimationLibrary_v6akd")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Door_Right_01" unique_id=1960641229]
 
@@ -307,9 +305,7 @@ mesh = SubResource("ArrayMesh_pauj1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Door_Left_01" unique_id=452107955]
 root_node = NodePath("../..")
-libraries = {
-&"": SubResource("AnimationLibrary_4rs61")
-}
+libraries/ = SubResource("AnimationLibrary_4rs61")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Door_Left_01" unique_id=14455053]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.949719, 0, 0)
