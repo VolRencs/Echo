@@ -54,7 +54,6 @@ load_button = NodePath("Load")
 settings_button = NodePath("Settings")
 quit_button = NodePath("Exit")
 control_panel = NodePath("Control")
-start_scene = "uid://3w36cuohiy7j"
 
 [node name="Start" type="Button" parent="CanvasLayer" unique_id=1565654411]
 offset_left = 883.0
