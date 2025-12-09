@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://bn7wp1p2ekyjx"]
+[gd_scene format=3 uid="uid://bn7wp1p2ekyjx"]
 
 [ext_resource type="PackedScene" uid="uid://ba01biwqbxdxo" path="res://Assets/Models/Map/Floors/Floor_Descent_01/Floor_Descent_01.fbx" id="5_y6apl"]
 [ext_resource type="PackedScene" uid="uid://6ji1qe4kv2bm" path="res://Assets/Models/Map/Floors/Floor_Angle_01_6x6/Floor_Angle_01_6x6.fbx" id="6_5uurm"]

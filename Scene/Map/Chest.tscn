@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://i2s54dn08idc"]
+[gd_scene format=4 uid="uid://i2s54dn08idc"]
 
 [ext_resource type="Texture2D" uid="uid://b468ugxpcxyx8" path="res://Assets/Models/Map/Walls/Wall_Gear_01_Half/Wall_Gear_01_Half_0.png" id="1_o6w34"]
 [ext_resource type="Script" uid="uid://dlokscxwvtq6m" path="res://Scripts/Map/Chest/Chest.gd" id="1_r523l"]
