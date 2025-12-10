@@ -5,6 +5,6 @@
 
 [resource]
 _data = {
-&"DoorClose": ExtResource("1_xbaww"),
-&"DoorOpen": ExtResource("2_o8ann")
+&"Close": ExtResource("1_xbaww"),
+&"Open": ExtResource("2_o8ann")
 }
