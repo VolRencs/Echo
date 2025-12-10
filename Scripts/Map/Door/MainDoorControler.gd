@@ -15,12 +15,12 @@ func _ready():
 func on_interact():
 	if not door_open:
 		$Timer.start()
-		_play_door(sound_open, "Anim/DoorOpen")
+		_play_door(sound_open, "Anim/Open")
 		door_open = true
 
 func door_close():
 	$Timer.stop()
-	_play_door(sound_close, "Anim/DoorClose")
+	_play_door(sound_close, "Anim/Close")
 
 func _play_door(sound: AudioStream, anim_name: String):
 	door_sound.stream = sound
@@ -28,5 +28,5 @@ func _play_door(sound: AudioStream, anim_name: String):
 	door_anim.play(anim_name)
 
 func _on_animation_player_animation_finished(anim_name: String):
-	if anim_name == "Anim/DoorClose":
+	if anim_name == "Anim/Close":
 		door_open = false
