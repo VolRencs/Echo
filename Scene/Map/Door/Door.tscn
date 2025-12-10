@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=4 uid="uid://bukedwswi56vp"]
+[gd_scene format=4 uid="uid://bukedwswi56vp"]
 
 [ext_resource type="Texture2D" uid="uid://c6ukf5wijk0mk" path="res://Assets/Models/Map/Doors/Door_Vert_01/Door_Vert_01_0.png" id="1_7ciy0"]
 [ext_resource type="Texture2D" uid="uid://wuf4t24cb8jn" path="res://Assets/Models/Map/Doors/Door_Vert_01/Door_Vert_01_1.png" id="2_8dc2x"]
 [ext_resource type="Texture2D" uid="uid://cl3fngdv2pide" path="res://Assets/Models/Map/Doors/Door_Vert_01/Door_Vert_01_2.png" id="3_278ac"]
+[ext_resource type="AnimationLibrary" uid="uid://btp2p1nlpjj4m" path="res://Assets/Animation/Door/DoorAnim.tres" id="4_8dc2x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e613o"]
 resource_name = "HD_Wall_11_Norm"
@@ -48,54 +49,17 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_q515r")
 
-[sub_resource type="Animation" id="Animation_6fdxe"]
-resource_name = "Close"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Door_Vert_01:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.4506252, 0.4506252),
-"update": 0,
-"values": [Vector3(0, 4, 0), Vector3(0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_m1auf"]
-resource_name = "Open"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Door_Vert_01:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.4506252, 0.4506252),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 4, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_x8pq5"]
-_data = {
-&"Close": SubResource("Animation_6fdxe"),
-&"Open": SubResource("Animation_m1auf")
-}
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_37w6i"]
 size = Vector3(0.7359009, 5.1271973, 3.339508)
 
 [node name="Door" type="Node3D" unique_id=2073991288]
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=194471013]
+libraries/Door = ExtResource("4_8dc2x")
+
 [node name="Door_Vert_01" type="MeshInstance3D" parent="." unique_id=1249826961]
 transform = Transform3D(1, 0, 0, 0, -4.560058e-08, 1.1839362, 0, -1.0432198, -5.17515e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_gbses")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Door_Vert_01" unique_id=194471013]
-root_node = NodePath("../..")
-libraries/ = SubResource("AnimationLibrary_x8pq5")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Door_Vert_01" unique_id=950560457]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4336505, -3.0304265, 1.8943088)

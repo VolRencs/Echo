@@ -26,7 +26,7 @@ extends CharacterBody3D
 @onready var camera: Camera3D = $Camera3D
 @onready var body_collision: CollisionShape3D = $Character
 @onready var head_collision: CollisionShape3D = $Head
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var animation_player: AnimationPlayer = $Animation
 @onready var inventory: Control = $"../Inventory"
 
 var anim_states := {
