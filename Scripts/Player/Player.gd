@@ -26,16 +26,16 @@ extends CharacterBody3D
 @onready var camera: Camera3D = $Camera3D
 @onready var body_collision: CollisionShape3D = $Character
 @onready var head_collision: CollisionShape3D = $Head
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var animation_player: AnimationPlayer = $Animation
 @onready var inventory: Control = $"../Inventory"
 
 var anim_states := {
-	"jump": "Jump",
-	"walk": "Walk",
-	"run": "Running",
-	"crouch_walk": "Crouch_Walk",
-	"idle": "Idle",
-	"crouch_idle": "Crouch_Idle"
+	"jump": "Animation/Jump",
+	"walk": "Animation/Walk",
+	"run": "Animation/Run",
+	"crouch_walk": "Animation/Crouch_Walk",
+	"idle": "Animation/Idle",
+	"crouch": "Animation/Crouch"
 }
 
 var step_player: AudioStreamPlayer = null
@@ -99,7 +99,7 @@ func _physics_process(delta: float) -> void:
 		anim_states["crouch_walk"] if input_vec.length() > 0 and is_crouching else \
 		anim_states["run"] if input_vec.length() > 0 and is_sprinting else \
 		anim_states["walk"] if input_vec.length() > 0 else \
-		anim_states["crouch_idle"] if is_crouching else \
+		anim_states["crouch"] if is_crouching else \
 		anim_states["idle"]
 	_play_anim(desired_anim)
 

@@ -1,0 +1,10 @@
+[gd_resource type="AnimationLibrary" format=3 uid="uid://ccycry5kk2lxk"]
+
+[ext_resource type="Animation" uid="uid://vlxec7qh210k" path="res://Assets/Animation/DoorMain/Close.anim" id="1_xbaww"]
+[ext_resource type="Animation" uid="uid://4fnse4vm0abp" path="res://Assets/Animation/DoorMain/Open.anim" id="2_o8ann"]
+
+[resource]
+_data = {
+&"Close": ExtResource("1_xbaww"),
+&"Open": ExtResource("2_o8ann")
+}
