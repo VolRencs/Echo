@@ -13,8 +13,8 @@
 [ext_resource type="Shader" uid="uid://bjr4hnsy2qv6l" path="res://Assets/Shader/Menu.gdshader" id="10_cntqa"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l1yor"]
-radius = 0.25048828
-height = 0.50097656
+radius = 0.25634766
+height = 0.5126953
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bo5sc"]
 resource_name = "Character"
@@ -55,7 +55,7 @@ bind/2/bone = -1
 bind/2/pose = Transform3D(0.01, 7.701599e-36, -1.394e-42, 7.7015564e-36, -0.009999945, 3.3146345e-05, 2.552659e-38, -3.3146345e-05, -0.009999945, -2.3841858e-05, -226.30334, 0.5213341)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_854hw"]
-radius = 0.2919922
+radius = 0.2133789
 height = 1.1345227
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_l1yor"]
@@ -259,7 +259,7 @@ collision_mask = 3
 script = ExtResource("1_854hw")
 
 [node name="Head" type="CollisionShape3D" parent="Player" unique_id=179415315]
-transform = Transform3D(2.24, 0, 2.842171e-14, 0, 2.24, 0, -2.842171e-14, 0, 2.24, 2.5720253e-08, 3.0953062, -0.17033751)
+transform = Transform3D(2.24, 0, 2.842171e-14, 0, 2.24, 0, -2.842171e-14, 0, 2.24, 1.4263265e-08, 3.0953062, -0.094461314)
 shape = SubResource("CapsuleShape3D_l1yor")
 
 [node name="Helmet" type="MeshInstance3D" parent="Player/Head" unique_id=1655001383]
