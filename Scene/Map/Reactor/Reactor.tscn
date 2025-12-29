@@ -1,5 +1,210 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4osdho2h0wun"]
+[gd_scene load_steps=14 format=3 uid="uid://c4osdho2h0wun"]
 
 [ext_resource type="PackedScene" uid="uid://g1ydslgowm53" path="res://Assets/Models/Map/Reactor/Sci-fi Power generator Free.glb" id="1_dd0f0"]
+[ext_resource type="LabelSettings" uid="uid://c8laucjbdekc2" path="res://Assets/Font/Settings_Font/Interface_Label_Text.tres" id="2_5ju6o"]
+[ext_resource type="Script" uid="uid://2ep4q2jxgoag" path="res://Scripts/Map/Engine/Reactor_Interface.gd" id="2_d77g2"]
+[ext_resource type="Shader" uid="uid://70nkhkrvgm77" path="res://Assets/Shader/hologram.gdshader" id="3_d77g2"]
 
-[node name="Sci-fi Power generator Free2" unique_id=1795870546 instance=ExtResource("1_dd0f0")]
+[sub_resource type="ViewportTexture" id="ViewportTexture_x6vs4"]
+viewport_path = NodePath("Interface/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1uts1"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("3_d77g2")
+shader_parameter/albedo_texture = SubResource("ViewportTexture_x6vs4")
+shader_parameter/opacity = 0.370000017575
+shader_parameter/core_colour = Color(1, 1, 1, 1)
+shader_parameter/fresnel_strength = 0.0
+shader_parameter/fresnel_colour = Color(1, 1, 1, 1)
+shader_parameter/enable_scan_lines = true
+shader_parameter/scan_speed = 1.0
+shader_parameter/scan_colour = Color(0.09132881, 0.2640754, 0.34344545, 1)
+shader_parameter/line_density = 14.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_f0nmk"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_1uts1")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kjmw4"]
+resource_local_to_scene = true
+size = Vector3(1, 1, 0.04638672)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d77g2"]
+size = Vector3(1.1115417, 1.6760864, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x6vs4"]
+size = Vector3(2.2816162, 4.6988525, 1.7494507)
+
+[sub_resource type="Animation" id="Animation_x6vs4"]
+resource_name = "Close_Reactor_Interface"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Interface/Quad:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19999999, 0.23333335, 0.43333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(0.305, 0.001, 1), Vector3(0.305, 0.001, 1), Vector3(0.305, 0.19, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Interface/Quad:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.19999999, 0.23333335, 0.43333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.062, 1.114, 0.17), Vector3(-0.052606918, 0.0639832, 0), Vector3(-0.052606918, 0.0639832, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Interface/Quad:scale:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.19999999, 0.23333335, 0.43333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.305, 0.305]
+}
+
+[sub_resource type="Animation" id="Animation_d77g2"]
+resource_name = "Open_Reactor_Interface"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Interface/Quad:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.23333335, 0.43333337),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.305, 0.19, 1), Vector3(0.305, 0.001, 1), Vector3(0.305, 0.001, 1), Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Interface/Quad:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.23333335),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.052606918, 0.0639832, 0), Vector3(-0.052606918, 0.0639832, 0), Vector3(0.062, 1.114, 0.17)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Interface/Quad:scale:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.23333335),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.305, 0.305, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kjmw4"]
+_data = {
+&"Close_Reactor_Interface": SubResource("Animation_x6vs4"),
+&"Open_Reactor_Interface": SubResource("Animation_d77g2")
+}
+
+[node name="Node3D" unique_id=1100131785 instance=ExtResource("1_dd0f0")]
+script = ExtResource("2_d77g2")
+
+[node name="Interface" type="Node3D" parent="." index="1" unique_id=1860702885]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06130588, 1.0745584, 0.7449322)
+
+[node name="SubViewport" type="SubViewport" parent="Interface" index="0" unique_id=381704913]
+size = Vector2i(705, 641)
+
+[node name="Panel" type="Panel" parent="Interface/SubViewport" index="0" unique_id=1574748351]
+offset_right = 704.0
+offset_bottom = 640.0
+
+[node name="Button" type="Button" parent="Interface/SubViewport/Panel" index="0" unique_id=1332436170]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 392.0
+offset_bottom = 184.0
+text = "Test"
+
+[node name="FuelBar" type="ProgressBar" parent="Interface/SubViewport/Panel" index="1" unique_id=286669245]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 224.0
+offset_right = 48.0
+offset_bottom = 624.0
+value = 33.57
+fill_mode = 3
+
+[node name="Temp" type="ProgressBar" parent="Interface/SubViewport/Panel" index="2" unique_id=1074467995]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 224.0
+offset_right = 96.0
+offset_bottom = 624.0
+value = 33.57
+fill_mode = 3
+
+[node name="Label" type="Label" parent="Interface/SubViewport/Panel" index="3" unique_id=366680049]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 192.0
+offset_right = 48.0
+offset_bottom = 223.0
+text = "Fuel"
+label_settings = ExtResource("2_5ju6o")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Interface/SubViewport/Panel" index="4" unique_id=1705970878]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 192.0
+offset_right = 96.0
+offset_bottom = 223.0
+text = "Temp"
+label_settings = ExtResource("2_5ju6o")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quad" type="MeshInstance3D" parent="Interface" index="1" unique_id=459772118]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.062, 1.114, 0.17)
+mesh = SubResource("QuadMesh_f0nmk")
+
+[node name="Area3D" type="Area3D" parent="Interface/Quad" index="0" unique_id=193033568]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interface/Quad/Area3D" index="0" unique_id=1283815022]
+transform = Transform3D(0.99999183, 0, 0, 0, 1, 0, 0, 0, 0.999995, 0, 0, -0.015604317)
+shape = SubResource("BoxShape3D_kjmw4")
+
+[node name="Triger" type="Area3D" parent="." index="2" unique_id=519939309]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5944841)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Triger" index="0" unique_id=1887668116]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02897644, 0.8616538, -0.15305531)
+shape = SubResource("BoxShape3D_d77g2")
+
+[node name="Reactor_Collision" type="StaticBody3D" parent="." index="3" unique_id=347623634]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Reactor_Collision" index="0" unique_id=1044605199]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.019836426, 1.8494263, -0.16879272)
+shape = SubResource("BoxShape3D_x6vs4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4" unique_id=1167631531]
+libraries = {
+&"": SubResource("AnimationLibrary_kjmw4")
+}

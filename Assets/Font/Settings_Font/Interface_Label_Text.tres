@@ -1,0 +1,6 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://c8laucjbdekc2"]
+
+[resource]
+shadow_size = 0
+stacked_outline_count = 1
+stacked_outline_0/size = 4

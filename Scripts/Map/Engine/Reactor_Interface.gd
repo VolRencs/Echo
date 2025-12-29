@@ -1,21 +1,48 @@
 extends Node3D
 
-# Used for checking if the mouse is inside the Area3D.
 var is_mouse_inside = false
-# The last processed input touch/mouse event. To calculate relative movement.
+
 var last_event_pos2D = null
-# The time of the last event in seconds since engine start.
+
 var last_event_time: float = -1.0
 
-@onready var node_viewport = $SubViewport
-@onready var node_quad = $Quad
-@onready var node_area = $Quad/Area3D
+@onready var node_viewport = $Interface/SubViewport
+@onready var node_quad = $Interface/Quad
+@onready var node_area = $Interface/Quad/Area3D
+@onready var Triger = $Triger
+
+@onready var Reactor_Interface = $Interface
+@onready var test = $AnimationPlayer
+
+var is_interface_open: bool = false
 
 func _ready():
 	node_area.mouse_entered.connect(_mouse_entered_area)
 	node_area.mouse_exited.connect(_mouse_exited_area)
 	node_area.input_event.connect(_mouse_input_event)
+	Close_Interface()
+	Triger.connect("body_entered", Callable(self, "_on_body_entered"))
+	Triger.connect("body_exited", Callable(self, "_on_body_exited"))
 
+func _on_body_entered(body):
+	if body.name == "CharacterBody3D":
+		if (is_interface_open == false):
+			Open_Interface()
+			print("Открытие интерфейса")
+			is_interface_open = true
+		
+func _on_body_exited(body):
+	if body.name == "CharacterBody3D":
+		if (is_interface_open == true):
+			Close_Interface()
+			print("Закрытие интерфейса")
+			is_interface_open = false
+
+func Open_Interface():
+	test.play("Open_Reactor_Interface")
+	
+func Close_Interface():
+	test.play("Close_Reactor_Interface")
 
 func _mouse_entered_area():
 	is_mouse_inside = true

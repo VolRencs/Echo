@@ -898,4 +898,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.731636, -0.13430893, 17.977
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.951779, -0.13430893, 17.97717)
 
 [node name="Node3D" parent="." unique_id=1100131785 instance=ExtResource("39_apcmj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.913713, -4.9281244, 13.074002)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.409414, -0.028358698, -16.379784)
