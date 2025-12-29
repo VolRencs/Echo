@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var anim: AnimationPlayer = $Door_Vert_01/AnimationPlayer
+@onready var anim: AnimationPlayer = $AnimationPlayer
 @onready var door_sound: AudioStreamPlayer3D = $Door
 
 @export var sound: AudioStream
@@ -16,16 +16,16 @@ func on_interact():
 	if not door_open:
 		$Timer.start()
 		if not anim.is_playing():
-			anim.play("Open")
+			anim.play("Door/Open")
 		door_sound.play()
 		door_open = true
 
 func door_close():
 	$Timer.stop()
 	if not anim.is_playing():
-		anim.play("Close")
+		anim.play("Door/Close")
 	door_sound.play()
 
 func _on_animation_finished(anim_name: String):
-	if anim_name == "Close":
+	if anim_name == "Door/Close":
 		door_open = false

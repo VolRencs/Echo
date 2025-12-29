@@ -5,11 +5,10 @@ extends CanvasLayer
 @export var settings_button: Button
 @export var quit_button: Button
 @export var control_panel: Control
-@export_file("*.tscn") var start_scene: String
-
-const SAVE_PATH := "user://game_save.tres"
+var start_scene: String = "res://Scene/Core/Game.tscn"
 
 func _ready() -> void:
+	SaveManager.load_game()
 	control_panel.visible = false
 
 	var buttons := [start_button, load_button, settings_button, quit_button]
@@ -17,7 +16,7 @@ func _ready() -> void:
 		button.pressed.connect(_on_button_pressed(button))
 		button.mouse_entered.connect(_on_button_hover)
 
-	load_button.disabled = not ResourceLoader.exists(SAVE_PATH)
+	load_button.disabled = SaveManager.loaded_player_data.is_empty()
 
 func _on_button_pressed(button: Button) -> Callable:
 	return Callable(self, "_handle_button_pressed").bind(button)
@@ -30,30 +29,26 @@ func _handle_button_pressed(button: Button) -> void:
 		quit_button: _handle_quit()
 
 func _on_start_pressed() -> void:
-	if ResourceLoader.exists(SAVE_PATH):
+	if not SaveManager.loaded_player_data.is_empty():
 		var dialog := ConfirmationDialog.new()
-		dialog.dialog_text = "У вас есть сохранение. Вы уверены, что хотите начать новую игру? Это перезапишет текущее сохранение."
-		dialog.confirmed.connect(_start_new_game)
+		dialog.set_title("Подтверждение")
+		dialog.set_text("Сохранение найдено. Начать новую игру и перезаписать его?")
 		add_child(dialog)
+		dialog.confirmed.connect(_start_new_game)
 		dialog.popup_centered()
 	else:
 		_start_new_game()
 
 func _start_new_game() -> void:
-	if start_scene == "": return
-	if ResourceLoader.exists(SAVE_PATH):
-		DirAccess.remove_absolute(SAVE_PATH)
-	GameState.clear_loaded_data()
+	SaveManager.clear_loaded_data()
+	SaveManager.delete_save()
 	get_tree().change_scene_to_file(start_scene)
 
 func _handle_load() -> void:
-	if not ResourceLoader.exists(SAVE_PATH):
+	if SaveManager.loaded_player_data.is_empty():
 		return
-	var save_data := ResourceLoader.load(SAVE_PATH) as GameSave
-	if save_data and save_data.scene_data:
-		GameState.loaded_player_data = save_data.player_data
-		GameState.loaded_scene_data = save_data.scene_data
-		get_tree().change_scene_to_packed(GameState.loaded_scene_data)
+	if SaveManager.loaded_scene_data:
+		get_tree().change_scene_to_packed(SaveManager.loaded_scene_data)
 
 func _handle_settings() -> void:
 	control_panel.visible = true
@@ -66,8 +61,8 @@ func _handle_quit() -> void:
 	get_tree().quit()
 
 func _on_button_hover() -> void:
-	for button in get_tree().get_nodes_in_group("Sound"):
-		if button is AudioStreamPlayer and button.name == "Button":
-			button.stop()
-			button.play()
+	for node in get_tree().get_nodes_in_group("Sound"):
+		if node is AudioStreamPlayer and node.name == "Button":
+			node.stop()
+			node.play()
 			break
