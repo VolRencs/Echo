@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bn7wp1p2ekyjx"]
+[gd_scene load_steps=77 format=3 uid="uid://bn7wp1p2ekyjx"]
 
 [ext_resource type="PackedScene" uid="uid://ba01biwqbxdxo" path="res://Assets/Models/Map/Floors/Floor_Descent_01/Floor_Descent_01.fbx" id="5_y6apl"]
 [ext_resource type="PackedScene" uid="uid://6ji1qe4kv2bm" path="res://Assets/Models/Map/Floors/Floor_Angle_01_6x6/Floor_Angle_01_6x6.fbx" id="6_5uurm"]
@@ -37,6 +37,7 @@
 [ext_resource type="AudioStream" uid="uid://bxowr8qutv17o" path="res://Assets/Audio/Door_Open.ogg" id="33_cxx40"]
 [ext_resource type="AudioStream" uid="uid://dlvgswmuubclu" path="res://Assets/Audio/Door_Closed.ogg" id="34_48wqt"]
 [ext_resource type="PackedScene" uid="uid://b0oapq7llrkau" path="res://Scene/Map/Lights.tscn" id="37_kixto"]
+[ext_resource type="PackedScene" uid="uid://c4osdho2h0wun" path="res://Scene/Map/Reactor/Reactor.tscn" id="39_apcmj"]
 [ext_resource type="PackedScene" uid="uid://bucwys7mv8v8q" path="res://Assets/Models/Map/Roofs/Roof_Squared_02_6x6/Roof_Squared_02_6x6.fbx" id="39_kixto"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m5bj0"]
@@ -904,3 +905,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.731636, -0.13430893, 17.977
 
 [node name="Engine2" parent="Lights" unique_id=1669039473 instance=ExtResource("37_kixto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.951779, -0.13430893, 17.97717)
+
+[node name="Node3D" parent="." unique_id=1100131785 instance=ExtResource("39_apcmj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.913713, -4.9281244, 13.074002)
