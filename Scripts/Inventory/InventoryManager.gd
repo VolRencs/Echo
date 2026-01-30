@@ -31,13 +31,22 @@ func _initialize_slots() -> void:
 		slots.append(InventorySlot.new())
 	
 	if slot_container:
-		var existing_slots := slot_container.get_children()
+		var existing_slots: Array = []
+		for child in slot_container.get_children():
+			if child is Control:
+				existing_slots.append(child)
+		
 		if existing_slots.size() >= TOTAL_SLOTS:
 			for i in range(TOTAL_SLOTS):
 				var slot_control: Control = existing_slots[i] as Control
 				if slot_control:
+					if not slot_control.get_script():
+						var script: Script = load("res://Scripts/Inventory/SlotUI.gd")
+						if script:
+							slot_control.set_script(script)
 					slot_ui.append(slot_control)
-					_setup_slot_ui(slot_control, i)
+					if slot_control.has_method("set_slot_index"):
+						slot_control.set_slot_index(i)
 			return
 		
 		for child in existing_slots:
@@ -136,17 +145,25 @@ func has_item(item_id: String, quantity: int = 1) -> bool:
 	return false
 
 func _update_slot_ui(index: int) -> void:
+	print("InventoryManager._update_slot_ui(", index, ")")
 	if index >= slot_ui.size():
+		print("  ERROR: index >= slot_ui.size")
 		return
 	
 	var ui: Control = slot_ui[index]
 	var slot: InventorySlot = slots[index]
 	
+	print("  Slot empty: ", slot.is_empty())
+	
 	if not is_instance_valid(ui):
+		print("  ERROR: ui not valid")
 		return
 	
 	if ui.has_method("update_display"):
+		print("  Calling update_display")
 		ui.update_display(slot)
+	else:
+		print("  ERROR: ui has no update_display method")
 
 func _on_slot_clicked(index: int) -> void:
 	switch_slot(index)

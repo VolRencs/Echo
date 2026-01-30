@@ -28,17 +28,45 @@ func _initialize_slots() -> void:
 	for i in range(chest_slots):
 		slots.append(InventorySlot.new())
 	
-	if not slot_container or not slot_scene:
+	if not slot_container:
 		return
 	
+	var existing_slots: Array = []
 	for child in slot_container.get_children():
+		if child is Control:
+			existing_slots.append(child)
+	
+	if existing_slots.size() >= chest_slots:
+		print("ChestInventory: Using existing slots from scene")
+		for i in range(chest_slots):
+			var slot_control: Control = existing_slots[i] as Control
+			if slot_control:
+				if not slot_control.get_script():
+					var script_path: String = "res://SlotUI.gd"
+					if not FileAccess.file_exists(script_path):
+						script_path = "res://Scripts/SlotUI.gd"
+					if not FileAccess.file_exists(script_path):
+						script_path = "res://Scenes/UI/SlotUI.gd"
+					
+					if FileAccess.file_exists(script_path):
+						var script: Script = load(script_path)
+						if script:
+							slot_control.set_script(script)
+				
+				slot_ui.append(slot_control)
+				if slot_control.has_method("set_slot_index"):
+					slot_control.set_slot_index(i)
+		return
+	
+	for child in existing_slots:
 		child.queue_free()
 	
-	for i in range(chest_slots):
-		var slot_control: Control = slot_scene.instantiate() as Control
-		slot_container.add_child(slot_control)
-		slot_ui.append(slot_control)
-		_setup_slot_ui(slot_control, i)
+	if slot_scene:
+		for i in range(chest_slots):
+			var slot_control: Control = slot_scene.instantiate() as Control
+			slot_container.add_child(slot_control)
+			slot_ui.append(slot_control)
+			_setup_slot_ui(slot_control, i)
 
 func _setup_slot_ui(slot_control: Control, index: int) -> void:
 	if slot_control.has_method("set_slot_index"):
