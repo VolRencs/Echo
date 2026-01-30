@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c4osdho2h0wun"]
 
-[ext_resource type="PackedScene" uid="uid://g1ydslgowm53" path="res://Assets/Models/Map/Reactor/Sci-fi Power generator Free.glb" id="1_dd0f0"]
+[ext_resource type="PackedScene" uid="uid://g1ydslgowm53" path="res://Assets/Models/Map/Reactor/Reactor.glb" id="1_dd0f0"]
 [ext_resource type="LabelSettings" uid="uid://c8laucjbdekc2" path="res://Assets/Font/InterfaceText.tres" id="2_5ju6o"]
 [ext_resource type="Script" uid="uid://2ep4q2jxgoag" path="res://Scripts/Map/Reactor/ReactorInterface.gd" id="2_d77g2"]
 [ext_resource type="Shader" uid="uid://70nkhkrvgm77" path="res://Assets/Shader/Hologram.gdshader" id="3_d77g2"]

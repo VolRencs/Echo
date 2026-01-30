@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://g1ydslgowm53"
-path="res://.godot/imported/Sci-fi Power generator Free.glb-65a8d60a1fcc6033d2ac57512b8092d7.scn"
+path="res://.godot/imported/Reactor.glb-c7548684f74c946235369a0ee24f5578.scn"
 
 [deps]
 
-source_file="res://Assets/Models/Map/Reactor/Sci-fi Power generator Free.glb"
-dest_files=["res://.godot/imported/Sci-fi Power generator Free.glb-65a8d60a1fcc6033d2ac57512b8092d7.scn"]
+source_file="res://Assets/Models/Map/Reactor/Reactor.glb"
+dest_files=["res://.godot/imported/Reactor.glb-c7548684f74c946235369a0ee24f5578.scn"]
 
 [params]
 

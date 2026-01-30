@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqmxy7l6s2v2w"]
+[gd_scene format=3 uid="uid://cqmxy7l6s2v2w"]
 
 [ext_resource type="Script" uid="uid://b26kshvo1mhhl" path="res://Scripts/Map/Chest/ChestInventory.gd" id="1_fnk0y"]
 
-[node name="ChestInventory" type="Control" unique_id=528275786]
+[node name="ChestInventory" type="Control" unique_id=528275786 node_paths=PackedStringArray("slot_container")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,6 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fnk0y")
+slot_container = NodePath("Panel/GridContainer")
 
 [node name="Panel" type="Panel" parent="." unique_id=1390110799]
 layout_mode = 0
