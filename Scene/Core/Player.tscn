@@ -775,7 +775,7 @@ transform = Transform3D(1, -3.333111e-07, 1.5098375e-07, 1.5099369e-07, 0.011673
 [node name="Animation" type="AnimationPlayer" parent="Player" unique_id=681942591]
 libraries/Animation = ExtResource("4_acw8f")
 
-[node name="Inventory" type="Control" parent="." unique_id=1373647732 node_paths=PackedStringArray("icons")]
+[node name="Inventory" type="Control" parent="." unique_id=1373647732 node_paths=PackedStringArray("slot_container")]
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
@@ -789,7 +789,7 @@ offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("6_r68dh")
-icons = [NodePath("SlotsContainer/Slot1/Icon"), NodePath("SlotsContainer/Slot2/Icon"), NodePath("SlotsContainer/Slot3/Icon"), NodePath("SlotsContainer/Slot4/Icon")]
+slot_container = NodePath("SlotsContainer")
 
 [node name="SlotsContainer" type="HBoxContainer" parent="Inventory" unique_id=978819541]
 layout_mode = 1
