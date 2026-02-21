@@ -29,7 +29,6 @@
 [ext_resource type="PackedScene" uid="uid://do7ufeb1e6y6b" path="res://Scene/Map/Vents.tscn" id="29_kixto"]
 [ext_resource type="AudioStream" uid="uid://duo77ldmx4gjh" path="res://Assets/Audio/Door.ogg" id="30_48wqt"]
 [ext_resource type="PackedScene" uid="uid://c3lmwjg7y4dsi" path="res://Assets/Models/Map/Roofs/Roof_Squared_01_6x6/Roof_Squared_01_6x6.fbx" id="30_apcmj"]
-[ext_resource type="PackedScene" uid="uid://i2s54dn08idc" path="res://Scene/Map/Chest.tscn" id="30_kixto"]
 [ext_resource type="PackedScene" uid="uid://bukedwswi56vp" path="res://Scene/Map/Door/Door.tscn" id="31_ylsd1"]
 [ext_resource type="PackedScene" uid="uid://cmwb1ksjfg5m7" path="res://Assets/Models/Map/Stuff/Air_Grid_01/Air_Grid_01.fbx" id="32_7s5p8"]
 [ext_resource type="Script" uid="uid://cjm122l2mkilt" path="res://Scripts/Map/Door/DoorController.gd" id="32_lut6s"]
@@ -748,9 +747,6 @@ transform = Transform3D(-3.9424815e-08, 0, -0.6697615, 0, 1, 0, 0.9019346, 0, -2
 
 [node name="Vents" parent="Map/Other" unique_id=1333339779 instance=ExtResource("29_kixto")]
 transform = Transform3D(0, 0, -0.8, 0, 0.336, 0, 0.3456, 0, 0, 27.871756, 3.2350168, -15.376408)
-
-[node name="Chest" parent="Map/Other" unique_id=122438233 instance=ExtResource("30_kixto")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.61013365, -0.0120009035, -12.430659)
 
 [node name="DoorWay_01_Up2" parent="Map/Other" unique_id=1698672392 instance=ExtResource("26_dprnl")]
 transform = Transform3D(-3.88349e-08, 0, -0.76228344, 0, 0.032, 0, 0.888439, 0, -3.3320468e-08, 19.75679, 4.02638, -12.241301)
