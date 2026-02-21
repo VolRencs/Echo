@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://3w36cuohiy7j"]
 
 [ext_resource type="Texture2D" uid="uid://rn2twt62et04" path="res://Assets/Images/WorldEnvironment/MainMenu.png" id="1_q4fkk"]
-[ext_resource type="PackedScene" uid="uid://bqay0w81atqtb" path="res://Scene/Core/Player.tscn" id="2_2xbbe"]
+[ext_resource type="PackedScene" uid="uid://bqay0w81atqtb" path="res://Scene/Player/Player.tscn" id="2_2xbbe"]
 [ext_resource type="PackedScene" uid="uid://bn7wp1p2ekyjx" path="res://Scene/Core/SpaceShip.tscn" id="6_wphkj"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xn0nd"]
