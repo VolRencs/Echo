@@ -1,0 +1,162 @@
+[gd_scene format=3 uid="uid://b7aml2nnon36l"]
+
+[ext_resource type="Script" uid="uid://dh4b3tkg3bxnl" path="res://Scripts/Core/PauseMenu.gd" id="1_842w3"]
+[ext_resource type="Script" uid="uid://tda8lwoyorg6" path="res://Scripts/MainMenu/Settings.gd" id="2_gyp2u"]
+[ext_resource type="Shader" uid="uid://bjr4hnsy2qv6l" path="res://Assets/Shader/Menu.gdshader" id="3_m31ud"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1uqbf"]
+bg_color = Color(0, 0, 0, 0.6431373)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8mlux"]
+bg_color = Color(0, 0, 0, 0.7019608)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aibtr"]
+shader = ExtResource("3_m31ud")
+shader_parameter/blur_size = 1.50000007125
+shader_parameter/iterations = 10
+shader_parameter/opacity = 1.282000060895
+
+[node name="MenuPlayer" type="Control" unique_id=1069263840]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuPlayer" type="CanvasLayer" parent="." unique_id=454024075 node_paths=PackedStringArray("continue_button", "settings_button", "quit_button", "control_panel")]
+process_mode = 3
+process_priority = 1
+script = ExtResource("1_842w3")
+continue_button = NodePath("Start")
+settings_button = NodePath("Settings")
+quit_button = NodePath("Exit")
+control_panel = NodePath("Control")
+
+[node name="Start" type="Button" parent="MenuPlayer" unique_id=1021724886]
+offset_left = 883.0
+offset_top = 353.0
+offset_right = 1136.0
+offset_bottom = 404.0
+text = "Продолжить"
+
+[node name="Settings" type="Button" parent="MenuPlayer" unique_id=1561993707]
+offset_left = 883.0
+offset_top = 449.0
+offset_right = 1136.0
+offset_bottom = 500.0
+text = "Настройки"
+
+[node name="Exit" type="Button" parent="MenuPlayer" unique_id=171075564]
+offset_left = 886.0
+offset_top = 547.0
+offset_right = 1139.0
+offset_bottom = 598.0
+text = "Главное меню"
+
+[node name="Control" type="Control" parent="MenuPlayer" unique_id=1892733673 node_paths=PackedStringArray("music_slider", "sound_slider", "fullscreen_checkbox", "vsync_checkbox", "refresh_rate_option", "close_button")]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 81.0
+offset_bottom = 76.0
+script = ExtResource("2_gyp2u")
+music_slider = NodePath("Music")
+sound_slider = NodePath("Sound")
+fullscreen_checkbox = NodePath("Window")
+vsync_checkbox = NodePath("VSync")
+refresh_rate_option = NodePath("Hz")
+close_button = NodePath("Button")
+
+[node name="Button" type="Button" parent="MenuPlayer/Control" unique_id=1908551725]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 37.0
+offset_right = 240.0
+offset_bottom = 93.0
+text = "Назад"
+
+[node name="Music" type="HSlider" parent="MenuPlayer/Control" unique_id=890929729]
+layout_mode = 0
+offset_left = 798.0
+offset_top = 336.0
+offset_right = 1172.0
+offset_bottom = 445.0
+
+[node name="Label" type="Label" parent="MenuPlayer/Control/Music" unique_id=247754211]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 16.0
+offset_right = 230.0
+offset_bottom = 44.0
+theme_override_colors/font_shadow_color = Color(0.55815613, 0.55815613, 0.55815613, 1)
+text = "Музыка"
+horizontal_alignment = 1
+
+[node name="Sound" type="HSlider" parent="MenuPlayer/Control" unique_id=8214860]
+layout_mode = 0
+offset_left = 798.0
+offset_top = 405.0
+offset_right = 1172.0
+offset_bottom = 514.0
+
+[node name="Label" type="Label" parent="MenuPlayer/Control/Sound" unique_id=208053206]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 16.0
+offset_right = 230.0
+offset_bottom = 44.0
+theme_override_colors/font_shadow_color = Color(0.55815613, 0.55815613, 0.55815613, 1)
+text = "Звуки
+"
+horizontal_alignment = 1
+
+[node name="Window" type="CheckBox" parent="MenuPlayer/Control" unique_id=1875962115]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.021000002
+anchor_bottom = 0.037
+offset_left = 797.0
+offset_top = 496.0
+offset_right = 1012.299
+offset_bottom = 541.188
+text = "Полноэкранный режим"
+
+[node name="VSync" type="CheckBox" parent="MenuPlayer/Control" unique_id=1026218557]
+layout_mode = 0
+offset_left = 1054.0
+offset_top = 504.0
+offset_right = 1137.0
+offset_bottom = 537.0
+text = "VSync"
+
+[node name="Hz" type="OptionButton" parent="MenuPlayer/Control" unique_id=1465619492]
+layout_mode = 0
+offset_left = 954.0
+offset_top = 598.0
+offset_right = 1036.0
+offset_bottom = 626.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_1uqbf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8mlux")
+
+[node name="Label" type="Label" parent="MenuPlayer/Control/Hz" unique_id=526375496]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -29.0
+offset_right = 84.0
+offset_bottom = -1.0
+theme_override_colors/font_shadow_color = Color(0.55815613, 0.55815613, 0.55815613, 1)
+text = "Hz"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="MenuPlayer" unique_id=550397729]
+z_index = -3
+material = SubResource("ShaderMaterial_aibtr")
+offset_right = 1925.0
+offset_bottom = 1081.0
+mouse_filter = 2
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="MenuPlayer/ColorRect" unique_id=2069878610]
+position = Vector2(955, 547.5)
+scale = Vector2(9.72, 5.475)
+copy_mode = 2
