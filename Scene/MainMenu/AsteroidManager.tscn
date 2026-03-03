@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://yskauub60nvs"]
+[gd_scene format=3 uid="uid://yskauub60nvs"]
 
 [ext_resource type="Script" uid="uid://bgn5ixrrw3spy" path="res://Scripts/MainMenu/AsteroidManager.gd" id="1_o57nq"]
 [ext_resource type="PackedScene" uid="uid://taphgifc73t2" path="res://Assets/Models/Asteroid/Rock1/Rock1.tscn" id="2_2h3ef"]
@@ -7,7 +7,6 @@
 [node name="AsteroidManager" type="Node3D" unique_id=361236505]
 script = ExtResource("1_o57nq")
 asteroid_models = Array[PackedScene]([ExtResource("2_2h3ef"), ExtResource("3_2h3ef")])
-spawn_side = "front"
 
 [node name="Timer" type="Timer" parent="." unique_id=373999646]
 autostart = true
