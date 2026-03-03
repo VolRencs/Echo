@@ -1,52 +1,57 @@
 extends Node
 
-@onready var door_anim: AnimationPlayer = $AnimationPlayer
-@onready var door_sound: AudioStreamPlayer3D = $Door
-@onready var timer: Timer = $Timer
+# ─── NODES ────────────────────────────────────────────────────────────────────
 
-@export var sound_open: AudioStream
-@export var sound_close: AudioStream
+@onready var _anim:  AnimationPlayer     = $AnimationPlayer
+@onready var _sound: AudioStreamPlayer3D = $Door
+@onready var _timer: Timer               = $Timer
+
+# ─── EXPORTS ──────────────────────────────────────────────────────────────────
+
+@export var sound_open:      AudioStream
+@export var sound_close:     AudioStream
 @export var auto_close_time: float = 3.0
+
+# ─── STATE ────────────────────────────────────────────────────────────────────
 
 var door_open: bool = false
 
+# ─── READY ────────────────────────────────────────────────────────────────────
+
 func _ready() -> void:
-	timer.timeout.connect(_on_timer_timeout)
-	timer.wait_time = auto_close_time
-	door_anim.animation_finished.connect(_on_animation_finished)
+	_timer.wait_time = auto_close_time
+	_timer.timeout.connect(close_door)
+	_anim.animation_finished.connect(_on_animation_finished)
+
+# ─── PUBLIC API ───────────────────────────────────────────────────────────────
 
 func on_interact() -> void:
-	if door_open:
-		return
-	
 	open_door()
 
 func open_door() -> void:
-	if door_open or door_anim.is_playing():
+	if door_open or _anim.is_playing():
 		return
-	
 	door_open = true
-	_play_door(sound_open, "Anim/Open")
-	timer.start()
+	_play(sound_open, "Anim/Open")
+	_timer.start()
 
 func close_door() -> void:
-	if not door_open or door_anim.is_playing():
+	if not door_open or _anim.is_playing():
 		return
-	
-	timer.stop()
-	_play_door(sound_close, "Anim/Close")
+	_timer.stop()
+	_play(sound_close, "Anim/Close")
 
-func _play_door(sound: AudioStream, anim_name: String) -> void:
-	if sound:
-		door_sound.stream = sound
-		door_sound.play()
-	
-	if door_anim.has_animation(anim_name):
-		door_anim.play(anim_name)
-
-func _on_timer_timeout() -> void:
-	close_door()
+# ─── HANDLERS ─────────────────────────────────────────────────────────────────
 
 func _on_animation_finished(anim_name: String) -> void:
 	if anim_name == "Anim/Close":
 		door_open = false
+
+# ─── HELPERS ──────────────────────────────────────────────────────────────────
+
+func _play(stream: AudioStream, anim_name: String) -> void:
+	if stream:
+		_sound.stream = stream
+		_sound.play()
+	if _anim.has_animation(anim_name):
+		_anim.play(anim_name)

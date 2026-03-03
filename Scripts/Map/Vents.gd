@@ -1,26 +1,37 @@
 extends Node3D
 
-@export var rpm: float = 100.0
+# ─── EXPORTS ──────────────────────────────────────────────────────────────────
+
+@export var rpm:        float   = 100.0
 @export var local_axis: Vector3 = Vector3(0, 0, 1)
 
-var _rotation_speed: float = 0.0
-var _normalized_axis: Vector3 = Vector3.ZERO
+# ─── STATE ────────────────────────────────────────────────────────────────────
+
+var _speed: float
+var _axis:  Vector3
+
+# ─── READY ────────────────────────────────────────────────────────────────────
 
 func _ready() -> void:
-	_update_rotation_parameters()
+	_recalc()
 
-func _update_rotation_parameters() -> void:
-	var degrees_per_second: float = rpm * 360.0 / 60.0
-	_rotation_speed = deg_to_rad(degrees_per_second)
-	_normalized_axis = local_axis.normalized()
+# ─── PROCESS ──────────────────────────────────────────────────────────────────
 
 func _process(delta: float) -> void:
-	rotate_object_local(_normalized_axis, _rotation_speed * delta)
+	rotate_object_local(_axis, _speed * delta)
+
+# ─── PUBLIC API ───────────────────────────────────────────────────────────────
 
 func set_rpm(new_rpm: float) -> void:
 	rpm = new_rpm
-	_update_rotation_parameters()
+	_recalc()
 
 func set_axis(new_axis: Vector3) -> void:
 	local_axis = new_axis
-	_update_rotation_parameters()
+	_recalc()
+
+# ─── HELPERS ──────────────────────────────────────────────────────────────────
+
+func _recalc() -> void:
+	_speed = deg_to_rad(rpm * 6.0)
+	_axis  = local_axis.normalized()

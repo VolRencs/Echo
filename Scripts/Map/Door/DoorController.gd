@@ -1,47 +1,53 @@
 extends Node3D
 
-@onready var anim: AnimationPlayer = $AnimationPlayer
-@onready var door_sound: AudioStreamPlayer3D = $Door
-@onready var timer: Timer = $Timer
+# ─── NODES ────────────────────────────────────────────────────────────────────
 
-@export var sound: AudioStream
+@onready var _anim:  AnimationPlayer    = $AnimationPlayer
+@onready var _sound: AudioStreamPlayer3D = $Door
+@onready var _timer: Timer              = $Timer
+
+# ─── EXPORTS ──────────────────────────────────────────────────────────────────
+
+@export var sound:           AudioStream
 @export var auto_close_time: float = 3.0
+
+# ─── STATE ────────────────────────────────────────────────────────────────────
 
 var door_open: bool = false
 
+# ─── READY ────────────────────────────────────────────────────────────────────
+
 func _ready() -> void:
 	if sound:
-		door_sound.stream = sound
-	
-	timer.timeout.connect(_on_timer_timeout)
-	timer.wait_time = auto_close_time
-	anim.animation_finished.connect(_on_animation_finished)
+		_sound.stream = sound
+
+	_timer.wait_time = auto_close_time
+	_timer.timeout.connect(close_door)
+	_anim.animation_finished.connect(_on_animation_finished)
+
+# ─── PUBLIC API ───────────────────────────────────────────────────────────────
 
 func on_interact() -> void:
-	if door_open:
-		return
-	
 	open_door()
 
 func open_door() -> void:
-	if door_open or anim.is_playing():
+	if door_open or _anim.is_playing():
 		return
-	
+
 	door_open = true
-	anim.play("Door/Open")
-	door_sound.play()
-	timer.start()
+	_anim.play("Door/Open")
+	_sound.play()
+	_timer.start()
 
 func close_door() -> void:
-	if not door_open or anim.is_playing():
+	if not door_open or _anim.is_playing():
 		return
-	
-	timer.stop()
-	anim.play("Door/Close")
-	door_sound.play()
 
-func _on_timer_timeout() -> void:
-	close_door()
+	_timer.stop()
+	_anim.play("Door/Close")
+	_sound.play()
+
+# ─── HANDLERS ─────────────────────────────────────────────────────────────────
 
 func _on_animation_finished(anim_name: String) -> void:
 	if anim_name == "Door/Close":
