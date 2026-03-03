@@ -8,13 +8,14 @@ var raycast_detector: RaycastDetector
 var intercom_sound: AudioStreamPlayer
 
 func _ready() -> void:
-	_setup_raycast()
 	_cache_label_controllers()
 	_cache_intercom_sound()
 	hide_labels()
+	call_deferred("_setup_raycast")  # ← было просто _setup_raycast()
 
 func _setup_raycast() -> void:
 	raycast_detector = RaycastDetector.instance
+
 	if raycast_detector:
 		raycast_detector.target_changed.connect(_on_target_changed)
 

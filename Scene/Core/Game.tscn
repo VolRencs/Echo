@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://3w36cuohiy7j"]
 
 [ext_resource type="Texture2D" uid="uid://rn2twt62et04" path="res://Assets/Images/WorldEnvironment/MainMenu.png" id="1_q4fkk"]
-[ext_resource type="PackedScene" uid="uid://bqay0w81atqtb" path="res://Scene/Player/Player.tscn" id="2_2xbbe"]
+[ext_resource type="PackedScene" uid="uid://d0dj46kxieewp" path="res://Scene/Player/Player.tscn" id="4_h58ei"]
 [ext_resource type="PackedScene" uid="uid://bn7wp1p2ekyjx" path="res://Scene/Core/SpaceShip.tscn" id="6_wphkj"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xn0nd"]
@@ -29,8 +29,8 @@ fog_sky_affect = 0.0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1587375534]
 environment = SubResource("Environment_q485k")
 
-[node name="Player" parent="." unique_id=1736660798 instance=ExtResource("2_2xbbe")]
-transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 2.4205456, 0.12281841, -19.836605)
-
 [node name="SpaceShip" parent="." unique_id=672535999 instance=ExtResource("6_wphkj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27715492, -4.7683716e-07, -0.8430977)
+
+[node name="Player" parent="." unique_id=848726166 instance=ExtResource("4_h58ei")]
+transform = Transform3D(-0.714843, 0, -0.14798479, 0, 0.73, 0, 0.14798479, 0, -0.714843, 3.2415538, 0.023411632, -19.835201)
