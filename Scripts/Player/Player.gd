@@ -33,8 +33,6 @@ extends CharacterBody3D
 @export var head_sway_speed := 5.0
 @export var use_head_bone := true
 @export var head_bone_name := "mixamorig_Head"
-@export var camera_collision_enabled := true
-@export var camera_collision_margin := 1.0
 
 @onready var camera: Camera3D = $Camera3D
 @onready var body_collision: CollisionShape3D = $Character
@@ -42,8 +40,6 @@ extends CharacterBody3D
 @onready var animation_player: AnimationPlayer = $Animation
 @onready var skeleton: Skeleton3D = $Skeleton3D
 @onready var capsule: CapsuleShape3D = body_collision.shape
-
-var camera_raycast: RayCast3D
 
 var step_player: AudioStreamPlayer
 var current_speed := 0.0
@@ -54,7 +50,6 @@ var is_jumping := false
 var step_timer := 0.0
 var step_interval := 1.0
 
-var _cached_transform_basis: Basis
 var _max_pitch_rad: float
 var _min_pitch_rad: float
 var _camera_rotation := Vector2.ZERO
@@ -88,20 +83,8 @@ func _ready() -> void:
 	
 	_find_step_player()
 	_load_saved_position()
-	_setup_camera_collision()
 	
 	call_deferred("_initialize_head_tracking")
-
-func _setup_camera_collision() -> void:
-	if not camera_collision_enabled:
-		return
-	
-	camera_raycast = RayCast3D.new()
-	add_child(camera_raycast)
-	camera_raycast.enabled = true
-	camera_raycast.exclude_parent = true
-	camera_raycast.collision_mask = 1
-	camera_raycast.set_collision_mask_value(1, true)
 
 func _initialize_head_tracking() -> void:
 	await get_tree().process_frame
@@ -110,8 +93,7 @@ func _initialize_head_tracking() -> void:
 		_initialize_camera_to_head()
 
 func _find_step_player() -> void:
-	var sound_nodes := get_tree().get_nodes_in_group("Sound")
-	for node in sound_nodes:
+	for node in get_tree().get_nodes_in_group("Sound"):
 		if node.name == "Step" and node is AudioStreamPlayer:
 			step_player = node
 			return
@@ -119,7 +101,6 @@ func _find_step_player() -> void:
 func _find_head_bone() -> void:
 	if not use_head_bone or not skeleton:
 		return
-	
 	_head_bone_idx = skeleton.find_bone(head_bone_name)
 
 func _initialize_camera_to_head() -> void:
@@ -127,18 +108,15 @@ func _initialize_camera_to_head() -> void:
 		return
 	
 	var head_pose := skeleton.get_bone_global_pose(_head_bone_idx)
-	
 	var head_world_pos := skeleton.global_transform * head_pose.origin
 	var head_local := to_local(head_world_pos)
 	
 	camera.position = head_local
 	_camera_initialized = true
-	print("Player: Camera initialized at head position: ", head_local)
 
 func _load_saved_position() -> void:
 	if SaveManager.loaded_player_data.is_empty():
 		return
-	
 	position = SaveManager.loaded_player_data.get("position", position)
 	rotation.y = SaveManager.loaded_player_data.get("rotation_y", rotation.y)
 	SaveManager.clear_loaded_data()
@@ -149,15 +127,14 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _handle_mouse_look(relative: Vector2) -> void:
 	var rel := relative * mouse_sensitivity
-	
 	rotate_y(-rel.x)
-	
-	_camera_rotation.y -= rel.y
-	_camera_rotation.y = clamp(_camera_rotation.y, _min_pitch_rad, _max_pitch_rad)
+	_camera_rotation.y = clamp(
+		_camera_rotation.y - rel.y,
+		_min_pitch_rad,
+		_max_pitch_rad
+	)
 
 func _physics_process(delta: float) -> void:
-	_cached_transform_basis = transform.basis
-	
 	var input_vec := Input.get_vector("left", "right", "up", "down")
 	
 	_update_state(input_vec)
@@ -165,7 +142,7 @@ func _physics_process(delta: float) -> void:
 	_handle_jump()
 	_handle_movement(input_vec, delta)
 	_update_crouch(delta)
-	_update_camera_to_head(delta)
+	_update_camera(delta)
 	_update_animation(input_vec)
 	_handle_footsteps(delta)
 	
@@ -175,9 +152,9 @@ func _update_state(input_vec: Vector2) -> void:
 	is_crouching = Input.is_action_pressed("crouch")
 	
 	is_sprinting = (
-		Input.is_action_pressed("sprint") 
-		and not is_crouching 
-		and is_on_floor() 
+		Input.is_action_pressed("sprint")
+		and not is_crouching
+		and is_on_floor()
 		and input_vec.y < 0
 	)
 	
@@ -201,8 +178,8 @@ func _handle_movement(input_vec: Vector2, delta: float) -> void:
 		return
 	
 	var direction := (
-		_cached_transform_basis.z * input_vec.y +
-		_cached_transform_basis.x * input_vec.x
+		transform.basis.z * input_vec.y +
+		transform.basis.x * input_vec.x
 	).normalized()
 	
 	velocity.x = lerp(velocity.x, direction.x * current_speed, acceleration * delta)
@@ -226,15 +203,13 @@ func _handle_jump() -> void:
 	_play_anim(ANIMS[Anim.JUMP])
 
 func _update_crouch(delta: float) -> void:
-	var lerp_factor := crouch_lerp_speed * delta
-	
 	var target_height := crouch_height if is_crouching else normal_height
-	capsule.height = lerp(capsule.height, target_height, lerp_factor)
+	capsule.height = lerp(capsule.height, target_height, crouch_lerp_speed * delta)
 	
 	if head_collision:
 		head_collision.disabled = is_crouching
 
-func _update_camera_to_head(delta: float) -> void:
+func _update_camera(delta: float) -> void:
 	if not _camera_initialized and use_head_bone and _head_bone_idx != -1:
 		return
 	
@@ -248,39 +223,11 @@ func _update_camera_to_head(delta: float) -> void:
 		var cam_target_y := crouch_camera_height if is_crouching else stand_camera_height
 		target_pos = Vector3(camera.position.x, cam_target_y, camera.position.z)
 	
-	if camera_collision_enabled and camera_raycast:
-		target_pos = _check_camera_collision(target_pos)
-	
 	camera.position = target_pos
-	
 	camera.fov = lerp(camera.fov, target_fov, camera_lerp_speed * delta)
-	
-	var smooth_factor := camera_smoothing * delta
-	camera.rotation.x = lerp_angle(camera.rotation.x, _camera_rotation.y, smooth_factor)
+	camera.rotation.x = lerp_angle(camera.rotation.x, _camera_rotation.y, camera_smoothing * delta)
 	
 	_apply_head_bob(delta)
-
-func _check_camera_collision(desired_pos: Vector3) -> Vector3:
-	var from := global_position
-	var to := global_transform * desired_pos
-	
-	camera_raycast.global_position = from
-	camera_raycast.target_position = to_local(to)
-	camera_raycast.force_raycast_update()
-	
-	if camera_raycast.is_colliding():
-		var collision_point := camera_raycast.get_collision_point()
-		var collision_local := to_local(collision_point)
-		
-		var direction := (collision_local - Vector3.ZERO).normalized()
-		var safe_distance := collision_local.length() - camera_collision_margin
-		
-		if safe_distance > 0:
-			return direction * safe_distance
-		else:
-			return collision_local
-	
-	return desired_pos
 
 func _apply_head_bob(delta: float) -> void:
 	if not is_on_floor():
@@ -291,21 +238,13 @@ func _apply_head_bob(delta: float) -> void:
 	
 	if horizontal_speed > 0.1:
 		_head_bob_time += delta * head_sway_speed * (horizontal_speed / walk_speed)
-		
-		var bob_offset := Vector3(
-			sin(_head_bob_time) * head_sway_amount,
-			abs(sin(_head_bob_time * 2.0)) * head_sway_amount * 0.5,
-			0
-		)
-		
-		camera.position.x += bob_offset.x * delta * 10.0
-		camera.position.y += bob_offset.y * delta * 10.0
+		camera.position.x += sin(_head_bob_time) * head_sway_amount * delta * 10.0
+		camera.position.y += abs(sin(_head_bob_time * 2.0)) * head_sway_amount * 0.5 * delta * 10.0
 	else:
 		_head_bob_time = 0.0
 
 func _update_animation(input_vec: Vector2) -> void:
-	var desired_anim := _get_desired_anim(input_vec)
-	_play_anim(desired_anim)
+	_play_anim(_get_desired_anim(input_vec))
 
 func _get_desired_anim(input_vec: Vector2) -> String:
 	if is_jumping:
@@ -327,9 +266,7 @@ func _play_anim(anim_name: String) -> void:
 	animation_player.play(anim_name, 0.2)
 
 func _handle_footsteps(delta: float) -> void:
-	if not step_player:
-		return
-	if not is_on_floor() or is_crouching:
+	if not step_player or not is_on_floor() or is_crouching:
 		return
 	
 	var horizontal_speed_sq := velocity.x * velocity.x + velocity.z * velocity.z
