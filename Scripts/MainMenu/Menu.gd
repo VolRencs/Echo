@@ -27,23 +27,14 @@ func _ready() -> void:
 	if control_panel:
 		control_panel.visible = false
 
-	for node in get_tree().get_nodes_in_group("Sound"):
-		if node.name == "Button" and node is AudioStreamPlayer:
-			_hover_sound = node
-			break
+	_hover_sound = NodeUtils.find_audio_stream_player(get_tree(), &"Button")
 
 	_main_buttons = [start_button, load_button, settings_button, quit_button]
 
-	var bindings := {
-		start_button:    [_on_start_pressed],
-		load_button:     [_on_load_pressed],
-		settings_button: [_on_settings_pressed],
-		quit_button:     [_on_quit_pressed],
-	}
-	for btn: Button in bindings:
-		if btn:
-			btn.pressed.connect(bindings[btn][0])
-			btn.mouse_entered.connect(_on_button_hover)
+	_bind_button(start_button, _on_start_pressed)
+	_bind_button(load_button, _on_load_pressed)
+	_bind_button(settings_button, _on_settings_pressed)
+	_bind_button(quit_button, _on_quit_pressed)
 
 	_refresh_load_button()
 
@@ -98,7 +89,17 @@ func _toggle_settings(show_settings: bool) -> void:
 
 func _refresh_load_button() -> void:
 	if load_button:
-		load_button.disabled = SaveManager.loaded_player_data.is_empty()
+		load_button.disabled = (
+			SaveManager.loaded_player_data.is_empty()
+			or SaveManager.loaded_scene_data == null
+		)
+
+func _bind_button(button: Button, pressed_callback: Callable) -> void:
+	if not button:
+		return
+
+	button.pressed.connect(pressed_callback)
+	button.mouse_entered.connect(_on_button_hover)
 
 # ─── PUBLIC API ───────────────────────────────────────────────────────────────
 

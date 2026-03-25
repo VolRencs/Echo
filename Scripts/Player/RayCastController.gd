@@ -27,7 +27,7 @@ func _ready() -> void:
 
 # ─── PROCESS ──────────────────────────────────────────────────────────────────
 
-func _process(_delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if not _ray or not _ray.is_enabled():
 		return
 
@@ -42,7 +42,7 @@ func _process(_delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and current_target and current_target.has_method("on_interact"):
-		current_target.on_interact()
+		current_target.call("on_interact")
 		get_viewport().set_input_as_handled()
 
 # ─── HELPERS ──────────────────────────────────────────────────────────────────
