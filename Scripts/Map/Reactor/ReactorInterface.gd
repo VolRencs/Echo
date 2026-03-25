@@ -1,73 +1,80 @@
 extends Node3D
 
-var is_mouse_inside = false
+var is_mouse_inside := false
+var is_interface_open := false
 
-var last_event_pos2D = null
+var last_event_pos2D := Vector2.ZERO
+var has_last_event_pos2D := false
+var last_event_time := -1.0
 
-var last_event_time: float = -1.0
+@onready var node_viewport: SubViewport = $Interface/SubViewport
+@onready var node_quad: MeshInstance3D = $Interface/Quad
+@onready var node_area: Area3D = $Interface/Quad/Area3D
+@onready var trigger: Area3D = $Triger
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-@onready var node_viewport = $Interface/SubViewport
-@onready var node_quad = $Interface/Quad
-@onready var node_area = $Interface/Quad/Area3D
-@onready var Triger = $Triger
+var _quad_mesh_size := Vector2.ONE
 
-@onready var Reactor_Interface = $Interface
-@onready var test = $AnimationPlayer
+func _ready() -> void:
+	var quad_mesh := node_quad.mesh as QuadMesh
+	if quad_mesh:
+		_quad_mesh_size = quad_mesh.size
+	else:
+		push_warning("ReactorInterface: Quad mesh is missing or has an unexpected type")
 
-var is_interface_open: bool = false
-
-func _ready():
 	node_area.mouse_entered.connect(_mouse_entered_area)
 	node_area.mouse_exited.connect(_mouse_exited_area)
 	node_area.input_event.connect(_mouse_input_event)
-	Close_Interface()
-	Triger.connect("body_entered", Callable(self, "_on_body_entered"))
-	Triger.connect("body_exited", Callable(self, "_on_body_exited"))
+	close_interface()
+	trigger.body_entered.connect(_on_body_entered)
+	trigger.body_exited.connect(_on_body_exited)
 
-func _on_body_entered(body):
-	if body.name == "CharacterBody3D":
-		if (is_interface_open == false):
-			Open_Interface()
-			print("Открытие интерфейса")
-			is_interface_open = true
-		
-func _on_body_exited(body):
-	if body.name == "CharacterBody3D":
-		if (is_interface_open == true):
-			Close_Interface()
-			print("Закрытие интерфейса")
-			is_interface_open = false
+func _on_body_entered(body: Node3D) -> void:
+	if body and body.is_in_group("Player") and not is_interface_open:
+		open_interface()
 
-func Open_Interface():
-	test.play("Open_Reactor_Interface")
-	
-func Close_Interface():
-	test.play("Close_Reactor_Interface")
+func _on_body_exited(body: Node3D) -> void:
+	if body and body.is_in_group("Player") and is_interface_open:
+		close_interface()
 
-func _mouse_entered_area():
+func open_interface() -> void:
+	is_interface_open = true
+	animation_player.play("Open_Reactor_Interface")
+
+func close_interface() -> void:
+	is_interface_open = false
+	animation_player.play("Close_Reactor_Interface")
+
+func Open_Interface() -> void:
+	open_interface()
+
+func Close_Interface() -> void:
+	close_interface()
+
+func _mouse_entered_area() -> void:
 	is_mouse_inside = true
 
-
-func _mouse_exited_area():
+func _mouse_exited_area() -> void:
 	is_mouse_inside = false
 
-
-func _unhandled_input(event):
+func _unhandled_input(event: InputEvent) -> void:
 	# Check if the event is a non-mouse/non-touch event
-	for mouse_event in [InputEventMouseButton, InputEventMouseMotion, InputEventScreenDrag, InputEventScreenTouch]:
-		if is_instance_of(event, mouse_event):
-			# If the event is a mouse/touch event, then we can ignore it here, because it will be
-			# handled via Physics Picking.
-			return
+	if _is_pointer_event(event):
+		# If the event is a mouse/touch event, then we can ignore it here, because it will be
+		# handled via Physics Picking.
+		return
 	node_viewport.push_input(event)
 
-
-func _mouse_input_event(_camera: Camera3D, event: InputEvent, event_position: Vector3, _normal: Vector3, _shape_idx: int):
+func _mouse_input_event(
+	_camera: Camera3D,
+	event: InputEvent,
+	event_position: Vector3,
+	_normal: Vector3,
+	_shape_idx: int
+) -> void:
 	# Get mesh size to detect edges and make conversions. This code only support PlaneMesh and QuadMesh.
-	var quad_mesh_size = node_quad.mesh.size
-
 	# Event position in Area3D in world coordinate space.
-	var event_pos3D = event_position
+	var event_pos3D := event_position
 
 	# Current time in seconds since engine start.
 	var now: float = Time.get_ticks_msec() / 1000.0
@@ -86,8 +93,8 @@ func _mouse_input_event(_camera: Camera3D, event: InputEvent, event_position: Ve
 
 		# Right now the event position's range is the following: (-quad_size/2) -> (quad_size/2)
 		# We need to convert it into the following range: -0.5 -> 0.5
-		event_pos2D.x = event_pos2D.x / quad_mesh_size.x
-		event_pos2D.y = event_pos2D.y / quad_mesh_size.y
+		event_pos2D.x = event_pos2D.x / _quad_mesh_size.x
+		event_pos2D.y = event_pos2D.y / _quad_mesh_size.y
 		# Then we need to convert it into the following range: 0 -> 1
 		event_pos2D.x += 0.5
 		event_pos2D.y += 0.5
@@ -97,31 +104,59 @@ func _mouse_input_event(_camera: Camera3D, event: InputEvent, event_position: Ve
 		event_pos2D.y *= node_viewport.size.y
 		# We need to do these conversions so the event's position is in the viewport's coordinate system.
 
-	elif last_event_pos2D != null:
+	elif has_last_event_pos2D:
 		# Fall back to the last known event position.
 		event_pos2D = last_event_pos2D
 
-	# Set the event's position and global position.
-	event.position = event_pos2D
-	if event is InputEventMouse:
-		event.global_position = event_pos2D
-
-	# Calculate the relative event distance.
-	if event is InputEventMouseMotion or event is InputEventScreenDrag:
-		# If there is not a stored previous position, then we'll assume there is no relative motion.
-		if last_event_pos2D == null:
-			event.relative = Vector2(0, 0)
-		# If there is a stored previous position, then we'll calculate the relative position by subtracting
-		# the previous position from the new position. This will give us the distance the event traveled from prev_pos.
-		else:
-			event.relative = event_pos2D - last_event_pos2D
-			event.velocity = event.relative / (now - last_event_time)
+	_apply_event_position(event, event_pos2D)
+	_apply_event_motion(event, event_pos2D, now)
 
 	# Update last_event_pos2D with the position we just calculated.
 	last_event_pos2D = event_pos2D
+	has_last_event_pos2D = true
 
 	# Update last_event_time to current time.
 	last_event_time = now
 
 	# Finally, send the processed input event to the viewport.
 	node_viewport.push_input(event)
+
+func _apply_event_position(event: InputEvent, event_pos2D: Vector2) -> void:
+	if event is InputEventMouse:
+		var mouse_event := event as InputEventMouse
+		mouse_event.position = event_pos2D
+		mouse_event.global_position = event_pos2D
+	elif event is InputEventScreenTouch:
+		var touch_event := event as InputEventScreenTouch
+		touch_event.position = event_pos2D
+	elif event is InputEventScreenDrag:
+		var drag_event := event as InputEventScreenDrag
+		drag_event.position = event_pos2D
+
+func _apply_event_motion(event: InputEvent, event_pos2D: Vector2, now: float) -> void:
+	if event is InputEventMouseMotion:
+		var mouse_motion := event as InputEventMouseMotion
+		if not has_last_event_pos2D:
+			mouse_motion.relative = Vector2.ZERO
+			mouse_motion.velocity = Vector2.ZERO
+		else:
+			mouse_motion.relative = event_pos2D - last_event_pos2D
+			var mouse_delta_time := maxf(now - last_event_time, 0.000001)
+			mouse_motion.velocity = mouse_motion.relative / mouse_delta_time
+	elif event is InputEventScreenDrag:
+		var screen_drag := event as InputEventScreenDrag
+		if not has_last_event_pos2D:
+			screen_drag.relative = Vector2.ZERO
+			screen_drag.velocity = Vector2.ZERO
+		else:
+			screen_drag.relative = event_pos2D - last_event_pos2D
+			var drag_delta_time := maxf(now - last_event_time, 0.000001)
+			screen_drag.velocity = screen_drag.relative / drag_delta_time
+
+func _is_pointer_event(event: InputEvent) -> bool:
+	return (
+		event is InputEventMouseButton
+		or event is InputEventMouseMotion
+		or event is InputEventScreenDrag
+		or event is InputEventScreenTouch
+	)

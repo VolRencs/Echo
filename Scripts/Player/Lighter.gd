@@ -20,7 +20,6 @@ extends SpotLight3D
 var is_on: bool = false
 
 var _sound:              AudioStreamPlayer
-var _parent:             Node3D
 var _target_energy:      float = 0.0
 var _flicker_timer:      float = 0.0
 var _flicker_multiplier: float = 0.0
@@ -31,27 +30,22 @@ func _ready() -> void:
 	light_energy    = energy_off
 	_target_energy  = energy_off
 	_flicker_multiplier = flicker_intensity * 0.2
+	position = offset
 
-	_parent = get_parent() as Node3D
-	if _parent:
-		global_position = _parent.global_position + offset
-
-	for node in get_tree().get_nodes_in_group("Sound"):
-		if node.name == "Lighter" and node is AudioStreamPlayer:
-			_sound = node
-			break
+	_sound = NodeUtils.find_audio_stream_player(get_tree(), &"Lighter")
+	_sync_processing()
 
 # ─── PROCESS ──────────────────────────────────────────────────────────────────
 
-func _physics_process(_delta: float) -> void:
-	if _parent:
-		global_position = _parent.global_position + offset
-
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("flashlight"):
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("flashlight"):
 		toggle()
 
-	light_energy = lerp(light_energy, _target_energy, fade_speed * delta)
+func _process(delta: float) -> void:
+	if not is_equal_approx(light_energy, _target_energy):
+		light_energy = lerpf(light_energy, _target_energy, fade_speed * delta)
+		if absf(light_energy - _target_energy) <= 0.01:
+			light_energy = _target_energy
 
 	if flicker_enabled and is_on:
 		_flicker_timer += delta * flicker_frequency
@@ -60,6 +54,8 @@ func _process(delta: float) -> void:
 			energy_off, energy_on
 		)
 
+	_sync_processing()
+
 # ─── PUBLIC API ───────────────────────────────────────────────────────────────
 
 func toggle(silent: bool = false) -> void:
@@ -67,6 +63,7 @@ func toggle(silent: bool = false) -> void:
 	_target_energy = energy_on if is_on else energy_off
 	if not silent and _sound:
 		_sound.play()
+	_sync_processing()
 
 func turn_on(silent: bool = false) -> void:
 	if not is_on: toggle(silent)
@@ -76,3 +73,9 @@ func turn_off(silent: bool = false) -> void:
 
 func set_state_silent(new_state: bool) -> void:
 	if is_on != new_state: toggle(true)
+
+func _sync_processing() -> void:
+	set_process(
+		(flicker_enabled and is_on)
+		or not is_equal_approx(light_energy, _target_energy)
+	)

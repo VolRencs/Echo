@@ -2,8 +2,8 @@ extends Node3D
 
 # ─── EXPORTS ──────────────────────────────────────────────────────────────────
 
-@export var door: Node3D
-@export var label_controllers_group := "LabelControllers"
+@export var door: Node
+@export var label_controllers_group: StringName = &"LabelControllers"
 
 # ─── STATE ────────────────────────────────────────────────────────────────────
 
@@ -14,14 +14,8 @@ var _intercom_sound:    AudioStreamPlayer
 # ─── READY ────────────────────────────────────────────────────────────────────
 
 func _ready() -> void:
-	for child in find_children("*", "Node", true):
-		if child.is_in_group(label_controllers_group):
-			_label_controllers.append(child)
-
-	for node in get_tree().get_nodes_in_group("Sound"):
-		if node.name == "Intercom" and node is AudioStreamPlayer:
-			_intercom_sound = node
-			break
+	_label_controllers = NodeUtils.collect_descendants_in_group(self, label_controllers_group)
+	_intercom_sound = NodeUtils.find_audio_stream_player(get_tree(), &"Intercom")
 
 	_set_labels_visible(false)
 	call_deferred("_setup_raycast")
@@ -43,18 +37,34 @@ func on_interact() -> void:
 		push_warning("DoorController: No valid door assigned")
 		return
 
-	if door.door_open:
+	if not _door_can_interact():
 		return
 
 	if _intercom_sound:
 		_intercom_sound.stop()
 		_intercom_sound.play()
 
-	door.on_interact()
+	door.call("on_interact")
 
 # ─── HELPERS ──────────────────────────────────────────────────────────────────
 
 func _set_labels_visible(value: bool) -> void:
 	for lc in _label_controllers:
 		if lc:
-			lc.visible = value
+			lc.set("visible", value)
+
+func _door_can_interact() -> bool:
+	if not door:
+		return false
+
+	if door.has_method("can_interact"):
+		var result: Variant = door.call("can_interact")
+		if typeof(result) == TYPE_BOOL:
+			return bool(result)
+
+	if door.has_method("is_door_open"):
+		var is_open: Variant = door.call("is_door_open")
+		if typeof(is_open) == TYPE_BOOL and bool(is_open):
+			return false
+
+	return true

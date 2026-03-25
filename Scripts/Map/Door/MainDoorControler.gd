@@ -28,6 +28,12 @@ func _ready() -> void:
 func on_interact() -> void:
 	open_door()
 
+func can_interact() -> bool:
+	return not door_open and not _anim.is_playing()
+
+func is_door_open() -> bool:
+	return door_open
+
 func open_door() -> void:
 	if door_open or _anim.is_playing():
 		return

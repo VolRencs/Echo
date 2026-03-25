@@ -27,22 +27,13 @@ func _ready() -> void:
 	if control_panel:
 		control_panel.visible = false
 
-	for node in get_tree().get_nodes_in_group("Sound"):
-		if node.name == "Button" and node is AudioStreamPlayer:
-			_hover_sound = node
-			break
+	_hover_sound = NodeUtils.find_audio_stream_player(get_tree(), &"Button")
 
 	_main_buttons = [continue_button, settings_button, quit_button]
 
-	var bindings := {
-		continue_button: _on_continue_pressed,
-		settings_button: _on_settings_pressed,
-		quit_button:     _on_quit_pressed,
-	}
-	for btn: Button in bindings:
-		if btn:
-			btn.pressed.connect(bindings[btn])
-			btn.mouse_entered.connect(_on_button_hover)
+	_bind_button(continue_button, _on_continue_pressed)
+	_bind_button(settings_button, _on_settings_pressed)
+	_bind_button(quit_button, _on_quit_pressed)
 
 # ─── INPUT ────────────────────────────────────────────────────────────────────
 
@@ -80,9 +71,9 @@ func _on_settings_pressed() -> void:
 	_set_settings_visible(true)
 
 func _on_quit_pressed() -> void:
-	var players := get_tree().get_nodes_in_group("Player")
-	if not players.is_empty() and players[0].has_method("save_position"):
-		players[0].save_position()
+	var player := get_tree().get_first_node_in_group("Player")
+	if player and player.has_method("save_position"):
+		player.call("save_position")
 
 	if get_tree().current_scene:
 		var packed := PackedScene.new()
@@ -96,6 +87,13 @@ func _on_button_hover() -> void:
 	if _hover_sound:
 		_hover_sound.stop()
 		_hover_sound.play()
+
+func _bind_button(button: Button, pressed_callback: Callable) -> void:
+	if not button:
+		return
+
+	button.pressed.connect(pressed_callback)
+	button.mouse_entered.connect(_on_button_hover)
 
 # ─── PUBLIC API ───────────────────────────────────────────────────────────────
 
