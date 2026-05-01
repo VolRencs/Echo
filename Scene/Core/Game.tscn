@@ -34,3 +34,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27715492, -4.7683716e-07, -
 
 [node name="Player" parent="." unique_id=848726166 instance=ExtResource("4_h58ei")]
 transform = Transform3D(-0.714843, 0, -0.14798479, 0, 0.73, 0, 0.14798479, 0, -0.714843, 3.2415538, 0.023411632, -19.835201)
+crouch_wall_clearance = 0.5

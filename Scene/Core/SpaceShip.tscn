@@ -62,7 +62,7 @@ size = Vector3(0.6105957, 9.24707, 12.822441)
 size = Vector3(19.934204, 9.242126, 0.34777832)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bxdwb"]
-size = Vector3(14.667492, 9.788551, 12.086622)
+size = Vector3(14.667492, 9.788551, 12.232276)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cxx40"]
 size = Vector3(0.4924028, 9.946, 18.668776)
@@ -299,7 +299,7 @@ shape = SubResource("BoxShape3D_yhi06")
 debug_color = Color(0.7997977, 0.03614273, 0.9999998, 0.41960785)
 
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="Coliders/Walls/Wall" unique_id=354851424]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.265886, -0.8880882, -30.36888)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.265886, -0.8880882, -30.441706)
 shape = SubResource("BoxShape3D_bxdwb")
 debug_color = Color(0.7997977, 0.03614273, 0.9999998, 0.41960785)
 

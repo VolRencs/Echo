@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cpmfqbb2s1ilc"]
+
+[ext_resource type="Script" uid="uid://cbvwriijfraru" path="res://Scripts/Player/Stamina/stamina_hud.gd" id="1_d2h2g"]
+[ext_resource type="Script" uid="uid://bgkf4ptt752mg" path="res://Scripts/Player/Stamina/stamina_bar.gd" id="2_at8dq"]
+
+[node name="Stamina" type="CanvasLayer" unique_id=1544301073]
+
+[node name="Control" type="Control" parent="." unique_id=238846081]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+script = ExtResource("1_d2h2g")
+bar_path = NodePath("Control")
+
+[node name="Control" type="Control" parent="Control" unique_id=136567041]
+anchors_preset = 0
+offset_left = 3.0
+offset_top = 10.0
+offset_right = 523.0
+offset_bottom = 56.0
+mouse_filter = 2
+script = ExtResource("2_at8dq")
