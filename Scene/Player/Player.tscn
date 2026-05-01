@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://bjq7ubbkelrht" path="res://Scripts/Player/Lighter.gd" id="4_xifky"]
 [ext_resource type="AnimationLibrary" uid="uid://dth7wgj7c1jdb" path="res://Assets/Animation/Player/Animation.tres" id="5_wwp2p"]
 [ext_resource type="PackedScene" uid="uid://b7aml2nnon36l" path="res://Scene/Player/MenuPlayer.tscn" id="6_px332"]
+[ext_resource type="PackedScene" uid="uid://cpmfqbb2s1ilc" path="res://Scene/Player/Stamina.tscn" id="9_f30au"]
+[ext_resource type="PackedScene" uid="uid://dxlmmvvoxepjp" path="res://Scene/Player/Inventory.tscn" id="10_qhn4q"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2v66n"]
 radius = 0.25634766
@@ -753,3 +755,7 @@ libraries/Animation = ExtResource("5_wwp2p")
 
 [node name="MenuPlayer" parent="." unique_id=1069263840 instance=ExtResource("6_px332")]
 visible = false
+
+[node name="Stamina" parent="." unique_id=1544301073 instance=ExtResource("9_f30au")]
+
+[node name="Inventory" parent="." unique_id=2016457523 instance=ExtResource("10_qhn4q")]
