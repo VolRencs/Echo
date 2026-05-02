@@ -1,18 +1,12 @@
 [gd_resource type="AnimationLibrary" format=3 uid="uid://dth7wgj7c1jdb"]
 
-[ext_resource type="Animation" uid="uid://cyn8tj3gsf682" path="res://Assets/Animation/Player/Crouch.anim" id="1_grvqc"]
-[ext_resource type="Animation" uid="uid://nu17e0vk2pxh" path="res://Assets/Animation/Player/Crouch_Walk.anim" id="2_p33um"]
 [ext_resource type="Animation" uid="uid://c8j71bwqj5p63" path="res://Assets/Animation/Player/Idle.anim" id="3_mubkx"]
-[ext_resource type="Animation" uid="uid://d2s4pnkxdw38g" path="res://Assets/Animation/Player/Jump.anim" id="4_kiy53"]
 [ext_resource type="Animation" uid="uid://r8umsybtfbow" path="res://Assets/Animation/Player/Run.anim" id="5_8njgf"]
 [ext_resource type="Animation" uid="uid://dp5gwppudwq5f" path="res://Assets/Animation/Player/Walk.anim" id="6_c4a0q"]
 
 [resource]
 _data = {
-&"Crouch": ExtResource("1_grvqc"),
-&"Crouch_Walk": ExtResource("2_p33um"),
 &"Idle": ExtResource("3_mubkx"),
-&"Jump": ExtResource("4_kiy53"),
 &"Run": ExtResource("5_8njgf"),
 &"Walk": ExtResource("6_c4a0q")
 }

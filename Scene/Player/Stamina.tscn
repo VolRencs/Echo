@@ -16,9 +16,9 @@ bar_path = NodePath("Control")
 
 [node name="Control" type="Control" parent="Control" unique_id=136567041]
 anchors_preset = 0
-offset_left = 3.0
-offset_top = 10.0
-offset_right = 523.0
-offset_bottom = 56.0
+offset_left = 2.0
+offset_top = 1033.0
+offset_right = 423.0
+offset_bottom = 1066.0
 mouse_filter = 2
 script = ExtResource("2_at8dq")

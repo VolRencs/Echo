@@ -17,6 +17,8 @@ shader_parameter/iterations = 10
 shader_parameter/opacity = 1.282000060895
 
 [node name="MenuPlayer" type="Control" unique_id=1069263840]
+top_level = true
+light_mask = 5
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,6 +29,7 @@ grow_vertical = 2
 [node name="MenuPlayer" type="CanvasLayer" parent="." unique_id=454024075 node_paths=PackedStringArray("continue_button", "settings_button", "quit_button", "control_panel")]
 process_mode = 3
 process_priority = 1
+layer = 2
 script = ExtResource("1_842w3")
 continue_button = NodePath("Start")
 settings_button = NodePath("Settings")
@@ -34,6 +37,7 @@ quit_button = NodePath("Exit")
 control_panel = NodePath("Control")
 
 [node name="Start" type="Button" parent="MenuPlayer" unique_id=1021724886]
+visibility_layer = 3
 offset_left = 883.0
 offset_top = 353.0
 offset_right = 1136.0
@@ -41,6 +45,7 @@ offset_bottom = 404.0
 text = "Продолжить"
 
 [node name="Settings" type="Button" parent="MenuPlayer" unique_id=1561993707]
+visibility_layer = 3
 offset_left = 883.0
 offset_top = 449.0
 offset_right = 1136.0

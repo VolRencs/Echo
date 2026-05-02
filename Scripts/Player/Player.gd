@@ -10,7 +10,7 @@ extends CharacterBody3D
 @export_category("Movement")
 @export var walk_speed         := 5.0
 @export var sprint_speed       := 8.0
-@export var crouch_speed       := 2.5
+@export var sneak_speed        := 1.5
 @export var acceleration       := 15.0
 @export var deceleration       := 20.0
 @export_range(0.0, 1.0, 0.01) var air_control := 0.15
@@ -18,14 +18,9 @@ extends CharacterBody3D
 @export_category("Gravity")
 @export var gravity            := 12.5
 
-@export_category("Crouch")
-@export var stand_camera_height  := 3.0
-@export var crouch_camera_height := 2.0
-@export var normal_height        := 1.1
-@export var crouch_height        := 1.0
-@export var crouch_lerp_speed    := 4.0
-@export var crouch_cooldown      := 0.4
-@export var crouch_wall_clearance := 0.15
+@export_category("Sneak")
+@export var sneak_lean_deg     := 8.0
+@export var sneak_lean_speed   := 6.0
 
 @export_category("Stamina")
 @export var max_stamina            := 100.0
@@ -39,11 +34,12 @@ extends CharacterBody3D
 @export_category("Camera")
 @export var normal_fov           := 70.0
 @export var sprint_fov           := 80.0
-@export var crouch_fov           := 65.0
+@export var sneak_fov            := 67.0
 @export var camera_lerp_speed    := 10.0
 @export var camera_smoothing     := 10.0
 @export var head_sway_amount     := 0.05
 @export var head_sway_speed      := 5.0
+@export var stand_camera_height  := 3.0
 @export var camera_height_offset := 0.35
 @export var head_bone_name       := "mixamorig_Head"
 
@@ -56,18 +52,14 @@ const VELOCITY_SMOOTHING    := 10.0
 const CAMERA_FOV_EPSILON    := 0.01
 const CAMERA_ROT_EPSILON    := 0.001
 
-const ANIM_IDLE        : StringName = &"Animation/Idle"
-const ANIM_WALK        : StringName = &"Animation/Walk"
-const ANIM_RUN         : StringName = &"Animation/Run"
-const ANIM_JUMP        : StringName = &"Animation/Jump"
-const ANIM_CROUCH      : StringName = &"Animation/Crouch"
-const ANIM_CROUCH_WALK : StringName = &"Animation/Crouch_Walk"
+const ANIM_IDLE   : StringName = &"Animation/Idle"
+const ANIM_WALK   : StringName = &"Animation/Walk"
+const ANIM_RUN    : StringName = &"Animation/Run"
 
 # ─── NODES ────────────────────────────────────────────────────────────────────
 
 @onready var camera:           Camera3D         = $Camera3D
 @onready var body_collision:   CollisionShape3D = $Character
-@onready var head_collision:   CollisionShape3D = $Head
 @onready var animation_player: AnimationPlayer  = $Animation
 @onready var skeleton:         Skeleton3D       = $Skeleton3D
 @onready var capsule:          CapsuleShape3D   = body_collision.shape
@@ -80,12 +72,14 @@ var _current_speed:   float   = 0.0
 var _target_fov:      float   = 0.0
 var _step_timer:      float   = 0.0
 
-var is_crouching:     bool    = false
+var is_sneaking:      bool    = false
 var is_sprinting:     bool    = false
 
 var _pitch:           float   = 0.0
 var _max_pitch_rad:   float
 var _min_pitch_rad:   float
+
+var _sneak_lean:      float   = 0.0
 
 var _head_bob_time:   float   = 0.0
 var _head_bob_blend:  float   = 0.0
@@ -95,11 +89,7 @@ var _head_bone_idx:   int     = -1
 # Stamina
 var _stamina:             float = 0.0
 var _stamina_regen_timer: float = 0.0
-# Флаг истощения: true когда стамина дошла до 0.
-# Бег заблокирован пока стамина не восстановится до максимума.
 var _stamina_exhausted:   bool  = false
-
-var _crouch_cooldown_timer: float = 0.0
 
 # ─── READY ────────────────────────────────────────────────────────────────────
 
@@ -153,13 +143,10 @@ func _physics_process(delta: float) -> void:
 	var moving    := input_vec.length_squared() > INPUT_DEADZONE_SQ
 	var on_floor  := is_on_floor()
 
-	_crouch_cooldown_timer = maxf(_crouch_cooldown_timer - delta, 0.0)
-
 	_update_state(input_vec, moving, on_floor)
 	_update_stamina(delta)
 	_apply_gravity(delta, on_floor)
 	_handle_movement(input_vec, moving, delta, on_floor)
-	_update_crouch(delta)
 	_update_camera(delta, on_floor)
 	_play_anim(_get_anim_name(moving, on_floor))
 	_handle_footsteps(delta, on_floor)
@@ -169,68 +156,29 @@ func _physics_process(delta: float) -> void:
 # ─── STATE ────────────────────────────────────────────────────────────────────
 
 func _update_state(input_vec: Vector2, moving: bool, on_floor: bool) -> void:
-	# ── Crouch ──────────────────────────────────────────────────────────────
-	var wants_crouch := Input.is_action_pressed("crouch")
+	# ── Sneak ───────────────────────────────────────────────────────────────
+	is_sneaking = Input.is_action_pressed("crouch") and on_floor
 
-	if _crouch_cooldown_timer > 0.0:
-		wants_crouch = is_crouching
-
-	var wall_too_close := _is_wall_nearby()
-	if wall_too_close:
-		wants_crouch = false
-
-	var new_crouch := wants_crouch or (is_crouching and _is_ceiling_blocked())
-
-	if new_crouch != is_crouching:
-		if not wall_too_close:
-			_crouch_cooldown_timer = crouch_cooldown
-
-	is_crouching = new_crouch
-
-	# ── Sprint ──────────────────────────────────────────────────────────────
+	# ── Sprint (снкинг блокирует спринт) ────────────────────────────────────
 	is_sprinting = (
 		moving
 		and Input.is_action_pressed("sprint")
-		and not is_crouching
+		and not is_sneaking
 		and on_floor
 		and input_vec.y < 0.0
-		and not _stamina_exhausted   # заблокировано до полного восстановления
+		and not _stamina_exhausted
 	)
 
 	# ── Speed & FOV ─────────────────────────────────────────────────────────
 	if is_sprinting:
 		_current_speed = sprint_speed
 		_target_fov    = sprint_fov
-	elif is_crouching:
-		_current_speed = crouch_speed
-		_target_fov    = crouch_fov
+	elif is_sneaking:
+		_current_speed = sneak_speed
+		_target_fov    = sneak_fov
 	else:
 		_current_speed = walk_speed
 		_target_fov    = normal_fov
-
-# ─── WALL / CEILING CHECK ─────────────────────────────────────────────────────
-
-func _is_ceiling_blocked() -> bool:
-	var ray_from := global_position + Vector3.UP * (crouch_height * 0.5)
-	var ray_to   := global_position + Vector3.UP * (normal_height * 0.5 + 0.05)
-	var query    := PhysicsRayQueryParameters3D.create(ray_from, ray_to)
-	query.exclude = [self]
-	return not get_world_3d().direct_space_state.intersect_ray(query).is_empty()
-
-func _is_wall_nearby() -> bool:
-	var space := get_world_3d().direct_space_state
-
-	var check_shape        := CapsuleShape3D.new()
-	check_shape.radius     = capsule.radius + crouch_wall_clearance
-	check_shape.height     = crouch_height
-
-	var params             := PhysicsShapeQueryParameters3D.new()
-	params.shape           = check_shape
-	params.transform       = body_collision.global_transform
-	params.exclude         = [get_rid()]
-	params.collision_mask  = collision_mask
-
-	return not space.intersect_shape(params, 1).is_empty()
 
 # ─── STAMINA ──────────────────────────────────────────────────────────────────
 
@@ -239,7 +187,6 @@ func _update_stamina(delta: float) -> void:
 		_stamina             = maxf(_stamina - stamina_drain_sprint * delta, 0.0)
 		_stamina_regen_timer = stamina_regen_delay
 
-		# Стамина только что кончилась — включаем флаг истощения
 		if _stamina <= 0.0:
 			_stamina_exhausted = true
 	else:
@@ -248,7 +195,6 @@ func _update_stamina(delta: float) -> void:
 		else:
 			_stamina = minf(_stamina + stamina_regen_rate * delta, max_stamina)
 
-			# Снимаем флаг истощения только при полном восстановлении
 			if _stamina_exhausted and _stamina >= max_stamina:
 				_stamina_exhausted = false
 
@@ -279,30 +225,20 @@ func _handle_movement(input_vec: Vector2, moving: bool, delta: float, on_floor: 
 	velocity.x = lerpf(velocity.x, target_vel.x, accel_t)
 	velocity.z = lerpf(velocity.z, target_vel.z, accel_t)
 
-# ─── CROUCH ───────────────────────────────────────────────────────────────────
-
-func _update_crouch(delta: float) -> void:
-	var target_height := crouch_height if is_crouching else normal_height
-	if not is_equal_approx(capsule.height, target_height):
-		capsule.height = lerpf(capsule.height, target_height, crouch_lerp_speed * delta)
-		if absf(capsule.height - target_height) <= 0.001:
-			capsule.height = target_height
-
-	if head_collision and head_collision.disabled != is_crouching:
-		head_collision.disabled = is_crouching
-
 # ─── CAMERA ───────────────────────────────────────────────────────────────────
 
 func _update_camera(delta: float, on_floor: bool) -> void:
 	var bob := _calc_head_bob(delta, on_floor)
+
+	var target_lean := deg_to_rad(sneak_lean_deg) if is_sneaking else 0.0
+	_sneak_lean = lerpf(_sneak_lean, target_lean, sneak_lean_speed * delta)
 
 	if _head_bone_idx != -1:
 		var head_local  := _head_world_to_local()
 		head_local.y    += camera_height_offset
 		camera.position  = head_local + bob
 	else:
-		var target_y   := crouch_camera_height if is_crouching else stand_camera_height
-		var target_pos := Vector3(0.0, target_y + camera_height_offset, 0.0) + bob
+		var target_pos := Vector3(0.0, stand_camera_height + camera_height_offset, 0.0) + bob
 		camera.position = camera.position.lerp(target_pos, camera_smoothing * delta)
 
 	if absf(camera.fov - _target_fov) > CAMERA_FOV_EPSILON:
@@ -310,10 +246,11 @@ func _update_camera(delta: float, on_floor: bool) -> void:
 	else:
 		camera.fov = _target_fov
 
-	if absf(camera.rotation.x - _pitch) > CAMERA_ROT_EPSILON:
-		camera.rotation.x = lerp_angle(camera.rotation.x, _pitch, camera_smoothing * delta)
+	var desired_pitch := _pitch + _sneak_lean
+	if absf(camera.rotation.x - desired_pitch) > CAMERA_ROT_EPSILON:
+		camera.rotation.x = lerp_angle(camera.rotation.x, desired_pitch, camera_smoothing * delta)
 	else:
-		camera.rotation.x = _pitch
+		camera.rotation.x = desired_pitch
 
 func _head_world_to_local() -> Vector3:
 	var pose := skeleton.get_bone_global_pose(_head_bone_idx)
@@ -347,11 +284,9 @@ func _calc_head_bob(delta: float, on_floor: bool) -> Vector3:
 
 # ─── ANIMATION ────────────────────────────────────────────────────────────────
 
-func _get_anim_name(moving: bool, on_floor: bool) -> StringName:
-	if not on_floor:  return ANIM_JUMP
-	if is_crouching:  return ANIM_CROUCH_WALK if moving else ANIM_CROUCH
-	if is_sprinting:  return ANIM_RUN
-	if moving:        return ANIM_WALK
+func _get_anim_name(moving: bool, _on_floor: bool) -> StringName:
+	if is_sprinting: return ANIM_RUN
+	if moving:       return ANIM_WALK
 	return ANIM_IDLE
 
 func _play_anim(anim_name: StringName) -> void:
@@ -361,7 +296,7 @@ func _play_anim(anim_name: StringName) -> void:
 # ─── FOOTSTEPS ────────────────────────────────────────────────────────────────
 
 func _handle_footsteps(delta: float, on_floor: bool) -> void:
-	if not _step_player or not on_floor or is_crouching:
+	if not _step_player or not on_floor or is_sneaking:
 		_step_timer = step_interval
 		return
 
